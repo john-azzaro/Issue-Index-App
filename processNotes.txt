@@ -9,5 +9,35 @@ The user would visit the main page and be presented with recent additions, categ
 functionality for categories and issues. The user would have the ability to add categories and issues and have the ability to edit or remove
 categories and issues as well. Additionally, the project will not include user authentication since it is crowdsource by nature.
 
+
+
+Phase 1: Project Setup
+=========================================================================================
+-- This phase is comprised of basic setup, installation of dependencies, development 
+   environment setup, and essential files like server.js, .gitignore, and .env.
+=========================================================================================
+
+    // Project Setup:                           
+        1. Basic-Blog-App                                      -- Create a folder to store you application.
+        2. npm init                                            -- Create a package.json file to start the project off (you can use npm inti -y to skip the questions).
+
+    // Install express:
+        3. npm install express                                 -- Install express (note: you can also type "npm i" to install).
+
+    // Add .gitignore file for node_modules:        
+        4. .gitignore > node_modules                           -- Add .gitignore file to ignore node_modules folder that was just added when you installed express.
+
+    // Install application dependencies:
+        5. npm install <dependencies>                          -- Install any other dependencies (if you need to at the outset of the project like mongoose).
+        6. npm install --save-dev dotenv nodemon               -- Install development enviroment.
+
+    // Create custom "devStart" script in package.json:     
+        7. "devStart": "nodemon server.js"                     -- Running this command makes starting your server a little more streamlined.
+        
+    // Create initial application files:       
+    
+    
+    
+
 Resources
 ==========
