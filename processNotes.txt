@@ -4,7 +4,10 @@ Process notes for Issue Index Application
 
 Objective
 =========
-The objective of this Application is to provide an accessible issue tracking and solution for a given project (which could be anything).
+The objective of this Application is to provide an accessible issue tracking and solution for a given project (which could be anything). 
+The user would visit the main page and be presented with recent additions, categories, and individual issues to browser. There would be search
+functionality for categories and issues. The user would have the ability to add categories and issues and have the ability to edit or remove
+categories and issues as well. Additionally, the project will not include user authentication since it is crowdsource by nature.
 
 Resources
 ==========
