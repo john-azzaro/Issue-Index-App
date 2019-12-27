@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/john-azzaro/Issue-Index-App/issues"
   },
-  "homepage": "https://github.com/john-azzaro/Issue-Index-App#readme"
+  "homepage": "https://github.com/john-azzaro/Issue-Index-App#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
