@@ -1,0 +1,19 @@
+{
+  "name": "issue-index-app",
+  "version": "1.0.0",
+  "description": "CRUD application",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/john-azzaro/Issue-Index-App.git"
+  },
+  "author": "John Azzaro",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/john-azzaro/Issue-Index-App/issues"
+  },
+  "homepage": "https://github.com/john-azzaro/Issue-Index-App#readme"
+}

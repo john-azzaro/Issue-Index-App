@@ -7,7 +7,7 @@ Objective
 The objective of this Application is to provide an accessible issue tracking and solution for a given project (which could be anything). 
 The user would visit the main page and be presented with recent additions, categories, and individual issues to browser. There would be search
 functionality for categories and issues. The user would have the ability to add categories and issues and have the ability to edit or remove
-categories and issues as well. Additionally, the project will not include user authentication since it is crowdsource by nature.
+categories and issues as well. Additionally, the project will not include user authentication since it is crowdsource by nature. 
 
 
 
@@ -18,7 +18,7 @@ Phase 1: Project Setup
 =========================================================================================
 
     // Project Setup:                           
-        1. Basic-Blog-App                                      -- Create a folder to store you application.
+        1. Issue-Index-App                                     -- Create a folder to store you application.
         2. npm init                                            -- Create a package.json file to start the project off (you can use npm inti -y to skip the questions).
 
     // Install express:
