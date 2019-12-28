@@ -1,12 +1,16 @@
 //Imports
 const express = require('express');
-const app = express();
+
 
 //Module Imports
 
+
 //Instantiation
+const app = express();
+
 
 //Middleware
+
 
 //Routes
 app.get('/', function(req, res) {
