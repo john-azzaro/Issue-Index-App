@@ -4,7 +4,7 @@
   "description": "CRUD application",
   "main": "server.js",
   "scripts": {
-    "": ""
+    "devStart": "nodemon server.js"
   },
   "repository": {
     "type": "git",
