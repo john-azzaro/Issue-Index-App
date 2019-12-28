@@ -57,6 +57,16 @@ Phase 1: Project Setup
 
 
 
+Phase 2: Create (and Test) your server:
+=============================================================================================================
+-- This phase creates the basic express server and suggested testing stategy to ensure everything is working.
+=============================================================================================================
+
+    2.1:  Import express and instantiate the express application:
+        ---------------------------------------------------------
+            const express = require('express');
+            const app = express();
+        ---------------------------------------------------------
 
 
 Resources
