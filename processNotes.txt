@@ -10,17 +10,18 @@ Process Notes is documentation of the procedure I take when creating my apps, in
 Though this might seem like a bit of extra work, documenting my creation of the app from start to finish has proven to be 
 extremely valuable in bug hunting and refining my workflow for future use. I have tried to break down my process into "phases" 
 with at least several steps to accomplish that phase before moving on. Each step documents what I do. At the end of the phase
-I like to jot down special notes (if any) for future reference and comparison.
+I like to jot down special notes (if any) for future reference and comparison. I also have additional resources with links for 
+solutions to issues I come across for reference.
 
 
 
 
 Objective and User Story
 =========================
-The objective of this Application is to provide an accessible issue tracking and solution for a given project (which could be anything). 
+The objective of this application is to provide an accessible "index of issues and solutions" for a given project (which could be anything). 
 The user would visit the main page and be presented with recent additions, categories, and individual issues to browser. There would be search
 functionality for categories and issues. The user would have the ability to add categories and issues and have the ability to edit or remove
-categories and issues as well. Additionally, the project will not include user authentication since it is crowdsource by nature. 
+categories and issues as well. Additionally, the project will not include user authentication since it is crowdsource by nature.
 
 
 
@@ -67,6 +68,7 @@ Phase 1: Project Setup
             * Install a developer enviroment as good practice, it makes things a lot easier in development even if you end up not using it.    
             * You can have multiple custom scripts. 
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////    
+
 
 
 
@@ -124,6 +126,16 @@ Phase 2: Create (and Test) your server:
               in step 2.2 is preferable. When the time comes, you would simply need to replace the port number (i.e. 3000) and the message when you
               integrate this into the runServer function.         
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+
+
+
 
 
 
