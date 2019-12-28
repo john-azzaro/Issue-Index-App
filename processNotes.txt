@@ -35,7 +35,7 @@ Phase 1: Project Setup
         7. "devStart": "nodemon server.js"                     -- Running this command makes starting your server a little more streamlined.
         
     // Create initial application files:       
-    
+      8.1.   server.js                                       -- Creates a .js file for server code.
     
     
 
