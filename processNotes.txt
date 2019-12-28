@@ -11,6 +11,16 @@ categories and issues as well. Additionally, the project will not include user a
 
 
 
+
+Process Workflow Summary
+========================
+
+    Phase 1: Project Setup.
+
+
+
+
+
 Phase 1: Project Setup
 =========================================================================================
 -- This phase is comprised of basic setup, installation of dependencies, development 
@@ -37,7 +47,17 @@ Phase 1: Project Setup
     // Create initial application files:       
       8.1.   server.js                                       -- Creates a .js file for server code.
     
-    
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        Notes: 
+            * Dont breeze through the npm init stage, take the time to setup the project correctly (i.e. server.js instead of index.js, etc.)
+            * Submit everything AFTER you create the .gitignore file and add node_modules.
+            * Install a developer enviroment as good practice, it makes things a lot easier in development even if you end up not using it.    
+            * You can have multiple custom scripts. 
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////    
+
+
+
+
 
 Resources
 ==========
