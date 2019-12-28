@@ -2,8 +2,21 @@ Process notes for Issue Index Application
 ==========================================
 
 
-Objective
-=========
+
+
+About Process Notes
+===================
+Process Notes is documentation of the procedure I take when creating my apps, in this case the "Issue Index Application". 
+Though this might seem like a bit of extra work, documenting my creation of the app from start to finish has proven to be 
+extremely valuable in bug hunting and refining my workflow for future use. I have tried to break down my process into "phases" 
+with at least several steps to accomplish that phase before moving on. Each step documents what I do. At the end of the phase
+I like to jot down special notes (if any) for future reference and comparison.
+
+
+
+
+Objective and User Story
+=========================
 The objective of this Application is to provide an accessible issue tracking and solution for a given project (which could be anything). 
 The user would visit the main page and be presented with recent additions, categories, and individual issues to browser. There would be search
 functionality for categories and issues. The user would have the ability to add categories and issues and have the ability to edit or remove
@@ -16,7 +29,7 @@ Process Workflow Summary
 ========================
 
     Phase 1: Project Setup.
-
+    Phase 2: Create (and Test) your server.
 
 
 
@@ -67,6 +80,54 @@ Phase 2: Create (and Test) your server:
             const express = require('express');
             const app = express();
         ---------------------------------------------------------
+
+
+    2.2: Create a (temporary) basic server to test the connection:
+        * Note: It's a bit easier just to do the second variable method because integrated testing should be standard practice. see
+                additional notes below for more details.
+
+        ----------------------------------------------------------                     ----------------------------------------------------------
+            app.listen(3000, function() {                                                 let server; 
+                console.log('Your app is listening on port 3000');         or...          server = app.listen(3000, function() {   
+            });                                                                               console.log(`Listening on port 3000...`);   
+        ----------------------------------------------------------                        });
+                                                                                       ----------------------------------------------------------
+
+    2.3: Test your connection
+        * In gitbash, you will can run the server by running the custom script "devStart" with "npm run devStart".
+        * If successful, you will see something like this:
+
+            -----------------------------------------------------------------------
+                $ npm run devStart
+
+                > basic-blog-app@1.0.0 devStart C:\Users\Admin\Issue-Index-Application
+                > nodemon server.js
+
+                [nodemon] 1.19.4
+                [nodemon] to restart at any time, enter `rs`
+                [nodemon] watching dir(s): *.*
+                [nodemon] watching extensions: js,mjs,json
+                [nodemon] starting `node server.js`
+                Your app is listening on port 3000
+            -----------------------------------------------------------------------
+
+        * And when you go to "localhost:3000", you should see "Cannot GET /", which means that the server is working,
+          but no routes are present yet! 
+
+
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        Notes:
+            * It might seem like extra work to create a basic app.listen function that you will need to heavily modify, if not entirely remove because
+              of the intricacies of creating a mongoose server because it might seem redundant, but experience has shown that you always want to double
+              check your work to make sure you have a good point to reference back to where everything was functioning the way it is supposed to.
+            * IF you want to get in the habit of creating a server and account for EVENTUAL test integration, creating the server the second way
+              in step 2.2 is preferable. When the time comes, you would simply need to replace the port number (i.e. 3000) and the message when you
+              integrate this into the runServer function.         
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
 
 
 Resources
