@@ -9,6 +9,10 @@ const app = express();
 //Middleware
 
 //Routes
+app.get('/', function(req, res) {
+  res.send('This is a test');
+});
+
 
 //Server
 let server;
