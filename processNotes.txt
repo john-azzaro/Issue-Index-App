@@ -29,17 +29,17 @@ categories and issues as well. Additionally, the project will not include user a
 Process Workflow Summary
 ========================
 
-    Phase 1: Project Setup.
+    Phase 1: Initial Project Setup.
     Phase 2: Setup MVC file structure.
-    Phase 3: Import libraries and configure app.
+    Phase 3: Import initial libraries, configure app, and middleware.
     Phase 4: Setup initial server.
     Phase 5: 
 
 
 
-Phase 1: Project Setup
+Phase 1: Initial Project Setup
 =========================================================================================
--- This phase is comprised of basic setup, installation of dependencies, development 
+ * This phase is comprised of basic setup, installation of dependencies, development 
    environment setup, and essential files like server.js, .gitignore, and .env.
 =========================================================================================
 
@@ -78,27 +78,51 @@ Phase 1: Project Setup
 
 
 
-Phase 2: Setup MVC file strucutre
+Phase 2: Setup MVC file structure
 =====================================================================================================
--- * While smaller application will have routes clustered together in the server.js file, for larger 
-     applications it can messy pretty quickly so we need to setup our MVC (Model View Contoller).
+ * While smaller application will have routes clustered together in the server.js file, for larger 
+   applications it can messy pretty quickly so we need to setup our MVC (Model View Contoller) file
+   structure for efficientcy and consistency.
 =====================================================================================================
 
+    //Setup MVC folder structure:
+        2.1: Create MVC folders:
+            * The "models" folder will contain our mongoose schemas and models.
+            * The "views" folder is going to be where all the different views of the files are going to go.
+            * The "routes" folder is for our controllers (i.e. CRUD routes).
+                --------------------
+                    models            -  (M)odels, which will contian all mongoose models.
+                    views             -- (V)iews, which will contain all ejs files.
+                    routes            -- (C)ontroller, which will contain all routes.
+                --------------------
+
+        2.2: Create a "public" folder:     
+            * The "public" folder is used to serve static files. This going to be where all the public files 
+              like stylesheets, javascript, images, etc.
+                --------------------
+                    public                            -- Folder for storing static assets
+                --------------------
+
+
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        Notes:             
+          * Quick note about MVC: Model View Controller is a design pattern for our application. Currently, we have 
+            View (i.e. "views" folder) and Controller (i.e. "routes" folder). We will also need a Model ("models" folder) 
+            to house all our database models to complete the design pattern.
+          * Although the public folder isnt technically part of the MVC file strcuture, it is part of the file strucutre itself 
+            so I like to add this folder in here so that I can create all 4 files at one time.
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////  
 
 
 
 
-
-
-
-
-Phase 2: Import libraries, configure app, setup MVC folder structure:
+Phase 3: Import initial libraries, configure app, and middleware
 =============================================================================================================
--- This phase involves the initial library importation and confugration.
+  * This phase involves the initial library importation, set configuration setting, and middleware.
 =============================================================================================================
 
     // Import Libraries:
-        2.1:  Import initial libraries:
+        3.1:  Import initial libraries:
                 ---------------------------------------------------------
                     const express = require('express');                       -- imports express from express library.
                     const app = express();                                    -- get the app portion from the express librrary to instantiate the app.
@@ -106,12 +130,9 @@ Phase 2: Import libraries, configure app, setup MVC folder structure:
                 ---------------------------------------------------------      
 
     // Configure app:
-        2.2: Configure your app:
-            * When you configure your app, you are setting the settings such as the behavior of the app (in the case of views and view engines), etc.
-            You use the "app.set()" and assign a name and a value.
-
-            * There are a two ways to do this, you can either use static files OR as what will be done for this project, 
-            setting our "view engine" to ejs. You could use another view engine like pug but ejs seems to be more versatile.
+        3.2: Configure your app:
+            * When you configure your app, you are setting the settings such as the behavior of the app (in 
+              the case of views and view engines), etc. You use the "app.set()" and assign a name and a value.
                 ---------------------------------------------------------
                     app.set("view engine", "ejs");                             -- sets the view engine
                 ---------------------------------------------------------
@@ -127,29 +148,19 @@ Phase 2: Import libraries, configure app, setup MVC folder structure:
                     app.set("layout", "layouts/layout");                       -- sets layout file in layouts folder.
                 ---------------------------------------------------------
 
-
-        2.3: Add initial middleware:
+    // Add middleware:
+        3.3: Add initial middleware:
             * Tell the application that we want to use "express layouts"...
                 -------------------------------------------------
-                    app.use(expressLayouts);
+                    app.use(expressLayouts);                                   -- use expressLayouts we imported for use in the app.
                 -------------------------------------------------
 
-            * Additionally, we want to tell express where all our public files are going to be when requested by the client.
+            * Additionally, we want to tell express where all our public files are going to be when 
+              requested by the client.
                 -------------------------------------------------
-                    app.use(express.static('public'));
+                    app.use(express.static('public'));                         -- static files will be kep in the folder "public"
                 -------------------------------------------------
 
-    //Setup MVC folder structure:
-        2.4: Create MVC and "public" folders:
-            * 
-            * The "views" folder is going to be where all the different views of the files are going to go.
-            * The "public" folder is going to be where all the public files like stylesheets, javascript, images, etc.
-                --------------------
-                    public           -- 
-                    models
-                    views
-                    routes
-                --------------------
 
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         Notes: 
@@ -157,9 +168,7 @@ Phase 2: Import libraries, configure app, setup MVC folder structure:
               first and then add in libraries as you go along (i.e. mongoose, etc.) because then you can keep track of the process and make sure 
               you dont miss anything.
              
-            * Quick note about MVC: Model View Controller is a design pattern for our application. Currently, we have 
-              View (i.e. "views" folder) and Controller (i.e. "routes" folder). We will also need a Model ("models" folder) 
-              to house all our database models to complete the design pattern.
+
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////    
 
 
@@ -167,7 +176,7 @@ Phase 2: Import libraries, configure app, setup MVC folder structure:
 
 
 
-Phase 3: Setup initial server:
+Phase 4: Setup initial server
 =============================================================================================================
 -- This phase will set-up the server to listen on a given port 
 =============================================================================================================
@@ -176,7 +185,7 @@ Phase 3: Setup initial server:
       it makes the most sense when I get to this point to then add in the elements that will make this work now. 
 
 
-    3.1: Create a (temporary) basic server to test the connection:
+    4.1: Create a (temporary) basic server to test the connection:
         * Note: It's a bit easier just to do the second method because integrated testing should be standard practice so this
                 adds a bit of future proofing to the code. 
         ----------------------------------------------------------                     ----------------------------------------------------------
@@ -186,7 +195,7 @@ Phase 3: Setup initial server:
         ----------------------------------------------------------                        });
                                                                                        ----------------------------------------------------------
       
-    3.2: Test your connection:
+    4.2: Test your connection:
         * In gitbash, you will can run the server by running the custom script "devStart" with "npm run devStart".
         * Remember that using "devStart" will enable nodemon so your server will reset after each change made to the code.
         * If successful, you will see something like this:
@@ -205,7 +214,7 @@ Phase 3: Setup initial server:
                 Your app is listening on port 3000
             -----------------------------------------------------------------------
 
-    3.3: Test your application in browser:
+    4.3: Test your application in browser:
         * And when you go to "localhost:3000", you should see "Cannot GET /", which means that the server is working,
           but no routes are present yet! 
 
@@ -221,7 +230,7 @@ Phase 3: Setup initial server:
 
 
 
-Phase 4: Setting up MVC and router
+Phase 5: Setting up MVC and router
 =============================================================================================================
 
 =============================================================================================================
