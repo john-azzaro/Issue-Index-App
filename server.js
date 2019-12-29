@@ -15,6 +15,7 @@ app.set("views", __dirname + "/views");
 
 //Middleware
 app.use(expressLayouts);
+app.use(express.static('public'));
 
 
 
