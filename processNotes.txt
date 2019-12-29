@@ -90,11 +90,15 @@ Phase 2: Create (and Test) your server:
 
 
     2.2: Assign your view setting:
-        * There are a two ways to do this, doing ```app.set('views', path.join(__dirname, "views"))``` to do static 
-          files OR as what will be done for this project, setting our "view engine" to ejs. You could use another view 
-          engine like pug but ejs seems to be more versatile..
+        * There are a two ways to do this, you can either use static files OR as what will be done for this project, 
+          setting our "view engine" to ejs. You could use another view engine like pug but ejs seems to be more versatile.
         ---------------------------------------------------------
-            app.set("view engine", "ejs");
+            app.set("view engine", "ejs");                             -- sets the view engine
+        ---------------------------------------------------------
+        
+        * Then, set the location of your "views" folder.
+        ---------------------------------------------------------
+            app.set("views", __dirname + "/views");
         ---------------------------------------------------------
 
 

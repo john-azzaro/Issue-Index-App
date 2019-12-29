@@ -5,7 +5,8 @@ const app = express();
 
 
 // Settings and Configuration
-
+app.set("view engine", "ejs");
+app.set("views", __dirname + "/views");
 
 
 //Module Imports
