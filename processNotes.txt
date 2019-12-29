@@ -73,6 +73,7 @@ Phase 1: Initial Project Setup
             * Submit everything AFTER you create the .gitignore file and add node_modules.
             * Install a developer enviroment as good practice, it makes things a lot easier in development even if you end up not using it.    
             * You can have multiple custom scripts. 
+
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////    
 
 
@@ -93,14 +94,14 @@ Phase 2: Setup MVC file structure
                 --------------------
                     models            -  (M)odels, which will contian all mongoose models.
                     views             -- (V)iews, which will contain all ejs files.
-                    routes            -- (C)ontroller, which will contain all routes.
+                    routes            -- (C)ontroller (i.e. routes), which will contain all routes.
                 --------------------
 
         2.2: Create a "public" folder:     
             * The "public" folder is used to serve static files. This going to be where all the public files 
               like stylesheets, javascript, images, etc.
                 --------------------
-                    public                            -- Folder for storing static assets
+                    public            -- Folder for storing static assets
                 --------------------
 
 
@@ -111,6 +112,7 @@ Phase 2: Setup MVC file structure
             to house all our database models to complete the design pattern.
           * Although the public folder isnt technically part of the MVC file strcuture, it is part of the file strucutre itself 
             so I like to add this folder in here so that I can create all 4 files at one time.
+
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////  
 
 
@@ -166,12 +168,9 @@ Phase 3: Import initial libraries, configure app, and middleware
         Notes: 
             * These are not the only libraries added nore the only middleware to be used. However, I find it easier to load the intial libraries 
               first and then add in libraries as you go along (i.e. mongoose, etc.) because then you can keep track of the process and make sure 
-              you dont miss anything.
-             
+              you dont miss anything.          
 
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////    
-
-
 
 
 
@@ -223,29 +222,42 @@ Phase 4: Setup initial server
         Notes:
             * If you want to get in the habit of creating a server and account for EVENTUAL test integration, creating the server the second way
               in step 2.2 is preferable. When the time comes, you would simply need to replace the port number (i.e. 3000) and the message when you
-              integrate this into the runServer function.         
+              integrate this into the runServer function.  
+                    
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 
 
 
-Phase 5: Setting up MVC and router
+Phase 5: Create Initial routes
 =============================================================================================================
 
 =============================================================================================================
 
-    4.1: Create a "routes" folder:
-        * In the router our routes (i.e. "controllers" but in node.js it is called "routes") will all 
-          be kept and organized for use with server.js.
-            -------------------------------
-                routes
-            -------------------------------
+    4.1: Create an "index" route:
+        * The index route is created as a catch-all for everything that doesnt have a resource or a model.
+        * To do this, you need to create a "index.js" file inside "routes".
+            ---------------------------------------------------
+                routes  >  index.js
+            --------------------------------------------------- 
     
-    4.2
+
+    4.2: In index.js, load the express and router:
+        * Doing this loads express and uses the router portion of the express variable.
+            ----------------------------------------------------
+                const express = require('express');                   -- load express.
+                const router = express.Router();                      -- load router portion of express.
+            ----------------------------------------------------
 
 
 
+
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        Notes:
+            * For more information, see my express router study that outlines a basic router setup: https://github.com/john-azzaro/Study-Express-Router
+                    
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 
