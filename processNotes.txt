@@ -82,6 +82,7 @@ Phase 2: Import libraries and configure app:
 =============================================================================================================
 
     2.1:  Import initial libraries:
+
             ---------------------------------------------------------
                 const express = require('express');                       -- imports express from express library.
                 const app = express();                                    -- get the app portion from the express librrary to instantiate the app.
@@ -95,17 +96,20 @@ Phase 2: Import libraries and configure app:
 
         * There are a two ways to do this, you can either use static files OR as what will be done for this project, 
           setting our "view engine" to ejs. You could use another view engine like pug but ejs seems to be more versatile.
+
             ---------------------------------------------------------
                 app.set("view engine", "ejs");                             -- sets the view engine
             ---------------------------------------------------------
         
         * Then, set the location of your "views" folder.
+
             ---------------------------------------------------------
                 app.set("views", __dirname + "/views");                    -- sets "views" to current directory and append to "/views" folder.
             ---------------------------------------------------------
 
         * Next, set your layout file.
          A layout file will allow use to reuse HTML like the header and the footer.
+
             ---------------------------------------------------------
                 app.set("layout", "layouts/layout");                       -- sets layout file in layouts folder.
             ---------------------------------------------------------
@@ -113,11 +117,13 @@ Phase 2: Import libraries and configure app:
 
     2.4: Add initial middleware:
         * Tell the application that we want to use "express layouts"...
+
             -------------------------------------------------
                 app.use(expressLayouts);
             -------------------------------------------------
 
         * Additionally, we want to tell express where all our public files are going to be when requested by the client.
+        
             -------------------------------------------------
                 app.use(express.static('public'));
             -------------------------------------------------
@@ -143,18 +149,18 @@ Phase 3: Setup initial server:
 
 
     2.1: Create a (temporary) basic server to test the connection:
-        * Note: It's a bit easier just to do the second variable method because integrated testing should be standard practice. see
-                additional notes below for more details.
-
+        * Note: It's a bit easier just to do the second method because integrated testing should be standard practice so this
+                adds a bit of future proofing to the code. 
         ----------------------------------------------------------                     ----------------------------------------------------------
             app.listen(3000, function() {                                                 let server; 
                 console.log('Your app is listening on port 3000');         or...          server = app.listen(3000, function() {   
             });                                                                               console.log(`Listening on port 3000...`);   
         ----------------------------------------------------------                        });
                                                                                        ----------------------------------------------------------
-
-    2.3: Test your connection
+      
+    2.2: Test your connection
         * In gitbash, you will can run the server by running the custom script "devStart" with "npm run devStart".
+        * Remember that using "devStart" will enable nodemon so your server will reset after each change made to the code.
         * If successful, you will see something like this:
 
             -----------------------------------------------------------------------
@@ -163,7 +169,7 @@ Phase 3: Setup initial server:
                 > basic-blog-app@1.0.0 devStart C:\Users\Admin\Issue-Index-Application
                 > nodemon server.js
 
-                [nodemon] 1.19.4
+                [nodemon] 2.0.2
                 [nodemon] to restart at any time, enter `rs`
                 [nodemon] watching dir(s): *.*
                 [nodemon] watching extensions: js,mjs,json
