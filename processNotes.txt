@@ -52,7 +52,9 @@ Phase 1: Project Setup
         4. .gitignore > node_modules                           -- Add .gitignore file to ignore node_modules folder that was just added when you installed express.
 
     // Install application dependencies:
-        5. npm install <dependencies>                          -- Install any other dependencies (if you need to at the outset of the project like mongoose).
+        5. npm install ejs express-ejs-layouts                 -- Install any other dependencies (if you need to at the outset of the project like mongoose).
+                                                                  In the case of this project, we want to use a template engine (ejs) and be able to have a layout file
+                                                                  for our HTML (express-ehs-layouts).
         6. npm install --save-dev dotenv nodemon               -- Install development enviroment.
 
     // Create custom "devStart" script in package.json:     
@@ -144,3 +146,5 @@ Phase 2: Create (and Test) your server:
 
 Resources
 ==========
+https://www.npmjs.com/package/express-ejs-layouts  -- ejs layouts file
+https://scotch.io/tutorials/use-ejs-to-template-your-node-application  -- ejs layouts outline
