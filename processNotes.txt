@@ -31,7 +31,8 @@ Process Workflow Summary
 
     Phase 1: Project Setup.
     Phase 2: Import libraries and configure app.
-
+    Phase 3: Setup initial server.
+    Phase 4: Setting up MVC router.
 
 
 
@@ -137,6 +138,16 @@ Phase 2: Import libraries and configure app:
                 public
             --------------------
 
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        Notes: 
+            * These are not the only libraries added nore the only middleware to be used. However, I find it easier to load the intial libraries 
+              first and then add in libraries as you go along (i.e. mongoose, etc.) because then you can keep track of the process and make sure 
+              you dont miss anything.
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////    
+
+
+
+
 
 
 Phase 3: Setup initial server:
@@ -148,7 +159,7 @@ Phase 3: Setup initial server:
       it makes the most sense when I get to this point to then add in the elements that will make this work now. 
 
 
-    2.1: Create a (temporary) basic server to test the connection:
+    3.1: Create a (temporary) basic server to test the connection:
         * Note: It's a bit easier just to do the second method because integrated testing should be standard practice so this
                 adds a bit of future proofing to the code. 
         ----------------------------------------------------------                     ----------------------------------------------------------
@@ -158,7 +169,7 @@ Phase 3: Setup initial server:
         ----------------------------------------------------------                        });
                                                                                        ----------------------------------------------------------
       
-    2.2: Test your connection
+    3.2: Test your connection:
         * In gitbash, you will can run the server by running the custom script "devStart" with "npm run devStart".
         * Remember that using "devStart" will enable nodemon so your server will reset after each change made to the code.
         * If successful, you will see something like this:
@@ -177,26 +188,37 @@ Phase 3: Setup initial server:
                 Your app is listening on port 3000
             -----------------------------------------------------------------------
 
+    3.3: Test your application in browser:
         * And when you go to "localhost:3000", you should see "Cannot GET /", which means that the server is working,
           but no routes are present yet! 
 
 
-    2.4: 
-
-
-
-
-
-
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         Notes:
-            * It might seem like extra work to create a basic app.listen function that you will need to heavily modify, if not entirely remove because
-              of the intricacies of creating a mongoose server because it might seem redundant, but experience has shown that you always want to double
-              check your work to make sure you have a good point to reference back to where everything was functioning the way it is supposed to.
-            * IF you want to get in the habit of creating a server and account for EVENTUAL test integration, creating the server the second way
+            * If you want to get in the habit of creating a server and account for EVENTUAL test integration, creating the server the second way
               in step 2.2 is preferable. When the time comes, you would simply need to replace the port number (i.e. 3000) and the message when you
               integrate this into the runServer function.         
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+Phase 4: Setting up MVC router
+=============================================================================================================
+-- While smaller application will have routes clustered together in the server.js file, for larger 
+   applications it can messy pretty quickly so we need to setup our MVC (Model View Contoller). 
+-- Quick note about MVC: Model View Controller is a design pattern for our application. Currently, we have 
+   View (i.e. "views" folder) and Controller (i.e. "routes" folder). We will also need a Model ("models" folder) 
+   to house all our database models to complete the design pattern.
+=============================================================================================================
+
+    4. Create a "routes" folder:
+        * In the router our routes (i.e. "controllers" but in node.js it is called "routes") will all 
+          be kept and organized for use with server.js.
+            -------------------------------
+                routes
+            -------------------------------
 
 
 
