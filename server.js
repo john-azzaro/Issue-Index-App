@@ -20,9 +20,6 @@ app.use(express.static('public'));
 
 
 //Routes
-app.get('/', function(req, res) {
-  res.send('This is a test');
-});
 
 
 //Server

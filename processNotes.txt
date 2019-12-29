@@ -30,9 +30,10 @@ Process Workflow Summary
 ========================
 
     Phase 1: Project Setup.
-    Phase 2: Import libraries and configure app.
-    Phase 3: Setup initial server.
-    Phase 4: Setting up MVC router.
+    Phase 2: Setup MVC file structure.
+    Phase 3: Import libraries and configure app.
+    Phase 4: Setup initial server.
+    Phase 5: 
 
 
 
@@ -43,28 +44,28 @@ Phase 1: Project Setup
 =========================================================================================
 
     // Project Setup:                           
-        1. Issue-Index-App                                     -- Create a folder to store you application.
-        2. npm init                                            -- Create a package.json file to start the project off (you can use npm inti -y to skip the questions).
+        1.1:  Issue-Index-App                                     -- Create a folder to store you application.
+        1.2:  npm init                                            -- Create a package.json file to start the project off (you can use npm inti -y to skip the questions).
 
     // Install express:
-        3. npm install express                                 -- Install express (note: you can also type "npm i" to install).
+        1.3:  npm install express                                 -- Install express (note: you can also type "npm i" to install).
 
     // Add .gitignore file for node_modules:        
-        4. .gitignore > node_modules                           -- Add .gitignore file to ignore node_modules folder that was just added when you installed express.
+        1.4:  .gitignore > node_modules                           -- Add .gitignore file to ignore node_modules folder that was just added when you installed express.
 
     // Install application dependencies:
-        5. npm install ejs express-ejs-layouts                 -- Install any other dependencies (if you need to at the outset of the project like mongoose).
+        1.5:  npm install ejs express-ejs-layouts                 -- Install any other dependencies (if you need to at the outset of the project like mongoose).
                                                                   In the case of this project, we want to use a template engine (ejs) and be able to have a layout file
                                                                   for our HTML (express-ehs-layouts).
 
-        6. npm install --save-dev dotenv nodemon               -- Install development enviroment.
+        1.6:  npm install --save-dev dotenv nodemon               -- Install development enviroment.
 
     // Create custom "devStart" script in package.json:     
-        7. "devStart": "nodemon server.js"                     -- Running this command makes starting your server a little more streamlined.
-        8. "start": "node server.js"                           -- Running this command will start the server normally in a production environment.
+        1.7:  "devStart": "nodemon server.js"                     -- Running this command makes starting your server a little more streamlined.
+        1.8:  "start": "node server.js"                           -- Running this command will start the server normally in a production environment.
         
     // Create initial application files:       
-      8.1.   server.js                                       -- Creates a .js file for server code.
+        1.9:   server.js                                       -- Creates a .js file for server code.
     
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         Notes: 
@@ -77,72 +78,88 @@ Phase 1: Project Setup
 
 
 
-Phase 2: Import libraries and configure app:
+Phase 2: Setup MVC file strucutre
+=====================================================================================================
+-- * While smaller application will have routes clustered together in the server.js file, for larger 
+     applications it can messy pretty quickly so we need to setup our MVC (Model View Contoller).
+=====================================================================================================
+
+
+
+
+
+
+
+
+
+Phase 2: Import libraries, configure app, setup MVC folder structure:
 =============================================================================================================
 -- This phase involves the initial library importation and confugration.
 =============================================================================================================
 
-    2.1:  Import initial libraries:
+    // Import Libraries:
+        2.1:  Import initial libraries:
+                ---------------------------------------------------------
+                    const express = require('express');                       -- imports express from express library.
+                    const app = express();                                    -- get the app portion from the express librrary to instantiate the app.
+                    const expressLayouts = require('express-ejs-layouts');    -- import the express layouts package.
+                ---------------------------------------------------------      
 
-            ---------------------------------------------------------
-                const express = require('express');                       -- imports express from express library.
-                const app = express();                                    -- get the app portion from the express librrary to instantiate the app.
-                const expressLayouts = require('express-ejs-layouts');    -- import the express layouts package.
-            ---------------------------------------------------------      
+    // Configure app:
+        2.2: Configure your app:
+            * When you configure your app, you are setting the settings such as the behavior of the app (in the case of views and view engines), etc.
+            You use the "app.set()" and assign a name and a value.
 
+            * There are a two ways to do this, you can either use static files OR as what will be done for this project, 
+            setting our "view engine" to ejs. You could use another view engine like pug but ejs seems to be more versatile.
+                ---------------------------------------------------------
+                    app.set("view engine", "ejs");                             -- sets the view engine
+                ---------------------------------------------------------
+            
+            * Then, set the location of your "views" folder.
+                ---------------------------------------------------------
+                    app.set("views", __dirname + "/views");                    -- sets "views" to current directory and append to "/views" folder.
+                ---------------------------------------------------------
 
-    2.2: Configure your app:
-        * When you configure your app, you are setting the settings such as the behavior of the app (in the case of views and view engines), etc.
-          You use the "app.set()" and assign a name and a value.
-
-        * There are a two ways to do this, you can either use static files OR as what will be done for this project, 
-          setting our "view engine" to ejs. You could use another view engine like pug but ejs seems to be more versatile.
-
-            ---------------------------------------------------------
-                app.set("view engine", "ejs");                             -- sets the view engine
-            ---------------------------------------------------------
-        
-        * Then, set the location of your "views" folder.
-
-            ---------------------------------------------------------
-                app.set("views", __dirname + "/views");                    -- sets "views" to current directory and append to "/views" folder.
-            ---------------------------------------------------------
-
-        * Next, set your layout file.
-         A layout file will allow use to reuse HTML like the header and the footer.
-
-            ---------------------------------------------------------
-                app.set("layout", "layouts/layout");                       -- sets layout file in layouts folder.
-            ---------------------------------------------------------
+            * Next, set your layout file.
+            A layout file will allow use to reuse HTML like the header and the footer.
+                ---------------------------------------------------------
+                    app.set("layout", "layouts/layout");                       -- sets layout file in layouts folder.
+                ---------------------------------------------------------
 
 
-    2.4: Add initial middleware:
-        * Tell the application that we want to use "express layouts"...
+        2.3: Add initial middleware:
+            * Tell the application that we want to use "express layouts"...
+                -------------------------------------------------
+                    app.use(expressLayouts);
+                -------------------------------------------------
 
-            -------------------------------------------------
-                app.use(expressLayouts);
-            -------------------------------------------------
+            * Additionally, we want to tell express where all our public files are going to be when requested by the client.
+                -------------------------------------------------
+                    app.use(express.static('public'));
+                -------------------------------------------------
 
-        * Additionally, we want to tell express where all our public files are going to be when requested by the client.
-        
-            -------------------------------------------------
-                app.use(express.static('public'));
-            -------------------------------------------------
-
-
-    2.3: Create a "views" and "public" folders:
-        * The "views" folder is going to be where all the different views of the files are going to go.
-        * The "public" folder is going to be where all the public files like stylesheets, javascript, images, etc.
-            --------------------
-                views
-                public
-            --------------------
+    //Setup MVC folder structure:
+        2.4: Create MVC and "public" folders:
+            * 
+            * The "views" folder is going to be where all the different views of the files are going to go.
+            * The "public" folder is going to be where all the public files like stylesheets, javascript, images, etc.
+                --------------------
+                    public           -- 
+                    models
+                    views
+                    routes
+                --------------------
 
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         Notes: 
             * These are not the only libraries added nore the only middleware to be used. However, I find it easier to load the intial libraries 
               first and then add in libraries as you go along (i.e. mongoose, etc.) because then you can keep track of the process and make sure 
               you dont miss anything.
+             
+            * Quick note about MVC: Model View Controller is a design pattern for our application. Currently, we have 
+              View (i.e. "views" folder) and Controller (i.e. "routes" folder). We will also need a Model ("models" folder) 
+              to house all our database models to complete the design pattern.
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////    
 
 
@@ -204,22 +221,19 @@ Phase 3: Setup initial server:
 
 
 
-Phase 4: Setting up MVC router
-=============================================================================================================
--- While smaller application will have routes clustered together in the server.js file, for larger 
-   applications it can messy pretty quickly so we need to setup our MVC (Model View Contoller). 
--- Quick note about MVC: Model View Controller is a design pattern for our application. Currently, we have 
-   View (i.e. "views" folder) and Controller (i.e. "routes" folder). We will also need a Model ("models" folder) 
-   to house all our database models to complete the design pattern.
+Phase 4: Setting up MVC and router
 =============================================================================================================
 
-    4. Create a "routes" folder:
+=============================================================================================================
+
+    4.1: Create a "routes" folder:
         * In the router our routes (i.e. "controllers" but in node.js it is called "routes") will all 
           be kept and organized for use with server.js.
             -------------------------------
                 routes
             -------------------------------
-            615-PS
+    
+    4.2
 
 
 
