@@ -14,7 +14,7 @@ app.set("views", __dirname + "/views");
 
 
 //Middleware
-app.use()
+app.use(expressLayouts);
 
 
 

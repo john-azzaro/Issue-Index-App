@@ -82,11 +82,11 @@ Phase 2: Import libraries and configure app:
 =============================================================================================================
 
     2.1:  Import initial libraries:
-        ---------------------------------------------------------
-            const express = require('express');                       -- imports express from express library.
-            const app = express();                                    -- get the app portion from the express librrary to instantiate the app.
-            const expressLayouts = require('express-ejs-layouts');    -- import the express layouts package.
-        ---------------------------------------------------------      
+            ---------------------------------------------------------
+                const express = require('express');                       -- imports express from express library.
+                const app = express();                                    -- get the app portion from the express librrary to instantiate the app.
+                const expressLayouts = require('express-ejs-layouts');    -- import the express layouts package.
+            ---------------------------------------------------------      
 
 
     2.2: Configure your app:
@@ -95,31 +95,41 @@ Phase 2: Import libraries and configure app:
 
         * There are a two ways to do this, you can either use static files OR as what will be done for this project, 
           setting our "view engine" to ejs. You could use another view engine like pug but ejs seems to be more versatile.
-        ---------------------------------------------------------
-            app.set("view engine", "ejs");                             -- sets the view engine
-        ---------------------------------------------------------
+            ---------------------------------------------------------
+                app.set("view engine", "ejs");                             -- sets the view engine
+            ---------------------------------------------------------
         
         * Then, set the location of your "views" folder.
-        ---------------------------------------------------------
-            app.set("views", __dirname + "/views");                    -- sets "views" to current directory and append to "/views" folder.
-        ---------------------------------------------------------
+            ---------------------------------------------------------
+                app.set("views", __dirname + "/views");                    -- sets "views" to current directory and append to "/views" folder.
+            ---------------------------------------------------------
 
-        * Next, set your layout file, which will allow use to reuse HTML like tthe header and the footer.
-        ---------------------------------------------------------
-            app.set("layout", "layouts/layout");
-        ---------------------------------------------------------
-
-
-    2.3: Create a "views" folder:
-        * The "views" folder is going to be where all the different views of the files are going to go.
-        --------------------
-            views
-        --------------------
+        * Next, set your layout file.
+         A layout file will allow use to reuse HTML like the header and the footer.
+            ---------------------------------------------------------
+                app.set("layout", "layouts/layout");                       -- 
+            ---------------------------------------------------------
 
 
     2.4: Add initial middleware:
+        * Tell the application that we want to use "express layouts"...
+            -------------------------------------------------
+                app.use(expressLayouts);
+            -------------------------------------------------
+
+        * Additionally, we want to tell express where all our public files are going to be when requested by the client.
+            -------------------------------------------------
+                app.use(express.static('public'))
+            -------------------------------------------------
 
 
+    2.3: Create a "views" and "public" folders:
+        * The "views" folder is going to be where all the different views of the files are going to go.
+        * The "public" folder is going to be where all the public files like HTML, CSS, and JavaScript will go.
+            --------------------
+                views
+                public
+            --------------------
 
 
 
