@@ -1,12 +1,15 @@
-//Imports
+//Imports and instantiation
 const express = require('express');
+const expressLayouts = require('express-ejs-layouts');
+const app = express();
+
+
+// Settings and Configuration
+
 
 
 //Module Imports
 
-
-//Instantiation
-const app = express();
 
 
 //Middleware

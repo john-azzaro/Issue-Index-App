@@ -81,11 +81,22 @@ Phase 2: Create (and Test) your server:
 -- This phase creates the basic express server and suggested testing stategy to ensure everything is working.
 =============================================================================================================
 
-    2.1:  Import express and instantiate the express application:
+    2.1:  Import initial libraries:
         ---------------------------------------------------------
-            const express = require('express');
-            const app = express();
+            const express = require('express');                       -- imports express from express library.
+            const app = express();                                    -- get the app portion from the express librrary to instantiate the app.
+            const expressLayouts = require('express-ejs-layouts');    -- import the express layouts package.
+        ---------------------------------------------------------      
+
+
+    2.2: Assign your view setting:
+        * There are a two ways to do this, doing ```app.set('views', path.join(__dirname, "views"))``` to do static 
+          files OR as what will be done for this project, setting our "view engine" to ejs. You could use another view 
+          engine like pug but ejs seems to be more versatile..
         ---------------------------------------------------------
+            app.set("view engine", "ejs");
+        ---------------------------------------------------------
+
 
 
     2.2: Create a (temporary) basic server to test the connection:
@@ -119,6 +130,13 @@ Phase 2: Create (and Test) your server:
 
         * And when you go to "localhost:3000", you should see "Cannot GET /", which means that the server is working,
           but no routes are present yet! 
+
+
+    2.4: 
+
+
+
+
 
 
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
