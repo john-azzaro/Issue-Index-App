@@ -55,10 +55,12 @@ Phase 1: Project Setup
         5. npm install ejs express-ejs-layouts                 -- Install any other dependencies (if you need to at the outset of the project like mongoose).
                                                                   In the case of this project, we want to use a template engine (ejs) and be able to have a layout file
                                                                   for our HTML (express-ehs-layouts).
+
         6. npm install --save-dev dotenv nodemon               -- Install development enviroment.
 
     // Create custom "devStart" script in package.json:     
         7. "devStart": "nodemon server.js"                     -- Running this command makes starting your server a little more streamlined.
+        8. "start": "node server.js"                           -- Running this command will start the server normally in a production environment.
         
     // Create initial application files:       
       8.1.   server.js                                       -- Creates a .js file for server code.
