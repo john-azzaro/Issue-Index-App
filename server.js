@@ -16,7 +16,7 @@ const indexRouter = require("./routes/index");
 //Middleware
 app.use(expressLayouts);
 app.use(express.static('public'));
-
+app.use("/", indexRouter);
 
 
 //Routes

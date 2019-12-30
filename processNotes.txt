@@ -262,6 +262,11 @@ Phase 5: Create index.js with initial routes
 
     4.4: Add indexRouter middleware so that the application can use it:
         * Now that router is hooked up to server.js, the application now needs to be able to use it.
+            ----------------------------------------------------
+                
+            ----------------------------------------------------
+
+
 
     4.3: Create a route for the root of the application (i.e. '/'):
         * 
