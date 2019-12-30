@@ -33,7 +33,7 @@ Process Workflow Summary
     Phase 2: Setup MVC file structure.
     Phase 3: Import initial libraries, configure app, and middleware.
     Phase 4: Setup initial server.
-    Phase 5: 
+    Phase 5: Create index.js with initial routes. 
 
 
 
@@ -230,7 +230,7 @@ Phase 4: Setup initial server
 
 
 
-Phase 5: Create Initial routes
+Phase 5: Create index.js with initial routes
 =============================================================================================================
 
 =============================================================================================================
@@ -250,6 +250,14 @@ Phase 5: Create Initial routes
                 const router = express.Router();                      -- load router portion of express.
             ----------------------------------------------------
 
+
+    4.3: Hook up the application to the router:
+        * Hooking up the router will let you link the "index.js" file to the "server.js" file.
+
+
+
+    4.3: Create a route for the root of the application (i.e. '/'):
+        * 
 
 
 
