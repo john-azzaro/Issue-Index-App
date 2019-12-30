@@ -33,7 +33,7 @@ Process Workflow Summary
     Phase 2: Setup MVC file structure.
     Phase 3: Import initial libraries, configure app, and middleware.
     Phase 4: Setup initial server.
-    Phase 5: Create index.js with initial routes. 
+    Phase 5: Create a router and routes.
 
 
 
@@ -140,6 +140,7 @@ Phase 3: Import initial libraries, configure app, and middleware
                 ---------------------------------------------------------
             
             * Then, set the location of your "views" folder.
+            * Note: you could also do path.join(__dirname, '/views') depending on your preference.
                 ---------------------------------------------------------
                     app.set("views", __dirname + "/views");                    -- sets "views" to current directory and append to "/views" folder.
                 ---------------------------------------------------------
@@ -230,12 +231,13 @@ Phase 4: Setup initial server
 
 
 
-Phase 5: Create index.js with initial routes
+Phase 5: Create a router and routes.
+=============================================================================================================
+-- This phase will involve creating a routes folder and initial route file index.js to better organize 
+   the routes we have instead of collecting everything in the server.js folder. 
 =============================================================================================================
 
-=============================================================================================================
-
-    4.1: Create an "index" route:
+    5.1: Create an "index" route:
         * The index route is created as a catch-all for everything that doesnt have a resource or a model.
         * To do this, you need to create a "index.js" file inside "routes".
             ---------------------------------------------------
@@ -243,7 +245,7 @@ Phase 5: Create index.js with initial routes
             --------------------------------------------------- 
     
 
-    4.2: In index.js, load the express and router and export:
+    5.2: In index.js, load the express and router and export:
         * Doing this loads express and uses the router portion of the express variable.
             ----------------------------------------------------
                 const express = require('express');                   -- load express.
@@ -253,8 +255,9 @@ Phase 5: Create index.js with initial routes
             ----------------------------------------------------
 
 
-    4.3: Hook up the application to the router in server.js:
+    5.3: Hook up the application to the router in server.js:
         * Hooking up the router will let you link the "index.js" file to the "server.js" file.
+        * When this is done, "indexRouter" (in server.js) will be set to "router" (in server.js). 
         * We asssign the name as "indexRouter" and as a value pass in the relative path (i.e. "./routes/index").
         * Note that "./" is relative to where the route is.
         * Notice when you put in the initial relative path (./), intellesense will show you the folders and the file.
@@ -263,7 +266,7 @@ Phase 5: Create index.js with initial routes
             ----------------------------------------------------
 
 
-    4.4: Add indexRouter middleware so that the application can use it:
+    5.4: Add indexRouter middleware so that the application can use it:
         * Now that router is hooked up to server.js, the application now needs to be able to use it with this middleware.
         * In the case below, the root path "/" and the router to handle that route is "indexRouter".
             ----------------------------------------------------
@@ -271,7 +274,7 @@ Phase 5: Create index.js with initial routes
             ----------------------------------------------------
 
 
-    4.3: Create a test route to the root of the application (i.e. '/'):
+    5.5: Create a test route to the root of the application (i.e. '/'):
         * This is a temporary route to make sure everything is connected correctly.
             ----------------------------------------------------
                 router.get('/', function(req, res) {                  -- Should return "This is a test" in your localhost root request.
@@ -279,6 +282,12 @@ Phase 5: Create index.js with initial routes
                 });
             ----------------------------------------------------
 
+
+    5.6: Test the route.
+        * To test the route, simply go to localhost:3000 in your browser and see if the basic message appears.
+            ----------------------------------------------------
+                localhost:3000   >   This is a test
+            ----------------------------------------------------
 
 
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
