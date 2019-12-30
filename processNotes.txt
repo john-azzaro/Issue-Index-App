@@ -243,17 +243,20 @@ Phase 5: Create index.js with initial routes
             --------------------------------------------------- 
     
 
-    4.2: In index.js, load the express and router:
+    4.2: In index.js, load the express and router and export:
         * Doing this loads express and uses the router portion of the express variable.
             ----------------------------------------------------
                 const express = require('express');                   -- load express.
                 const router = express.Router();                      -- load router portion of express.
+
+                modules.exports = router;                             -- exports 
             ----------------------------------------------------
 
 
     4.3: Hook up the application to the router in server.js:
         * Hooking up the router will let you link the "index.js" file to the "server.js" file.
         * We asssign the name as "indexRouter" and as a value pass in the relative path (i.e. "./routes/index").
+        * Note that "./" is relative to where the route is.
         * Notice when you put in the initial relative path (./), intellesense will show you the folders and the file.
             ----------------------------------------------------
                 const indexRouter = require("./routes/index");
@@ -261,11 +264,11 @@ Phase 5: Create index.js with initial routes
 
 
     4.4: Add indexRouter middleware so that the application can use it:
-        * Now that router is hooked up to server.js, the application now needs to be able to use it.
+        * Now that router is hooked up to server.js, the application now needs to be able to use it with this middleware.
+        * In the case below, the root path "/" and the router to handle that route is "indexRouter".
             ----------------------------------------------------
-                
+                app.use("/", indexRouter);
             ----------------------------------------------------
-
 
 
     4.3: Create a route for the root of the application (i.e. '/'):
