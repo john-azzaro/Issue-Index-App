@@ -97,13 +97,6 @@ Phase 2: Setup MVC file structure
                     routes            -- (C)ontroller (i.e. routes), which will contain all routes.
                 --------------------
 
-        2.2: Create a "public" folder:     
-            * The "public" folder is used to serve static files. This going to be where all the public files 
-              like stylesheets, javascript, images, etc.
-                --------------------
-                    public            -- Folder for storing static assets
-                --------------------
-
 
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         Notes:             
@@ -123,45 +116,61 @@ Phase 3: Import initial libraries, configure app, and middleware
   * This phase involves the initial library importation, set configuration setting, and middleware.
 =============================================================================================================
 
-    // Import Libraries:
-        3.1:  Import initial libraries:
+
+    3.1: Import Libraries:
+            * When you import libraries, you are essentially importing the packages you have installed via npm.
                 ---------------------------------------------------------
                     const express = require('express');                       -- imports express from express library.
                     const app = express();                                    -- get the app portion from the express librrary to instantiate the app.
                     const expressLayouts = require('express-ejs-layouts');    -- import the express layouts package.
                 ---------------------------------------------------------      
 
-    // Configure app:
-        3.2: Configure your app:
-            * When you configure your app, you are setting the settings such as the behavior of the app (in 
-              the case of views and view engines), etc. You use the "app.set()" and assign a name and a value.
-                ---------------------------------------------------------
-                    app.set("view engine", "ejs");                             -- sets the view engine
-                ---------------------------------------------------------
+
+    3.2 Configure your app:
+        * When you configure your app, you are setting the settings such as the behavior of the app (in 
+          the case of views and view engines), etc. You use the "app.set()" and assign a name and a value.
+        * At this point, you are also adding corresponding features such as folders and middleware.
+                
+            // Set view engine:
+                -----------------------------------------------
+                    app.set("view engine", "ejs");                      -- sets the view engine
+                -----------------------------------------------
             
-            * Then, set the location of your "views" folder.
-            * Note: you could also do path.join(__dirname, '/views') depending on your preference.
-                ---------------------------------------------------------
-                    app.set("views", __dirname + "/views");                    -- sets "views" to current directory and append to "/views" folder.
-                ---------------------------------------------------------
+            // Set location of views folder:
+                * Note: you could also do path.join(__dirname, '/views') depending on your preference.
+                -----------------------------------------------
+                    app.set("views", __dirname + "/views");             -- sets "views" to current directory and append to "/views" folder.
+                -----------------------------------------------
 
-            * Next, set your layout file.
-            A layout file will allow use to reuse HTML like the header and the footer.
-                ---------------------------------------------------------
-                    app.set("layout", "layouts/layout");                       -- sets layout file in layouts folder.
-                ---------------------------------------------------------
+            // Set layout file:
+                * A layout file will allow use to reuse HTML like the header and the footer.
+                ----------------------------------------------
+                    app.set("layout", "layouts/layout");                 -- sets layout file in layouts folder.
+                ----------------------------------------------
 
-    // Add middleware:
-        3.3: Add initial middleware:
-            * Tell the application that we want to use "express layouts"...
+            // Use express layouts (middleware):
+                * Tell the application that we want to use "express layouts":
+                -----------------------------------------------
+                    app.use(expressLayouts);                             -- use expressLayouts we imported for use in the app.
+                -----------------------------------------------
+
+            // Create "layout" folder inside "views" folder:
+                -----------------------------------------------
+                    views  >  layouts
+                -----------------------------------------------
+
+            // Use "public" file to store static resources:
+                * Additionally, we want to tell express where all our public files are going to be when 
+                  requested by the client.
                 -------------------------------------------------
-                    app.use(expressLayouts);                                   -- use expressLayouts we imported for use in the app.
+                    app.use(express.static('public'));                    -- static files will be kep in the folder "public"
                 -------------------------------------------------
 
-            * Additionally, we want to tell express where all our public files are going to be when 
-              requested by the client.
+            // Create a "public" folder:     
+                * The "public" folder is used to serve static files. This going to be where all the public files 
+                  like stylesheets, javascript, images, etc.
                 -------------------------------------------------
-                    app.use(express.static('public'));                         -- static files will be kep in the folder "public"
+                    public                                                -- Folder for storing static assets
                 -------------------------------------------------
 
 
@@ -295,6 +304,12 @@ Phase 5: Create a router and routes.
             * For more information on express router, see my study that outlines a basic setup: https://github.com/john-azzaro/Study-Express-Router
                     
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+Phase 6: Integrate routes with views.
 
 
 
