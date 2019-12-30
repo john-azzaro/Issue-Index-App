@@ -31,7 +31,7 @@ Process Workflow Summary
 
     Phase 1: Initial Project Setup.
     Phase 2: Setup MVC file structure.
-    Phase 3: Import and configure app.
+    Phase 3: Initial imports and app configurations. 
     Phase 4: Setup initial server.
     Phase 5: Create a router and routes.
 
@@ -105,13 +105,13 @@ Phase 2: Setup MVC file structure
 
 
 
-Phase 3: Import and configure app
+Phase 3: Initial imports and app configurations 
 =============================================================================================================
   * This phase involves the initial library importations, set configuration settings, and middlewares.
 =============================================================================================================
 
 
-    3.1: Import Libraries in server.js:
+    3.1: Import initial libraries in server.js:
             * When you import libraries, you are essentially importing the packages you have installed via npm.
                 ---------------------------------------------------------
                     const express = require('express');                       -- imports express from express library.
@@ -281,16 +281,11 @@ Phase 5: Create a router and routes.
 
 
 
-Phase 6: Configure app to use ejs.
+Phase 6: Configure app for ejs.
 =============================================================================================================
---  
+--  For this application, we're going to be using a template engine called ejs that will allow us to reuse
+    outr HTML over many pages without having to repeat our code.
 =============================================================================================================
-
-    6.0: Make sure you have ejs language support installed:
-        * Before you begin using ejs with your app, make sure you have the ejs language support installed in VSCode.
-                -------------------------------------------
-                    Extensions  >  EJS Language Support
-                -------------------------------------------
 
 
     6.1: Install ejs and express-js-layouts with npm:
@@ -302,50 +297,52 @@ Phase 6: Configure app to use ejs.
                 --------------------------------------------------
          
 
-    6.2: Import expressLayouts:
+    6.2: Set view engine to ejs: 
+                -----------------------------------------------
+                    app.set("view engine", "ejs");                     -- sets the view engine
+                -----------------------------------------------
+
+
+    6.3: Import expressLayouts:
         * To use ejs in an express application, we need to load the express-ejs-layouts library we just installed via npm.
-                ---------------------------------------------------------
-                    const expressLayouts = require('express-ejs-layouts');    -- import the express layouts package.
-                ---------------------------------------------------------    
+                -------------------------------------------------------------
+                    const expressLayouts = require('express-ejs-layouts');          -- import the express layouts package.
+                -------------------------------------------------------------  
 
 
-    6.3: Set view engine to ejs: 
-                -----------------------------------------------
-                    app.set("view engine", "ejs");                      -- sets the view engine
-                -----------------------------------------------
-    
-
-    6.4: 
+    6.4: Use express layouts (middleware):
+        * Tell the application that we want to use "express layouts":
+                -----------------------------------------
+                    app.use(expressLayouts);                    -- use expressLayouts we imported for use in the app.
+                -----------------------------------------
 
 
-
-            // Set layout file:
-                * A layout file will allow use to reuse HTML like the header and the footer.
+    6.5: Set "layouts" file in "views":
+        * A layout file will allow use to reuse HTML like the header and the footer.
                 ----------------------------------------------
                     app.set("layout", "layouts/layout");                 -- sets layout file in layouts folder.
                 ----------------------------------------------
 
-            // Use express layouts (middleware):
-                * Tell the application that we want to use "express layouts":
-                -----------------------------------------------
-                    app.use(expressLayouts);                             -- use expressLayouts we imported for use in the app.
-                -----------------------------------------------
 
-            // Create "layout" folder inside "views" folder:
+    6.6: Create "layout" folder inside "views" folder:
+        * This folder will hold the layouts for our app.
                 -----------------------------------------------
-                    views  >  layouts
+                    views  >  layouts                                    -- "layouts" subfolder in views.
                 -----------------------------------------------
 
 
-
-
-
-    6.4: 
+    6.7: Create a "layout.ejs" file inside the new layouts subfolder:
+        * This layout.ejs file is going to be the boilerplate HTML for every page in the application.
+                ----------------------------------------------
+                    views  >  layouts  >  layout.ejs                     -- "layout.ejs" for global HTML boilerplate.
+                ----------------------------------------------
+    
 
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         Notes:
-            * 
-                    
+            * Before you begin using ejs with your app, make sure you have the ejs language support installed in VSCode.
+            * For more information on EJS, see my template engine study: https://github.com/john-azzaro/Study-Template-Engines
+                      
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
