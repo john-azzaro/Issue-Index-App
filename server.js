@@ -10,7 +10,7 @@ app.set("views", __dirname + "/views");
 
 
 //Module Imports
-
+const indexRouter = require("./routes/index");
 
 
 //Middleware

@@ -110,8 +110,8 @@ Phase 2: Setup MVC file structure
           * Quick note about MVC: Model View Controller is a design pattern for our application. Currently, we have 
             View (i.e. "views" folder) and Controller (i.e. "routes" folder). We will also need a Model ("models" folder) 
             to house all our database models to complete the design pattern.
-          * Although the public folder isnt technically part of the MVC file strcuture, it is part of the file strucutre itself 
-            so I like to add this folder in here so that I can create all 4 files at one time.
+          * Although the public folder isnt technically part of the MVC file structure, it is part of the overall file structure  
+            so I like to add this folder in here at this point. 
 
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////  
 
@@ -251,10 +251,17 @@ Phase 5: Create index.js with initial routes
             ----------------------------------------------------
 
 
-    4.3: Hook up the application to the router:
+    4.3: Hook up the application to the router in server.js:
         * Hooking up the router will let you link the "index.js" file to the "server.js" file.
+        * We asssign the name as "indexRouter" and as a value pass in the relative path (i.e. "./routes/index").
+        * Notice when you put in the initial relative path (./), intellesense will show you the folders and the file.
+            ----------------------------------------------------
+                const indexRouter = require("./routes/index");
+            ----------------------------------------------------
 
 
+    4.4: Add indexRouter middleware so that the application can use it:
+        * Now that router is hooked up to server.js, the application now needs to be able to use it.
 
     4.3: Create a route for the root of the application (i.e. '/'):
         * 
