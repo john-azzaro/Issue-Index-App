@@ -107,24 +107,24 @@ Phase 3: Create and configure express app
 
 
     3.1: Import initial libraries in server.js:
-                ---------------------------------------------------------
-                    const express = require('express');                       -- imports express from express library.
-                    const app = express();                                    -- get the app portion from the express librrary to instantiate the app.
-                ---------------------------------------------------------      
+            ---------------------------------------------------------
+                    const express = require('express');                     -- imports express from express library.
+                    const app = express();                                  -- get the app portion from the express librrary to instantiate the app.
+            ---------------------------------------------------------      
 
 
     3.2 Configure your app:          
         * SPECIAL NOTE: App configuration at this point is based on what you want to intially setup.
 
             // Use "public" file to store static resources:
-                -------------------------------------------------
-                    app.use(express.static('public'));                    -- tell express all public files kept in public folder.
-                -------------------------------------------------
+            ---------------------------------------------------------
+                    app.use(express.static('public'));                      -- tell express all public files kept in public folder.
+            ---------------------------------------------------------
 
             // Create a "public" folder:     
-                ----------------
-                    public               -- Folder created for storing static assets
-                ----------------
+            ---------------------------------------------------------
+                    public                                                  -- Folder created for storing static assets
+            ---------------------------------------------------------
 
 
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -200,59 +200,53 @@ Phase 4: Setup initial server
 
 Phase 5: Create a index router and route.
 =============================================================================================================
--- Create a Router with a routes folder and initial route file index.js to better organize 
-   the routes we have instead of collecting everything in the server.js folder. 
+-- Create a Router with "index.js", setup router
 =============================================================================================================
 
     5.1: Create a catch-all "index" route:
-            ---------------------------------------------------
-                routes  >  index.js                                         -- index.js route created for catch-alls.
-            --------------------------------------------------- 
+        -----------------------------------------------------------------
+                routes  >  index.js                                             -- "index.js" route created for catch-alls in "routes" folder.
+        -----------------------------------------------------------------
     
 
-    5.2: In index.js, load the express and router and export:
-        * Hooking up the router will let you link the "index.js" file to the "server.js" file and "indexRouter" 
-          (in server.js) will be set to "router" (in server.js). 
-            ----------------------------------------------------
-                const express = require('express');                          -- load express.
-                const router = express.Router();                             -- load router portion of express.
+    5.2: In index.js, setup the router by loading express, router, and export:
+        -----------------------------------------------------------------
+                const express = require('express');                             -- Load express.
+                const router = express.Router();                                -- Load router portion of express.
 
                 ...
                 ...
                 ...
 
-                modules.exports = router;                                    -- exports (which will hook up to "router" in server.js)
-            ----------------------------------------------------
+                modules.exports = router;                                       -- Export the module "router" (which will hook up to "router" in server.js).
+        -----------------------------------------------------------------
 
 
     5.3: Hook up the application to the router in server.js:
-            ----------------------------------------------------
-                const indexRouter = require("./routes/index");               -- Hooks up application to the index.js file in the routes folder.
-            ----------------------------------------------------
+        -----------------------------------------------------------------
+                const indexRouter = require("./routes/index");                  -- Hooks up application to the index.js file in the routes folder.
+        -----------------------------------------------------------------
 
 
     5.4: Add indexRouter middleware so that the application can use it:
-        * Now that router is hooked up to server.js, the application now needs to be able to use it with this middleware.
-        * In the case below, the root path "/" and the router to handle that route is "indexRouter".
-            ----------------------------------------------------
-                app.use("/", indexRouter);                                   -- middleware says that for root request, use indexRouter.
-            ----------------------------------------------------
+        -----------------------------------------------------------------
+                app.use("/", indexRouter);                                      -- Middleware says that for root request, use indexRouter.
+        -----------------------------------------------------------------
 
 
     5.5: Create a test route to the root of the application (i.e. '/'):
-        * This is a temporary route to make sure everything is connected correctly.
-            ----------------------------------------------------
-                router.get('/', function(req, res) {                          -- Should return "This is a test" in your localhost root request.
-                    res.send('This is a test')
+        -----------------------------------------------------------------
+                router.get('/', function(req, res) {                            -- This route should return "This is a test" in your localhost root request.
+                    res.send('This is a test');
                 });
-            ----------------------------------------------------
+        -----------------------------------------------------------------
 
 
     5.6: Test the route.
-        * To test the route, simply go to localhost:3000 in your browser and see if the basic message appears.
-            ----------------------------------------------------
+        * To test, go to localhost:3000 in your browser.
+        -----------------------------------------------------------------
                 localhost:3000   >   This is a test
-            ----------------------------------------------------
+        -----------------------------------------------------------------
 
 
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -261,9 +255,9 @@ Phase 5: Create a index router and route.
             * 5.1 -- Create a Router with a routes folder and initial route file index.js to better organize 
               the routes we have instead of collecting everything in the server.js folder. 
             * 5.3 -- When assigning the name as "indexRouter" and as a value pass in the relative path (i.e. "./routes/index"), note that "./" is 
-              relative to where the route is.
-            * Notice when you put in the initial relative path (./), intellesense will show you the folders and the file.
-            * For more information on express router, see my study that outlines a basic setup: https://github.com/john-azzaro/Study-Express-Router
+              relative to where the route is. Also notice when you put in the initial relative path (./), intellesense will show you the folders 
+              and the file.
+            * Note -- For more information on express router, see my study that outlines a basic setup: https://github.com/john-azzaro/Study-Express-Router
                     
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -279,58 +273,52 @@ Phase 6: Configure app for ejs.
 
 
     6.1: Install ejs and express-js-layouts with npm:   
-                --------------------------------------------------
-                    npm install ejs express-ejs-layouts                 -- Install "ejs" and "express-ejs-layouts"                                                                
-                --------------------------------------------------
+        -----------------------------------------------------------------
+                npm install ejs express-ejs-layouts                             -- Npm install of "ejs" and "express-ejs-layouts"                                                                
+        -----------------------------------------------------------------
          
 
     6.2: Set view engine to ejs: 
-                -----------------------------------------------
-                    app.set("view engine", "ejs");                     -- sets the view engine
-                -----------------------------------------------
+        -----------------------------------------------------------------
+               app.set("view engine", "ejs");                                   -- Set the view engine to ejs.
+        -----------------------------------------------------------------
 
 
     6.3: Import expressLayouts:
-        * To use ejs in an express application, we need to load the express-ejs-layouts library we just installed via npm.
-                -------------------------------------------------------------
-                    const expressLayouts = require('express-ejs-layouts');          -- import the express layouts package.
-                -------------------------------------------------------------  
+        -----------------------------------------------------------------
+                const expressLayouts = require('express-ejs-layouts');          -- Import the express layouts package.
+        -----------------------------------------------------------------  
 
 
     6.4: Use express layouts (middleware):
-        * Tell the application that we want to use "express layouts":
-                -----------------------------------------
-                    app.use(expressLayouts);                    -- use expressLayouts we imported for use in the app.
-                -----------------------------------------
+        -----------------------------------------------------------------
+                app.use(expressLayouts);                                        -- Tell the application that we want to use "express layouts"
+        -----------------------------------------------------------------
 
 
     6.5: Set "layouts" file in "views":
-        * A layout file will allow use to reuse HTML like the header and the footer.
-                ----------------------------------------------
-                    app.set("layout", "layouts/layout");                 -- sets layout file in layouts folder.
-                ----------------------------------------------
+        -----------------------------------------------------------------
+                app.set("layout", "layouts/layout");                            -- Sets layout file so you can reuse HTML like the header and the footer.
+        -----------------------------------------------------------------
 
 
-    6.6: Set location of views folder:
-        * This is setting the views of our project to the folder we previously made for the MVC pattern.
-        * Note: you could also do path.join(__dirname, '/views') depending on your preference.
-                -----------------------------------------------
-                    app.set("views", __dirname + "/views");             -- sets "views" to current directory and append to "/views" folder.
-                -----------------------------------------------
+    6.6: Set location of views folder:       
+        -----------------------------------------------------------------
+                app.set("views", __dirname + "/views");                         -- Sets views to draw from "views" folder (which we made for our MVC pattern). 
+        -----------------------------------------------------------------
 
 
     6.7: Create "layout" folder inside "views" folder:
         * This folder will hold the layouts for our app.
-                -----------------------------------------------
-                    views  >  layouts                                    -- "layouts" subfolder in views.
-                -----------------------------------------------
+        -----------------------------------------------------------------
+                views  >  layouts                                               -- "layouts" subfolder in views to hold the layouts for our app.
+        -----------------------------------------------------------------
 
 
     6.8: Create a "layout.ejs" file inside the new layouts subfolder:
-        * This layout.ejs file is going to be the boilerplate HTML for every page in the application.
-                ----------------------------------------------
-                    views  >  layouts  >  layout.ejs                     -- "layout.ejs" for global HTML boilerplate.
-                ----------------------------------------------
+        -----------------------------------------------------------------
+                views  >  layouts  >  layout.ejs                                -- "layout.ejs" for global boilerplate HTML for every page in the application.
+        -----------------------------------------------------------------
     
 
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -339,6 +327,7 @@ Phase 6: Configure app for ejs.
               in a later phase. In the case of this project, we want to use a template engine (ejs) and be able to have a 
               layout file for our HTML (express-ejs-layouts).   
             * Before you begin using ejs with your app, make sure you have the ejs language support installed in VSCode.
+            * Note: you could also do path.join(__dirname, '/views') depending on your preference.
             * For more information on EJS, see my template engine study: https://github.com/john-azzaro/Study-Template-Engines
                       
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
