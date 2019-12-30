@@ -259,7 +259,7 @@ Phase 5: Create index.js with initial routes
         * Note that "./" is relative to where the route is.
         * Notice when you put in the initial relative path (./), intellesense will show you the folders and the file.
             ----------------------------------------------------
-                const indexRouter = require("./routes/index");
+                const indexRouter = require("./routes/index");        -- Hooks up application to the index.js file in the routes folder.
             ----------------------------------------------------
 
 
@@ -267,18 +267,23 @@ Phase 5: Create index.js with initial routes
         * Now that router is hooked up to server.js, the application now needs to be able to use it with this middleware.
         * In the case below, the root path "/" and the router to handle that route is "indexRouter".
             ----------------------------------------------------
-                app.use("/", indexRouter);
+                app.use("/", indexRouter);                            -- middleware says that for root request, use indexRouter.
             ----------------------------------------------------
 
 
-    4.3: Create a route for the root of the application (i.e. '/'):
-        * 
+    4.3: Create a test route to the root of the application (i.e. '/'):
+        * This is a temporary route to make sure everything is connected correctly.
+            ----------------------------------------------------
+                router.get('/', function(req, res) {                  -- Should return "This is a test" in your localhost root request.
+                    res.send('This is a test')
+                });
+            ----------------------------------------------------
 
 
 
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         Notes:
-            * For more information, see my express router study that outlines a basic router setup: https://github.com/john-azzaro/Study-Express-Router
+            * For more information on express router, see my study that outlines a basic setup: https://github.com/john-azzaro/Study-Express-Router
                     
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
