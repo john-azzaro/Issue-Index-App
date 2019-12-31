@@ -272,40 +272,44 @@ Phase 6: Configure app for ejs.
     outr HTML over many pages without having to repeat our code.
 =============================================================================================================
 
+    // Install EJS and set EJS as the view engine
+        * 
 
-    6.1: Install ejs and express-js-layouts with npm:   
-        -----------------------------------------------------------------
-                npm install ejs express-ejs-layouts                             -- Npm install of "ejs" and "express-ejs-layouts"                                                                
-        -----------------------------------------------------------------
-         
-
-    6.2: Set view engine to ejs: 
-        -----------------------------------------------------------------
-               app.set("view engine", "ejs");                                   -- Set the view engine to ejs.
-        -----------------------------------------------------------------
-
-
-    6.3: Import expressLayouts:
-        -----------------------------------------------------------------
-                const expressLayouts = require('express-ejs-layouts');          -- Import the express layouts package.
-        -----------------------------------------------------------------  
+        6.1: Install ejs and express-js-layouts with npm:   
+            -----------------------------------------------------------------
+                    npm install ejs express-ejs-layouts                             -- Npm install of "ejs" and "express-ejs-layouts"                                                                
+            -----------------------------------------------------------------
+            
+        6.2: Set view engine to ejs: 
+            -----------------------------------------------------------------
+                app.set("view engine", "ejs");                                   -- Set the view engine to ejs.
+            -----------------------------------------------------------------
 
 
-    6.4: Use express layouts (middleware):
-        -----------------------------------------------------------------
-                app.use(expressLayouts);                                        -- Tell the application that we want to use "express layouts"
-        -----------------------------------------------------------------
+    // Use express-ejs-layouts
+        * Layouts enable us to dynamically fix content or elements to a page in such a way that even 
+          if a different page is requested, the content remains but the page is successfully accessed.
+
+        6.3: Import expressLayouts:
+            -----------------------------------------------------------------
+                    const expressLayouts = require('express-ejs-layouts');          -- Import the express layouts package.
+            -----------------------------------------------------------------  
+
+        6.4: Use express layouts (middleware):
+            -----------------------------------------------------------------
+                    app.use(expressLayouts);                                        -- Tell the application that we want to use "express layouts"
+            -----------------------------------------------------------------
 
 
-    6.5: Set "layouts" file in "views":
-        -----------------------------------------------------------------
-                app.set("layout", "layouts/layout");                            -- Sets layout file so you can reuse HTML like the header and the footer.
-        -----------------------------------------------------------------
-
-
-    6.6: Set location of views folder:       
+    6.5: Set location of views folder:       
         -----------------------------------------------------------------
                 app.set("views", __dirname + "/views");                         -- Sets views to draw from "views" folder (which we made for our MVC pattern). 
+        -----------------------------------------------------------------
+   
+   
+    6.6: Set "layouts" file in "views":
+        -----------------------------------------------------------------
+                app.set("layout", "layouts/layout");                            -- Sets layout file so you can reuse HTML like the header and the footer.
         -----------------------------------------------------------------
 
 
@@ -313,12 +317,6 @@ Phase 6: Configure app for ejs.
         * This folder will hold the layouts for our app.
         -----------------------------------------------------------------
                 views  >  layouts                                               -- "layouts" subfolder in views to hold the layouts for our app.
-        -----------------------------------------------------------------
-
-
-    6.8: Create a "layout.ejs" file inside the new layouts subfolder:
-        -----------------------------------------------------------------
-                views  >  layouts  >  layout.ejs                                -- "layout.ejs" for global boilerplate HTML for every page in the application.
         -----------------------------------------------------------------
     
 
@@ -343,7 +341,13 @@ Phase 7: Integrate routes with views.
 --  
 =============================================================================================================
 
-    7.1: In layout.ejs, insert your HTML template:
+    7.1: Create a "layout.ejs" file inside the new layouts subfolder:
+        -----------------------------------------------------------------
+                views  >  layouts  >  layout.ejs                             -- "layout.ejs" for global boilerplate HTML for every page in the application.
+        -----------------------------------------------------------------
+
+
+    7.2: In layout.ejs, insert your HTML template:
         ------------------------------------------------------------------
                 <!DOCTYPE html>                                              -- Boilerplate HTML that will show for every page in the application.
                 <html lang="en">
@@ -356,7 +360,7 @@ Phase 7: Integrate routes with views.
         ------------------------------------------------------------------
 
     
-    7.2: Insert EJS "body "element for page specific content:
+    7.3: Insert EJS "body "element for page specific content:
         * Inside the body, using <%-  and %> tags will utilize ejs.
          ------------------------------------------------------------------
                 <!DOCTYPE html>                                            
@@ -377,35 +381,33 @@ Phase 7: Integrate routes with views.
         ------------------------------------------------------------------    
 
 
-    7.3: Create a "index.ejs" file in "views" and test.
+    7.4: Create a "index.ejs" file in "views" and test.
         ------------------------------------------------------------------
                 views  >  index.ejs                                            --"index.js" inside the "view" folder (note: add "middle" text to test).
         ------------------------------------------------------------------ 
 
 
-    7.4: Replace "send" with "render" in index.ejs route and pass in the view (i.e. index):
+    7.5: Replace "send" with "render" in index.ejs route and pass in the view (i.e. index):
         ------------------------------------------------------------------
                 router.get('/', function(req, res) {
                     res.render('index');                                        -- "res.send" changed to "res.render" with the name of the view.
                 });
         ------------------------------------------------------------------
 
-    7.5: Test in localhost:3000
+    7.6: Test in localhost:3000
         ------------------------------------------------------------------
                 Before                                                          -- "Before" is in layout.ejs view.
                 Middle                                                          -- "Middle" is in index.ejs view.
                 After                                                           -- "After" is in layout.ejs view.
         ------------------------------------------------------------------
 
-    
-
-
 
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         Notes:
             * 7.1 -- The HTML boilerplate is not ejs specific... this is just a standard HTML template that will be shows for every page in the app.
                      In other words, we only have to do this template ONCE and reuse it for each page in our application.
-            * 7.2 -- To insert the page specific, we simply need to insert an ejs element and assign it the name body: <%- body %> 
+            * 7.2 -- To insert the page specific, we simply need to insert an ejs element and assign it the name body: <%- body %>.
+            * 
                       
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -424,3 +426,4 @@ Resources
 ==========
 https://www.npmjs.com/package/express-ejs-layouts  -- ejs layouts file
 https://scotch.io/tutorials/use-ejs-to-template-your-node-application  -- ejs layouts outline
+https://www.includehelp.com/node-js/ejs-layouts.aspx  -- ejs layouts
