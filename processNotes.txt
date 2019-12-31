@@ -35,6 +35,8 @@ Process Workflow Summary
     Phase 4: Setup server.
     Phase 5: Create a Router for application routes
     Phase 6: Configure app for ejs.
+    Phase 7: Setup views and layouts.
+    
 
 
 
@@ -336,14 +338,15 @@ Phase 6: Configure app for ejs.
 
 
 
-Phase 7: Integrate routes with views.
-=============================================================================================================
---  
-=============================================================================================================
+Phase 7: Setup views and layouts.
+================================================================================================================
+--  Setting up views and layouts by hooking up "views" folder and setting layouts/layout as the central layout.
+================================================================================================================
 
     // Setup views and layouts
         * Since we've already created the "views" folder as part of out MVC 
-          design pattern
+          design pattern, what want to hook these folders and files up so when
+          we start using ejs in the next phase, everything will function correctly.
 
         7.1: Set location of views folder:       
             -----------------------------------------------------------------
@@ -369,7 +372,7 @@ Phase 7: Integrate routes with views.
                       layout file for our HTML (express-ejs-layouts).   
             * Note -- Before you begin using ejs with your app, make sure you have the ejs language support installed in VSCode.
             * Note -- For more information on EJS, see my template engine study: https://github.com/john-azzaro/Study-Template-Engines
-            * 6.6 --  You could also do path.join(__dirname, '/views') depending on your preference.    
+            * 7.1 --  You could also do path.join(__dirname, '/views') depending on your preference.    
 
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -378,19 +381,29 @@ Phase 7: Integrate routes with views.
 
 
 
-Phase 7: Integrate routes with views.
+Phase 8: Integrate routes with views.
 =============================================================================================================
 --  
 =============================================================================================================
 
+    // Create a layout "view" file...
+        * In the case of "layout.ejs", we are creating a central "view" which is the
+          primary HTML document that our entire application will use. This comes in 
+          handy because we dont have to repeat the code over and over again, we will
+          just need to insert the different pages inside this layout view.
 
-    7.4: Create a "layout.ejs" file inside the new layouts subfolder:
-        -----------------------------------------------------------------
-                views  >  layouts  >  layout.ejs                             -- "layout.ejs" for global boilerplate HTML for every page in the application.
-        -----------------------------------------------------------------
+        8.1: Create a "layout.ejs" file inside the new layouts subfolder:
+            -----------------------------------------------------------------
+                    views  >  layouts  >  layout.ejs                             -- "layout.ejs" for global boilerplate HTML for every page in the application.
+            -----------------------------------------------------------------
 
 
-    7.5: In layout.ejs, insert your HTML template:
+
+    // Create a primary HTML template for the layout view...
+        * This will be your standard HTML document which would be much the same
+          as a static HTML document.
+
+        8.2: In layout.ejs, insert your HTML template:
         ------------------------------------------------------------------
                 <!DOCTYPE html>                                              -- Boilerplate HTML that will show for every page in the application.
                 <html lang="en">
@@ -401,48 +414,58 @@ Phase 7: Integrate routes with views.
                 </body>
                 </html>
         ------------------------------------------------------------------
-
     
-    7.5: Insert EJS "body "element for page specific content:
-        * Inside the body, using <%-  and %> tags will utilize ejs.
-         ------------------------------------------------------------------
-                <!DOCTYPE html>                                            
-                <html lang="en">
-                <head>
-                    ...meta...
-                </head>
-                <body>
+        8.3: Insert EJS "body "element for page specific content:
+            * Inside the body, using <%-  and %> tags will utilize ejs.
+            ------------------------------------------------------------------
+                    <!DOCTYPE html>                                            
+                    <html lang="en">
+                    <head>
+                        ...meta...
+                    </head>
+                    <body>
 
-                    Before                                                     -- "Before" added for testing.
-                    <br>
-                    <%- body %>                                                -- All page specific content will be included "body" element.
-                    <br>
-                    After                                                      -- "After" added for testing.
+                        Before                                                     -- "Before" added for testing.
+                        <br>
+                        <%- body %>                                                -- All page specific content will be included "body" element.
+                        <br>
+                        After                                                      -- "After" added for testing.
 
-                </body>
-                </html>
-        ------------------------------------------------------------------    
-
-
-    7.6: Create a "index.ejs" file in "views" and test.
-        ------------------------------------------------------------------
-                views  >  index.ejs                                            --"index.js" inside the "view" folder (note: add "middle" text to test).
-        ------------------------------------------------------------------ 
+                    </body>
+                    </html>
+            ------------------------------------------------------------------    
 
 
-    7.7: Replace "send" with "render" in index.ejs route and pass in the view (i.e. index):
-        ------------------------------------------------------------------
-                router.get('/', function(req, res) {
-                    res.render('index');                                        -- "res.send" changed to "res.render" with the name of the view.
-                });
-        ------------------------------------------------------------------
+    // Create another "view" in the views folder...
+        * This step is essentially to test that the views are integrated with the router.
 
-    7.8: Test in localhost:3000
-        ------------------------------------------------------------------
-                Before                                                          -- "Before" is in layout.ejs view.
-                Middle                                                          -- "Middle" is in index.ejs view.
-                After                                                           -- "After" is in layout.ejs view.
-        ------------------------------------------------------------------
+        8.4: Create a "index.ejs" file in "views" and test.
+            ------------------------------------------------------------------
+                    views  >  index.ejs                                            --"index.js" inside the "view" folder (note: add "middle" text to test).
+            ------------------------------------------------------------------ 
+
+
+    // Integrate the route with the view...
+        * Finally, this is the point where you integrate the route (in "index.js") with the
+          view (in index.ejs). 
+
+        8.5: Replace "send" with "render" in index.ejs route and pass in the view (i.e. index):
+            
+            ------------------------------------------------------------------
+                    router.get('/', function(req, res) {
+                        res.render('index');                                        -- "res.send" changed to "res.render" with the name of the view.
+                    });
+            ------------------------------------------------------------------
+
+
+    // Test the integration...
+    
+        7.8: Test in localhost:3000
+            ------------------------------------------------------------------
+                    Before                                                          -- "Before" is in layout.ejs view.
+                    Middle                                                          -- "Middle" is in index.ejs view.
+                    After                                                           -- "After" is in layout.ejs view.
+            ------------------------------------------------------------------
 
 
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
