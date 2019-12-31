@@ -30,8 +30,8 @@ Process Workflow Summary
 ========================
 
     Phase 1: Project Setup.
-    Phase 2: Setup MVC file structure.
-    Phase 3: Create and configure express app 
+    Phase 2: Create and configure express app
+    Phase 3: Setup MVC file structure.
     Phase 4: Setup initial server.
     Phase 5: Create a index router and route.
     Phase 6: Configure app for ejs.
@@ -74,18 +74,63 @@ Phase 1: Project Setup
 
 
 
-Phase 2: Setup MVC file structure
+
+Phase 2: Create and configure express app
+=============================================================================================================
+  * Create express application, import initial "set" configuration settings and middlewares.
+=============================================================================================================
+
+    // Setup express application
+        * When you import libraries, you are essentially importing the 
+          packages you have installed via npm. To use exprees, you simply 
+          need to load it and instantiate it.
+
+        2.1: Import initial libraries in server.js:
+                ---------------------------------------------------------
+                        const express = require('express');                     -- imports express from express library.
+                        const app = express();                                  -- get the app portion from the express librrary to instantiate the app.
+                ---------------------------------------------------------      
+
+
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        Notes: 
+            * 2.1 -- When you import libraries, you are essentially importing the packages you have installed via npm.
+            * 2.1 -- These are not the only libraries added nore the only middleware to be used. However, I find it easier to load the intial 
+                     libraries first and then add in libraries as you go along (i.e. mongoose, etc.) because then you can keep track of the process 
+                     and make sure you dont miss anything.          
+            * 2.2 -- When you configure your app, you are setting the settings such as the behavior of the app (in 
+                     the case of views and view engines), etc. You use the "app.set()" and assign a name and a value.
+            * 2.2 -- At this point, you are also adding corresponding features such as folders and middleware.
+            * 2.2 -- Adding a public folder for static files is almost always required so I think it best to add this in the intial configuration. 
+            * 2.2 -- The "public" folder is used to serve static files, like stylesheets, javascript, images, etc.
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////    
+
+
+
+
+
+Phase 3: Setup MVC file structure and public folder.
 ==========================================================================================================
  * For larger application, use MVC (Model View Contoller) file structure for efficientcy and consistency.
 ==========================================================================================================
 
-        2.1: Create MVC folders:
+        3.1: Create MVC folders:
                 --------------------
                     models            -  (M)odels
                     views             -- (V)iews
                     routes            -- (C)ontroller 
                 --------------------
 
+        3.2 Configure your app:          
+                // Use "public" file to store static resources:
+                ---------------------------------------------------------
+                        app.use(express.static('public'));                      -- tell express all public files kept in public folder.
+                ---------------------------------------------------------
+
+                // Create a "public" folder:     
+                ---------------------------------------------------------
+                        public                                                  -- Folder created for storing static assets
+                ---------------------------------------------------------
 
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         Notes:             
@@ -98,48 +143,6 @@ Phase 2: Setup MVC file structure
 
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////  
 
-
-
-
-Phase 3: Create and configure express app
-=============================================================================================================
-  * Create express application, import inti set configuration settings, and middlewares.
-=============================================================================================================
-
-
-    3.1: Import initial libraries in server.js:
-            ---------------------------------------------------------
-                    const express = require('express');                     -- imports express from express library.
-                    const app = express();                                  -- get the app portion from the express librrary to instantiate the app.
-            ---------------------------------------------------------      
-
-
-    3.2 Configure your app:          
-        * SPECIAL NOTE: App configuration at this point is based on what you want to intially setup.
-
-            // Use "public" file to store static resources:
-            ---------------------------------------------------------
-                    app.use(express.static('public'));                      -- tell express all public files kept in public folder.
-            ---------------------------------------------------------
-
-            // Create a "public" folder:     
-            ---------------------------------------------------------
-                    public                                                  -- Folder created for storing static assets
-            ---------------------------------------------------------
-
-
-        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        Notes: 
-            * 3.1 -- When you import libraries, you are essentially importing the packages you have installed via npm.
-            * 3.1 -- These are not the only libraries added nore the only middleware to be used. However, I find it easier to load the intial 
-                     libraries first and then add in libraries as you go along (i.e. mongoose, etc.) because then you can keep track of the process 
-                     and make sure you dont miss anything.          
-            * 3.2 -- When you configure your app, you are setting the settings such as the behavior of the app (in 
-                     the case of views and view engines), etc. You use the "app.set()" and assign a name and a value.
-            * 3.2 -- At this point, you are also adding corresponding features such as folders and middleware.
-            * 3.2 -- Adding a public folder for static files is almost always required so I think it best to add this in the intial configuration. 
-            * 3.2 -- The "public" folder is used to serve static files, like stylesheets, javascript, images, etc.
-        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////    
 
 
 
@@ -272,8 +275,10 @@ Phase 6: Configure app for ejs.
     outr HTML over many pages without having to repeat our code.
 =============================================================================================================
 
-    // Install EJS and set EJS as the view engine
-        * 
+
+    // Load EJS and set EJS as the view engine
+        * Installing ejs and express-ejs-layouts as well as setting the view 
+          engine to ejs will allow you to use ejs in your application.
 
         6.1: Install ejs and express-js-layouts with npm:   
             -----------------------------------------------------------------
@@ -286,9 +291,10 @@ Phase 6: Configure app for ejs.
             -----------------------------------------------------------------
 
 
-    // Use express-ejs-layouts
-        * Layouts enable us to dynamically fix content or elements to a page in such a way that even 
-          if a different page is requested, the content remains but the page is successfully accessed.
+    // Load and use express-ejs-layouts
+        * Layouts enable us to dynamically fix content or elements to a page 
+          in such a way that even if a different page is requested, the content 
+          remains but the page is successfully accessed.
 
         6.3: Import expressLayouts:
             -----------------------------------------------------------------
@@ -301,24 +307,45 @@ Phase 6: Configure app for ejs.
             -----------------------------------------------------------------
 
 
-    6.5: Set location of views folder:       
-        -----------------------------------------------------------------
-                app.set("views", __dirname + "/views");                         -- Sets views to draw from "views" folder (which we made for our MVC pattern). 
-        -----------------------------------------------------------------
-   
-   
-    6.6: Set "layouts" file in "views":
-        -----------------------------------------------------------------
-                app.set("layout", "layouts/layout");                            -- Sets layout file so you can reuse HTML like the header and the footer.
-        -----------------------------------------------------------------
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        Notes:
+            * Note -- Since I like to do things organically with application development, I thought it best to install ejs in full 
+                      in a later phase. In the case of this project, we want to use a template engine (ejs) and be able to have a 
+                      layout file for our HTML (express-ejs-layouts).   
+            * Note -- Before you begin using ejs with your app, make sure you have the ejs language support installed in VSCode.
+            * Note -- For more information on EJS, see my template engine study: https://github.com/john-azzaro/Study-Template-Engines   
+
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-    6.7: Create "layout" folder inside "views" folder:
-        * This folder will hold the layouts for our app.
-        -----------------------------------------------------------------
-                views  >  layouts                                               -- "layouts" subfolder in views to hold the layouts for our app.
-        -----------------------------------------------------------------
+
+
+
+Phase 7: Integrate routes with views.
+=============================================================================================================
+--  
+=============================================================================================================
+
+    // Setup views and layouts
+        * Since we've already created the "views" folder as part of out MVC 
+          design pattern
+
+        7.1: Set location of views folder:       
+            -----------------------------------------------------------------
+                    app.set("views", __dirname + "/views");                         -- Sets views to draw from "views" folder (which we made for our MVC pattern). 
+            -----------------------------------------------------------------  
     
+        7.2: Set "layouts" file in "views":
+            -----------------------------------------------------------------
+                    app.set("layout", "layouts/layout");                            -- Sets layout file so you can reuse HTML like the header and the footer.
+            -----------------------------------------------------------------
+
+        7.3: Create "layout" folder inside "views" folder:
+            * This folder will hold the layouts for our app.
+            -----------------------------------------------------------------
+                    views  >  layouts                                               -- "layouts" subfolder in views to hold the layouts for our app.
+            -----------------------------------------------------------------
+
 
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         Notes:
@@ -341,13 +368,14 @@ Phase 7: Integrate routes with views.
 --  
 =============================================================================================================
 
-    7.1: Create a "layout.ejs" file inside the new layouts subfolder:
+
+    7.4: Create a "layout.ejs" file inside the new layouts subfolder:
         -----------------------------------------------------------------
                 views  >  layouts  >  layout.ejs                             -- "layout.ejs" for global boilerplate HTML for every page in the application.
         -----------------------------------------------------------------
 
 
-    7.2: In layout.ejs, insert your HTML template:
+    7.5: In layout.ejs, insert your HTML template:
         ------------------------------------------------------------------
                 <!DOCTYPE html>                                              -- Boilerplate HTML that will show for every page in the application.
                 <html lang="en">
@@ -360,7 +388,7 @@ Phase 7: Integrate routes with views.
         ------------------------------------------------------------------
 
     
-    7.3: Insert EJS "body "element for page specific content:
+    7.5: Insert EJS "body "element for page specific content:
         * Inside the body, using <%-  and %> tags will utilize ejs.
          ------------------------------------------------------------------
                 <!DOCTYPE html>                                            
@@ -381,20 +409,20 @@ Phase 7: Integrate routes with views.
         ------------------------------------------------------------------    
 
 
-    7.4: Create a "index.ejs" file in "views" and test.
+    7.6: Create a "index.ejs" file in "views" and test.
         ------------------------------------------------------------------
                 views  >  index.ejs                                            --"index.js" inside the "view" folder (note: add "middle" text to test).
         ------------------------------------------------------------------ 
 
 
-    7.5: Replace "send" with "render" in index.ejs route and pass in the view (i.e. index):
+    7.7: Replace "send" with "render" in index.ejs route and pass in the view (i.e. index):
         ------------------------------------------------------------------
                 router.get('/', function(req, res) {
                     res.render('index');                                        -- "res.send" changed to "res.render" with the name of the view.
                 });
         ------------------------------------------------------------------
 
-    7.6: Test in localhost:3000
+    7.8: Test in localhost:3000
         ------------------------------------------------------------------
                 Before                                                          -- "Before" is in layout.ejs view.
                 Middle                                                          -- "Middle" is in index.ejs view.
