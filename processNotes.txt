@@ -34,6 +34,7 @@ Process Workflow Summary
     Phase 3: Create and configure express app 
     Phase 4: Setup initial server.
     Phase 5: Create a index router and route.
+    Phase 6: Configure app for ejs.
 
 
 
@@ -337,11 +338,12 @@ Phase 6: Configure app for ejs.
 
 
 
-Phase 6: Integrate routes with views.
+Phase 7: Integrate routes with views.
 =============================================================================================================
 --  
 =============================================================================================================
-10-06 1
+
+
 
 
 Resources
