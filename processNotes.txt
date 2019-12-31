@@ -357,7 +357,8 @@ Phase 7: Integrate routes with views.
         ------------------------------------------------------------------
 
     
-    7.2: Inside the body, insert application ejs with the <%-  and %> tags:
+    7.2: Insert EJS "body "element for page specific content:
+        * Inside the body, using <%-  and %> tags with 
          ------------------------------------------------------------------
                 <!DOCTYPE html>                                            
                 <html lang="en">
@@ -366,17 +367,28 @@ Phase 7: Integrate routes with views.
                 </head>
                 <body>
 
-                <%- body %>                                                   -- All application pages will be included at this specific "body" point.
+                Before                                                        -- "Before" added for testing.
+                <br>
+                <%- body %>                                                   -- All page specific content will be included "body" element.
+                <br>
+                After                                                         -- "After" added for testing.
 
                 </body>
                 </html>
-        ------------------------------------------------------------------       
+        ------------------------------------------------------------------    
+
+
+    7.3: Create a "index.ejs" file in "views" and test.
+        ------------------------------------------------------------------
+                views  >  index.ejs                                           --"index.js" inside the "view" folder.
+        ------------------------------------------------------------------ 
 
 
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         Notes:
             * 7.1 -- The HTML boilerplate is not ejs specific... this is just a standard HTML template that will be shows for every page in the app.
-            * 7.2 -- When you insert the 
+                     In other words, we only have to do this template ONCE and reuse it for each page in our application.
+            * 7.2 -- To insert the page specific, we simply need to insert an ejs element and assign it the name body: <%- body %> 
                       
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

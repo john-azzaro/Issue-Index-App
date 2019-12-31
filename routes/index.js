@@ -5,7 +5,7 @@ const router = express.Router();
 
 // root index route
 router.get('/', function(req, res) {
-  res.send('This is a test')
+  res.render('index');
 });
 
 
