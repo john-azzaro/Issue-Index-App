@@ -208,55 +208,62 @@ Phase 5: Create a Router for application routes
    that we'll have for the application and keep our server.js file clean.
 =============================================================================================================
 
+    // Create a route file...
+        * Earlier we created our MVC file structure with a "routes" folder. This routes
+          folder is going to hold all the routes we wish to modularize to help keep our
+          server.js file clean.
+
+        5.1: Create an "index.js" route inside the "routes" folder:
+            -----------------------------------------------------------------
+                    routes  >  index.js                                             -- "index.js" route created for catch-alls in "routes" folder.
+            -----------------------------------------------------------------
+        
+
+    // In "index.js", setup express, router, and export...
+        * For each router file you create, you need to load express, the router portion
+          of express, and export the module (i.e. this "index.js" file) to server.js.
+
+        5.2: In index.js, setup the router by loading express, router, and export:
+            -----------------------------------------------------------------
+                    const express = require('express');                             -- Load express.
+                    const router = express.Router();                                -- Load router portion of express.
+
+                    ...
+                    ...
+                    ...
+
+                    modules.exports = router;                                       -- Export the module "router" (which will hook up to "router" in server.js).
+            -----------------------------------------------------------------
+
+        5.3: Create a test route to the root of the application (i.e. '/'):
+            -----------------------------------------------------------------
+                    router.get('/', function(req, res) {                            -- This route should return "This is a test" in your localhost root request.
+                        res.send('This is a test');
+                    });
+            -----------------------------------------------------------------
 
 
+    // In "server.js", hook-up "index.js" to "server.js"...
+        * Essentially, once you have the router setup correctly, you can link it to 
+          the server.js file so that you have full use of the seperate route module.
+   
+        5.4: Load "index.js" to "server.js":
+            -----------------------------------------------------------------
+                    const indexRouter = require("./routes/index");                  -- Hooks up application to the index.js file in the routes folder.
+            -----------------------------------------------------------------
 
+        5.5: Add indexRouter middleware so that the application can use it:
+            -----------------------------------------------------------------
+                    app.use("/", indexRouter);                                      -- Middleware says that for root request, use indexRouter.
+            -----------------------------------------------------------------
 
-
-    5.1: Create a catch-all "index" route:
-        -----------------------------------------------------------------
-                routes  >  index.js                                             -- "index.js" route created for catch-alls in "routes" folder.
-        -----------------------------------------------------------------
-    
-
-    5.2: In index.js, setup the router by loading express, router, and export:
-        -----------------------------------------------------------------
-                const express = require('express');                             -- Load express.
-                const router = express.Router();                                -- Load router portion of express.
-
-                ...
-                ...
-                ...
-
-                modules.exports = router;                                       -- Export the module "router" (which will hook up to "router" in server.js).
-        -----------------------------------------------------------------
-
-
-    5.3: Hook up the application to the router in server.js:
-        -----------------------------------------------------------------
-                const indexRouter = require("./routes/index");                  -- Hooks up application to the index.js file in the routes folder.
-        -----------------------------------------------------------------
-
-
-    5.4: Add indexRouter middleware so that the application can use it:
-        -----------------------------------------------------------------
-                app.use("/", indexRouter);                                      -- Middleware says that for root request, use indexRouter.
-        -----------------------------------------------------------------
-
-
-    5.5: Create a test route to the root of the application (i.e. '/'):
-        -----------------------------------------------------------------
-                router.get('/', function(req, res) {                            -- This route should return "This is a test" in your localhost root request.
-                    res.send('This is a test');
-                });
-        -----------------------------------------------------------------
-
-
-    5.6: Test the route.
-        * To test, go to localhost:3000 in your browser.
-        -----------------------------------------------------------------
-                localhost:3000   >   This is a test
-        -----------------------------------------------------------------
+    // Test route
+        * To test, go to localhost:3000 in your browser.    
+        
+        5.6: Test the route.    
+            -----------------------------------------------------------------
+                    localhost:3000   >   This is a test
+            -----------------------------------------------------------------
 
 
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -264,7 +271,7 @@ Phase 5: Create a Router for application routes
             * 5.1 -- Use "index.js" in "routes" as a catch-all for everything that doesnt have a resource or a model.
             * 5.1 -- Create a Router with a routes folder and initial route file index.js to better organize 
                      the routes we have instead of collecting everything in the server.js folder. 
-            * 5.3 -- When assigning the name as "indexRouter" and as a value pass in the relative path (i.e. "./routes/index"), note that "./" is 
+            * 5.4 -- When assigning the name as "indexRouter" and as a value pass in the relative path (i.e. "./routes/index"), note that "./" is 
                      relative to where the route is. Also notice when you put in the initial relative path (./), intellesense will show you the folders 
                      and the file.
             * Note -- For more information on express router, see my study that outlines a basic setup: https://github.com/john-azzaro/Study-Express-Router
