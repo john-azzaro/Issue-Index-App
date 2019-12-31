@@ -132,10 +132,10 @@ Phase 3: Create and configure express app
         Notes: 
             * 3.1 -- When you import libraries, you are essentially importing the packages you have installed via npm.
             * 3.1 -- These are not the only libraries added nore the only middleware to be used. However, I find it easier to load the intial 
-              libraries first and then add in libraries as you go along (i.e. mongoose, etc.) because then you can keep track of the process 
-              and make sure you dont miss anything.          
+                     libraries first and then add in libraries as you go along (i.e. mongoose, etc.) because then you can keep track of the process 
+                     and make sure you dont miss anything.          
             * 3.2 -- When you configure your app, you are setting the settings such as the behavior of the app (in 
-              the case of views and view engines), etc. You use the "app.set()" and assign a name and a value.
+                     the case of views and view engines), etc. You use the "app.set()" and assign a name and a value.
             * 3.2 -- At this point, you are also adding corresponding features such as folders and middleware.
             * 3.2 -- Adding a public folder for static files is almost always required so I think it best to add this in the intial configuration. 
             * 3.2 -- The "public" folder is used to serve static files, like stylesheets, javascript, images, etc.
@@ -183,15 +183,15 @@ Phase 4: Setup initial server
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         Notes:
             * Note -- It's a bit easier just to do the second method because integrated testing should be standard practice so this
-              adds a bit of future proofing to the code.             
+                      adds a bit of future proofing to the code.             
             * 4.1 -- So for the intial set-up of the server, you can initially setup a basic app.listen and the port number. However, if
-              you want to run integration tests later, you will need to configure your server in a more complex way. Procedurally, 
-              it makes the most sense when I get to this point to then add in the elements that will make this work now. 
+                     you want to run integration tests later, you will need to configure your server in a more complex way. Procedurally, 
+                     it makes the most sense when I get to this point to then add in the elements that will make this work now. 
             * 4.1 -- If you want to get in the habit of creating a server and account for EVENTUAL test integration, creating the server the second way
-              in step 2.2 is preferable. When the time comes, you would simply need to replace the port number (i.e. 3000) and the message when you
-              integrate this into the runServer function.  
+                     in step 2.2 is preferable. When the time comes, you would simply need to replace the port number (i.e. 3000) and the message when you
+                     integrate this into the runServer function.  
             * 4.2 -- In gitbash, you will can run the server by running the custom script "devStart" with "npm run devStart". Remember that using 
-              "devStart" will enable nodemon so your server will reset after each change made to the code.
+                     "devStart" will enable nodemon so your server will reset after each change made to the code.
 
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -254,10 +254,10 @@ Phase 5: Create a index router and route.
         Notes:
             * 5.1 -- Use "index.js" in "routes" as a catch-all for everything that doesnt have a resource or a model.
             * 5.1 -- Create a Router with a routes folder and initial route file index.js to better organize 
-              the routes we have instead of collecting everything in the server.js folder. 
+                     the routes we have instead of collecting everything in the server.js folder. 
             * 5.3 -- When assigning the name as "indexRouter" and as a value pass in the relative path (i.e. "./routes/index"), note that "./" is 
-              relative to where the route is. Also notice when you put in the initial relative path (./), intellesense will show you the folders 
-              and the file.
+                     relative to where the route is. Also notice when you put in the initial relative path (./), intellesense will show you the folders 
+                     and the file.
             * Note -- For more information on express router, see my study that outlines a basic setup: https://github.com/john-azzaro/Study-Express-Router
                     
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -324,13 +324,13 @@ Phase 6: Configure app for ejs.
 
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         Notes:
-            * Since I like to do things organically with application development, I thought it best to install ejs in full 
-              in a later phase. In the case of this project, we want to use a template engine (ejs) and be able to have a 
-              layout file for our HTML (express-ejs-layouts).   
-            * Before you begin using ejs with your app, make sure you have the ejs language support installed in VSCode.
-            * Note: you could also do path.join(__dirname, '/views') depending on your preference.
-            * For more information on EJS, see my template engine study: https://github.com/john-azzaro/Study-Template-Engines
-                      
+            * Note -- Since I like to do things organically with application development, I thought it best to install ejs in full 
+                      in a later phase. In the case of this project, we want to use a template engine (ejs) and be able to have a 
+                      layout file for our HTML (express-ejs-layouts).   
+            * Note -- Before you begin using ejs with your app, make sure you have the ejs language support installed in VSCode.
+            * Note -- For more information on EJS, see my template engine study: https://github.com/john-azzaro/Study-Template-Engines
+            * 6.6 --  You could also do path.join(__dirname, '/views') depending on your preference.    
+
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -342,6 +342,51 @@ Phase 7: Integrate routes with views.
 =============================================================================================================
 --  
 =============================================================================================================
+
+    7.1: In layout.ejs, insert your HTML template:
+        ------------------------------------------------------------------
+                <!DOCTYPE html>                                              -- Boilerplate HTML that will show for every page in the application.
+                <html lang="en">
+                <head>
+                    ...meta...
+                </head>
+                <body>
+
+                </body>
+                </html>
+        ------------------------------------------------------------------
+
+    
+    7.2: Inside the body, insert application ejs with the <%-  and %> tags:
+         ------------------------------------------------------------------
+                <!DOCTYPE html>                                            
+                <html lang="en">
+                <head>
+                    ...meta...
+                </head>
+                <body>
+
+                <%- body %>                                                   -- All application pages will be included at this specific "body" point.
+
+                </body>
+                </html>
+        ------------------------------------------------------------------       
+
+
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        Notes:
+            * 7.1 -- The HTML boilerplate is not ejs specific... this is just a standard HTML template that will be shows for every page in the app.
+            * 7.2 -- When you insert the 
+                      
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+
 
 
 
