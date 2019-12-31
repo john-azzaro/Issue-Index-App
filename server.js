@@ -7,7 +7,7 @@ const app = express();
 //Configuration
 app.set("view engine", "ejs");
 app.set("views", __dirname + "/views");
-
+app.set("layout", "layouts/layout"); 
 
 //Module Imports
 const indexRouter = require("./routes/index");
