@@ -6,13 +6,12 @@ Process notes for Issue Index Application
 
 About Process Notes
 ===================
-Process Notes is documentation of the procedure I take when creating my apps, in this case the "Issue Index Application". 
-Though this might seem like a bit of extra work, documenting my creation of the app from start to finish has proven to be 
-extremely valuable in bug hunting and refining my workflow for future use. I have tried to break down my process into "phases" 
-with at least several steps to accomplish that phase before moving on. Each step documents what I do. At the end of the phase
-I like to jot down special notes (if any) for future reference and comparison. I also have additional resources with links for 
-solutions to issues I come across for reference.
-
+"Process Notes" is a step-by-step workflow document that outlines the "phases" of app development and the successive steps
+for each phase. Although documenting each step of the application development from start to finish is a bit more work, it 
+has proven EXTREMELY valuable in bug hunting and ESPECIALLY refining workflow for future use. If you've seen my other projects
+and process notes, you'll notice that the process notes evolve as I find ways to improve the documentation for content
+and readability. In the case of the "issue index app", each phase has a title, brief description of the phase, individual steps
+for each phase (with notes and intent), and notes at the end.
 
 
 
@@ -30,13 +29,47 @@ Process Workflow Summary
 ========================
 
     Phase 1: Project Setup.
-    Phase 2: Create and configure express app
+    Phase 2: Create express app
     Phase 3: Setup MVC file structure and public folder.
     Phase 4: Setup server.
-    Phase 5: Create a Router for application routes
+    Phase 5: Create a Router.
     Phase 6: Configure app for ejs.
     Phase 7: Setup views and layouts.
     
+
+
+
+Extended Process Workflow Summary
+=================================
+
+    Phase 1: Project Setup:
+        1. Project Setup
+        2. Install Express
+        3. Add .gitignore
+        4. Add custom start scripts.
+        5. Add server.js
+
+    Phase 2: Create express app:
+        1. Setup express
+ 
+    Phase 3: Setup MVC file structure and public folder:
+        1. Create MVC folder.
+        2. Create public folder.
+   
+    Phase 4: Setup server:
+        1. Create server.
+        2. Run server.
+        3. Test server in browser.
+
+    Phase 5: Create a Router:
+        1. 
+        2. 
+        3. 
+        4.
+        5.
+        
+    Phase 6: Configure app for ejs.
+    Phase 7: Setup views and layouts.
 
 
 
@@ -77,7 +110,7 @@ Phase 1: Project Setup
 
 
 
-Phase 2: Create and configure express app
+Phase 2: Create express app
 =============================================================================================================
   * Create express application, import initial "set" configuration settings and middlewares.
 =============================================================================================================
@@ -87,10 +120,10 @@ Phase 2: Create and configure express app
           packages you have installed via npm. To use exprees, you simply 
           need to load it and instantiate it.
 
-        2.1: Import initial libraries in server.js:
+        2.1: Setup express:
             ---------------------------------------------------------
-                    const express = require('express');                     -- imports express from express library.
-                    const app = express();                                  -- get the app portion from the express librrary to instantiate the app.
+                    const express = require('express');                     -- Imports express from express library.
+                    const app = express();                                  -- Get the app portion from the express librrary to instantiate the app.
             ---------------------------------------------------------      
 
 
@@ -204,7 +237,7 @@ Phase 4: Setup server
 
 
 
-Phase 5: Create a Router for application routes
+Phase 5: Create a Router
 =============================================================================================================
 -- Because this application is going to larger, we want to create a "Router" that modularizes all the routes
    that we'll have for the application and keep our server.js file clean.
