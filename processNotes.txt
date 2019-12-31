@@ -351,14 +351,13 @@ Phase 7: Integrate routes with views.
                     ...meta...
                 </head>
                 <body>
-
                 </body>
                 </html>
         ------------------------------------------------------------------
 
     
     7.2: Insert EJS "body "element for page specific content:
-        * Inside the body, using <%-  and %> tags with 
+        * Inside the body, using <%-  and %> tags will utilize ejs.
          ------------------------------------------------------------------
                 <!DOCTYPE html>                                            
                 <html lang="en">
@@ -367,11 +366,11 @@ Phase 7: Integrate routes with views.
                 </head>
                 <body>
 
-                Before                                                        -- "Before" added for testing.
-                <br>
-                <%- body %>                                                   -- All page specific content will be included "body" element.
-                <br>
-                After                                                         -- "After" added for testing.
+                    Before                                                     -- "Before" added for testing.
+                    <br>
+                    <%- body %>                                                -- All page specific content will be included "body" element.
+                    <br>
+                    After                                                      -- "After" added for testing.
 
                 </body>
                 </html>
@@ -380,8 +379,26 @@ Phase 7: Integrate routes with views.
 
     7.3: Create a "index.ejs" file in "views" and test.
         ------------------------------------------------------------------
-                views  >  index.ejs                                           --"index.js" inside the "view" folder.
+                views  >  index.ejs                                            --"index.js" inside the "view" folder (note: add "middle" text to test).
         ------------------------------------------------------------------ 
+
+
+    7.4: Replace "send" with "render" in index.ejs route and pass in the view (i.e. index):
+        ------------------------------------------------------------------
+                router.get('/', function(req, res) {
+                    res.render('index');                                        -- "res.send" changed to "res.render" with the name of the view.
+                });
+        ------------------------------------------------------------------
+
+    7.5: Test in localhost:3000
+        ------------------------------------------------------------------
+                Before                                                          -- "Before" is in layout.ejs view.
+                Middle                                                          -- "Middle" is in index.ejs view.
+                After                                                           -- "After" is in layout.ejs view.
+        ------------------------------------------------------------------
+
+    
+
 
 
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
