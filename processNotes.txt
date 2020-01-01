@@ -15,6 +15,8 @@ for each phase (with notes and intent), and notes at the end.
 
 
 
+
+
 Objective and User Story
 =========================
 The objective of this application is to provide an accessible "index of issues and solutions" for a given project (which could be anything). 
@@ -23,19 +25,6 @@ functionality for categories and issues. The user would have the ability to add 
 categories and issues as well. Additionally, the project will not include user authentication since it is crowdsource by nature.
 
 
-
-
-Process Workflow Summary
-========================
-
-    Phase 1: Project Setup.
-    Phase 2: Create express app
-    Phase 3: Setup MVC file structure and public folder.
-    Phase 4: Setup server.
-    Phase 5: Create a Router.
-    Phase 6: Configure app for ejs.
-    Phase 7: Setup views and layouts.
-    
 
 
 
@@ -62,21 +51,25 @@ Extended Process Workflow Summary
         3. Test server in browser.
 
     Phase 5: Create a Router:
-        1. 
-        2. 
-        3. 
-        4.
-        5.
+        1. Create a route file in router folder.
+        2. Setup router file.
+        3. Hook-up "index.js" to "server.js"
+        4. Test router.
         
-    Phase 6: Configure app for ejs.
+    Phase 6: Configure EJS:
+        1. Install EJS.
+        2. Set EJS as the view engine.
+        3. Load and use express-ejs-layouts.
+   
     Phase 7: Setup views and layouts.
 
 
 
 Phase 1: Project Setup
 =========================================================================================
- * Basic setup, installation of dependencies, development environment setup, and essential 
-   files like server.js, .gitignore, and .env.
+ * Setting up your project lays the foundation for the rest fo the project. The initial 
+   steps involve installing npm, dependencies, development environment setup, and 
+   essential files like server.js, .gitignore, and .env.
 =========================================================================================
 
     // Project Setup:                           
@@ -85,9 +78,9 @@ Phase 1: Project Setup
 
     // Install express:
         1.3:  npm install express                                 -- Install express.
-
-    // Add .gitignore file for node_modules:        
         1.4:  .gitignore > node_modules                           -- Tell git to ignore node_modules folder.
+
+    // Install developer environment:                
         1.5:  npm install --save-dev dotenv nodemon               -- Install development enviroment.
 
     // Create custom "devStart" script in package.json:     
@@ -96,6 +89,7 @@ Phase 1: Project Setup
         
     // Create initial application files:       
         1.8:   server.js                                          -- Create main server file.
+    
     
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         Notes: 
@@ -243,7 +237,7 @@ Phase 5: Create a Router
    that we'll have for the application and keep our server.js file clean.
 =============================================================================================================
 
-    // Create a route file...
+    // Create a route file in router folder...
         * Earlier we created our MVC file structure with a "routes" folder. This routes
           folder is going to hold all the routes we wish to modularize to help keep our
           server.js file clean.
@@ -254,7 +248,7 @@ Phase 5: Create a Router
             -----------------------------------------------------------------
         
 
-    // In "index.js", setup express, router, and export...
+    // Setup router file...
         * For each router file you create, you need to load express, the router portion
           of express, and export the module (i.e. this "index.js" file) to server.js.
 
@@ -278,7 +272,7 @@ Phase 5: Create a Router
             -----------------------------------------------------------------
 
 
-    // In "server.js", hook-up "index.js" to "server.js"...
+    // Hook-up "index.js" to "server.js"...
         * Essentially, once you have the router setup correctly, you can link it to 
           the server.js file so that you have full use of the seperate route module.
    
@@ -292,7 +286,8 @@ Phase 5: Create a Router
                     app.use("/", indexRouter);                                      -- Middleware says that for root request, use indexRouter.
             -----------------------------------------------------------------
 
-    // Test route
+
+    // Test router...
         * To test, go to localhost:3000 in your browser.    
         
         5.6: Test the route.    
@@ -317,14 +312,14 @@ Phase 5: Create a Router
 
 
 
-Phase 6: Configure app for ejs.
+Phase 6: Configure EJS
 =============================================================================================================
 --  For this application, we're going to be using a template engine called ejs that will allow us to reuse
-    outr HTML over many pages without having to repeat our code.
+    our HTML over many pages without having to repeat our code. In order to use EJS, we need to configure
+    the app to use EJS in server.js.
 =============================================================================================================
 
-
-    // Load EJS and set EJS as the view engine
+    // Install EJS...
         * Installing ejs and express-ejs-layouts as well as setting the view 
           engine to ejs will allow you to use ejs in your application.
 
@@ -332,18 +327,20 @@ Phase 6: Configure app for ejs.
             -----------------------------------------------------------------
                     npm install ejs express-ejs-layouts                             -- Npm install of "ejs" and "express-ejs-layouts"                                                                
             -----------------------------------------------------------------
-            
-        6.2: Set view engine to ejs: 
-            -----------------------------------------------------------------
-                app.set("view engine", "ejs");                                   -- Set the view engine to ejs.
-            -----------------------------------------------------------------
+        
 
-
-    // Load and use express-ejs-layouts
+    // Set EJS as the view engine...
         * Layouts enable us to dynamically fix content or elements to a page 
           in such a way that even if a different page is requested, the content 
           remains but the page is successfully accessed.
+    
+        6.2: Set view engine to ejs: 
+            -----------------------------------------------------------------
+                    app.set("view engine", "ejs");                                  -- Set the view engine to ejs.
+            -----------------------------------------------------------------
 
+
+    // Load and use express-ejs-layouts...
         6.3: Import expressLayouts:
             -----------------------------------------------------------------
                     const expressLayouts = require('express-ejs-layouts');          -- Import the express layouts package.
@@ -408,7 +405,6 @@ Phase 7: Setup views and layouts.
             * 7.1 --  You could also do path.join(__dirname, '/views') depending on your preference.    
 
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 
 
 
