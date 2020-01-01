@@ -32,16 +32,16 @@ Extended Process Workflow Summary
 =================================
 
     Phase 1: Project Setup:
-        1. Project Setup
-        2. Install Express
-        3. Add .gitignore
+        1. Project Setup.
+        2. Install Express.
+        3. Add .gitignore.
         4. Add custom start scripts.
-        5. Add server.js
+        5. Add server.js.
 
     Phase 2: Create express app:
-        1. Setup express
+        1. Setup express.
  
-    Phase 3: Setup MVC file structure and public folder:
+    Phase 3: Setup MVC and public files:
         1. Create MVC folder.
         2. Create public folder.
    
@@ -51,9 +51,9 @@ Extended Process Workflow Summary
         3. Test server in browser.
 
     Phase 5: Create a Router:
-        1. Create a route file in router folder.
+        1. Create "route" file in router folder.
         2. Setup router file.
-        3. Hook-up "index.js" to "server.js"
+        3. Hook-up "index.js" to "server.js".
         4. Test router.
         
     Phase 6: Configure EJS:
@@ -62,6 +62,15 @@ Extended Process Workflow Summary
         3. Load and use express-ejs-layouts.
    
     Phase 7: Setup views and layouts.
+        1. Set views.
+        2. Set layouts.
+
+    Phase 8: Integrate routes with views.
+
+
+
+
+
 
 
 
@@ -72,22 +81,22 @@ Phase 1: Project Setup
    essential files like server.js, .gitignore, and .env.
 =========================================================================================
 
-    // Project Setup:                           
+/// Project Setup:                           
         1.1:  Issue-Index-App                                     -- Create a folder to store you application.
         1.2:  npm init                                            -- Create a package.json file to start the project off.
 
-    // Install express:
+/// Install express:
         1.3:  npm install express                                 -- Install express.
         1.4:  .gitignore > node_modules                           -- Tell git to ignore node_modules folder.
 
-    // Install developer environment:                
+/// Install developer environment:                
         1.5:  npm install --save-dev dotenv nodemon               -- Install development enviroment.
 
-    // Create custom "devStart" script in package.json:     
+/// Create custom "devStart" script in package.json:     
         1.6:  "devStart": "nodemon server.js"                     -- Run development environment (npm run devStart).
         1.7:  "start": "node server.js"                           -- Run server normally in a production environment (npm run start).
         
-    // Create initial application files:       
+/// Create initial application files:       
         1.8:   server.js                                          -- Create main server file.
     
     
@@ -109,16 +118,18 @@ Phase 2: Create express app
   * Create express application, import initial "set" configuration settings and middlewares.
 =============================================================================================================
 
-    // Setup express application...
+/// Setup express application...
+        ==================================================================
         * When you import libraries, you are essentially importing the 
           packages you have installed via npm. To use exprees, you simply 
           need to load it and instantiate it.
-
-        2.1: Setup express:
-            ---------------------------------------------------------
-                    const express = require('express');                     -- Imports express from express library.
-                    const app = express();                                  -- Get the app portion from the express librrary to instantiate the app.
-            ---------------------------------------------------------      
+        ==================================================================
+        
+    2.1: Setup express:
+        ---------------------------------------------------------
+                const express = require('express');                     -- Imports express from express library.
+                const app = express();                                  -- Get the app portion from the express librrary to instantiate the app.
+        ---------------------------------------------------------      
 
 
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -134,17 +145,19 @@ Phase 2: Create express app
 
 
 
-Phase 3: Setup MVC file structure and public folder.
+Phase 3: Setup MVC and public files
 ==========================================================================================================
  * For larger applications, use MVC (Model View Contoller) file structure for efficientcy and consistency.
 ==========================================================================================================
 
-    // Setup MVC file structure...    
+/// Setup MVC file structure... 
+        ==============================================================================
         *  Model View Controller is a design pattern for our application. Currently, 
            we have View (i.e. "views" folder) and Controller (i.e. "routes" folder). 
            You'll also need a Model ("models" folder) eventually to house all our 
            database models to complete the design pattern.
-
+        ==============================================================================
+        
         3.1: Create MVC folders:
                 --------------------
                     models            -  (M)odels
@@ -153,10 +166,12 @@ Phase 3: Setup MVC file structure and public folder.
                 --------------------
 
 
-    // Setup a "public" file...
+/// Setup a "public" file...
+        =================================================================================
         * The "public" folder is used to store and serve static files, like stylesheets, 
           javascript, images, etc. Anything initially requested clientside goes here.
-        
+        =================================================================================
+                
         3.2 Create and use public folder:          
                 ---------------------------------------------------------
                         app.use(express.static('public'));                      -- Tell express all public files kept in public folder.
@@ -182,10 +197,12 @@ Phase 4: Setup server
 -- Create a server to listen on a given port and test the connection to ensure working functionality.
 =============================================================================================================
 
-    // Create server...
+/// Create server...
+        ==================================================================
         * Although there are different ways to setup a server, the method
           below is best for eventual integration testing.
-
+        ==================================================================
+        
         4.1: Create server:
             ----------------------------------------------------------
                     let server; 
@@ -194,10 +211,13 @@ Phase 4: Setup server
                     });
             ----------------------------------------------------------
       
-    // Test your server...
+
+/// Test your server...
+        ======================================================
         * Use "npm run devStart" for developer environment.
         * Use "npm run start" for production environment.
-
+        ======================================================
+        
         4.2: Run your application:
             -----------------------------------------------------------------------
                     $ npm run devStart
@@ -237,21 +257,25 @@ Phase 5: Create a Router
    that we'll have for the application and keep our server.js file clean.
 =============================================================================================================
 
-    // Create a route file in router folder...
+/// Create a route file in router folder...
+        ================================================================================
         * Earlier we created our MVC file structure with a "routes" folder. This routes
           folder is going to hold all the routes we wish to modularize to help keep our
           server.js file clean.
-
+        ================================================================================
+        
         5.1: Create an "index.js" route inside the "routes" folder:
             -----------------------------------------------------------------
                     routes  >  index.js                                             -- "index.js" route created for catch-alls in "routes" folder.
             -----------------------------------------------------------------
         
 
-    // Setup router file...
+/// Setup router file...
+        ================================================================================
         * For each router file you create, you need to load express, the router portion
           of express, and export the module (i.e. this "index.js" file) to server.js.
-
+        ================================================================================
+        
         5.2: In index.js, setup the router by loading express, router, and export:
             -----------------------------------------------------------------
                     const express = require('express');                             -- Load express.
@@ -272,10 +296,12 @@ Phase 5: Create a Router
             -----------------------------------------------------------------
 
 
-    // Hook-up "index.js" to "server.js"...
+/// Hook-up "index.js" to "server.js"...
+        =============================================================================
         * Essentially, once you have the router setup correctly, you can link it to 
           the server.js file so that you have full use of the seperate route module.
-   
+        =============================================================================
+        
         5.4: Load "index.js" to "server.js":
             -----------------------------------------------------------------
                     const indexRouter = require("./routes/index");                  -- Hooks up application to the index.js file in the routes folder.
@@ -287,9 +313,11 @@ Phase 5: Create a Router
             -----------------------------------------------------------------
 
 
-    // Test router...
-        * To test, go to localhost:3000 in your browser.    
-        
+/// Test router...
+        ==================================================
+        * To test, go to localhost:3000 in your browser. 
+        ==================================================
+                   
         5.6: Test the route.    
             -----------------------------------------------------------------
                     localhost:3000   >   This is a test
@@ -314,14 +342,16 @@ Phase 5: Create a Router
 
 Phase 6: Configure EJS
 =============================================================================================================
---  For this application, we're going to be using a template engine called ejs that will allow us to reuse
-    our HTML over many pages without having to repeat our code. In order to use EJS, we need to configure
-    the app to use EJS in server.js.
+ * For this application, we're going to be using a template engine called ejs that will allow us to reuse
+   our HTML over many pages without having to repeat our code. In order to use EJS, we need to configure
+   the app to use EJS in server.js.
 =============================================================================================================
 
-    // Install EJS...
+/// Install EJS...
+        =====================================================================
         * Installing ejs and express-ejs-layouts as well as setting the view 
           engine to ejs will allow you to use ejs in your application.
+        =====================================================================
 
         6.1: Install ejs and express-js-layouts with npm:   
             -----------------------------------------------------------------
@@ -329,18 +359,25 @@ Phase 6: Configure EJS
             -----------------------------------------------------------------
         
 
-    // Set EJS as the view engine...
+/// Set EJS as the view engine...
+        ========================================================================
         * Layouts enable us to dynamically fix content or elements to a page 
           in such a way that even if a different page is requested, the content 
           remains but the page is successfully accessed.
-    
+        ========================================================================
+        
         6.2: Set view engine to ejs: 
             -----------------------------------------------------------------
                     app.set("view engine", "ejs");                                  -- Set the view engine to ejs.
             -----------------------------------------------------------------
 
 
-    // Load and use express-ejs-layouts...
+/// Load and use express-ejs-layouts...
+        ========================================================================
+        * expressLayouts is going to allow us to create a layout file for all
+          the HTML in the app.
+        ========================================================================
+        
         6.3: Import expressLayouts:
             -----------------------------------------------------------------
                     const expressLayouts = require('express-ejs-layouts');          -- Import the express layouts package.
@@ -373,25 +410,35 @@ Phase 7: Setup views and layouts.
 --  Setting up views and layouts by hooking up "views" folder and setting layouts/layout as the central layout.
 ================================================================================================================
 
-    // Setup views and layouts
+/// Set views...
+        ============================================================================
         * Since we've already created the "views" folder as part of out MVC 
           design pattern, what want to hook these folders and files up so when
           we start using ejs in the next phase, everything will function correctly.
+        ============================================================================ 
 
         7.1: Set location of views folder:       
             -----------------------------------------------------------------
-                    app.set("views", __dirname + "/views");                         -- Sets views to draw from "views" folder (which we made for our MVC pattern). 
+                app.set("views", __dirname + "/views");                         -- Sets views to draw from "views" folder (which we made for our MVC pattern). 
             -----------------------------------------------------------------  
     
+
+/// Set layouts...
+        ==============================================================================
+        * And to set layouts, we set where the layouts file is going to be. The idea
+          behind the layouts file is that all the HTML we create for the app will go 
+          in the layouts file so we dont have to duplicate the same HTML over and over.
+        ==============================================================================
+
         7.2: Set "layouts" file in "views":
             -----------------------------------------------------------------
-                    app.set("layout", "layouts/layout");                            -- Sets layout file so you can reuse HTML like the header and the footer.
+                        app.set("layout", "layouts/layout");                            -- Sets layout file so you can reuse HTML like the header and the footer.
             -----------------------------------------------------------------
 
         7.3: Create "layout" folder inside "views" folder:
             * This folder will hold the layouts for our app.
             -----------------------------------------------------------------
-                    views  >  layouts                                               -- "layouts" subfolder in views to hold the layouts for our app.
+                        views  >  layouts                                               -- "layouts" subfolder in views to hold the layouts for our app.
             -----------------------------------------------------------------
 
 
@@ -415,11 +462,13 @@ Phase 8: Integrate routes with views.
 --  
 =============================================================================================================
 
-    // Create a layout "view" file...
-        * In the case of "layout.ejs", we are creating a central "view" which is the
+// Create a layout "view" file...
+        ==============================================================================
+        * In the case of "layout.ejs", we are creating a primary "view" which is the
           primary HTML document that our entire application will use. This comes in 
           handy because we dont have to repeat the code over and over again, we will
           just need to insert the different pages inside this layout view.
+        ==============================================================================
 
         8.1: Create a "layout.ejs" file inside the new layouts subfolder:
             -----------------------------------------------------------------
@@ -428,9 +477,11 @@ Phase 8: Integrate routes with views.
 
 
 
-    // Create a primary HTML template for the layout view...
+// Create a primary HTML template for the layout view...
+        ========================================================================
         * This will be your standard HTML document which would be much the same
           as a static HTML document.
+        ========================================================================
 
         8.2: In layout.ejs, insert your HTML template:
         ------------------------------------------------------------------
@@ -465,19 +516,23 @@ Phase 8: Integrate routes with views.
             ------------------------------------------------------------------    
 
 
-    // Create another "view" in the views folder...
+// Create another "view" in the views folder...
+        ==================================================================================
         * This step is essentially to test that the views are integrated with the router.
-
+        ==================================================================================
+        
         8.4: Create a "index.ejs" file in "views" and test.
             ------------------------------------------------------------------
                     views  >  index.ejs                                            --"index.js" inside the "view" folder (note: add "middle" text to test).
             ------------------------------------------------------------------ 
 
 
-    // Integrate the route with the view...
+// Integrate the route with the view...
+        ====================================================================================
         * Finally, this is the point where you integrate the route (in "index.js") with the
           view (in index.ejs). 
-
+        ====================================================================================
+        
         8.5: Replace "send" with "render" in index.ejs route and pass in the view (i.e. index):
             
             ------------------------------------------------------------------
@@ -487,7 +542,11 @@ Phase 8: Integrate routes with views.
             ------------------------------------------------------------------
 
 
-    // Test the integration...
+// Test the integration...
+        ===============================================================================
+        * When you test the connection, you will see whether or not the routes
+          and views have been successfully integrated.
+        ===============================================================================
     
         7.8: Test in localhost:3000
             ------------------------------------------------------------------
