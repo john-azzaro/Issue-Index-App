@@ -612,7 +612,8 @@ Phase 8: Integrate Mongoose
         =======================================================================================================
         * There are a few methods I know for setting up connection to a database. The first via dotenv is a more 
           simplistic connection but it will not handle integrated testing easily. The second via config file will
-          handle integrated testing but it is a bit more involved, so choose which one fits your project.
+          handle integrated testing but it is a bit more involved, so choose which one fits your project. For this 
+          project I'll do both so you can choose what suits you.
         =======================================================================================================
 
         8.4: Connect mongoose:
@@ -658,27 +659,21 @@ Phase 8: Integrate Mongoose
 
 
 
-
-
-
-
-
-
-
 // Create config.js file for database and ports...
         ==================================================================================================
         * 
         ==================================================================================================
         
-        8.4: 
 
 
 
 
-// Setup connection...
-        ==================================================================================================
-        * 
-        ==================================================================================================
+Phase 9: Deploy to App to Heroku
+==================================================================================================
+* https://github.com/john-azzaro/Study-Cloud-Deployment-with-Heroku 2009
+==================================================================================================
+
+
 
 
 
