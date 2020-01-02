@@ -633,12 +633,27 @@ Phase 8: Integrate Mongoose
                     });
             ----------------------------------------------------------
         
-        8.6: Install dotenv via npm:
+        8.6: Install dotenv via npm to development environment:
             ----------------------------------------------------------
-                    npm install dotenv                                             -- library allows you to load environment variable into the application.
+                    npm install --save-devdotenv                                  -- library allows you to load environment variable into the application.
             ----------------------------------------------------------
 
+        8.7: Create a .env file:
+            ----------------------------------------------------------
+                    .env                                                          -- the ".env" file will house all the different variables.
+            ----------------------------------------------------------
 
+        8.8: Create DATABASE_URL in .env:
+            ----------------------------------------------------------
+                    DATABASE_URL=mongodb://localhost/issueindex                   -- The variable "DATABASE_URL" will use mongodb, local host, and the database name "issueindex"
+            ----------------------------------------------------------
+
+        8.9: In server.js, check to see if you are in the production environment:
+            ----------------------------------------------------------
+                    if (process.env.NODE_ENV !== 'production') {                 -- if process.env.NODE_ENV is NOT equal to production, load dotenv
+                       require('dotenv').parse()    
+                    }
+            ----------------------------------------------------------
 
 
 
