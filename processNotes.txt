@@ -76,7 +76,7 @@ Extended Process Workflow Summary
 
 Phase 1: Project Setup
 =========================================================================================
- * Setting up your project lays the foundation for the rest fo the project. The initial 
+-- Setting up your project lays the foundation for the rest fo the project. The initial 
    steps involve installing npm, dependencies, development environment setup, and 
    essential files like server.js, .gitignore, and .env.
 =========================================================================================
@@ -115,7 +115,7 @@ Phase 1: Project Setup
 
 Phase 2: Create express app
 =============================================================================================================
-  * Create express application, import initial "set" configuration settings and middlewares.
+-- Create express application, import initial "set" configuration settings and middlewares.
 =============================================================================================================
 
 /// Setup express application...
@@ -147,7 +147,7 @@ Phase 2: Create express app
 
 Phase 3: Setup MVC and public files
 ==========================================================================================================
- * For larger applications, use MVC (Model View Contoller) file structure for efficientcy and consistency.
+-- For larger applications, use MVC (Model View Contoller) file structure for efficientcy and consistency.
 ==========================================================================================================
 
 /// Setup MVC file structure... 
@@ -342,12 +342,12 @@ Phase 5: Create a Router
 
 Phase 6: Configure EJS
 =============================================================================================================
- * For this application, we're going to be using a template engine called ejs that will allow us to reuse
+-- For this application, we're going to be using a template engine called ejs that will allow us to reuse
    our HTML over many pages without having to repeat our code. In order to use EJS, we need to configure
    the app to use EJS in server.js.
 =============================================================================================================
 
-/// Install EJS...
+/// Install EJS via npm...
         =====================================================================
         * Installing ejs and express-ejs-layouts as well as setting the view 
           engine to ejs will allow you to use ejs in your application.
@@ -579,6 +579,17 @@ Phase 8: Integrate routes with views.
 
 
 
+Phase 8: Integrate Mongoose
+=========================================================================================================
+    * Because we want to store the information in a database (e.g. mongoDb) instead of keeping the database
+      in local storage where it will be lost, we need to utilize mongoose, which will provide a modeling 
+      environment for our data and enforce structure (models) and maintain flexibility.
+=========================================================================================================
+
+// Install mongoose via npm...
+        ===================================================================================================
+        * 
+        ===================================================================================================
 
 
 
