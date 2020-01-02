@@ -459,7 +459,9 @@ Phase 7: Setup views and layouts.
 
 Phase 8: Integrate routes with views.
 =============================================================================================================
---  
+--  Now that we've created a seperate "routes" module (since this will be a large app necessitating the 
+    relocation of routes from server.js to "routes" folder) and setup the app to use EJS, we now need to
+    create reusable blocks of HTML code so that dont have to create duplicate code for each one of our pages.
 =============================================================================================================
 
 // Create a layout "view" file...
@@ -476,16 +478,16 @@ Phase 8: Integrate routes with views.
             -----------------------------------------------------------------
 
 
-
-// Create a primary HTML template for the layout view...
+// Create a main HTML template for the layout view...
         ========================================================================
-        * This will be your standard HTML document which would be much the same
-          as a static HTML document.
+        * The "layout.ejs" document will be the central HTML document that will 
+          wrap around all of the pages we create for the app, allowing us to have 
+          one file for multiple pages and help with edits, bugs, etc. 
         ========================================================================
 
         8.2: In layout.ejs, insert your HTML template:
         ------------------------------------------------------------------
-                <!DOCTYPE html>                                              -- Boilerplate HTML that will show for every page in the application.
+                <!DOCTYPE html>                                                 -- Boilerplate HTML that will wrap around every page in the application.
                 <html lang="en">
                 <head>
                     ...meta...
@@ -495,6 +497,12 @@ Phase 8: Integrate routes with views.
                 </html>
         ------------------------------------------------------------------
     
+
+// Insert An EJS element for page content...
+        =========================================================================
+        * 
+        =========================================================================
+        
         8.3: Insert EJS "body "element for page specific content:
             * Inside the body, using <%-  and %> tags will utilize ejs.
             ------------------------------------------------------------------
@@ -507,7 +515,9 @@ Phase 8: Integrate routes with views.
 
                         Before                                                     -- "Before" added for testing.
                         <br>
+
                         <%- body %>                                                -- All page specific content will be included "body" element.
+                        
                         <br>
                         After                                                      -- "After" added for testing.
 

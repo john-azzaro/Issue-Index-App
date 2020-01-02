@@ -9,6 +9,7 @@ app.set("view engine", "ejs");
 app.set("views", __dirname + "/views");
 app.set("layout", "layouts/layout"); 
 
+
 //Module Imports
 const indexRouter = require("./routes/index");
 
@@ -19,7 +20,7 @@ app.use(express.static('public'));
 app.use("/", indexRouter);
 
 
-//Routes
+//Routes -- See "routes" module.
 
 
 //Server
