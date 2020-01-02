@@ -633,7 +633,10 @@ Phase 8: Integrate Mongoose
                     });
             ----------------------------------------------------------
         
-
+        8.6: Install dotenv via npm:
+            ----------------------------------------------------------
+                    npm install dotenv                                             -- library allows you to load environment variable into the application.
+            ----------------------------------------------------------
 
 
 

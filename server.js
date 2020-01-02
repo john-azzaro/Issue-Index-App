@@ -49,7 +49,6 @@ app.use("/", indexRouter);
 
 //Server
 let server;
-
 server = app.listen('3000', function() {
   console.log('Your app is listening on Port 3000...');
 });
