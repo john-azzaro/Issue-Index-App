@@ -1,6 +1,11 @@
 //Imports
 const express = require('express');
 const expressLayouts = require('express-ejs-layouts');
+const mongoose = require('mongoose');
+
+
+// Instantiation
+mongoose.Promise = global.Promise;
 const app = express();
 
 

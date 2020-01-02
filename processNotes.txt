@@ -347,7 +347,7 @@ Phase 6: Configure EJS
    the app to use EJS in server.js.
 =============================================================================================================
 
-/// Install EJS via npm...
+/// Install EJS dependency via npm...
         =====================================================================
         * Installing ejs and express-ejs-layouts as well as setting the view 
           engine to ejs will allow you to use ejs in your application.
@@ -586,13 +586,27 @@ Phase 8: Integrate Mongoose
       environment for our data and enforce structure (models) and maintain flexibility.
 =========================================================================================================
 
-// Install mongoose via npm...
+// Setup mongoose...
         ===================================================================================================
+        * Installing mongoose here instead of initially in the project setup seems better so that you make
+          sure you are following a topic-specific procedure.
+        ===================================================================================================
+
+        8.1: Install mongoose dependency via npm:
+            -----------------------------------------------------
+                    npm install mongoose
+            -----------------------------------------------------
+
+        8.2: Load Mongoose in server.js:
+            -----------------------------------------------------
+                    const mongoose = require('mongoose');             -- added mongoose library to the imports
+            -----------------------------------------------------
+
+
+// Setup connection...
+        ==================================================================================================
         * 
-        ===================================================================================================
-
-
-
+        ==================================================================================================
 
 
 
