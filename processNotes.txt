@@ -586,7 +586,7 @@ Phase 8: Integrate Mongoose
       environment for our data and enforce structure (models) and maintain flexibility.
 =========================================================================================================
 
-// Setup mongoose...
+// Setup mongoose on server.js...
         ===================================================================================================
         * Installing mongoose here instead of initially in the project setup seems better so that you make
           sure you are following a topic-specific procedure.
@@ -599,8 +599,23 @@ Phase 8: Integrate Mongoose
 
         8.2: Load Mongoose in server.js:
             -----------------------------------------------------
-                    const mongoose = require('mongoose');             -- added mongoose library to the imports
+                    const mongoose = require('mongoose');             -- added mongoose library to the imports.
             -----------------------------------------------------
+
+        8.3: Configure mongoose to use ES6 promises:
+            -----------------------------------------------------
+                    mongoose.Promise = global.Promise;                -- makes sure mongoose can use ES6 promises.
+            -----------------------------------------------------
+
+
+// Create config.js file for database and ports...
+        ==================================================================================================
+        * 
+        ==================================================================================================
+        
+        8.4: 
+
+
 
 
 // Setup connection...
