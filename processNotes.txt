@@ -610,8 +610,30 @@ Phase 8: Integrate Mongoose
 
 // Setting up connection to database with .env file...
         =======================================================================================================
-        * 
+        * There are a few methods I know for setting up connection to a database. The first via dotenv is a more 
+          simplistic connection but it will not handle integrated testing easily. The second via config file will
+          handle integrated testing but it is a bit more involved, so choose which one fits your project.
         =======================================================================================================
+
+        8.4: Connect mongoose:
+            -----------------------------------------------------------------
+                    mongoose.connect(process.env.DATABASE_URL, {                 -- mongoose connects to URL stipulated in the .env file. 
+                        useNewUrlParser: true,  useUnifiedTopology: true         -- use new url parsser and unified topology.
+                    });
+            -----------------------------------------------------------------
+
+        8.5: Determine if we are connected to database:
+            ----------------------------------------------------------
+                    const db = mongoose.connection;                               -- Access the connection
+                    db.on('error', function(error) {                              -- If there is an error connecting to db, return error.
+                    console.error(error) 
+                    });
+                    db.once('open', function() {                                  -- If connection is successful, log success message in the console.
+                    console.log('Connected to mongoose...');
+                    });
+            ----------------------------------------------------------
+        
+
 
 
 
