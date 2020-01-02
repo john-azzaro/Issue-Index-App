@@ -651,7 +651,7 @@ Phase 8: Integrate Mongoose
         8.9: In server.js, check to see if you are in the production environment:
             ----------------------------------------------------------
                     if (process.env.NODE_ENV !== 'production') {                 -- if process.env.NODE_ENV is NOT equal to production, load dotenv
-                       require('dotenv').parse()    
+                       require('dotenv').config();    
                     }
             ----------------------------------------------------------
 
