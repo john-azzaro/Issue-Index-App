@@ -606,6 +606,23 @@ Phase 8: Integrate Mongoose
             -----------------------------------------------------
                     mongoose.Promise = global.Promise;                -- makes sure mongoose can use ES6 promises.
             -----------------------------------------------------
+        
+
+// Setting up connection to database with .env file...
+        =======================================================================================================
+        * 
+        =======================================================================================================
+
+
+
+
+
+
+
+
+
+
+
 
 
 // Create config.js file for database and ports...

@@ -19,6 +19,22 @@ app.set("layout", "layouts/layout");
 const indexRouter = require("./routes/index");
 
 
+
+
+//Database
+mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true,  useUnifiedTopology: true });
+const db = mongoose.connection;
+db.on('error', function(error) {
+  console.error(error)
+});
+db.once('open', function() {
+  console.log('Connected to mongoose...');
+});
+
+
+
+
+
 //Middleware
 app.use(expressLayouts);
 app.use(express.static('public'));
