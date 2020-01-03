@@ -69,7 +69,7 @@ Extended Process Workflow Summary
         1. Create layout "view" file.
         2. Create HTML template for primary layout view.
         3. Insert EJS element for future page content.
-        4. Create an index.js "view" in "views"
+        4. Create an index.js controller in "views"
         5. Integrate the route with the view.
         6. Test the integration.
 
@@ -78,7 +78,7 @@ Extended Process Workflow Summary
         2. Setting up connection to database with .env file.
 
     Phase 10: Adding "category" functionality.
-
+        1. Create an "category" controller in routes.
 
 
 
@@ -270,7 +270,8 @@ Phase 5: Create a Router
         ================================================================================
         * Earlier we created our MVC file structure with a "routes" folder. This routes
           folder is going to hold all the routes we wish to modularize to help keep our
-          server.js file clean.
+          server.js file clean. To start off, we'll create an index.js file to handle
+          the catch-alls... that is, everything else unspecified for the app.
         ================================================================================
         
         5.1: Create an "index.js" route inside the "routes" folder:
@@ -535,7 +536,7 @@ Phase 8: Integrate routes with views.
             ------------------------------------------------------------------    
 
 
-// Create an index.js "view" in "views"...
+// Create an index.js controller in "views"...
         ==================================================================================
         * This step is essentially to test that the views are integrated with the router.
         ==================================================================================
@@ -686,14 +687,30 @@ Phase 9: Integrate Mongoose
 
 Phase 10: Adding "category" functionality
 ==========================================================================================================
-* Create, search, and view the categories for the issue index application.
+* One of the key features of this app is the categories that we can file our issues to. I found it best to 
+  start off with the higher level routes first (i.e. categories) and then get into the granular parts of
+  each category (i.e. issues). As part of the categories features, we want to create, search, and view the 
+  categories in a new router.
 ==========================================================================================================
 
-// Create an category controller...
-        10.1: Creat an "category.js" in "routes":
+// Create an "category" controller...
+        10.1: Create an "category.js" in "routes":
              ----------------------------------------------------------------
-                     category.js
+                     category.js                                                      -- new router created in the routes file.
              ----------------------------------------------------------------
+
+        10.2: Setup a router for "category.js":
+             ----------------------------------------------------------------
+                     //Imports
+                     const express = require('express');                               -- Import express.
+                     const router = express.Router();                                  -- Load router portion of express.
+
+                     // Routes
+
+                     //Export
+                     module.exports = router;                                          -- Export the module "router" (which will hook up to "router" in server.js).
+             ----------------------------------------------------------------
+
 
 
 
