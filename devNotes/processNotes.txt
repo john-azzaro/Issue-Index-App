@@ -70,10 +70,14 @@ Extended Process Workflow Summary
         2. Create HTML template for primary layout view.
         3. Insert EJS element for future page content.
         4. Create an index.js "view" in "views"
-        5.
-        6.
+        5. Integrate the route with the view.
+        6. Test the integration.
 
+    Phase 9: Integrate Mongoose.
+        1. Setup mongoose on server.js.
+        2. Setting up connection to database with .env file.
 
+    Phase 10: Adding "category" functionality.
 
 
 
@@ -573,10 +577,9 @@ Phase 8: Integrate routes with views.
 
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         Notes:
-            * 7.1 -- The HTML boilerplate is not ejs specific... this is just a standard HTML template that will be shows for every page in the app.
+            * 8.1 -- The HTML boilerplate is not ejs specific... this is just a standard HTML template that will be shows for every page in the app.
                      In other words, we only have to do this template ONCE and reuse it for each page in our application.
-            * 7.2 -- To insert the page specific, we simply need to insert an ejs element and assign it the name body: <%- body %>.
-            * 
+            * 8.2 -- To insert the page specific, we simply need to insert an ejs element and assign it the name body: <%- body %>.
                       
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -584,7 +587,7 @@ Phase 8: Integrate routes with views.
 
 
 
-Phase 8: Integrate Mongoose
+Phase 9: Integrate Mongoose
 =========================================================================================================
     * Because we want to store the information in a database (e.g. mongoDb) instead of keeping the database
       in local storage where it will be lost, we need to utilize mongoose, which will provide a modeling 
@@ -597,17 +600,17 @@ Phase 8: Integrate Mongoose
           sure you are following a topic-specific procedure.
         ===================================================================================================
 
-        8.1: Install mongoose dependency via npm:
+        9.1: Install mongoose dependency via npm:
             -----------------------------------------------------
                     npm install mongoose
             -----------------------------------------------------
 
-        8.2: Load Mongoose in server.js:
+        9.2: Load Mongoose in server.js:
             -----------------------------------------------------
                     const mongoose = require('mongoose');             -- added mongoose library to the imports.
             -----------------------------------------------------
 
-        8.3: Configure mongoose to use ES6 promises:
+        9.3: Configure mongoose to use ES6 promises:
             -----------------------------------------------------
                     mongoose.Promise = global.Promise;                -- makes sure mongoose can use ES6 promises.
             -----------------------------------------------------
@@ -621,14 +624,14 @@ Phase 8: Integrate Mongoose
           project I'll do both so you can choose what suits you.
         =======================================================================================================
 
-        8.4: Connect mongoose:
+        9.4: Connect mongoose:
             -----------------------------------------------------------------
                     mongoose.connect(process.env.DATABASE_URL, {                 -- mongoose connects to URL stipulated in the .env file. 
                         useNewUrlParser: true,  useUnifiedTopology: true         -- use new url parsser and unified topology.
                     });
             -----------------------------------------------------------------
 
-        8.5: Determine if we are connected to database:
+        9.5: Determine if we are connected to database:
             ----------------------------------------------------------
                     const db = mongoose.connection;                               -- Access the connection
                     db.on('error', function(error) {                              -- If there is an error connecting to db, return error.
@@ -639,22 +642,22 @@ Phase 8: Integrate Mongoose
                     });
             ----------------------------------------------------------
         
-        8.6: Install dotenv via npm to development environment:
+        9.6: Install dotenv via npm to development environment:
             ----------------------------------------------------------
                     npm install --save-devdotenv                                  -- library allows you to load environment variable into the application.
             ----------------------------------------------------------
 
-        8.7: Create a .env file:
+        9.7: Create a .env file:
             ----------------------------------------------------------
                     .env                                                          -- the ".env" file will house all the different variables.
             ----------------------------------------------------------
 
-        8.8: Create DATABASE_URL in .env:
+        9.8: Create DATABASE_URL in .env:
             ----------------------------------------------------------
                     DATABASE_URL=mongodb://localhost/issueindex                   -- The variable "DATABASE_URL" will use mongodb, local host, and the database name "issueindex"
             ----------------------------------------------------------
 
-        8.9: In server.js, check to see if you are in the production environment:
+        9.9: In server.js, check to see if you are in the production environment:
             ----------------------------------------------------------
                     if (process.env.NODE_ENV !== 'production') {                 -- if process.env.NODE_ENV is NOT equal to production, load dotenv
                        require('dotenv').config();    
@@ -662,18 +665,50 @@ Phase 8: Integrate Mongoose
             ----------------------------------------------------------
 
 
-
-
 // Create config.js file for database and ports...
         ==================================================================================================
         * 
         ==================================================================================================
-        
+
+
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        Notes:
+            * Note -- From my experience, there are a few ways to setup mongoose for the app. The first is using a .env file and the second is 
+                      with a config file. Additionaly, if you want to have integrated testing, youll need to incorporate runserver and endserver 
+                      functions to the server process.
+                      
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 
 
-Phase 9: Deploy to App to Heroku
+
+
+Phase 10: Adding "category" functionality
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Phase X: Deploy to App to Heroku
 ==================================================================================================
 * https://github.com/john-azzaro/Study-Cloud-Deployment-with-Heroku 2009
 ==================================================================================================
