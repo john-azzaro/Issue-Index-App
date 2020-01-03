@@ -695,6 +695,13 @@ Phase 10: Adding "category" functionality
 ==========================================================================================================
 
 // Create an "category" controller...
+        ======================================================================
+        * To create a new controller in our routes folder, you basically have
+          repeat the same process we did for index.js in creating a router. If
+          just do a copy/paste because the "all" authors route is almost exactly
+          the same as what we already have in the index.js route. Saves some time.
+        ======================================================================
+        
         10.1: Create an "category.js" in "routes":
              ----------------------------------------------------------------
                      category.js                                                      -- new router created in the routes file.
@@ -712,7 +719,8 @@ Phase 10: Adding "category" functionality
                      module.exports = router;                                          -- Export the module "router" (which will hook up to "router" in server.js).
              ----------------------------------------------------------------
 
-
+// Setup category routes...
+        10.3: Create pseudocode for categories
 
 
 
