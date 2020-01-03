@@ -16,7 +16,7 @@ const app = express();
 
 
 //Module Imports
-const indexRouter = require("./routes/index");
+const indexRouter = require('./routes/index');
 
 
 //Configuration
