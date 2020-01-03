@@ -66,7 +66,12 @@ Extended Process Workflow Summary
         2. Set layouts.
 
     Phase 8: Integrate routes with views.
-
+        1. Create layout "view" file.
+        2. Create HTML template for primary layout view.
+        3. Insert EJS element for future page content.
+        4. Create an index.js "view" in "views"
+        5.
+        6.
 
 
 
@@ -464,7 +469,7 @@ Phase 8: Integrate routes with views.
     create reusable blocks of HTML code so that dont have to create duplicate code for each one of our pages.
 =============================================================================================================
 
-// Create a layout "view" file...
+// Create layout "view" file...
         ==============================================================================
         * In the case of "layout.ejs", we are creating a primary "view" which is the
           primary HTML document that our entire application will use. This comes in 
@@ -478,7 +483,7 @@ Phase 8: Integrate routes with views.
             -----------------------------------------------------------------
 
 
-// Create a main HTML template for the layout view...
+// Create HTML template for primary layout view...
         ========================================================================
         * The "layout.ejs" document will be the central HTML document that will 
           wrap around all of the pages we create for the app, allowing us to have 
@@ -498,7 +503,7 @@ Phase 8: Integrate routes with views.
         ------------------------------------------------------------------
     
 
-// Insert An EJS element for page content...
+// Insert EJS element for future page content...
         =========================================================================
         * 
         =========================================================================
@@ -526,7 +531,7 @@ Phase 8: Integrate routes with views.
             ------------------------------------------------------------------    
 
 
-// Create another "view" in the views folder...
+// Create an index.js "view" in "views"...
         ==================================================================================
         * This step is essentially to test that the views are integrated with the router.
         ==================================================================================
