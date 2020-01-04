@@ -745,10 +745,10 @@ Phase 10: Add "catagory" controlles and views.
                      });   
              ----------------------------------------------------------------
 
-        10.5: Create a new "Category":                                     -- this will POST (i.e. send) to the collection to create a new category.
+        10.5: Create a new "Category":             
              ----------------------------------------------------------------
                      router.post('/', function(req, res) {
-                         res.send('Create')
+                         res.send('Create')                                            -- this will POST (i.e. send) to the collection to create a new category.
                      });
              ----------------------------------------------------------------
 
@@ -757,10 +757,16 @@ Phase 10: Add "catagory" controlles and views.
         ======================================================================
         * With the routes done, we need to create the views for the category 
           routes so that we have something to render when the client requests
-          the given url.
+          the given url. Note here that we're going to create 2 ejs files for 
+          our 3 routes. Why? Because the "create" a new category does NOT render 
+          anything to the app.
         ======================================================================
 
-        10.6: 
+        10.6: In views, create files for all categories and new category page:
+             -----------------------------------------------------------------
+                      index.js                                                             --
+                      new.ejs                                                              --
+             -----------------------------------------------------------------
 
 
 
