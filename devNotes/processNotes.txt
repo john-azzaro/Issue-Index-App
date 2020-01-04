@@ -805,25 +805,35 @@ Phase 10: Add "catagory" controlles and views.
 
 
 Phase 11: Create partials
-=====================================================================================
-* 
-=====================================================================================
+========================================================================================
+* Partials contain all the template files that are NOT connected to routes such as 
+  headers, footers, etc. The awesome thing about EJS is that you can utilize your ejs 
+  files as smaller, more versatile modules. Ive also found that using partials is really
+  handy if you have a more fluid design sense and evolve the UI/UX oduring development.   
+=========================================================================================
 
 // Create "partials" folder...
         =============================================================================
-        * The "partials" folder contains all the template files that are NOT connected 
-          to routes such as headers, footers, etc. At this point in development, we
-          are going to create a fair bit of routes that we would otherwise need to input
-          manually. However, if you were to create a partial that displayed all the
-          routes in a navigation "partial", you dont need to manually input each route.
+        * First thing you need to do is create a partials folder to store all your 
+          partial ejs templates.
         =============================================================================
 
         11.1: Create a "partial" file in "views":
              ----------------------------------------------------------------------
-                     views  >  partials
+                     views  >  partials                                                   -- "partials" will contain all the template files NOT associated with routes.
              ----------------------------------------------------------------------
 
-        11.2
+
+// Create initial partial files...
+        =============================================================================
+        * However, if you were to create a partial that displayed all the
+          routes in a navigation "partial", you dont need to manually input each route.
+        =============================================================================
+
+        11.2: Create a "header.js" file in the partials folder:
+             ----------------------------------------------------------------------
+                     partials  >   header.ejs                                             -- "header.ejs" will be the initial primary template for the header of the application.
+             ----------------------------------------------------------------------
 
 
 
