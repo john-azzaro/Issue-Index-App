@@ -8,9 +8,6 @@ if (process.env.NODE_ENV !== 'production') {
 const express = require('express');
 const expressLayouts = require('express-ejs-layouts');
 const mongoose = require('mongoose');
-
-
-// Instantiation
 mongoose.Promise = global.Promise;
 const app = express();
 
@@ -42,7 +39,7 @@ db.on('error', error => console.error(error))
 db.once('open', () => console.log('Connected to Mongoose...'))
 
 
-//Routes -- See "routes" module.
+//Routes -- See "routes" folder.
 
 
 //Server

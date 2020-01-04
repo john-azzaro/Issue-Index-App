@@ -80,8 +80,11 @@ Process Workflow Summary:
 
     Phase 10: Add "catagory" controlles and views
         1. Create an "category" Router.
-        2. Setup category routes
-        3. Create views for category routes
+        2. Setup category routes.
+        3. Create views for category routes.
+        4. Hook up "categoryRouter" to server.js.
+        5. Test categoryRouter.
+
 
 
 
@@ -762,14 +765,14 @@ Phase 10: Add "catagory" controlles and views.
           anything to the app.
         ======================================================================
 
-        10.6: In views, create files for all categories and new category page:
+        10.6: In views, create files for all categories and new category page with test text:
              -----------------------------------------------------------------
-                      index.js                                                             -- File will render the view for ALL categories.
-                      new.ejs                                                              -- File witl render the view for new category creation.
+                      index.js       >  "All categories"                               -- File will render the view for ALL categories.
+                      new.ejs        >  "New category"                                 -- File witl render the view for new category creation.
              -----------------------------------------------------------------
 
 
-// Hook up "categoryRouter" to server.js:
+// Hook up "categoryRouter" to server.js...
         ======================================================================
         * Hook up the categories router to server.js.
         ======================================================================
@@ -784,8 +787,19 @@ Phase 10: Add "catagory" controlles and views.
                       app.use('/categories', categoryRouter);                             -- every route in "categoryRouter" is going to be prepended with "categories"
              -----------------------------------------------------------------------
 
+// Test categoryRouter...
+        ============================================================================
+        * When you test the router connection, you should see that when you go
+          to the localhost:3000/categories, the "middle" part holds your categories.
+        ============================================================================
 
-
+        10.9: Test route at localhost:3000/categories:
+             -----------------------------------------------------------------------
+                     Beginning                       Beginning
+                     All categoies                   New Category
+                     After                           After
+             -----------------------------------------------------------------------
+444
 
 
 
