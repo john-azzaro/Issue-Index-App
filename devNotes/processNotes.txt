@@ -826,8 +826,10 @@ Phase 11: Create partials
 
 // Create initial partial files...
         =============================================================================
-        * However, if you were to create a partial that displayed all the
-          routes in a navigation "partial", you dont need to manually input each route.
+        * Initially, we'll want to create a header.js in our partials file so we dont
+          need to manually input the route each and every time. Again, the design of
+          the header and other partials is not vitally important is you have an organic
+          design process, this is just extremely convienient for development.
         =============================================================================
 
         11.2: Create a "header.js" file in the partials folder:
@@ -835,6 +837,28 @@ Phase 11: Create partials
                      partials  >   header.ejs                                             -- "header.ejs" will be the initial primary template for the header of the application.
              ----------------------------------------------------------------------
 
+        11.3: In header.js, create a basic header with nav:
+             ----------------------------------------------------------------------
+                     <header>
+                        <nav>
+                           <a href="/">IssueIndex</a>                                      -- anchor tag that directs to home.
+                           <ul>
+                              <li><a href="/categories">Categories</a></li>                -- anchor tag that directs to the categories page.
+                              <li><a href="/categories/new">Add Category</a></li>          -- anchor tag that directs to the Add Category page.
+                           </ul>
+                        </nav>
+                      </header>
+             ----------------------------------------------------------------------
+
+
+// Include partial files in layout...
+        =============================================================================
+        * 
+        =============================================================================
+        11.4: "Include" the partial module in the layouts.ejs file:
+             ----------------------------------------------------------------------
+                     
+             ----------------------------------------------------------------------
 
 
 
