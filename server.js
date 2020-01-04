@@ -17,6 +17,7 @@ const app = express();
 
 //Module Imports
 const indexRouter = require('./routes/index');
+const categoryRouter = require('./routes/categories');
 
 
 //Configuration
@@ -29,6 +30,7 @@ app.set("layout", "layouts/layout");
 app.use(expressLayouts);
 app.use(express.static('public'));
 app.use("/", indexRouter);
+app.use('/categories', categoryRouter);
 
 
 //Database

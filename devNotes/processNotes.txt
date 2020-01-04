@@ -764,9 +764,25 @@ Phase 10: Add "catagory" controlles and views.
 
         10.6: In views, create files for all categories and new category page:
              -----------------------------------------------------------------
-                      index.js                                                             --
-                      new.ejs                                                              --
+                      index.js                                                             -- File will render the view for ALL categories.
+                      new.ejs                                                              -- File witl render the view for new category creation.
              -----------------------------------------------------------------
+
+
+// Hook up "categoryRouter" to server.js:
+        ======================================================================
+        * Hook up the categories router to server.js.
+        ======================================================================
+
+        10.7: In server.js, import "categoryRouter":
+             -----------------------------------------------------------------------
+                      const categoryRouter = require('./routes/categories/');             -- Router hookedup between router > categories and server.js.
+             -----------------------------------------------------------------------
+
+        10.8: Use categoryRouter in the app:
+             -----------------------------------------------------------------------
+                      app.use('/categories', categoryRouter);                             -- every route in "categoryRouter" is going to be prepended with "categories"
+             -----------------------------------------------------------------------
 
 
 
