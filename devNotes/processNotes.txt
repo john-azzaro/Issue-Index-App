@@ -78,8 +78,10 @@ Process Workflow Summary:
         1. Setup mongoose on server.js.
         2. Setting up connection to database with .env file.
 
-    Phase 10: Adding "category" functionality.
-        1. Create an "category" controller in routes.
+    Phase 10: Add "catagory" controlles and views
+        1. Create an "category" Router.
+        2. Setup category routes
+        3. Create views for category routes
 
 
 
@@ -686,7 +688,7 @@ Phase 9: Integrate Mongoose
 
 
 
-Phase 10: Adding "category" functionality
+Phase 10: Add "catagory" controlles and views.
 ==========================================================================================================
 * One of the key features of this app is the categories that we can file our issues to. I found it best to 
   start off with the higher level routes first (i.e. categories) and then get into the granular parts of
@@ -694,7 +696,7 @@ Phase 10: Adding "category" functionality
   categories in a new router.
 ==========================================================================================================
 
-// Create an "category" controller...
+// Create a "category" Router...
         ======================================================================
         * To create a new controller in our routes folder, you basically have
           repeat the same process we did for index.js in creating a router. If
@@ -749,6 +751,16 @@ Phase 10: Adding "category" functionality
                          res.send('Create')
                      });
              ----------------------------------------------------------------
+
+
+// Create views for category routes...
+        ======================================================================
+        * With the routes done, we need to create the views for the category 
+          routes so that we have something to render when the client requests
+          the given url.
+        ======================================================================
+
+        10.6: 
 
 
 
