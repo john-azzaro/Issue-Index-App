@@ -62,11 +62,11 @@ Process Workflow Summary:
         2. Set EJS as the view engine.
         3. Load and use express-ejs-layouts.
    
-    Phase 7: Setup views and layouts.
+    Phase 7: Setup views and layouts:
         1. Set views.
         2. Set layouts.
 
-    Phase 8: Integrate routes with views.
+    Phase 8: Integrate routes with views:
         1. Create layout "view" file.
         2. Create HTML template for primary layout view.
         3. Insert EJS element for future page content.
@@ -74,18 +74,21 @@ Process Workflow Summary:
         5. Integrate the route with the view.
         6. Test the integration.
 
-    Phase 9: Integrate Mongoose.
+    Phase 9: Integrate Mongoose:
         1. Setup mongoose on server.js.
         2. Setting up connection to database with .env file.
 
-    Phase 10: Add "catagory" controllers and views
+    Phase 10: Add "catagory" controllers and views:
         1. Create an "category" Router.
         2. Setup category routes.
         3. Create views for category routes.
         4. Hook up "categoryRouter" to server.js.
         5. Test categoryRouter.
 
-
+    Phase 11: Create and include partials in layout:
+        1. Create "partials" folder in views.
+        2. Create initial partial files.
+        3. Include partial files in layout.
 
 
 
@@ -804,7 +807,7 @@ Phase 10: Add "catagory" controlles and views.
 
 
 
-Phase 11: Create partials
+Phase 11: Create and include partials in layout
 ========================================================================================
 * Partials contain all the template files that are NOT connected to routes such as 
   headers, footers, etc. The awesome thing about EJS is that you can utilize your ejs 
@@ -812,7 +815,7 @@ Phase 11: Create partials
   handy if you have a more fluid design sense and evolve the UI/UX oduring development.   
 =========================================================================================
 
-// Create "partials" folder...
+// Create "partials" folder in views...
         =============================================================================
         * First thing you need to do is create a partials folder to store all your 
           partial ejs templates.
@@ -826,8 +829,8 @@ Phase 11: Create partials
 
 // Create initial partial files...
         =============================================================================
-        * Initially, we'll want to create a header.js in our partials file so we dont
-          need to manually input the route each and every time. Again, the design of
+        * Initially, we'll want to create a header.js in our partials folder so we 
+          avoid manually inputting routes each and every time. Again, the design of
           the header and other partials is not vitally important is you have an organic
           design process, this is just extremely convienient for development.
         =============================================================================
@@ -853,11 +856,17 @@ Phase 11: Create partials
 
 // Include partial files in layout...
         =============================================================================
-        * 
+        * And at last, you take the header partial you just created and "include" it
+          in your main layouts.ejs HTML file. To do this, you find a spot in your HTML
+          you want the partial to be and simply call include inside an ejs tag and
+          pass the route to the partial file. Note that because the partials file is 
+          nested inside views, you need to add two dots before partials/header.ejs
         =============================================================================
+        
         11.4: "Include" the partial module in the layouts.ejs file:
              ----------------------------------------------------------------------
-                     
+                     <%- include('../partials/header.ejs') %>                            -- "include" the header.ejs partial file in layouts.ejs.
+                     <%- body %>
              ----------------------------------------------------------------------
 
 
