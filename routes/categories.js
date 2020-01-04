@@ -9,12 +9,16 @@ router.get('/', function(req, res) {
   res.render('categories/index');
 });
 
-//Create New Category
+//New Category Route
 router.get('/new', function(req, res) {
   res.render('categories/new')
 });
 
-// 
+// Create Category Route
+router.post('/', function(req, res) {
+  res.render()
+});
+
 
 //Export
 module.exports = router;

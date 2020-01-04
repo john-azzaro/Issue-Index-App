@@ -731,19 +731,24 @@ Phase 10: Adding "category" functionality
         10.3: Create "all categories" route:
              ----------------------------------------------------------------
                      // Routes
-                     router.get('/', function(req, res) {                              -- get all categories at the root endp
+                     router.get('/', function(req, res) {                              -- get all categories at the root endpoint.
                         res.render('categories/index');
                      });
              ----------------------------------------------------------------
 
-        10.4: Create a "New category" route:
+        10.4: Create a new "category" page route:
              ----------------------------------------------------------------
                      router.get('/new', function(req, res) {
-                        res.render('categories/new')
+                        res.render('categories/new')                                   -- this will DISPLAY the form to create the new category.
                      });   
              ----------------------------------------------------------------
 
-        
+        10.5: Create a new "Category":                                     -- this will POST (i.e. send) to the collection to create a new category.
+             ----------------------------------------------------------------
+                     router.post('/', function(req, res) {
+                         res.send('Create')
+                     });
+             ----------------------------------------------------------------
 
 
 
