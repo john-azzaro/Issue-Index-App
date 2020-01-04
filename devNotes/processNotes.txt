@@ -720,7 +720,20 @@ Phase 10: Adding "category" functionality
              ----------------------------------------------------------------
 
 // Setup category routes...
-        10.3: Create pseudocode for categories
+        10.3: Create "all categories" route:
+             ----------------------------------------------------------------
+                     // Routes
+                     router.get('/', function(req, res) {                              -- get all categories at the root endp
+                        res.render('index');
+                     });
+             ----------------------------------------------------------------
+
+        10.4: Create a "New category" route:
+             ----------------------------------------------------------------
+                     router.get('/new', function(req, res) {
+                        res.render('categories/new')
+                     });   
+             ----------------------------------------------------------------
 
 
 
