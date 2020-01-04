@@ -6,7 +6,7 @@ const router = express.Router();
 // Routes
 // All Categories Route
 router.get('/', function(req, res) {
-  res.render('index');
+  res.render('categories/index');
 });
 
 //Create New Category

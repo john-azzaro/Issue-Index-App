@@ -720,11 +720,19 @@ Phase 10: Adding "category" functionality
              ----------------------------------------------------------------
 
 // Setup category routes...
+        ======================================================================
+        * This step will cover all the routes we'll need for the categories.
+          For each category route we want to create, we'll want to render the
+          layout in a "categories" folder. You can see here that for each new
+          route class, you'll want to have a seperate folder for organizational
+          purposes.
+        ======================================================================
+        
         10.3: Create "all categories" route:
              ----------------------------------------------------------------
                      // Routes
                      router.get('/', function(req, res) {                              -- get all categories at the root endp
-                        res.render('index');
+                        res.render('categories/index');
                      });
              ----------------------------------------------------------------
 
@@ -734,6 +742,8 @@ Phase 10: Adding "category" functionality
                         res.render('categories/new')
                      });   
              ----------------------------------------------------------------
+
+        
 
 
 
