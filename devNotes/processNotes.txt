@@ -78,7 +78,7 @@ Process Workflow Summary:
         1. Setup mongoose on server.js.
         2. Setting up connection to database with .env file.
 
-    Phase 10: Add "catagory" controlles and views
+    Phase 10: Add "catagory" controllers and views
         1. Create an "category" Router.
         2. Setup category routes.
         3. Create views for category routes.
@@ -795,11 +795,42 @@ Phase 10: Add "catagory" controlles and views.
 
         10.9: Test route at localhost:3000/categories:
              -----------------------------------------------------------------------
-                     Beginning                       Beginning
-                     All categoies                   New Category
-                     After                           After
+                     Beginning                Beginning            
+                     All categories           New Category
+                     After                    After
              -----------------------------------------------------------------------
-444
+
+
+
+
+
+Phase 11: Create partials
+=====================================================================================
+* 
+=====================================================================================
+
+// Create "partials" folder...
+        =============================================================================
+        * The "partials" folder contains all the template files that are NOT connected 
+          to routes such as headers, footers, etc. At this point in development, we
+          are going to create a fair bit of routes that we would otherwise need to input
+          manually. However, if you were to create a partial that displayed all the
+          routes in a navigation "partial", you dont need to manually input each route.
+        =============================================================================
+
+        11.1: Create a "partial" file in "views":
+             ----------------------------------------------------------------------
+                     views  >  partials
+             ----------------------------------------------------------------------
+
+        11.2
+
+
+
+
+
+
+
 
 
 
