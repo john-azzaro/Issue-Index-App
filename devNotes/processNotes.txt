@@ -94,12 +94,12 @@ Process Workflow Summary:
         1. Create models folder.
         2. Create a "category.js" file in "models".
         3. Load mongoose.
-        4. Create a schema for "category".
-        6.
-        7.
-        8.
-        9.
-        10.
+        4. Create a schema for "categorySchema".
+        6. Create a model for "Category".
+        7. Export the Category model.
+        8. Import Category model to "categories.js".
+        9. Use the model in your route.
+
 
 
 Phase 1: Project Setup
@@ -926,7 +926,7 @@ Phase 12: Create Category model
              ------------------------------------------------------------------------ 
 
         
-// Create a schema for "category"...
+// Create a schema for "categorySchema"...
         ==============================================================================
         * A schema will define the shape of the documents we have within a collection
           in mongodb. At this point, we are going to create a category schema.
@@ -995,6 +995,7 @@ Phase 12: Create Category model
                            res.render('categories/new', { category: new Category() });            --  the "category" variable will be passed to the ejs file
                         });
                 -------------------------------------------------------------------------
+                1010
 
 
 
