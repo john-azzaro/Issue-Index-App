@@ -91,11 +91,15 @@ Process Workflow Summary:
         3. Include partial files in layout.
 
     Phase 12: Create Category model:
-        1.
-        2.
-        3.
-        4.
-        5.
+        1. Create models folder.
+        2. Create a "category.js" file in "models".
+        3. Load mongoose.
+        4. Create a schema for "category".
+        6.
+        7.
+        8.
+        9.
+        10.
 
 
 Phase 1: Project Setup
@@ -882,10 +886,12 @@ Phase 12: Create Category model
 ====================================================================================
 * To start creating true functionality with our application, we first need to create
   models and schemas that mongoose will use. Check out my outline on mongoose models 
-  and schemas here: https://github.com/john-azzaro/Study-Mongoose-Schemas .
+  and schemas here: https://github.com/john-azzaro/Study-Mongoose-Schemas . Also, check 
+  out https://github.com/john-azzaro/Study-Mongoose-Configuration-and-Data-Modeling 
+  for more information on mongoose foundational information.
 ====================================================================================
 
-// Create Category folder...
+// Create models folder...
         ============================================================================
         * Creating a "models" folder is part of the overall MVC file structure where
           for items saved to the mongodb database.
@@ -896,10 +902,42 @@ Phase 12: Create Category model
                     models                                                                  -- the M in MVC!
              ------------------------------------------------------------------------
 
+
+// Create a "category.js" file in "models"...
+        =============================================================================
+        * This model file will conatin the schemas, models, instance methods, embedded
+          models, etc. for "category".
+        =============================================================================
+        
         12.2: Create "category.js" file:
              ------------------------------------------------------------------------
                     category.js                                                              -- model and schema for categories.
              ------------------------------------------------------------------------
+
+
+// Load mongoose...
+        =============================================================================
+        * Our model and schema will utilize mongoose to interact with mongodb database.
+        =============================================================================
+
+        12.3: Load mongoose:
+             ------------------------------------------------------------------------
+                   const mongoose = require('mongoose'); 
+             ------------------------------------------------------------------------ 
+
+        
+// Create a schema for "category"...
+        ==============================================================================
+        * A schema will define the shape of the documents we have within a collection
+          in mongodb. At this point, we are going to create a category schema.
+        ==============================================================================
+
+        12.4: Create a category schema:
+              ------------------------------------------------------------------------
+                    const categorySchema = new mongoose.Schema({
+                        // schema goes here
+                    });
+              ------------------------------------------------------------------------
 
 
 
