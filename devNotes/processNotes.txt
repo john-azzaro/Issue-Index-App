@@ -90,6 +90,7 @@ Process Workflow Summary:
         2. Create initial partial files.
         3. Include partial files in layout.
 
+    Phase 12: Create Category model
 
 
 Phase 1: Project Setup
@@ -872,6 +873,10 @@ Phase 11: Create and include partials in layout
 
 
 
+Phase 12: Create Category model
+====================================================================================
+* 
+====================================================================================
 
 
 
