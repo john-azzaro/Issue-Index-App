@@ -951,20 +951,30 @@ Phase 12: Create Category model
 
         12.5: Create a model for the categorySchema:
                 -----------------------------------------------------------------------
-                        const Category = mongoose.model('Category', categorySchema);
+                        const Category = mongoose.model('Category', categorySchema);             -- Category is categorySchema.
                 -----------------------------------------------------------------------
 
 
 // Export the Category model...
         ================================================================================
         * In order to use the model elsewhere in your code, you need to export it using
-          module.exports. A good way to do this is via destructuring syntax.
+          module.exports. A good way to do this is via destructuring syntax. Once this is
+          done we can then import the model to create new categories.
         ================================================================================
 
         12.6: Export the model:
                 ------------------------------------------------------------------------
-                        module.exports = { Category };
+                        module.exports = { Category };                                            -- export Category model.
                 ------------------------------------------------------------------------
+
+
+// Import Category model to "categories.js"...
+        =================================================================================
+        * Back in routes > categories.js, we need to import the model to use.
+        =================================================================================
+
+        12.7: Import model to "categories.js"
+
 
 
 
