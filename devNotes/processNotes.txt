@@ -822,7 +822,10 @@ Phase 11: Create and include partials in layout
 * Partials contain all the template files that are NOT connected to routes such as 
   headers, footers, etc. The awesome thing about EJS is that you can utilize your ejs 
   files as smaller, more versatile modules. Ive also found that using partials is really
-  handy if you have a more fluid design sense and evolve the UI/UX oduring development.   
+  handy if you have a more fluid design sense and evolve the UI/UX oduring development.
+* Note that when you create partial files, you want to use as a naming convention 
+  underscores (i.e. _) to show that it is a partial file and not a full file being 
+  rendered from the server.   
 =========================================================================================
 
 // Create "partials" folder in views...
@@ -1006,16 +1009,47 @@ Phase 13: Create form for Category
   give the user the ability to add a catagory.
 ========================================================================================
 
-// In views > categories > new.ejs, add a form:
+// In views > categories > new.ejs, add a form...
         ================================================================================
-        * The form 
-        action is the url the form goes to
-        anchors are for linking things
-        button will interact with the form
+        * The form uses a basic HTML form layout with a button for submission and an 
+          anchor link for canceling the submission.
         ================================================================================
 
+        13.1: Create New Category form:
+                ------------------------------------------------------------------------
+                        <h2>New Author</h2>
+                        <form action="/categories" method="POST">                                 -- Form with action is the url the form goes to.
+                        // Input goes here.
+                        <a href="/categories">Cancel</a>                                          -- Anchor tag (used to link) Cancel sends us back to categories.
+                        <button type="submit">Create</button>                                     -- Button (used to interact with form) submit the category submission.
+                        </form>
+
+                ------------------------------------------------------------------------
 
 
+// Create a form fields partial file...
+        ================================================================================
+        * You could put in an input here in the form, but since the form will be shared 
+          with edit as well, so instead of duplicating the code we can just create a partial
+          and use it in both places! This is how the server gets the data from the object,
+          what the "name" is is what will be the input to the server.  when we get this back, 
+          all we need to do is call body.name to get the input value.
+        ================================================================================
+
+        13.2: Create a partial file for form fields:
+                ------------------------------------------------------------------------
+                        _form_fields.ejs                                                          -- form fields file (using underscores).
+                ------------------------------------------------------------------------
+
+
+// Create a form...
+        ================================================================================
+        * This is how the server gets the data from the object, what the "name" is is 
+          what will be the input to the server.  when we get this back, all we need to 
+          do is call body.name to get the input value.
+        ================================================================================
+
+        13.3: 
 
 
 
