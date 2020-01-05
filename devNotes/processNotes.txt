@@ -31,11 +31,11 @@ categories and issues as well. Additionally, the project will not include user a
 
 Process Workflow Summary:
 =========================
-
-    Phase 1: Project Setup:
-        1. Project Setup.
-        2. Install Express.
-        3. Add .gitignore.
+                                                                                        _____________________________________________                
+    Phase 1: Project Setup:                                                                        Project Setup (Phases 1-8)
+        1. Project Setup.                                  
+        2. Install Express.                                                  
+        3. Add .gitignore.                                                               
         4. Add custom start scripts.
         5. Add server.js.
 
@@ -73,12 +73,12 @@ Process Workflow Summary:
         4. Create an index.js controller in "views"
         5. Integrate the route with the view.
         6. Test the integration.
-
-    Phase 9: Integrate Mongoose:
-        1. Setup mongoose on server.js.
-        2. Setting up connection to database with .env file.
-
-    Phase 10: Add "catagory" controllers and views:
+                                                                                       _________________________________________________
+    Phase 9: Integrate Mongoose:                                                                    Setup database (Phase 9)
+        1. Setup mongoose on server.js.                                          
+        2. Setting up connection to database with .env file.                     
+                                                                                       __________________________________________________                                              
+    Phase 10: Add "category" controllers and views:                                          Add Category functionality (Phase 10-)
         1. Create an "category" Router.
         2. Setup category routes.
         3. Create views for category routes.
@@ -764,7 +764,7 @@ Phase 10: Add "catagory" controlles and views.
         10.5: Create a new "Category":             
              ----------------------------------------------------------------
                      router.post('/', function(req, res) {
-                         res.send('Create')                                            -- this will POST (i.e. send) to the collection to create a new category.
+                         res.send('Create')l                                           -- this will POST (i.e. send) to the collection to create a new category.
                      });
              ----------------------------------------------------------------
 
@@ -978,7 +978,7 @@ Phase 12: Create Category model
 
         12.7: Import model to "categories.js":
                 -------------------------------------------------------------------------
-                        const { Category } = require('../models/category');                       -- imported "Category" from models/category (note ../ for model folder nesting).
+                        const { Category } = require('../models/category');                       -- Imported "Category" from models/category (note ../ for model folder nesting).
                 -------------------------------------------------------------------------
 
 
@@ -992,11 +992,27 @@ Phase 12: Create Category model
         12.8: In the new Category route, add your model:
                 -------------------------------------------------------------------------
                         router.get('/new', function(req, res) {
-                           res.render('categories/new', { category: new Category() });            --  the "category" variable will be passed to the ejs file
+                           res.render('categories/new', { category: new Category() });            -- The "category" variable will be passed to the ejs file
                         });
                 -------------------------------------------------------------------------
-                1010
+                
+                
 
+
+
+Phase 13: Create form for Category
+========================================================================================
+* Now that we have the model and route done, we need to create a form so that we can 
+  give the user the ability to add a catagory.
+========================================================================================
+
+// In views > categories > new.ejs, add a form:
+        ================================================================================
+        * The form 
+        action is the url the form goes to
+        anchors are for linking things
+        button will interact with the form
+        ================================================================================
 
 
 
