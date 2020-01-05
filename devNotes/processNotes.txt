@@ -972,12 +972,29 @@ Phase 12: Create Category model
 
 // Import Category model to "categories.js"...
         =================================================================================
-        * Back in routes > categories.js, we need to import the model to use.
+        * Back in routes > categories.js, we need to import the model to use. This will
+          give you access to the Category model
         =================================================================================
 
-        12.7: Import model to "categories.js"
+        12.7: Import model to "categories.js":
+                -------------------------------------------------------------------------
+                        const { Category } = require('../models/category');                       -- imported "Category" from models/category (note ../ for model folder nesting).
+                -------------------------------------------------------------------------
 
 
+// Use the model in your route...
+        =================================================================================
+        * Now that you successfully imported the model to your routes > categories.js file, 
+          you can freely use it in your routes. In the case below, we can now create a new
+          category at the endpoint. Note that this does NOT save anything to the database
+        =================================================================================
+
+        12.8: In the new Category route, add your model:
+                -------------------------------------------------------------------------
+                        router.get('/new', function(req, res) {
+                           res.render('categories/new', { category: new Category() });            --  the "category" variable will be passed to the ejs file
+                        });
+                -------------------------------------------------------------------------
 
 
 

@@ -12,7 +12,7 @@ router.get('/', function(req, res) {
 
 //New Category Route
 router.get('/new', function(req, res) {
-  res.render('categories/new')
+  res.render('categories/new', { category: new Category() });
 });
 
 // Create Category Route
