@@ -101,11 +101,12 @@ Process Workflow Summary:
         9. Use the model in your route.
 
     Phase 13: Create form and input partial for Category:
-        1. Add form to categories > new.ejs.
-        2.
-        3.
-        4.
-        5.
+        1. Add form to new.ejs.
+        2. Create partial file for form field.
+        3. Create a label form field.
+        4. Import the form partial to category.js.
+        5. Install and configure body-parser via npm.
+        6. Amend "Create Category Route" to parse text as JSON.
 
 Phase 1: Project Setup
 =========================================================================================
@@ -1014,7 +1015,7 @@ Phase 13: Create form and input partial for Category
   give the user the ability to add a catagory.
 ========================================================================================
 
-// Add form to categories > new.ejs...
+// Add form to new.ejs...
         ================================================================================
         * The form uses a basic HTML form layout with a button for submission and an 
           anchor link for canceling the submission.
@@ -1108,9 +1109,12 @@ Phase 13: Create form and input partial for Category
           route to parse the form text in a simple and straight forward way.
         ===================================================================================
         
-        13.8: Amend "create catagory route":
+        13.8: Amend "create category route":
                 ---------------------------------------------------------------------------
-                        
+                        // Create Category Route
+                        router.post('/', function(req, res) {
+                           res.send(req.body.name);                                                  -- with the help of body-parser, you can extract the name from the request body.
+                        });
                 ---------------------------------------------------------------------------
 
 
