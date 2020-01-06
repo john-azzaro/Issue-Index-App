@@ -1017,7 +1017,7 @@ Phase 13: Create form for Category
 
         13.1: Create New Category form:
                 ------------------------------------------------------------------------
-                        <h2>New Author</h2>
+                        <h2>New Category</h2>
                         <form action="/categories" method="POST">                                 -- Form with action is the url the form goes to.
                         // Input goes here.
                         <a href="/categories">Cancel</a>                                          -- Anchor tag (used to link) Cancel sends us back to categories.
@@ -1054,9 +1054,19 @@ Phase 13: Create form for Category
         13.3: Add your form in _form_fields.ejs:
                 -------------------------------------------------------------------------
                         <label>Name</label>
-                        <input type="text" name="name" <%= category.name %> >                      -- 
+                        <input type="text" name="name" <%= category.name %> >                      -- form partial to go in 
                 -------------------------------------------------------------------------
 
+
+// Import the form partial to category.js...
+        =================================================================================
+        * Once you have the partial completed, you can import it to the category.js file.
+        =================================================================================
+
+        13.4: Import form partial:
+                -------------------------------------------------------------------------
+                        <%- include('_form_fields') %>
+                -------------------------------------------------------------------------
 
 
 
