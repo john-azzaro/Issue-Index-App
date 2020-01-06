@@ -17,6 +17,9 @@ router.get('/new', function(req, res) {
 
 // Create Category Route
 router.post('/', function(req, res) {
+  const category = new Category({
+    name: req.body.name
+  })
   res.send(req.body.name);
 });
 

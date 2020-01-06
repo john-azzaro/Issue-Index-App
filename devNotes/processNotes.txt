@@ -105,8 +105,20 @@ Process Workflow Summary:
         2. Create partial file for form field.
         3. Create a label form field.
         4. Import the form partial to category.js.
-        5. Install and configure body-parser via npm.
-        6. Test "Create Category Route".
+        5. 
+        6. 
+
+    Phase 14: Configure "create category" route:
+        1. Install and configure body-parser via npm.
+        2. Test "Create Category Route".
+        3.
+        4.
+
+
+
+
+
+
 
 Phase 1: Project Setup
 =========================================================================================
@@ -1083,9 +1095,11 @@ Phase 13: Create form and input partial for Category
 
 
 
-Phase 14: 
-
-
+Phase 14: Configure and test "create category" route...
+        =================================================================================
+        * With the input field partial completed, you can now setup the create category 
+          route to accept and parse text as json or urls for the form.
+        =================================================================================
 
 // Install and configure body-parser via npm...
         =================================================================================
@@ -1094,17 +1108,17 @@ Phase 14:
           with.
         =================================================================================
 
-        13.5: Install body-parser via npm:
+        14.1: Install body-parser via npm:
                 -------------------------------------------------------------------------
                         npm install body-parser                                                   
                 -------------------------------------------------------------------------
 
-        13.6: Configure body-parser in server.js:
+        14.2: Configure body-parser in server.js:
                 -------------------------------------------------------------------------
                         const bodyParser = require('body-parser');                                  -- Load body-parser to server.js
                 -------------------------------------------------------------------------
 
-        13.7: Tell express how to use body-parser via middleware:
+        14.3: Tell express how to use body-parser via middleware:
                 -----------------------------------------------------------------------------
                         app.use(bodyParser.json());                                                 -- Bodyparser middleware that can parse text as JSON and exposes the resulting object on req.body.
                         app.use(bodyParser.urlencoded( { limit: '10mb', extended: false}));         -- Bodyparser middleware that can parse text as url for form (& limited to 10mb for uploading files to server)
@@ -1115,10 +1129,12 @@ Phase 14:
         ===================================================================================
         * Now that you can text as json via body-parser, you can change the create category
           route to parse the form text in a simple and straight forward way. Once this is 
-          done, you can use the input name to create a new category and add it to the database.
+          done, you can use the input name to create a new category and add it to the 
+          database. When you test, you should be able to enter a string in the input, submit 
+          it, and a page with the string you entered will appear.
         ===================================================================================
         
-        13.8: Amend "create category route":
+        14.4: Amend "create category route":
                 ---------------------------------------------------------------------------
                         // Create Category Route
                         router.post('/', function(req, res) {
@@ -1127,6 +1143,22 @@ Phase 14:
                 ---------------------------------------------------------------------------
 
 
+// Configure "Create Category Route"...
+        ====================================================================================
+        * If the test is successful, you can start to add the code needed to add a new 
+          category name and add it to the mongodb database.
+        ====================================================================================
+
+        14.5: Create a variable "category" set to new category:
+                ---------------------------------------------------------------------------
+                        // Create Category Route
+                        router.post('/', function(req, res) {
+                           const category = new Category({                                            -- "category" const variable with properties to accept...
+                              new: req.body.name                                                      -- ... which in this case is "name" with the value from the req.body of the input.
+                           });                                                                           Additionaly, you want to add ".name" incase the user passes anything else other 
+                           res.send(req.body.name);                                                      than name, which could reset anything from the id, etc.
+                        });                        
+                ---------------------------------------------------------------------------
 
 
 
