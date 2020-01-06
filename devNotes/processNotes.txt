@@ -1042,14 +1042,20 @@ Phase 13: Create form for Category
                 ------------------------------------------------------------------------
 
 
-// Create a form...
+// Create a form partial...
         ================================================================================
         * This is how the server gets the data from the object, what the "name" is is 
           what will be the input to the server.  when we get this back, all we need to 
-          do is call body.name to get the input value.
+          do is call body.name to get the input value. Note that for the ejs tag, the "="
+          in <%= category.name %> means that what follow the "=" will be output as html
+          to the page.
         ================================================================================
 
-        13.3: 
+        13.3: Add your form in _form_fields.ejs:
+                -------------------------------------------------------------------------
+                        <label>Name</label>
+                        <input type="text" name="name" <%= category.name %> >                      -- 
+                -------------------------------------------------------------------------
 
 
 
