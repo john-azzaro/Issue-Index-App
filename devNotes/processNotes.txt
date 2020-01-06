@@ -73,12 +73,12 @@ Process Workflow Summary:
         4. Create an index.js controller in "views"
         5. Integrate the route with the view.
         6. Test the integration.
-                                                                                       _________________________________________________
-    Phase 9: Integrate Mongoose:                                                                    Setup database (Phase 9)
+                                                                                        _________________________________________________
+    Phase 9: Integrate Mongoose:                                                                     Setup database (Phase 9)
         1. Setup mongoose on server.js.                                          
         2. Setting up connection to database with .env file.                     
-                                                                                       __________________________________________________                                              
-    Phase 10: Add "category" controllers and views:                                          Add Category functionality (Phase 10-)
+                                                                                        __________________________________________________                                              
+    Phase 10: Add "category" controllers and views:                                           Add Category functionality (Phase 10-)
         1. Create an "category" Router.
         2. Setup category routes.
         3. Create views for category routes.
@@ -87,7 +87,7 @@ Process Workflow Summary:
 
     Phase 11: Create and include partials in layout:
         1. Create "partials" folder in views.
-        2. Create initial partial files.
+        2. Create initial partial files (i.e input field).
         3. Include partial files in layout.
 
     Phase 12: Create Category model:
@@ -106,7 +106,7 @@ Process Workflow Summary:
         3. Create a label form field.
         4. Import the form partial to category.js.
         5. Install and configure body-parser via npm.
-        6. Amend "Create Category Route" to parse text as JSON.
+        6. Test "Create Category Route".
 
 Phase 1: Project Setup
 =========================================================================================
@@ -1079,6 +1079,14 @@ Phase 13: Create form and input partial for Category
                         </form>
                 -------------------------------------------------------------------------
 
+
+
+
+
+Phase 14: 
+
+
+
 // Install and configure body-parser via npm...
         =================================================================================
         * So body-parser is a middleware that extracts the entire body portion of an 
@@ -1103,7 +1111,7 @@ Phase 13: Create form and input partial for Category
                 -----------------------------------------------------------------------------
 
 
-// Amend "Create Category Route" to parse text as JSON...
+// Test "Create Category Route"...
         ===================================================================================
         * Now that you can text as json via body-parser, you can change the create category
           route to parse the form text in a simple and straight forward way. Once this is 
