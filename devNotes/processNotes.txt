@@ -1106,7 +1106,8 @@ Phase 13: Create form and input partial for Category
 // Amend "Create Category Route" to parse text as JSON...
         ===================================================================================
         * Now that you can text as json via body-parser, you can change the create category
-          route to parse the form text in a simple and straight forward way.
+          route to parse the form text in a simple and straight forward way. Once this is 
+          done, you can use the input name to create a new category and add it to the database.
         ===================================================================================
         
         13.8: Amend "create category route":
