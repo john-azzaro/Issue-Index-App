@@ -1155,12 +1155,30 @@ Phase 14: Configure and test "create category" route...
                         router.post('/', function(req, res) {
                            const category = new Category({                                            -- "category" const variable with properties to accept...
                               new: req.body.name                                                      -- ... which in this case is "name" with the value from the req.body of the input.
-                           });                                                                           Additionaly, you want to add ".name" incase the user passes anything else other 
-                           res.send(req.body.name);                                                      than name, which could reset anything from the id, etc.
-                        });                        
+                           });                                                                           *Additionally, you want to EXPLICITLY tell the server what params we want it to accept
+                           res.send(req.body.name);                                                      from the client, because otherwise the client could send something else that would
+                        });                                                                              then be added to the category object.
                 ---------------------------------------------------------------------------
 
 
+        14.6: Then save the new category to the database:
+                ---------------------------------------------------------------------------
+                        // Create Category Route
+                        router.post('/', function(req, res) {
+                           const category = new Category({                                    
+                              new: req.body.name                                         
+                           });        
+                           category.save(function (err, newCategory) {                                -- Call the save method on the category object with a callback...  
+                              if (err) {                                                              -- if there is an error...
+                                 res.render('categories/new', {                                       -- render the category/new page again and...
+                                    category: category,                                               -- ... keep the string the user put in the input (to help them see the issue) and...
+                                    errorMessage: 'Error creating category'                           -- ... return an error message.
+                                 });                                                   
+                              }
+                           })                                         
+                           res.send(req.body.name);                                        
+                        });                                                                           
+                ---------------------------------------------------------------------------           
 
 
 

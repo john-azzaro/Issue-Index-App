@@ -19,7 +19,11 @@ router.get('/new', function(req, res) {
 router.post('/', function(req, res) {
   const category = new Category({
     name: req.body.name
-  })
+  });
+  category.save(function () {
+    
+  });
+
   res.send(req.body.name);
 });
 
