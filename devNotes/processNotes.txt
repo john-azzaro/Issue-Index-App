@@ -1102,8 +1102,16 @@ Phase 13: Create form and input partial for Category
                 -----------------------------------------------------------------------------
 
 
-// Change "Create Category Route"...
-        13.8: 
+// Amend "Create Category Route" to parse text as JSON...
+        ===================================================================================
+        * Now that you can text as json via body-parser, you can change the create category
+          route to parse the form text in a simple and straight forward way.
+        ===================================================================================
+        
+        13.8: Amend "create catagory route":
+                ---------------------------------------------------------------------------
+                        
+                ---------------------------------------------------------------------------
 
 
 
@@ -1130,3 +1138,4 @@ Resources
 https://www.npmjs.com/package/express-ejs-layouts  -- ejs layouts file
 https://scotch.io/tutorials/use-ejs-to-template-your-node-application  -- ejs layouts outline
 https://www.includehelp.com/node-js/ejs-layouts.aspx  -- ejs layouts
+https://stackoverflow.com/questions/38306569/what-does-body-parser-do-with-express -- body-parser sum
