@@ -100,7 +100,12 @@ Process Workflow Summary:
         8. Import Category model to "categories.js".
         9. Use the model in your route.
 
-
+    Phase 13: Create form and input partial for Category:
+        1. Add form to categories > new.ejs.
+        2.
+        3.
+        4.
+        5.
 
 Phase 1: Project Setup
 =========================================================================================
@@ -1003,13 +1008,13 @@ Phase 12: Create Category model
 
 
 
-Phase 13: Create form for Category
+Phase 13: Create form and input partial for Category
 ========================================================================================
 * Now that we have the model and route done, we need to create a form so that we can 
   give the user the ability to add a catagory.
 ========================================================================================
 
-// In views > categories > new.ejs, add a form...
+// Add form to categories > new.ejs...
         ================================================================================
         * The form uses a basic HTML form layout with a button for submission and an 
           anchor link for canceling the submission.
@@ -1027,7 +1032,7 @@ Phase 13: Create form for Category
                 ------------------------------------------------------------------------
 
 
-// Create a form fields partial file...
+// Create partial file for form field...
         ================================================================================
         * You could put in an input here in the form, but since the form will be shared 
           with edit as well, so instead of duplicating the code we can just create a partial
@@ -1042,7 +1047,7 @@ Phase 13: Create form for Category
                 ------------------------------------------------------------------------
 
 
-// Create a form partial...
+// Create a label form field...
         ================================================================================
         * This is how the server gets the data from the object, what the "name" is is 
           what will be the input to the server.  when we get this back, all we need to 
@@ -1071,6 +1076,26 @@ Phase 13: Create form for Category
                            <a href="/categories">Cancel</a>
                            <button type="submit">Create</button>
                         </form>
+                -------------------------------------------------------------------------
+
+// Install body-parser via npm...
+        =================================================================================
+        * In order to access different input elements from the server.
+        =================================================================================
+
+        13.5: Install body-parser via npm:
+                -------------------------------------------------------------------------
+                        npm install body-parser                                                   
+                -------------------------------------------------------------------------
+
+        13.6: Configure body-parser in server.js:
+                -------------------------------------------------------------------------
+                        const bodyParser = require('body-parser');
+                -------------------------------------------------------------------------
+
+        13.7: Tell express how to use body-parser via middleware:
+                -------------------------------------------------------------------------
+                        
                 -------------------------------------------------------------------------
 
 
