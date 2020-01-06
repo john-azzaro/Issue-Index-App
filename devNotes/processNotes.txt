@@ -1078,9 +1078,11 @@ Phase 13: Create form and input partial for Category
                         </form>
                 -------------------------------------------------------------------------
 
-// Install body-parser via npm...
+// Install and configure body-parser via npm...
         =================================================================================
-        * In order to access different input elements from the server.
+        * So body-parser is a middleware that extracts the entire body portion of an 
+          incoming request and exposes it on req.body which is very easy to interface 
+          with.
         =================================================================================
 
         13.5: Install body-parser via npm:
@@ -1090,13 +1092,18 @@ Phase 13: Create form and input partial for Category
 
         13.6: Configure body-parser in server.js:
                 -------------------------------------------------------------------------
-                        const bodyParser = require('body-parser');
+                        const bodyParser = require('body-parser');                                  -- Load body-parser to server.js
                 -------------------------------------------------------------------------
 
         13.7: Tell express how to use body-parser via middleware:
-                -------------------------------------------------------------------------
-                        
-                -------------------------------------------------------------------------
+                -----------------------------------------------------------------------------
+                        app.use(bodyParser.json());                                                 -- Bodyparser middleware that can parse text as JSON and exposes the resulting object on req.body.
+                        app.use(bodyParser.urlencoded( { limit: '10mb', extended: false}));         -- Bodyparser middleware that can parse text as url for form (& limited to 10mb for uploading files to server)
+                -----------------------------------------------------------------------------
+
+
+// Change "Create Category Route"...
+        13.8: 
 
 
 

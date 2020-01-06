@@ -8,6 +8,7 @@ if (process.env.NODE_ENV !== 'production') {
 const express = require('express');
 const expressLayouts = require('express-ejs-layouts');
 const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
 mongoose.Promise = global.Promise;
 const app = express();
 
@@ -28,6 +29,8 @@ app.use(expressLayouts);
 app.use(express.static('public'));
 app.use("/", indexRouter);
 app.use('/categories', categoryRouter);
+app.use(bodyParser.json()); 
+app.use(bodyParser.urlencoded( { limit: '10mb', extended: false}));
 
 
 //Database
