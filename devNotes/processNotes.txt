@@ -1038,7 +1038,7 @@ Phase 13: Create form for Category
 
         13.2: Create a partial file for form fields:
                 ------------------------------------------------------------------------
-                        _form_fields.ejs                                                          -- form fields file (using underscores).
+                        _form_fields.ejs                                                          -- Form fields file (using underscores).
                 ------------------------------------------------------------------------
 
 
@@ -1054,7 +1054,7 @@ Phase 13: Create form for Category
         13.3: Add your form in _form_fields.ejs:
                 -------------------------------------------------------------------------
                         <label>Name</label>
-                        <input type="text" name="name" <%= category.name %> >                      -- form partial to go in 
+                        <input type="text" name="name" value="<%= category.name %>" >              -- Form partial with category name. 
                 -------------------------------------------------------------------------
 
 
@@ -1065,7 +1065,12 @@ Phase 13: Create form for Category
 
         13.4: Import form partial:
                 -------------------------------------------------------------------------
-                        <%- include('_form_fields') %>
+                        <h2>New Category</h2>
+                        <form action="/categories" method="POST">
+                           <%- include('_form_fields') %>                                          -- Include the form partial in the new Category page.
+                           <a href="/categories">Cancel</a>
+                           <button type="submit">Create</button>
+                        </form>
                 -------------------------------------------------------------------------
 
 
