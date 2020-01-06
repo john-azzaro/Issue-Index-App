@@ -27,11 +27,10 @@ app.set("layout", "layouts/layout");
 //Middleware
 app.use(expressLayouts);
 app.use(express.static('public'));
+app.use(bodyParser.json()); 
+app.use(bodyParser.urlencoded({ limit: '10mb', extended: false }));
 app.use("/", indexRouter);
 app.use('/categories', categoryRouter);
-app.use(bodyParser.json()); 
-app.use(bodyParser.urlencoded( { limit: '10mb', extended: false}));
-
 
 //Database
 mongoose.connect(process.env.DATABASE_URL, { 
