@@ -23,10 +23,13 @@ router.post('/', function(req, res) {
     name: req.body.name
   });
   category.save(function (err, newCategory) {
-    res.render('categories/new', {
-      category: category,
-      errorMessage: 'Error creating category'
-    });
+    if (err) {
+      res.render('categories/new', {
+        category: category,
+        errorMessage: 'Error creating category'
+      });
+    }
+
   });
 
   res.send(req.body.name);
