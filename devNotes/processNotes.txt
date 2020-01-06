@@ -111,8 +111,10 @@ Process Workflow Summary:
     Phase 14: Configure "create category" route:
         1. Install and configure body-parser via npm.
         2. Test "Create Category Route".
-        3.
-        4.
+        3. Configure "Create Category Route".
+        4. Create error message partial.
+        5.
+        6.
 
 
 
@@ -1181,11 +1183,16 @@ Phase 14: Configure and test "create category" route...
                         });                                                                              the newly created category!
                 --------------------------------------------------------------------------- 
 
-
+// Create error message partial...
+        ===================================================================================
+        * When you created the "create category route", you 
+        ===================================================================================
         14.7: Create a partial file for the error message:
                 ---------------------------------------------------------------------------
+                        partials  >  errorMessage.ejs
+                ---------------------------------------------------------------------------   
 
-                ---------------------------------------------------------------------------          
+               
 
 
 
