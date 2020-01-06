@@ -1174,11 +1174,18 @@ Phase 14: Configure and test "create category" route...
                                     category: category,                                               -- ... keep the string the user put in the input (to help them see the issue) and...
                                     errorMessage: 'Error creating category'                           -- ... return an error message.
                                  });                                                   
-                              }
-                           })                                         
-                           res.send(req.body.name);                                        
-                        });                                                                           
-                ---------------------------------------------------------------------------           
+                              } else {                                                                -- "else" the post being successfully submitted...
+                                 res.redirect('categories');                                          -- redirect back to the categories page. *Note that you can comment out 
+                              }                                                                          res.redirect(`categories/${newCategory.id}`); and uncomment it when we hook this  
+                           });                                                                           post request up to the database via mongoose. What this will do is redirect to     
+                        });                                                                              the newly created category!
+                --------------------------------------------------------------------------- 
+
+
+        14.7: Create a partial file for the error message:
+                ---------------------------------------------------------------------------
+
+                ---------------------------------------------------------------------------          
 
 
 

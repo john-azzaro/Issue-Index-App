@@ -28,11 +28,11 @@ router.post('/', function(req, res) {
         category: category,
         errorMessage: 'Error creating category'
       });
+    } else {
+      // res.redirect(`categories/${newCategory.id}`);
+      res.redirect(`categories`);
     }
-
   });
-
-  res.send(req.body.name);
 });
 
 
