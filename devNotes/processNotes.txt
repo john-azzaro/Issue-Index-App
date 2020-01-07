@@ -1332,6 +1332,12 @@ Phase 16: Display All categories feature to app:
                 ------------------------------------------------------------------------------
 
 
+// Create view for all categories...
+        ======================================================================================
+        * On this page, we want to have a search form at the top and a list of all the categories
+          listed on the bottom.
+        ======================================================================================
+        
         16.3: Create view for see all categories in categories > index.js:
                 ------------------------------------------------------------------------------
                 <h2>Search Categories</h2>
@@ -1341,14 +1347,44 @@ Phase 16: Display All categories feature to app:
                    <button type="submit">Search</button>
                 </form>
                 <br>
-                <% categories.forEach( function(category) {  %>                                          -- To display all the categories, loop through each item in categories and create a div with the name.
+                <% categories.forEach( function(category) { %>                                           -- To display all the categories, loop through each item in categories and create a div with the name.
                    <div><%= category.name %></div>                                                          When you go to "Categories" page, you should see all the names you 
                 <% }) %>
                 ------------------------------------------------------------------------------
 
 
+// Implement search feature for categories...
+        =======================================================================================
+        * To implement a search feature, you can add search options which will check to see if
+          the name exists, if it is an empty string, and then using regular expressions, take 
+          that query name and lowercase it to search the database.
+        =======================================================================================
+
+        16.4: Add search features to all categories route:
+                ------------------------------------------------------------------------------
+                // All Categories Route
+                router.get('/', async function(req, res) {
+                   let searchOptions = {};                                                               -- "searchOptions" will store all the parameters for our search.
+                   if (req.query.name !== null && req.query.name !== '') {                               -- if the request query (in the url) is not available AND not an empty string...
+                      searchOptions.name = new RegExp(req.query.name, 'i');                              -- this will allow us to search for only part of the text in the field.
+                   }
+                   try { 
+                      const categories = await Category.find({searchOptions})                            -- add "searchOptions" to find!
+                      res.render('categories/index', { 
+                        categories: categories, 
+                        searchOptions: req.query                                                         -- and send back the request to the user so the field will be repopulated.
+                      });  
+                   } catch(err) {
+                      res.redirect('/');
+                   }
+                });
+                ------------------------------------------------------------------------------
 
 
+// In index.js, add searchOptions as a value to the form...
+        =======================================================================================
+
+        =======================================================================================
 
 
 
