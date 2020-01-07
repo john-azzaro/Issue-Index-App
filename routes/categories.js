@@ -23,25 +23,19 @@ router.post('/', async function(req, res) {
     name: req.body.name
   });
   try {
-
+    const newCategory = await category.save()                            // awaits for category.save to finish then populate the "newCategory" variable
+    // res.redirect(`categories/${newCategory.id}`);
+    res.redirect(`categories`);
   } catch(err) {
+    res.render('categories/new', {
+      category: category,
+      errorMessage: 'Error creating category'
+    });    
   }
 });
 
 
 
-
-  // category.save(function (err, newCategory) {
-  //   if (err) {
-  //     res.render('categories/new', {
-  //       category: category,
-  //       errorMessage: 'Error creating category'
-  //     });
-  //   } else {
-  //     // res.redirect(`categories/${newCategory.id}`);
-  //     res.redirect(`categories`);
-  //   }
-  // });
 
 
 

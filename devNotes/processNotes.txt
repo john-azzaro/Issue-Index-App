@@ -1193,8 +1193,10 @@ Phase 14: Configure and test "create category" route...
                 --------------------------------------------------------------------------- 
 
         14.8: Create error message partial:
-                ---------------------------------------------------------------------------
-                        <%= errorMessage %> 
+                ---------------------------------------------------------------------------              If the error message is NOT set, run the code errorMessage.
+                        <% if (locals.errorMessage != null) { %>                                      -- Note here that you need to wrap error messages in if statements like this.
+                           <%= errorMessage %>                                                           The ejs does not have an "=" so its just output to the server.
+                        <% } %>
                 ---------------------------------------------------------------------------  
 
         14.9: Include the errorMessage partial in layout.ejs:
@@ -1226,7 +1228,41 @@ Phase 14: Configure and test "create category" route...
                 });
                 ---------------------------------------------------------------------------
 
-        14.11: 
+        14.11: Add the error part of the existing code:
+                ---------------------------------------------------------------------------
+                router.post('/', async function(req, res) {
+                   const category = new Category({
+                      name: req.body.name
+                   });
+                   try {
+
+                   } catch(err) {                                                                         -- catch for error
+                      res.render('categories/new', {
+                      category: category,
+                      errorMessage: 'Error creating category'
+                      });    
+                   }
+                });
+                ---------------------------------------------------------------------------
+
+        14.12: Add the success part of the code:
+                ---------------------------------------------------------------------------
+                router.post('/', async function(req, res) {
+                   const category = new Category({
+                      name: req.body.name
+                   });
+                   try {
+                      const newCategory = await category.save()                                           -- awaits for category.save to finish then populate the "newCategory" variable
+                      // res.redirect(`categories/${newCategory.id}`);
+                      res.redirect(`categories`);
+                   } catch(err) {
+                      res.render('categories/new', {
+                      category: category,
+                      errorMessage: 'Error creating category'
+                      });    
+                   }
+                });
+                ---------------------------------------------------------------------------2442
 
 
 
