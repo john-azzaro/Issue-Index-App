@@ -1194,16 +1194,21 @@ Phase 14: Configure and test "create category" route...
 
         14.8: Create error message partial:
                 ---------------------------------------------------------------------------
-                        <%= errorMessage %>
+                        <%= errorMessage %> 
                 ---------------------------------------------------------------------------  
 
         14.9: Include the errorMessage partial in layout.ejs:
                 ---------------------------------------------------------------------------
-                        
+                        <%- include('../partials/header.ejs') %>
+                        <%= include('../partials/errorMessage.ejs') %>                                 -- include the errorMessage partial.
+                        <%- body %>
                 ---------------------------------------------------------------------------
                
 
-
+// Convert "Create Category Route" to async/await:
+        ===================================================================================
+        
+        ===================================================================================
 
 
 
