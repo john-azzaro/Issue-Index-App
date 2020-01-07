@@ -109,13 +109,14 @@ Process Workflow Summary:
     Phase 14: Configure "create category" route:
         1. Install and configure body-parser via npm.
         2. Test "Create Category Route".
-        3. Configure "Create Category Route".
-        4. Create error message partial.
+
+    Phase 15: Build Create Category Route.
+        1. Configure "Create Category Route".
+        2. Create error message partial.
+        3. Convert "Create Category Route" using async/await.
+        4.
         5.
         6.
-
-
-
 
 
 
@@ -1143,6 +1144,17 @@ Phase 14: Configure and test "create category" route...
                 ---------------------------------------------------------------------------
 
 
+
+
+
+Phase 15: Build Create Category Route...
+        ====================================================================================
+        * Once you've tested the Create category route, you can build the route out. You can
+          go about it with either promises or async/await. async/await tends to be easier for
+          me to work with, but promises work just as well. If you want find out more, check out
+          my async study: https://github.com/john-azzaro/Study-Asynchronous-Programming-in-Node
+        ====================================================================================
+
 // Configure "Create Category Route"...
         ====================================================================================
         * If the test is successful, you can start to add the code needed to add a new 
@@ -1156,8 +1168,8 @@ Phase 14: Configure and test "create category" route...
                            const category = new Category({                                            -- "category" const variable with properties to accept...
                               new: req.body.name                                                      -- ... which in this case is "name" with the value from the req.body of the input.
                            });                                                                           *Additionally, you want to EXPLICITLY tell the server what params we want it to accept
-                           res.send(req.body.name);                                                      from the client, because otherwise the client could send something else that would
-                        });                                                                              then be added to the category object.
+                        });                                                                              from the client, because otherwise the client could send something else that would
+                                                                                                         then be added to the category object.
                 ---------------------------------------------------------------------------
 
 
@@ -1207,7 +1219,7 @@ Phase 14: Configure and test "create category" route...
                 ---------------------------------------------------------------------------
                
 
-// Convert "Create Category Route" using async/await:
+// Convert "Create Category Route" using async/await...
         ===================================================================================
         * 
         ===================================================================================
