@@ -1307,7 +1307,7 @@ Phase 16: Display All categories feature to app:
                 ------------------------------------------------------------------------------
 
 
-        16.2: 
+        16.2: Build the all categories route:
                 * Remember that there is bunch of functionality that you can perform on the
                   models that you call. For example, we could "find" all the categories in the
                   database (here accomplished with by passing an empty object). If there where
@@ -1317,19 +1317,18 @@ Phase 16: Display All categories feature to app:
                         router.get('/', async function(req, res) {                            
                            try {                                                                 
                               const categories = await Category.find({})                                -- "categories" variable that awaits a function on the Category model that "finds" all categories.
-                              res.render('categories/index'  
+                              res.render('categories/index', { categories: categories});                -- render categories.
                            } catch(err) {                                                    
-
+                              res.redirect('/');                                                        -- if an error (i.e. database is inaccessible), redirect to main page.
                            }
-
-
-                           //res.render('categories/index');                       
                         });
                 ------------------------------------------------------------------------------
 
 
-
-
+        16.3: Create view for see all catgegories:
+                ------------------------------------------------------------------------------
+                
+                ------------------------------------------------------------------------------
 
 
 

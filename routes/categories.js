@@ -9,9 +9,9 @@ const { Category } = require('../models/category');
 router.get('/', async function(req, res) {
   try {
     const categories = await Category.find({})
-    res.render('categories/index');
+    res.render('categories/index', { categories: categories});
   } catch(err) {
-
+    res.redirect('/');
   }
 });
 
