@@ -1291,6 +1291,13 @@ Phase 16: Display All categories feature to app:
           place so that the user can choose which one to find all the issues that pertain to it.
         ====================================================================================
 
+// Add async to All Categories route...
+        ====================================================================================
+        * Simply create add a async prefix, add a try/catch block when interacing with mongoose, 
+          await searching Category via find for all categories, and render categories to 
+          categories/index. 
+        ====================================================================================
+        
         16.1: Add async to the "all categories" route:
                 ------------------------------------------------------------------------------
                         // All Categories Route
@@ -1325,9 +1332,14 @@ Phase 16: Display All categories feature to app:
                 ------------------------------------------------------------------------------
 
 
-        16.3: Create view for see all catgegories:
+        16.3: Create view for see all catgegories in categories > index.js:
                 ------------------------------------------------------------------------------
-                
+                <h2>Search Categories</h2>
+                <form action="/categories" method="GET">                                                 -- GET categories points to categories index page (remember GET... not POST).
+                   <label>Name</label>
+                   <input type="text" name="name">
+                   <button type="submit">Search</button>
+                </form>
                 ------------------------------------------------------------------------------
 
 
