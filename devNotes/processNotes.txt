@@ -116,10 +116,10 @@ Process Workflow Summary:
         3. Add async to the "Create Category Route"...
 
     Phase 16: Display All categories feature to app.
-        1.
-        1.
-        1.
-        1.
+        1. Add async to All Categories route.
+        2. Create view for all categories.
+        3. Implement search feature for categories.
+        4. In index.js, add searchOptions as a value to the form.
 
 
 
@@ -1357,7 +1357,9 @@ Phase 16: Display All categories feature to app:
         =======================================================================================
         * To implement a search feature, you can add search options which will check to see if
           the name exists, if it is an empty string, and then using regular expressions, take 
-          that query name and lowercase it to search the database.
+          that query name and lowercase it to search the database. The solution to this involves
+          a regular expression which im not too fantastic about but it seems to be the best way
+          to implement the feature from research.
         =======================================================================================
 
         16.4: Add search features to all categories route:
@@ -1383,10 +1385,22 @@ Phase 16: Display All categories feature to app:
 
 // In index.js, add searchOptions as a value to the form...
         =======================================================================================
-
+        * In the input form, add as a value the search options.
         =======================================================================================
 
-
+        16.5: Add searchOptions as a value to the form:
+                -------------------------------------------------------------------------------
+                        <h2>Search Categories</h2>
+                        <form action="/categories" method="GET">    
+                        <label>Name</label>
+                           <input type="text" name="name" value="<% searchOptions.name %>">              -- add searchOptions as the value.
+                           <button type="submit">Search</button>
+                        </form>
+                        <br>
+                        <% categories.forEach( function(category) {  %>
+                           <div><%= category.name %></div>
+                        <% }) %>
+                -------------------------------------------------------------------------------
 
 
 

@@ -7,12 +7,12 @@ const { Category } = require('../models/category');
 // Routes
 // All Categories Route
 router.get('/', async function(req, res) {
-  let searchOptions = {}; 
-  if (req.query.name !== null && req.query.name !== '') {
-    searchOptions.name = new RegExp(req.query.name, 'i');
+  let searchOptions = {}
+  if (req.query.name != null && req.query.name !== '') {
+    searchOptions.name = new RegExp(req.query.name, 'i')
   }
   try {
-    const categories = await Category.find({})
+    const categories = await Category.find(searchOptions);
     res.render('categories/index', { 
       categories: categories,
       searchOptions: req.query
