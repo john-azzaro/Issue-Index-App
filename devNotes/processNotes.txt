@@ -1205,10 +1205,28 @@ Phase 14: Configure and test "create category" route...
                 ---------------------------------------------------------------------------
                
 
-// Convert "Create Category Route" to async/await:
+// Convert "Create Category Route" using async/await:
         ===================================================================================
-        
+        * 
         ===================================================================================
+
+        14.10: Add the "async" prefix and add try/catch block:
+                ---------------------------------------------------------------------------
+                router.post('/', async function(req, res) {                                              -- added async prefix.
+                   const category = new Category({
+                      name: req.body.name
+                });
+                try {                                                                                    -- try/catch block
+                   // success code here...
+                } catch(err) {
+                   // error code here...
+                }
+               
+                                
+                });
+                ---------------------------------------------------------------------------
+
+        14.11: 
 
 
 

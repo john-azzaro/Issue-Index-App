@@ -18,22 +18,34 @@ router.get('/new', function(req, res) {
 
 
 // Create Category Route
-router.post('/', function(req, res) {
+router.post('/', async function(req, res) {
   const category = new Category({
     name: req.body.name
   });
-  category.save(function (err, newCategory) {
-    if (err) {
-      res.render('categories/new', {
-        category: category,
-        errorMessage: 'Error creating category'
-      });
-    } else {
-      // res.redirect(`categories/${newCategory.id}`);
-      res.redirect(`categories`);
-    }
-  });
+  try {
+
+  } catch(err) {
+  }
 });
+
+
+
+
+  // category.save(function (err, newCategory) {
+  //   if (err) {
+  //     res.render('categories/new', {
+  //       category: category,
+  //       errorMessage: 'Error creating category'
+  //     });
+  //   } else {
+  //     // res.redirect(`categories/${newCategory.id}`);
+  //     res.redirect(`categories`);
+  //   }
+  // });
+
+
+
+
 
 
 //Export
