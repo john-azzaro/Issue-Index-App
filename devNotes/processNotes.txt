@@ -1332,15 +1332,21 @@ Phase 16: Display All categories feature to app:
                 ------------------------------------------------------------------------------
 
 
-        16.3: Create view for see all catgegories in categories > index.js:
+        16.3: Create view for see all categories in categories > index.js:
                 ------------------------------------------------------------------------------
                 <h2>Search Categories</h2>
-                <form action="/categories" method="GET">                                                 -- GET categories points to categories index page (remember GET... not POST).
+                <form action="/categories" method="GET">                                                 -- Form with GET categories pointing to categories index page (remember GET... not POST).
                    <label>Name</label>
                    <input type="text" name="name">
                    <button type="submit">Search</button>
                 </form>
+                <br>
+                <% categories.forEach( function(category) {  %>                                          -- To display all the categories, loop through each item in categories and create a div with the name.
+                   <div><%= category.name %></div>                                                          When you go to "Categories" page, you should see all the names you 
+                <% }) %>
                 ------------------------------------------------------------------------------
+
+
 
 
 
