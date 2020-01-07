@@ -105,8 +105,6 @@ Process Workflow Summary:
         2. Create partial file for form field.
         3. Create a label form field.
         4. Import the form partial to category.js.
-        5. 
-        6. 
 
     Phase 14: Configure "create category" route:
         1. Install and configure body-parser via npm.
@@ -1183,15 +1181,26 @@ Phase 14: Configure and test "create category" route...
                         });                                                                              the newly created category!
                 --------------------------------------------------------------------------- 
 
+
 // Create error message partial...
         ===================================================================================
         * When you created the "create category route", you 
         ===================================================================================
+
         14.7: Create a partial file for the error message:
                 ---------------------------------------------------------------------------
-                        partials  >  errorMessage.ejs
-                ---------------------------------------------------------------------------   
+                        views  >  partials  >  errorMessage.ejs
+                --------------------------------------------------------------------------- 
 
+        14.8: Create error message partial:
+                ---------------------------------------------------------------------------
+                        <%= errorMessage %>
+                ---------------------------------------------------------------------------  
+
+        14.9: Include the errorMessage partial in layout.ejs:
+                ---------------------------------------------------------------------------
+                        
+                ---------------------------------------------------------------------------
                
 
 
