@@ -113,10 +113,13 @@ Process Workflow Summary:
     Phase 15: Build Create Category Route.
         1. Configure "Create Category Route".
         2. Create error message partial.
-        3. Convert "Create Category Route" using async/await.
-        4.
-        5.
-        6.
+        3. Add async to the "Create Category Route"...
+
+    Phase 16: Display All categories feature to app.
+        1.
+        1.
+        1.
+        1.
 
 
 
@@ -1161,7 +1164,7 @@ Phase 15: Build Create Category Route...
           category name and add it to the mongodb database.
         ====================================================================================
 
-        14.5: Create a variable "category" set to new category:
+        15.5: Create a variable "category" set to new category:
                 ---------------------------------------------------------------------------
                         // Create Category Route
                         router.post('/', function(req, res) {
@@ -1173,7 +1176,7 @@ Phase 15: Build Create Category Route...
                 ---------------------------------------------------------------------------
 
 
-        14.6: Then save the new category to the database:
+        15.6: Then save the new category to the database:
                 ---------------------------------------------------------------------------
                         // Create Category Route
                         router.post('/', function(req, res) {
@@ -1199,19 +1202,19 @@ Phase 15: Build Create Category Route...
         * When you created the "create category route", you 
         ===================================================================================
 
-        14.7: Create a partial file for the error message:
+        15.7: Create a partial file for the error message:
                 ---------------------------------------------------------------------------
                         views  >  partials  >  errorMessage.ejs
                 --------------------------------------------------------------------------- 
 
-        14.8: Create error message partial:
+        15.8: Create error message partial:
                 ---------------------------------------------------------------------------              If the error message is NOT set, run the code errorMessage.
                         <% if (locals.errorMessage != null) { %>                                      -- Note here that you need to wrap error messages in if statements like this.
                            <%= errorMessage %>                                                           The ejs does not have an "=" so its just output to the server.
                         <% } %>
                 ---------------------------------------------------------------------------  
 
-        14.9: Include the errorMessage partial in layout.ejs:
+        15.9: Include the errorMessage partial in layout.ejs:
                 ---------------------------------------------------------------------------
                         <%- include('../partials/header.ejs') %>
                         <%= include('../partials/errorMessage.ejs') %>                                 -- include the errorMessage partial.
@@ -1219,12 +1222,12 @@ Phase 15: Build Create Category Route...
                 ---------------------------------------------------------------------------
                
 
-// Convert "Create Category Route" using async/await...
+// Add async to the "Create Category Route"...
         ===================================================================================
         * 
         ===================================================================================
 
-        14.10: Add the "async" prefix and add try/catch block:
+        15.10: Add the "async" prefix and add try/catch block:
                 ---------------------------------------------------------------------------
                 router.post('/', async function(req, res) {                                              -- added async prefix.
                    const category = new Category({
@@ -1240,7 +1243,7 @@ Phase 15: Build Create Category Route...
                 });
                 ---------------------------------------------------------------------------
 
-        14.11: Add the error part of the existing code:
+        15.11: Add the error part of the existing code:
                 ---------------------------------------------------------------------------
                 router.post('/', async function(req, res) {
                    const category = new Category({
@@ -1257,7 +1260,7 @@ Phase 15: Build Create Category Route...
                 });
                 ---------------------------------------------------------------------------
 
-        14.12: Add the success part of the code:
+        15.12: Add the success part of the code:
                 ---------------------------------------------------------------------------
                 router.post('/', async function(req, res) {
                    const category = new Category({
@@ -1274,7 +1277,57 @@ Phase 15: Build Create Category Route...
                       });    
                    }
                 });
-                ---------------------------------------------------------------------------2442
+                ---------------------------------------------------------------------------
+
+
+
+
+
+Phase 16: Display All categories feature to app:
+        ====================================================================================
+        * In this phase, we'll display all the categories we have in our database in a single
+          place so that the user can choose which one to find all the issues that pertain to it.
+        ====================================================================================
+
+        16.1: Add async to the "all categories" route:
+                ------------------------------------------------------------------------------
+                        // All Categories Route
+                        router.get('/', async function(req, res) {                                       -- add async prefix
+                           try {                                                                         -- add try block  
+
+                           } catch(err) {                                                                -- add catch block
+
+                           }
+
+
+                           //res.render('categories/index');                                              -- comment out existing code (makes it easier to work on)
+                        });
+                ------------------------------------------------------------------------------
+
+
+        16.2: 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

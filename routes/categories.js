@@ -6,8 +6,14 @@ const { Category } = require('../models/category');
 
 // Routes
 // All Categories Route
-router.get('/', function(req, res) {
-  res.render('categories/index');
+router.get('/', async function(req, res) {
+  try {
+
+  } catch(err) {
+
+  }
+
+  // res.render('categories/index');
 });
 
 
@@ -23,7 +29,7 @@ router.post('/', async function(req, res) {
     name: req.body.name
   });
   try {
-    const newCategory = await category.save()                            // awaits for category.save to finish then populate the "newCategory" variable
+    const newCategory = await category.save()   
     // res.redirect(`categories/${newCategory.id}`);
     res.redirect(`categories`);
   } catch(err) {
