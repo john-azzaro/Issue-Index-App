@@ -8,12 +8,11 @@ const { Category } = require('../models/category');
 // All Categories Route
 router.get('/', async function(req, res) {
   try {
-
+    const categories = await Category.find({})
+    res.render('categories/index');
   } catch(err) {
 
   }
-
-  // res.render('categories/index');
 });
 
 

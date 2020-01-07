@@ -1224,7 +1224,9 @@ Phase 15: Build Create Category Route...
 
 // Add async to the "Create Category Route"...
         ===================================================================================
-        * 
+        * So with async, it really straight forward. Add the async prefix and then wrap the
+          existing code in a try/catch block so that if there are any errors in our mongoose
+          implementation, we'll be able to "catch" them
         ===================================================================================
 
         15.10: Add the "async" prefix and add try/catch block:
@@ -1293,9 +1295,9 @@ Phase 16: Display All categories feature to app:
                 ------------------------------------------------------------------------------
                         // All Categories Route
                         router.get('/', async function(req, res) {                                       -- add async prefix
-                           try {                                                                         -- add try block  
+                           try {                                                                         -- add try block to execute any code is successful with mongoose. 
 
-                           } catch(err) {                                                                -- add catch block
+                           } catch(err) {                                                                -- add catch block if any errors with implementation with mongoose.
 
                            }
 
@@ -1306,7 +1308,24 @@ Phase 16: Display All categories feature to app:
 
 
         16.2: 
+                * Remember that there is bunch of functionality that you can perform on the
+                  models that you call. For example, we could "find" all the categories in the
+                  database (here accomplished with by passing an empty object). If there where
+                  conditions for the .find method, they would go in that currently empty object.
+                ------------------------------------------------------------------------------
+                        // All Categories Route
+                        router.get('/', async function(req, res) {                            
+                           try {                                                                 
+                              const categories = await Category.find({})                                -- "categories" variable that awaits a function on the Category model that "finds" all categories.
+                              res.render('categories/index'  
+                           } catch(err) {                                                    
 
+                           }
+
+
+                           //res.render('categories/index');                       
+                        });
+                ------------------------------------------------------------------------------
 
 
 
