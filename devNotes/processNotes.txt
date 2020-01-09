@@ -18,8 +18,19 @@ past projects, but this one as well so I would urge you to consider at least doi
 
 Objective and User Story
 =========================
-The objective of this application is to provide an accessible "index of issues and solutions" for a given project, hence the name "Issue Index". 
-The idea behind this is
+[Problem]: 
+You're working on a project and you come across a particular "issue". You do some research, ask colleagues, trial and error and you 
+managae to find a solution. Now what if someone else has the same problem? All the work you put into finding the solution on the issue could
+end up going to waste.
+
+[Why hasnt the problem been solved?]:
+Although glossaries and wikis exist, they often more complicated than what is needed, and if they cost money to run. 
+
+[What is Possible?]
+
+
+he objective of this application is to provide an accessible "index of issues and solutions" ., hence the name "Issue Index". 
+The idea behind this is that 
 
 The user would visit the main page and be presented with recent additions, categories, and individual issues to browser. There would be search
 functionality for categories and issues. The user would have the ability to add categories and issues and have the ability to edit or remove
