@@ -1430,7 +1430,14 @@ Phase X: Deploy to App to Heroku
  STEP 1 - In heroku dashboard, click "New" > "Create New App"
  STEP 2 - Give the App a name
  STEP 3 - Click the "Github" connection
- STEP 4 - Connect app to github by finding the repository
+ STEP 4 - Connect app to github by finding the repository (will automatically update)
+ STEP 5 - Go to settings > config vars > reveal config vars and put the key. this is in the env file and is DATABASE_URL
+          The value for the key is going to come from Mongodb atlas.
+STEP 6 - In mongodb Atlas, Either build a new cluster (and save the password) OR the password (i.e. mypassword123, abc123, etc... whatever you specify) 
+STEP 7 - then in mongodb atlas, select the "connect your application".
+STEP 8 - Then, you will get a connection string. copy this string into a document and replace the password with your own.\
+STEP 9 - Paste in the connection string into the value of your config vars in mongodb and click "Add".
+STEP 10 - You should have a working app at the heroku address (https://issueindex.herokuapp.com/)
 
 
 
