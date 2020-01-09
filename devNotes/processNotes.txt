@@ -6,15 +6,11 @@ Process notes for Issue Index Application
 
 About Process Notes
 ===================
-"Process Notes" is a step-by-step workflow document that outlines the "phases" of app development and the successive steps
-for each phase in the spirit of the Feynman technique (https://fs.blog/2012/04/feynman-technique/).
-
-Although documenting each step of the application development from start to finish is a bit more work on my end, it 
-has proven EXTREMELY valuable in learning and refining workflow for future use. I would urge anyone just starting to 
-get a feel for node application development to take the time and document your process so you can stand back and evaluate your own
-process and learn and improve on it. If you've seen my other projects and process notes, you'll notice that the process notes evolve 
-as I find ways to improve the documentation for content and readability. In the case of the "issue index app", each phase has a title, 
-brief description of the phase, individual steps for each phase (with notes and intent), and notes at the end.
+"Process Notes" is a step-by-step workflow document that outlines the "phases" of app development and the successive steps taken at each
+milestone of application development. Groups of related steps are combined into "phase" modules so that they can be reorganized and refined 
+in post-review. This has proven to be EXTREMELY helpful in learning (i.e. Feynman technique (https://fs.blog/2012/04/feynman-technique/)) 
+and refining workflow so I can improve my process in future projects. It also has come in handy for some tricky bug fixes not only for
+past projects, but this one as well so I would urge you to consider at least doing a rough summary for your own benefit.
 
 
 
@@ -22,10 +18,25 @@ brief description of the phase, individual steps for each phase (with notes and 
 
 Objective and User Story
 =========================
-The objective of this application is to provide an accessible "index of issues and solutions" for a given project (which could be anything). 
+The objective of this application is to provide an accessible "index of issues and solutions" for a given project, hence the name "Issue Index". 
+The idea behind this is
+
 The user would visit the main page and be presented with recent additions, categories, and individual issues to browser. There would be search
 functionality for categories and issues. The user would have the ability to add categories and issues and have the ability to edit or remove
 categories and issues as well. Additionally, the project will not include user authentication since it is crowdsource by nature.
+
+
+
+
+
+Initial Plan for the App
+========================
+1. Do basic wireframe for intitial design.
+2. Setup the initial conventional structure of the project (basic first, reiterate second, refactor third).
+3. Setup database (will use with this project).
+4. Add highest level feature "Categories", which will pertain to the related "issues".  
+
+
 
 
 
@@ -80,7 +91,7 @@ Process Workflow Summary:
         1. Setup mongoose on server.js.                                          
         2. Setting up connection to database with .env file.                     
                                                                                         __________________________________________________                                              
-    Phase 10: Add "category" controllers and views:                                           Add Category functionality (Phase 10-)
+    Phase 10: Add "category" controllers and views:                                          Add Category functionality (Phase 10-16)
         1. Create an "category" Router.
         2. Setup category routes.
         3. Create views for category routes.
@@ -122,6 +133,8 @@ Process Workflow Summary:
         2. Create view for all categories.
         3. Implement search feature for categories.
         4. In index.js, add searchOptions as a value to the form.
+                                                                                        _________________________________________________
+    Phase 17:                                                                               Add Issue functionality (Phase 17-)
 
 
 
