@@ -1430,7 +1430,7 @@ Phase X: Deploy to App to Heroku
  STEP 1 - In heroku dashboard, click "New" > "Create New App"
  STEP 2 - Give the App a name
  STEP 3 - Click the "Github" connection
-
+ STEP 4 - Connect app to github by finding the repository
 
 
 
