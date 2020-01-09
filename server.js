@@ -32,6 +32,7 @@ app.use(bodyParser.urlencoded({ limit: '10mb', extended: false }));
 app.use("/", indexRouter);
 app.use('/categories', categoryRouter);
 
+
 //Database
 mongoose.connect(process.env.DATABASE_URL, { 
   useNewUrlParser: true, useUnifiedTopology: true 
