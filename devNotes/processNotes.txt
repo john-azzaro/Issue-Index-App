@@ -1422,6 +1422,7 @@ Phase 16: Display All categories feature to app:
 
 
 Phase X: Deploy to App to Heroku
+* testing with heroku git connection
 ==================================================================================================
 * https://github.com/john-azzaro/Study-Cloud-Deployment-with-Heroku 2009
 ==================================================================================================
