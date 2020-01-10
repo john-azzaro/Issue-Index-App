@@ -32,7 +32,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ limit: '10mb', extended: false }));
 app.use("/", indexRouter);
 app.use('/categories', categoryRouter);
-app.use('/issue', issueRouter);
+app.use('/issues', issueRouter);
 
 
 //Database

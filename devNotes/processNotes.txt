@@ -1546,6 +1546,27 @@ Phase 17: Add "issue" controller and view:
         * In issue.js, test the all issues route by sending a basic response (res.send)
         ============================================================================================
 
+        17.4: Insert test routes for issue.js:
+                ------------------------------------------------------------------------------------
+                        // Routes
+                        // All Issues Route
+                        router.get('/', async function(req, res) {
+                           res.send('All issues works!')                                                    -- at localhost:3000/issues you will see the message
+                        });
+
+
+                        //New Issue Route
+                        router.get('/new', function(req, res) {
+                           res.send('New issues works!')                                                    -- at localhost:3000/issues/new you will see the message
+                        });
+
+
+                        // Create Issue Route
+                        router.post('/', async function(req, res) {
+                           res.send('Create issues works!')                                                 
+                        });
+                ------------------------------------------------------------------------------------
+
 
 
 
