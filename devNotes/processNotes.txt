@@ -6,7 +6,7 @@ Process notes for Issue Index Application
 
 About Process Notes
 ===================
-"Process Notes" is a step-by-step workflow document that outlines the "phases" of app development and the successive steps taken at each
+"Process Notes" is a step-by-step workflow document that outlines the "phases" of my app development and the successive steps taken at each
 milestone of application development. Groups of related steps are combined into "phase" modules so that they can be reorganized and refined 
 in post-review. This has proven to be EXTREMELY helpful in learning (i.e. Feynman technique (https://fs.blog/2012/04/feynman-technique/)) 
 and refining workflow so I can improve my process in future projects. It also has come in handy for some tricky bug fixes not only for
@@ -129,7 +129,7 @@ Process Workflow Summary:
         8. Import Category model to "categories.js".
         9. Use the model in your route.
 
-    Phase 13: Create form and input partial for Category:
+    Phase 13: Create form and input partial for Category (for nav):
         1. Add form to new.ejs.
         2. Create partial file for form field.
         3. Create a label form field.
@@ -151,8 +151,13 @@ Process Workflow Summary:
         4. In index.js, add searchOptions as a value to the form.
                                                                                         _________________________________________________
     Phase 17: Add "Issue" controller and views                                                 Add Issue functionality (Phase 17-)
+        1. Create a "issues.js" router.
+        2. Create an "issue" model.
+        3. Hook-up "issueRouter" to server.js.
+        4. Add Issue links to header.js
+        5. Test issueRouter.
 
-
+ 
 
 
 Phase 1: Project Setup
@@ -810,14 +815,14 @@ Phase 10: Add "catagory" controlles and views.
         10.4: Create a new "category" page route:
              ----------------------------------------------------------------
                      router.get('/new', function(req, res) {
-                        res.render('categories/new')                                   -- this will DISPLAY the form to create the new category.
+                        res.render('categories/new');                                   -- this will DISPLAY the form to create the new category.
                      });   
              ----------------------------------------------------------------
 
         10.5: Create a new "Category":             
              ----------------------------------------------------------------
                      router.post('/', function(req, res) {
-                         res.send('Create')l                                           -- this will POST (i.e. send) to the collection to create a new category.
+                         res.send('Create');                                           -- this will POST (i.e. send) to the collection to create a new category.
                      });
              ----------------------------------------------------------------
 
@@ -834,7 +839,7 @@ Phase 10: Add "catagory" controlles and views.
         10.6: In views, create files for all categories and new category page with test text:
              -----------------------------------------------------------------
                       index.js       >  "All categories"                               -- File will render the view for ALL categories.
-                      new.ejs        >  "New category"                                 -- File witl render the view for new category creation.
+                      new.ejs        >  "New category"                                 -- File will render the view for new category creation.
              -----------------------------------------------------------------
 
 
@@ -1537,10 +1542,6 @@ Phase 17: Add "issue" controller and view:
                 ==================================================================================
 
 
-
-
-
-
 // Add issue router to server.js...
         ===========================================================================================
         * Once you have the model done, you need to loaf the router into your server.js file and then
@@ -1557,6 +1558,31 @@ Phase 17: Add "issue" controller and view:
                 ------------------------------------------------------------------------------------
 
 
+// Add issue links to header.js...
+        ============================================================================================
+        * Because the we already have a view for the navigation created (i.e. header.js), we simply
+          need to add the links to this partial file. Since this is basically a duplicate process 
+          compared ot the categories process, all you need to do is copy and paster the two existing
+          links for all categories and new categories and change the url and names.
+        ============================================================================================
+
+        17.4: Add issue links to header.js:
+                ------------------------------------------------------------------------------------
+                <header>
+                  <nav>
+                  <a href="/">IssueIndex</a>
+                  <ul>
+                     <li><a href="/categories">Categories</a></li>
+                     <li><a href="/categories/new">Add Category</a></li>
+                     <li><a href="/issues">Issues</a></li>                                                  -- Link to all issues
+                     <li><a href="/issues/new">Add Issue</a></li>                                           -- LInk to add issue
+                  </ul>
+                  </nav>
+                </header>
+                ------------------------------------------------------------------------------------
+
+
+
 // Test issue route...
         ============================================================================================
         * In issue.js, test the all issues route by sending a basic response (res.send)
@@ -1567,21 +1593,34 @@ Phase 17: Add "issue" controller and view:
                         // Routes
                         // All Issues Route
                         router.get('/', async function(req, res) {
-                           res.send('All issues works!')                                                    -- at localhost:3000/issues you will see the message
+                           res.send('All issues works!');                                                    -- at localhost:3000/issues you will see the message
                         });
 
 
                         //New Issue Route
                         router.get('/new', function(req, res) {
-                           res.send('New issues works!')                                                    -- at localhost:3000/issues/new you will see the message
+                           res.send('New issues works!');                                                    -- at localhost:3000/issues/new you will see the message
                         });
 
 
                         // Create Issue Route
                         router.post('/', async function(req, res) {
-                           res.send('Create issues works!')                                                 
+                           res.send('Create issues works!');                                                
                         });
                 ------------------------------------------------------------------------------------
+
+
+
+
+Phase 18: 
+
+
+
+
+
+
+
+
 
 
 
