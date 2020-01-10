@@ -1498,7 +1498,7 @@ Phase 17: Add "issue" controller and view:
                     type: String,
                     required: true
                   },
-                  description: {                                                                            -- extended description (if needed)
+                  comments: {                                                                            -- extended description (if needed)
                     type: String,
                   },
                   solution: {                                                                               -- solution (when found)
@@ -1523,6 +1523,22 @@ Phase 17: Add "issue" controller and view:
 
                 module.exports = { Book };
                 ----------------------------------------------------------------------------------
+
+                ==================================================================================
+                * Here's the basic format this model is going to accomplish:
+
+                   Title:____________________________________________________________________
+                   Created:_____________________________   Category:_________________________
+                   Problem:__________________________________________________________________
+                   Solution:_________________________________________________________________
+                                 
+                   Image-of-issue                      Comments:_____________________________                    
+
+                ==================================================================================
+
+
+
+
 
 
 // Add issue router to server.js...
