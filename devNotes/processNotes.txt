@@ -1525,8 +1525,20 @@ Phase 17: Add "issue" controller and view:
                 ----------------------------------------------------------------------------------
 
 
-// Add 
+// Add issue router to server.js...
+        ===========================================================================================
+        * Once you have the model done, you need to loaf the router into your server.js file and then
+          tell the app to use the router.
+        ===========================================================================================
 
+        17.3: Add router and set:
+                ------------------------------------------------------------------------------------
+                        // Routers
+                        const issueRouter = require('./routes/issues');                                     -- load router to server.js
+
+                        // Middleware
+                        app.use('/issue', issueRouter);                                                     -- tell app to use issueRouter
+                ------------------------------------------------------------------------------------
 
 
 

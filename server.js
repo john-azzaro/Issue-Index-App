@@ -16,7 +16,7 @@ const app = express();
 //Routers
 const indexRouter = require('./routes/index');
 const categoryRouter = require('./routes/categories');
-// const issueRouter = require('./routes/issues');
+const issueRouter = require('./routes/issues');
 
 
 //Configuration
@@ -32,7 +32,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ limit: '10mb', extended: false }));
 app.use("/", indexRouter);
 app.use('/categories', categoryRouter);
-// app.use('/issue', issueRouter);
+app.use('/issue', issueRouter);
 
 
 //Database
