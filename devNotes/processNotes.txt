@@ -1446,15 +1446,38 @@ Phase 17: Add "issue" controller and view:
 // Create a "issues.js" router...
         =========================================================================================
         * Now because we've already done most of the work of creating a router file for 
-          categories.js, we simply need to duplicate the categories.js and rename it to issues.js.
-          Of course, we will need to change a few things in the file, but this will help cut 
-          down on the development time.
+          categories.js, we simply need to duplicate the categories.js, put it in issues.js, and 
+          then clear out the logic inside the routes.
         =========================================================================================
         
-        17.1: Duplicate "categories.js" and rename "issues.js":
+        17.1: Create issue.js router file:
                 ---------------------------------------------------------------------------------
-                
+                        //Imports
+                        const express = require('express');
+                        const router = express.Router();
+                        const { Issue } = require('../models/issue');                                     -- Import "Issue" model from models.
+
+
+                        // Routes
+                        // All Issues Route
+                        router.get('/', async function(req, res) {
+                        
+                        });
+
+
+                        //New Category Route
+                        router.get('/new', function(req, res) {
+                        
+                        });
+
+
+                        // Create Category Route
+                        router.post('/', async function(req, res) {
+                        
+                        });
                 ---------------------------------------------------------------------------------
+
+        17.2
 
 
 
