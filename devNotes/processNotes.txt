@@ -1537,8 +1537,14 @@ Phase 17: Add "issue" controller and view:
                         const issueRouter = require('./routes/issues');                                     -- load router to server.js
 
                         // Middleware
-                        app.use('/issue', issueRouter);                                                     -- tell app to use issueRouter
+                        app.use('/issue', issueRouter);                                                     -- tell app that all issue routes will go to issueRouter
                 ------------------------------------------------------------------------------------
+
+
+// Test issue route...
+        ============================================================================================
+        * In issue.js, test the all issues route by sending a basic response (res.send)
+        ============================================================================================
 
 
 
