@@ -5,21 +5,23 @@ const bookSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  problem: {
+    type: String,
+    required: true
+  },
   description: {
     type: String,
   },
-  issueUpdatedDate: {
-    type: Date,
-    required: true
+  solution: {
+    type: String,
+  },
+  imageName: {
+    type: String,
   },
   createdAt: {
     type: Date,
     require: true,
     default: Date.now
-  },
-  issueImage: {
-    type: String,
-
   },
   category: {
     type: mongoose.Schema.Types.ObjectId,
