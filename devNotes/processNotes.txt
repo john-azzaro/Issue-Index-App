@@ -150,7 +150,7 @@ Process Workflow Summary:
         3. Implement search feature for categories.
         4. In index.js, add searchOptions as a value to the form.
                                                                                         _________________________________________________
-    Phase 17:                                                                               Add Issue functionality (Phase 17-)
+    Phase 17: Add "Issue" controller and views                                                 Add Issue functionality (Phase 17-)
 
 
 
@@ -1437,7 +1437,24 @@ Phase 16: Display All categories feature to app:
 
 
 
+Phase 17: Add "issue" controller and view:
+        ========================================================================================
+        * Now that the category funcitonality has been sorted, we need to create the "issue"s
+          that we can then file to the categories we have.
+        ========================================================================================
 
+// Create a "issues.js" router...
+        =========================================================================================
+        * Now because we've already done most of the work of creating a router file for 
+          categories.js, we simply need to duplicate the categories.js and rename it to issues.js.
+          Of course, we will need to change a few things in the file, but this will help cut 
+          down on the development time.
+        =========================================================================================
+        
+        17.1: Duplicate "categories.js" and rename "issues.js":
+                ---------------------------------------------------------------------------------
+                
+                ---------------------------------------------------------------------------------
 
 
 
