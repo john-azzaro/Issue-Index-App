@@ -1487,7 +1487,41 @@ Phase 17: Add "issue" controller and view:
 
         17.2:   Create issue model:
                 ----------------------------------------------------------------------------------
-                
+                const mongoose = require('mongoose');
+
+                const bookSchema = new mongoose.Schema({
+                  title: {                                                                                 -- Title of issue (required)
+                    type: String,
+                    required: true,
+                  },
+                  problem: {                                                                               -- Problem that caused the issue (required)
+                    type: String,
+                    required: true
+                  },
+                  description: {                                                                            -- extended description (if needed)
+                    type: String,
+                  },
+                  solution: {                                                                               -- solution (when found)
+                    type: String,
+                  },
+                  imageName: {                                                                              -- image of screencap of issue (if needed)
+                    type: String,
+                  },
+                  createdAt: {                                                                              -- issue created (required)
+                    type: Date,
+                    require: true,
+                    default: Date.now
+                  },
+                  category: {                                                                               -- Category type (required)
+                    type: mongoose.Schema.Types.ObjectId,                                                    -- reference of the object id
+                    required: true,
+                    ref: 'Category'
+                  }
+                });
+
+                const Book = mongoose.model('Book', bookSchema);
+
+                module.exports = { Book };
                 ----------------------------------------------------------------------------------
 
 
