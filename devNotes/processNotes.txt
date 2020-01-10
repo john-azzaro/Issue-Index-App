@@ -1447,7 +1447,8 @@ Phase 17: Add "issue" controller and view:
         =========================================================================================
         * Now because we've already done most of the work of creating a router file for 
           categories.js, we simply need to duplicate the categories.js, put it in issues.js, and 
-          then clear out the logic inside the routes.
+          then clear out the logic inside the routes. The logic will be a bit more complex because
+          we have a few more inputs and features to integrate.
         =========================================================================================
         
         17.1: Create issue.js router file:
@@ -1465,19 +1466,29 @@ Phase 17: Add "issue" controller and view:
                         });
 
 
-                        //New Category Route
+                        //New Issue Route
                         router.get('/new', function(req, res) {
                         
                         });
 
 
-                        // Create Category Route
+                        // Create Issue Route
                         router.post('/', async function(req, res) {
                         
                         });
                 ---------------------------------------------------------------------------------
 
-        17.2
+
+// Create an "issue" model...
+        =========================================================================================
+        * We can do the same thing that we did for the issue,js router by copying the logic inside
+          the category.js model file and pasting it into the issue model and amending it accordingly.
+        =========================================================================================
+
+        17.2:   Create issue model:
+                ----------------------------------------------------------------------------------
+                
+                ----------------------------------------------------------------------------------
 
 
 

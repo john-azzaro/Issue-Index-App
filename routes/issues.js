@@ -11,13 +11,13 @@ router.get('/', async function(req, res) {
 });
 
 
-//New Category Route
+//New Issue Route
 router.get('/new', function(req, res) {
  
 });
 
 
-// Create Category Route
+// Create Issue Route
 router.post('/', async function(req, res) {
   
 });
