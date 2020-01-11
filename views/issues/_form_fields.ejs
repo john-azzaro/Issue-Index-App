@@ -21,15 +21,18 @@
 </div>
 
 <div>
-  <label>Image</label>
-  <input type="file" name="image">    
+  <label>Description</label> 
+  <textarea name="description" value="<%= issue.description %>"></textarea>    
 </div>
 
 <div>
-  <label>Issue Description</label> 
-  <textarea name="issue-description" value="<%= issue.issueDescription %>"></textarea>    
+  <label>Solution</label> 
+  <textarea name="solution" value="<%= issue.solution %>"></textarea>    
 </div>
 
-
+<div>
+  <label>Image</label>
+  <input type="file" name="image">    
+</div>
 
       
