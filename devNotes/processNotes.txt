@@ -159,7 +159,13 @@ Process Workflow Summary:
         5. Test issueRouter.
 
     Phase 18: Add "new issues" to views.        
-
+        1. Create an "issues" file.
+        2. Create a "new.ejs" file for new issues.
+        3. Add form field partial for issue _form_fields.ejs.
+        4. In issues router, add new issue route.
+        5. Complete form field partial for add issue.
+        6. 
+        7. 
 
 
 
@@ -1714,8 +1720,52 @@ Phase 18: Add "new issues" to views
                 -------------------------------------------------------------------------------------
 
 
+// Complete form field partial for add issue...
+        ============================================================================================
+        * To finish off the form field partial for adding issues, just add the remaining fields that
+          you specified in your models file.
+        ============================================================================================
 
+        18.5: Complete form partial for add issue:
+                ------------------------------------------------------------------------------------
+                <div>
+                <label>Name</label>                                                                    -- Name of the issue.
+                <input type="text" name="title" value="<%= issue.title %>">    
+                </div>
 
+                <div>
+                <label>Category</label>                                                                -- Category selector
+                <select name="category">
+                <% categories.forEach( function(category) { %>
+                <% if (issue.id == issue.category) { %>
+                <option selected label="<%= category.name %>" value="<%= category.id %>">
+                <%= category.name %>
+                </option>
+                <% } else { %>
+                <option label="<%= category.name %>" value="<%= category.id %>">
+                <%= category. name %>
+                </option>
+                <% } %>
+                <% }) %>
+                </select> 
+                </div>
+
+                <div>
+                <label>Description</label>                                                              -- Issue description
+                <textarea name="description" value="<%= issue.description %>"></textarea>    
+                </div>
+
+                <div>
+                <label>Solution</label>                                                                 -- Issue solution
+                <textarea name="solution" value="<%= issue.solution %>"></textarea>    
+                </div>
+
+                <div>
+                <label>Image</label>                                                                    -- image of issue if applicable.
+                <input type="file" name="image">    
+                </div>
+
+                ------------------------------------------------------------------------------------
 
 
 
