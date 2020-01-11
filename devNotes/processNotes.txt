@@ -51,6 +51,7 @@ Initial Plan for the App
 2. Setup the initial conventional structure of the project (basic first, reiterate second, refactor third).
 3. Setup database (will use with this project).
 4. Add highest level feature "Categories", which will pertain to the related "issues".  
+4. Add next level feature "issues", which will then file into categories.  
 
 
 
@@ -149,15 +150,22 @@ Process Workflow Summary:
         2. Create view for all categories.
         3. Implement search feature for categories.
         4. In index.js, add searchOptions as a value to the form.
-                                                                                        _________________________________________________
-    Phase 17: Add "Issue" controller and views                                                 Add Issue functionality (Phase 17-)
+                                                                                         _________________________________________________
+    Phase 17: Add "Issue" controller and views.                                                 Add Issue functionality (Phase 17-)
         1. Create a "issues.js" router.
         2. Create an "issue" model.
         3. Hook-up "issueRouter" to server.js.
         4. Add Issue links to header.js
         5. Test issueRouter.
 
- 
+    Phase 18: Add "new issues" to views.        
+
+
+
+
+
+
+
 
 
 Phase 1: Project Setup

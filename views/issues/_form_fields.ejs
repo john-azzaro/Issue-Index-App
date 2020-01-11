@@ -1,19 +1,25 @@
-<label>Name</label>
-<input type="text" name="title" value="<%= issue.title %>">     
-<label>Category</label>
-
-<select name="category">
-<% categories.forEach( function(category) { %>
-  <% if (issue.id == issue.category) { %>
-  <option selected label="<%= category.name %>" value="<%= category.id %>">
-  <%= category.name %>
-  </option>
-  <% } else { %>
-  <option label="<%= category.name %>" value="<%= category.id %>">
-  <%= category. name %>
-  </option>
-  <% } %>
-<% }) %>
+<div>
+  <label>Name</label>
+  <input type="text" name="title" value="<%= issue.title %>">    
+</div>
+<div>
+  <label>Category</label>
+  <select name="category">
+  <% categories.forEach( function(category) { %>
+    <% if (issue.id == issue.category) { %>
+    <option selected label="<%= category.name %>" value="<%= category.id %>">
+    <%= category.name %>
+    </option>
+    <% } else { %>
+    <option label="<%= category.name %>" value="<%= category.id %>">
+    <%= category. name %>
+    </option>
+    <% } %>
+  <% }) %>
 </select>
+</div> 
+
+
+
 
       
