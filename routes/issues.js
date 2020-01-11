@@ -24,11 +24,6 @@ router.get('/new', async function(req, res) {
   } catch (err) {
     res.redirect('/issues');  
   }
-  
-  
-  
-  
-  res.send('New issues works!')
 });
 
 
