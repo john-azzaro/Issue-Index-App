@@ -5,6 +5,11 @@ const bookSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  category: {
+    type: mongoose.Schema.Types.ObjectId,
+    required: true,
+    ref: 'Category'
+  },
   problem: {
     type: String,
     required: true
@@ -15,19 +20,14 @@ const bookSchema = new mongoose.Schema({
   solution: {
     type: String,
   },
-  imageName: {
-    type: String,
-  },
   createdAt: {
     type: Date,
     require: true,
     default: Date.now
   },
-  category: {
-    type: mongoose.Schema.Types.ObjectId,
-    required: true,
-    ref: 'Category'
-  }
+  imageName: {
+    type: String,
+  },
 });
 
 const Book = mongoose.model('Book', bookSchema);

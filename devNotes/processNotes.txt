@@ -1646,10 +1646,11 @@ Phase 18: Add "new issues" to views
 // Add form field partial for issue _form_fields.ejs...
         =============================================================================================
         * Again, same thing as done for categories. Copy and paste the _form_fields.ejs partial and 
-          paste it in the issues folder, change the names and values to suit.
+          paste it in the issues folder, change the names and values to suit. However, this form
+          will be substantially larger because we have a few more areas we want to include.
         =============================================================================================
 
-        18.3: Add field form partial:
+        18.3: Add field form partial with all the forms you need:
                 --------------------------------------------------------------------------------------
                         <label>Name</label>
                         <input type="text" name="title" value="<%= issue.title %>">                       -- remember to change the name (title) and value (issue.title).
