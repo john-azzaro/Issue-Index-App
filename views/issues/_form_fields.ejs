@@ -4,21 +4,21 @@
 </div>
 
 <div>
-  <label>Category</label>
-  <select name="category">
-  <% categories.forEach( function(category) { %>
-    <% if (issue.id == issue.category) { %>
-    <option selected label="<%= category.name %>" value="<%= category.id %>">
-    <%= category.name %>
-    </option>
-    <% } else { %>
-    <option label="<%= category.name %>" value="<%= category.id %>">
-    <%= category. name %>
-    </option>
-    <% } %>
-  <% }) %>
-</select>
-</div> 
+ <label>Category</label>
+<select name="category">
+<% categories.forEach( function(category) { %>
+  <% if (issue.id == issue.category) { %>
+  <option selected label="<%= category.name %>" value="<%= category.id %>">
+  <%= category.name %>
+  </option>
+  <% } else { %>
+  <option label="<%= category.name %>" value="<%= category.id %>">
+  <%= category. name %>
+  </option>
+  <% } %>
+<% }) %>
+</select> 
+</div>
 
 <div>
   <label>Image</label>
@@ -27,8 +27,9 @@
 
 <div>
   <label>Issue Description</label> 
-  <textarea name="issue-description" value="<%= issueDescription.title %>">    
+  <textarea name="issue-description" value="<%= issue.issueDescription %>"></textarea>    
 </div>
+
 
 
       
