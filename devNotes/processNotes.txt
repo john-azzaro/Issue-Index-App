@@ -1612,7 +1612,11 @@ Phase 17: Add "issue" controller and view:
 
 
 
-Phase 18: 
+Phase 18: Add "new issues" to views
+        =============================================================================================
+        * Roughly the same thing we did with adding new categories, so you can copy and paste the 
+          entire file, rename it, and adjust accordingly
+        =============================================================================================
 
 
 
