@@ -1622,17 +1622,38 @@ Phase 18: Add "new issues" to views
         ==============================================================================================
         * Create a new folder inside views for the issue views.
         ==============================================================================================
-        
-        18.1: Create issues file:
+
+        18.1: Create issue file:
+                --------------------------------------------------------------------------------------
+                        views  >  issues
+                --------------------------------------------------------------------------------------
+
+ // Create a "new.ejs" file for new issues...
+        =============================================================================================
+        * Again, roughly the same thing done for the new.ejs file for category.
+        =============================================================================================
+
+        18.2: Create new.ejs file for new issue:
                 -------------------------------------------------------------------------------------
-                <h2>New Issue</h2>
-                <form action="/issues" method="POST">
-                  <%- include('_form_fields') %>
-                  <a href="/issues">Cancel</a>
-                  <button type="submit">Create</button>
-                </form>
+                     <h2>New Issue</h2>
+                     <form action="/issues" method="POST">
+                       <%- include('_form_fields') %>
+                       <a href="/issues">Cancel</a>
+                       <button type="submit">Create</button>
+                     </form>
                 -------------------------------------------------------------------------------------
 
+// Add form field partial for issue _form_fields.ejs...
+        =============================================================================================
+        * Again, same thing as done for categories. Copy and paste the _form_fields.ejs partial and 
+          paste it in the issues folder, change the names and values to suit.
+        =============================================================================================
+
+        18.3: Add field form partial:
+                --------------------------------------------------------------------------------------
+                        <label>Name</label>
+                        <input type="text" name="title" value="<%= issue.title %>">                       -- remember to change the name (title) and value (issue.title).
+                --------------------------------------------------------------------------------------
 
 
 
