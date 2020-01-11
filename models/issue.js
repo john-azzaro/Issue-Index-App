@@ -10,14 +10,11 @@ const issueSchema = new mongoose.Schema({
     required: true,
     ref: 'Category'
   },
-  problem: {
+  issueDescription: {
     type: String,
     required: true
   },
-  comments: {
-    type: String,
-  },
-  solution: {
+  solutionDescription: {
     type: String,
   },
   createdAt: {
