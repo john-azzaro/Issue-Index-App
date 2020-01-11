@@ -1643,33 +1643,72 @@ Phase 18: Add "new issues" to views
                      </form>
                 -------------------------------------------------------------------------------------
 
-
-// In issues router, add new issue route...
-        =============================================================================================
-        * Before we add the p
-        =============================================================================================
-
-        18.3: Add new issue route:
-                -------------------------------------------------------------------------------------
-                
-                -------------------------------------------------------------------------------------
-
-
-
-
-
 // Add form field partial for issue _form_fields.ejs...
         =============================================================================================
         * Again, same thing as done for categories. Copy and paste the _form_fields.ejs partial and 
           paste it in the issues folder, change the names and values to suit. However, this form
-          will be substantially larger because we have a few more areas we want to include.
+          will be substantially larger because we have a few more areas we want to include. In the case
+          of this form partial, we want to be able to selct a category from our exiting list. To do this, 
+          we nee dot loop through the categories and select the one that fits the best.
         =============================================================================================
 
         18.3: Add field form partial with all the forms you need:
                 --------------------------------------------------------------------------------------
                         <label>Name</label>
                         <input type="text" name="title" value="<%= issue.title %>">                       -- remember to change the name (title) and value (issue.title).
+                        
+                        <label>Name</label>
+                        <input type="text" name="title" value="<%= issue.title %>">     
+                        <label>Category</label>
+                        <select name="category">
+                        <% categories.forEach( function(category) { %>
+                        <% if (issue.id == issue.category) { %>
+                        <option selected label="<%= category.name %>" value="<%= category.id %>">
+                        <%= category.name %>
+                        </option>
+                        <% } else { %>
+                        <option label="<%= category.name %>" value="<%= category.id %>">
+                        <%= category. name %>
+                        </option>
+                        <% } %>
+                        <% }) %>
+                        </select>
+                
                 --------------------------------------------------------------------------------------
+
+// In issues router, add new issue route...
+        =============================================================================================
+        * Now we can hook everything up. This really is all just about the same as what what done for
+          categories, its just creating a new layer of search and create, etc.
+        =============================================================================================
+
+        18.4: Import Category router:
+                ------------------------------------------------------------------------------------
+                        const { Category } = require('../models/category');
+                ------------------------------------------------------------------------------------
+
+
+        18.4: Add new issue route:
+                -------------------------------------------------------------------------------------
+                //New Issue Route
+                router.get('/new', async function(req, res) {
+                  try {
+                    const categories = await Category.find({});                                       -- get all categories, categories equal to await (i.e. wait until) Category model and find everything (i.e. {})
+                    const issue = new Issue();                                                        -- create a new Issue
+                    res.render('issues/new', {                                                        -- if successful, render issues/new and pass in variables
+                      categories: categories,                                                         -- send categories to new page and...
+                      issue: issue                                                                    -- send issues to the new page.
+                    })                      
+                    } catch (err) {
+                       res.redirect('/issues');                                                       -- if the are any errors, redirect back to the /issues page.
+                    }
+  
+                -------------------------------------------------------------------------------------
+
+
+
+
+
 
 
 
