@@ -29,7 +29,12 @@ router.get('/new', async function(req, res) {
 
 // Create Issue Route
 router.post('/', async function(req, res) {
-  res.send('Create issues works!')
+  const issue = new Issue({
+    title: req.body.title,
+    category: req.body.category,
+    description: req.body.description,
+    solution: req.body.solution
+  });
 });
 
 

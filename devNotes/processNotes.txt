@@ -1768,7 +1768,23 @@ Phase 18: Add "new issues" to views
                 ------------------------------------------------------------------------------------
 
 
+// Hookup form to route...
+        =============================================================================================
+        * 
+        =============================================================================================
 
+        18.6: Create issue route:
+                ------------------------------------------------------------------------------------
+                        // Create Issue Route
+                        router.post('/', async function(req, res) {                                       -- make sure it is an async function
+                          const issue = new Issue({                                                       -- create issue object with...
+                            title: req.body.title,                                                        -- title set to the input of title in the form
+                            category: req.body.category,                                                  -- category set to the selection of category
+                            description: req.body.description,                                            -- description set to the input of description in the form
+                            solution: req.body.solution                                                   -- solution set to the input of solution in the form
+                          });
+                        });
+                ------------------------------------------------------------------------------------
 
 
 
