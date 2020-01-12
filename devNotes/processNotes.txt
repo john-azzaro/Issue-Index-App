@@ -161,11 +161,11 @@ Process Workflow Summary:
     Phase 18: Add "new issues" to views.        
         1. Create an "issues" file.
         2. Create a "new.ejs" file for new issues.
-        3. Add form field partial for issue _form_fields.ejs.
-        4. In issues router, add new issue route.
-        5. Complete form field partial for add issue.
-        6. 
-        7. 
+        3. In issues router, add new issue route.
+        4. Add form field partial for issue _form_fields.ejs.
+        5. In issues router, add new issue route.
+        6. Complete form field partial for add issue.
+        7. Hookup issue form to route. 
 
 
 
@@ -1702,7 +1702,7 @@ Phase 18: Add "new issues" to views
                 ------------------------------------------------------------------------------------
 
 
-        18.4: Add new issue route:
+        18.5: Add new issue route:
                 -------------------------------------------------------------------------------------
                 //New Issue Route
                 router.get('/new', async function(req, res) {
@@ -1726,7 +1726,7 @@ Phase 18: Add "new issues" to views
           you specified in your models file.
         ============================================================================================
 
-        18.5: Complete form partial for add issue:
+        18.6: Complete form partial for add issue:
                 ------------------------------------------------------------------------------------
                 <div>
                 <label>Name</label>                                                                    -- Name of the issue.
@@ -1768,12 +1768,13 @@ Phase 18: Add "new issues" to views
                 ------------------------------------------------------------------------------------
 
 
-// Hookup form to route...
+// Hookup issue form to route...
         =============================================================================================
-        * 
+        * Once you have the form fields all set (and make sure you have a definite plan with the model),
+          create the initial route for each of the input fields from the form fields.
         =============================================================================================
 
-        18.6: Create issue route:
+        18.7: Create issue route:
                 ------------------------------------------------------------------------------------
                         // Create Issue Route
                         router.post('/', async function(req, res) {                                       -- make sure it is an async function
