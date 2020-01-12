@@ -1790,7 +1790,15 @@ Phase 18: Add "new issues" to views
 
 
 
+Phase 19: Step file uploading
+        ==============================================================================================
+        * File uploading will allow us to upload a picture of the issue to the app. To do this, we'll
+          use a library called "multer" which will allow you to work with multi-part forms, which is 
+          what a file form is.
+        ==============================================================================================
 
+// 
+        19.1: Change inclusion in "issues" > "new.ejs" to be multipart form type
 
 
 
