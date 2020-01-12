@@ -1803,8 +1803,8 @@ Phase 19: Step file uploading
                         npm install multer
                 -------------------------------------------------------------------------------------
 
-// Add enctype to "add issue" form
-        19.1: In "issues" > "new.ejs", add enctype to take multipart form type:
+// Add enctype to "add issue" form...
+        19.2: In "issues" > "new.ejs", add enctype to take multipart form type:
                 ---------------------------------------------------------------------------
                 <h2>Add Issue</h2>
                 <form action="/issues" method="POST" enctype="multipart/form-data">              --tells the server that the form is going to send multipart form data which could include a file.
@@ -1814,8 +1814,21 @@ Phase 19: Step file uploading
                 </form>
                 -----------------------------------------------------------------------------
 
+// Import multer to issues.js...
+        19.3: Require multer in issues.js:
+                ------------------------------------------------------------------------------------
+                        const multer = require('multer');
+                ------------------------------------------------------------------------------------
 
+// Configure upload to use multer:
+        19.4: Create an upload variable equal to the setup for multer:
+                ------------------------------------------------------------------------------------
+                        const upload = multer({                                                           -- this is going to help configure multer to use with this application.
+ 
+                        });
+                ------------------------------------------------------------------------------------
 
+        19.5: 
 
 
 
