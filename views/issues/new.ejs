@@ -1,5 +1,5 @@
 <h2>Add Issue</h2>
-<form action="/issues" method="POST">
+<form action="/issues" method="POST" enctype="multipart/form-data">   
   <%- include('_form_fields') %>
   <a href="/issues">Cancel</a>
   <button type="submit">Create</button>

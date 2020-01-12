@@ -1797,8 +1797,29 @@ Phase 19: Step file uploading
           what a file form is.
         ==============================================================================================
 
-// 
-        19.1: Change inclusion in "issues" > "new.ejs" to be multipart form type
+// Install multer...
+        19.1: Install multer via npm:
+                -------------------------------------------------------------------------------------
+                        npm install multer
+                -------------------------------------------------------------------------------------
+
+// Add enctype to "add issue" form
+        19.1: In "issues" > "new.ejs", add enctype to take multipart form type:
+                ---------------------------------------------------------------------------
+                <h2>Add Issue</h2>
+                <form action="/issues" method="POST" enctype="multipart/form-data">              --tells the server that the form is going to send multipart form data which could include a file.
+                <%- include('_form_fields') %>
+                <a href="/issues">Cancel</a>
+                <button type="submit">Create</button>
+                </form>
+                -----------------------------------------------------------------------------
+
+
+
+
+
+
+
 
 
 
