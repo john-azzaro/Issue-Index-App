@@ -6,11 +6,11 @@ const path = require('path');
 const { Issue } = require('../models/issue');
 const { Category } = require('../models/category');
 const uploadPath = path.join('public', Issue.imageBasePath)
-const imageMimeTypes = ['images/jpeg', 'images/png', 'images/gif']          // What file types we will allow to be uploaded.
+const imageMimeTypes = ['images/jpeg', 'images/png', 'images/gif'];  
 const upload = multer({
-  dest: uploadPath,                                                         // destinaton set to the upload path (i.e. public/Issue.imageBasePath), which is in the public folder
-  fileFilter: function (req, file, callback) {                               // filter files the server will accept, which takes the request, the file itself, and the callback when we're done.
-    callback(null)
+  dest: uploadPath,  
+  fileFilter: function (req, file, callback) {     
+    callback(null, imageMimeTypes.includes(file.mimetype));
   }
 });
 

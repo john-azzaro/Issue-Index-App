@@ -1856,8 +1856,34 @@ Phase 19: Step file uploading
 
         19.9: In the upload variable, we can set the destination to the uploadPath:
                 -----------------------------------------------------------------------------------
-
+                        const upload = multer({
+                          dest: uploadPath,                                                             -- destinaton set to the upload path (i.e. public/Issue.imageBasePath), which is in the public folder
+                          fileFilter: function (req, file, callback) {                                  -- filter files the server will accept, which takes the request, the file itself, and the callback when we're done.
+                          callback(null)
+                        }
                 -----------------------------------------------------------------------------------
+
+        19.10: Specifiy the types of files you want to have uploaded:
+                -----------------------------------------------------------------------------------
+                        const imageMimeTypes = ['images/jpeg', 'images/png', 'images/gif']               -- array with the default file types we will allow to be uploaded.
+                -----------------------------------------------------------------------------------
+
+        19.11: Then add this to the upload variable:
+                -----------------------------------------------------------------------------------
+                        const upload = multer({
+                          dest: uploadPath,  
+                          fileFilter: function (req, file, callback) {     
+                          callback(null, imageMimeTypes.includes(file.mimetype));                      -- mimetype added.
+                          }
+                        });
+                -----------------------------------------------------------------------------------
+
+
+// Setup route to accept files...
+        ============================================================================================
+        * Now that you have specified where you want your images to go, you need to setup the route
+          that will allow you to upload the images.
+        ============================================================================================
 
 
 
