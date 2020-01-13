@@ -1849,6 +1849,15 @@ Phase 19: Step file uploading
                         const path = require('path');                                                   -- built-in library
                 ----------------------------------------------------------------------------------- 
 
+        19.8: Create an upload path:
+                -----------------------------------------------------------------------------------
+                        const uploadPath = path.join('public', )                                        -- upload path joins public folder and Issue variable plus the imageBasePath we imported.
+                -----------------------------------------------------------------------------------
+
+        19.9: In the upload variable, we can set the destination to the uploadPath:
+                -----------------------------------------------------------------------------------
+
+                -----------------------------------------------------------------------------------
 
 
 
