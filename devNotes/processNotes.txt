@@ -1834,9 +1834,20 @@ Phase 19: Step file uploading
           we'll want to store them in the public folder.
         ============================================================================================
 
-        19.5: 
+        19.5: Create a basepath for upload images:
+                -----------------------------------------------------------------------------------
+                        const imageBasePath = 'uploads/images'                                         -- Path to where the images will be stored
+                -----------------------------------------------------------------------------------
 
+        19.6: Export the imageBasePath variable:
+                -----------------------------------------------------------------------------------
+                        module.exports.imageBasePath = imageBasePath;                                  -- Export the variable.
+                -----------------------------------------------------------------------------------
 
+        19.7: Import the "path" library:
+                ----------------------------------------------------------------------------------- 
+                        const path = require('path');                                                   -- built-in library
+                ----------------------------------------------------------------------------------- 
 
 
 
