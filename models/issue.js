@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const imageBasePath = 'uploads/images'          // path to where the images will be stored
 
 const issueSchema = new mongoose.Schema({
   title: {
@@ -30,3 +31,4 @@ const issueSchema = new mongoose.Schema({
 const Issue = mongoose.model('Issue', issueSchema);
 
 module.exports = { Issue };
+module.exports.imageBasePath = imageBasePath;

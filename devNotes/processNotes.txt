@@ -1828,9 +1828,13 @@ Phase 19: Step file uploading
                         });
                 ------------------------------------------------------------------------------------
 
+// Create a basepath for uploaded images in issue.js model file...
+        ============================================================================================
+        * This is going to be where the static images for issue screencaps will go to. In this case, 
+          we'll want to store them in the public folder.
+        ============================================================================================
+
         19.5: 
-
-
 
 
 

@@ -5,7 +5,7 @@ const multer = require('multer');
 const { Issue } = require('../models/issue');
 const { Category } = require('../models/category');
 const upload = multer({
-
+  dest:
 });
 
 
