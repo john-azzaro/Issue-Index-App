@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const imageBasePath = 'uploads/images'          // path to where the images will be stored
+const imageBasePath = 'uploads/images' 
 
 const issueSchema = new mongoose.Schema({
   title: {
