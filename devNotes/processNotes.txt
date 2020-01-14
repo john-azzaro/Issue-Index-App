@@ -1885,6 +1885,12 @@ Phase 19: Step file uploading
           that will allow you to upload the images.
         ============================================================================================
 
+        19.12: Add a parameter to the "Create Issue Route" post route.                
+                ------------------------------------------------------------------------------------
+                                                  // This parameter takes the "upload" variable, tell it we have a single variable being uploaded with the file name.
+                
+                ------------------------------------------------------------------------------------
+
 
 
 

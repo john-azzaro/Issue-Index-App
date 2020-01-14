@@ -39,7 +39,7 @@ router.get('/new', async function(req, res) {
 
 
 // Create Issue Route
-router.post('/', async function(req, res) {
+router.post('/', upload.single('image'), async function(req, res) {
   const issue = new Issue({
     title: req.body.title,
     category: req.body.category,
