@@ -6,16 +6,14 @@ const path = require('path');
 const Issue = require('../models/issue');
 const { Category } = require('../models/category');
 
-const uploadPath = path.join('public', Issue.imageBasePath)
-
-
-// const imageMimeTypes = ['images/jpeg', 'images/png', 'images/gif'];  
-// const upload = multer({
-//   dest: uploadPath,  
-//   fileFilter: function (req, file, callback) {     
-//     callback(null, imageMimeTypes.includes(file.mimetype));
-//   }
-// });
+const uploadPath = path.join('public', Issue.imageBasePath);
+const imageMimeTypes = ['images/jpeg', 'images/png', 'images/gif'];  
+const upload = multer({
+  dest: uploadPath,  
+  fileFilter: function (req, file, callback) {     
+    callback(null, imageMimeTypes.includes(file.mimetype));
+  }
+});
 
 
 // Routes
@@ -41,8 +39,8 @@ router.get('/new', async function(req, res) {
 
 
 // Create Issue Route
-router.post('/', async function(req, res) {                                    // upload.single('image')
-  const fileName = req.file != null ? req.file.filename : null;                    // if the file name is not equal to null, get the file name. But if it is, null
+router.post('/', upload.single('image'), async function(req, res) {    
+  const fileName = req.file != null ? req.file.filename : null;  
   const issue = new Issue({
     title: req.body.title,
     category: req.body.category,
