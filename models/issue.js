@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
-const imageBasePath = 'uploads/images' 
+const path = require('path');
+
+const imageBasePath = 'uploads/images'; 
 
 const issueSchema = new mongoose.Schema({
   title: {
@@ -30,5 +32,5 @@ const issueSchema = new mongoose.Schema({
 
 const Issue = mongoose.model('Issue', issueSchema);
 
-module.exports = { Issue };
+module.exports = Issue;
 module.exports.imageBasePath = imageBasePath;

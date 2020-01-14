@@ -3,10 +3,11 @@ const express = require('express');
 const router = express.Router();
 const multer = require('multer');
 const path = require('path');
-const { Issue } = require('../models/issue');
+const Issue = require('../models/issue');
 const { Category } = require('../models/category');
 
-const uploadPath = path.join('public', Issue.imageBasePath);
+const uploadPath = path.join('public', Issue.imageBasePath)
+
 
 // const imageMimeTypes = ['images/jpeg', 'images/png', 'images/gif'];  
 // const upload = multer({
