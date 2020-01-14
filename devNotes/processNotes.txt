@@ -1885,11 +1885,21 @@ Phase 19: Step file uploading
           that will allow you to upload the images.
         ============================================================================================
 
-        19.12: Add a parameter to the "Create Issue Route" post route.                
+        19.12: Add a parameter to the "Create Issue Route" post route.
+                *  This parameter takes the "upload" variable, tell it we have a single variable being uploaded with the file name.
+                *  Adidtional, add a filename variable.                 
                 ------------------------------------------------------------------------------------
-                                                  // This parameter takes the "upload" variable, tell it we have a single variable being uploaded with the file name.
-                
-                ------------------------------------------------------------------------------------
+                     router.post('/', upload.single('image'), async function(req, res) {                -- this parameter tells multer that we are upload ing a single file called "image"
+                        const fileName = req.file != null ? req.file.filename : null;                   -- get the file from the filename       
+                        const issue = new Issue({
+                        title: req.body.title,
+                        category: req.body.category,
+                        description: req.body.description,
+                        solution: req.body.solution,
+                        imageName: fileName                                                             -- if a file is uploaded, which will be equal to the name of the file (see fileName)
+                        });
+                     });
+               ------------------------------------------------------------------------------------
 
 
 
