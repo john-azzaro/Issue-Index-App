@@ -19,3 +19,4 @@ Although services like github allow users to create wiki's for thier project, it
 With **Issue Index**, your team can navigate to a central hub to document any past, current, or even future issues with relative ease. Search by category through documented issues or browse thorough the most recent additions. Not sure about a specific category title? The search will accomodate partial spelling and inclusions. Have an issue that you want to post? Simply click "Add new issue", jot down the title of your issue, the problem and the solution, and/or even drag-and-drop a screen cap of your issue for future reference. You can even edit and delete issues if you want! This is a fully collaborative environment for your team.
 
 ### What should you do now?
+Try out the **Issue Index Application** today and if you like what you see, integrate it into your collaborative workflow.
