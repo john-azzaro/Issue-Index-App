@@ -50,6 +50,7 @@ router.post('/', upload.single('image'), async function(req, res) {
   });
   try {
     const newIssue = await issue.save();
+    // res.redirect('issues/${newIssue.id}');
     res.redirect('issues');
   } catch(err) {
 
