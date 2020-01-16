@@ -57,14 +57,18 @@ router.post('/', upload.single('image'), async function(req, res) {
   }
 });
 
-function renderNewPage(res) {                         // render new page will use the res variable to render and redirect.
-  try {
-    const categories = await Category.find({});
-    const issue = new Issue();
-    res.render('issues/new', {
+async function renderNewPage(res, issue, hasError = false) {                   // the asynchronous renderNewPage will use the res variable to render and redirect, the issue variable for rendering new or existing book, and hasError message.
+  try {                                                                        // existing route logic from new issue route.
+    const categories = await Category.find({});                                //... which selects categories
+    const params = {                                                           // relocate parameters in existing render to params variable and pass this new variable to where we had it before.
       categories: categories,
       issue: issue
-    });
+    }
+    if (hasError) {
+      params.errorMessage = 'Error Creating Issue'
+    }
+    // const issue = new Issue();                                              // removed create new issue.
+    res.render('issues/new', params);                                          // relocated params
   } catch (err) {
     res.redirect('/issues');  
   }
