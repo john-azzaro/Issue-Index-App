@@ -57,6 +57,20 @@ router.post('/', upload.single('image'), async function(req, res) {
   }
 });
 
+function renderNewPage(res) {                         // render new page will use the res variable to render and redirect.
+  try {
+    const categories = await Category.find({});
+    const issue = new Issue();
+    res.render('issues/new', {
+      categories: categories,
+      issue: issue
+    });
+  } catch (err) {
+    res.redirect('/issues');  
+  }
+}
+
+
 
 //Export
 module.exports = router;
