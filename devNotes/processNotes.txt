@@ -1903,10 +1903,26 @@ Phase 19: Step file uploading
 
         19.13: Add in the try/catch block:
                 -----------------------------------------------------------------------------------
-                
+                        router.post('/', upload.single('image'), async function(req, res) {    
+                          const fileName = req.file != null ? req.file.filename : null;  
+                          const issue = new Issue({
+                            title: req.body.title,
+                            category: req.body.category,
+                            description: req.body.description,
+                            solution: req.body.solution,
+                            imageName: fileName
+                          });
+                          try {                                                                       -- try block that saves issue to database and then redirects (for now) to issues page.
+                            const newIssue = await issue.save();
+                            // res.redirect('issues/${newIssue.id}');
+                            res.redirect('issues');
+                          } catch(err) {                                                              -- catch block will render new page, however at this point we already have the work done.
+                                                                                                         To cut down on repetitive code, create a function with the preexisting code in new issue route. 
+                          }
+                        });
                 -----------------------------------------------------------------------------------
 
-
+        19.14: 
 
 
 
