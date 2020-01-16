@@ -25,16 +25,7 @@ router.get('/', async function(req, res) {
 
 //New Issue Route
 router.get('/new', async function(req, res) {
-  try {
-    const categories = await Category.find({});
-    const issue = new Issue();
-    res.render('issues/new', {
-      categories: categories,
-      issue: issue
-    });
-  } catch (err) {
-    res.redirect('/issues');  
-  }
+  renderNewPage(res, new Issue());
 });
 
 
@@ -53,7 +44,7 @@ router.post('/', upload.single('image'), async function(req, res) {
     // res.redirect('issues/${newIssue.id}');
     res.redirect('issues');
   } catch(err) {
-
+    renderNewPage(res, issue, true); 
   }
 });
 

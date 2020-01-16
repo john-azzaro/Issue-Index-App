@@ -1943,6 +1943,35 @@ Phase 19: Step file uploading
                         }
                 -----------------------------------------------------------------------------------
 
+        19.15: Call "renderNewPage" where you need to (i.e. create new issue):
+                -----------------------------------------------------------------------------------
+                        //New Issue Route
+                        router.get('/new', async function(req, res) {
+                          renderNewPage(res, new Issue());
+                        });
+                -----------------------------------------------------------------------------------
+
+                And in the error message for our post:
+                -----------------------------------------------------------------------------------
+                        router.post('/', upload.single('image'), async function(req, res) {    
+                          const fileName = req.file != null ? req.file.filename : null;  
+                          const issue = new Issue({
+                            title: req.body.title,
+                            category: req.body.category,
+                            description: req.body.description,
+                            solution: req.body.solution,
+                            imageName: fileName
+                          });
+                          try {  
+                            const newIssue = await issue.save();
+                            // res.redirect('issues/${newIssue.id}');
+                            res.redirect('issues');
+                          } catch(err) {  
+                            renderNewPage(res, issue, true);                                          -- renderNewPage called with res, the issue object, and true (for the error object)
+                          }
+                        });           
+                -----------------------------------------------------------------------------------
+
 
 
 
