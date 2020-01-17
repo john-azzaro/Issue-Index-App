@@ -7,7 +7,7 @@ const Issue = require('../models/issue');
 const { Category } = require('../models/category');
 
 const uploadPath = path.join('public', Issue.imageBasePath);
-const imageMimeTypes = ['images/jpeg', 'images/png', 'images/gif'];  
+const imageMimeTypes = ['image/jpeg', 'image/png', 'image/gif'];  
 const upload = multer({
   dest: uploadPath,  
   fileFilter: function (req, file, callback) {     
