@@ -1974,16 +1974,10 @@ Phase 19: Step file uploading
 
 // Test add issue...
         ===========================================================================================
-        * Test to see if the basic route works.
+        * Test to see if the basic route works. If you put in all the relavant information and upload
+          the image, you will see that your public folder has the image and a new document with your
+          test information:
         ===========================================================================================
-
-        19.16: Test add issue:
-                ------------------------------------------------------------------------------------
-                
-                ------------------------------------------------------------------------------------
-
-
-
 
 
 
