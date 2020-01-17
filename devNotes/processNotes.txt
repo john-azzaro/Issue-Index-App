@@ -1967,7 +1967,7 @@ Phase 19: Step file uploading
                             // res.redirect('issues/${newIssue.id}');
                             res.redirect('issues');
                           } catch(err) {  
-                            renderNewPage(res, issue, true);                                          -- renderNewPage called with res, the issue object, and true (for the error object)
+                            renderNewPage(res, issue, true);                                          -- renderNewPage called with res, the issue object, and true because it has an error.
                           }
                         });           
                 -----------------------------------------------------------------------------------

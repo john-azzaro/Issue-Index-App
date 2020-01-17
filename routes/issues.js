@@ -48,6 +48,7 @@ router.post('/', upload.single('image'), async function(req, res) {
   }
 });
 
+// Render New Page function
 async function renderNewPage(res, issue, hasError = false) { 
   try {
     const categories = await Category.find({}); 
