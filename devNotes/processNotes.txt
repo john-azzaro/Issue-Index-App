@@ -1865,7 +1865,7 @@ Phase 19: Step file uploading
 
         19.10: Specifiy the types of files you want to have uploaded:
                 -----------------------------------------------------------------------------------
-                        const imageMimeTypes = ['images/jpeg', 'images/png', 'images/gif']               -- array with the default file types we will allow to be uploaded.
+                        const imageMimeTypes = ['image/jpeg', 'image/png', 'image/gif']               -- array with the default file types we will allow to be uploaded.
                 -----------------------------------------------------------------------------------
 
         19.11: Then add this to the upload variable:
