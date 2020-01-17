@@ -2,6 +2,7 @@
 const express = require('express');
 const router = express.Router();
 const multer = require('multer');
+const fs = require('fs');
 const path = require('path');
 const Issue = require('../models/issue');
 const { Category } = require('../models/category');
@@ -44,6 +45,9 @@ router.post('/', upload.single('image'), async function(req, res) {
     // res.redirect('issues/${newIssue.id}');
     res.redirect('issues');
   } catch(err) {
+    if (issue.imageName != null) {
+      removeImage(issue.imageName)                             // removeImage with filename passed in if error occurs
+    } 
     renderNewPage(res, issue, true); 
   }
 });

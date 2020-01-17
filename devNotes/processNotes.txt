@@ -1976,15 +1976,41 @@ Phase 19: Step file uploading
         ===========================================================================================
         * Test to see if the basic route works. If you put in all the relavant information and upload
           the image, you will see that your public folder has the image and a new document with your
-          test information:
+          test information. Also, test leaving a blank input field for a required section and see if 
+          the error text appears above the add issue field.
         ===========================================================================================
 
 
+// Add logic to remove issue images that are not in the database:
+        ============================================================================================
+        * Suppose you delete an issue for some reason and that issue had a image attached to it. If 
+          you dont add this logic, tyour public folder will keep the redundant image. To to this you 
+          need to install another library called "file system", or "fs" for short. This is also a built
+          in library in node so you dont need to install via npm.
+        ============================================================================================
 
+        19.16: Load file system library:
+                -----------------------------------------------------------------------------------
+                        const fs = require('fs');                                                       -- built in library for file system in node.
+                -----------------------------------------------------------------------------------
 
+        19.17: Add a "removeImage" function to create issue route:
+                -----------------------------------------------------------------------------------
+                ...
+                ...
+                } catch(err) {
+                  if (issue.imageName != null) {
+                    removeImage(issue.imageName)                                                        -- removeImage with filename passed in if error occurs
+                  } 
+                  renderNewPage(res, issue, true); 
+                  }
+                });
+                -----------------------------------------------------------------------------------
 
-
-
+        19.18: Create removeImage function:
+                -----------------------------------------------------------------------------------
+                
+                -----------------------------------------------------------------------------------
 
 
 
