@@ -52,6 +52,18 @@ router.post('/', upload.single('image'), async function(req, res) {
   }
 });
 
+
+// Remove Image if error
+function removeImage(fileName) {
+  fs.unlink(path.join(uploadPath, fileName), function(err) {       
+    if (err) {    
+      console.err(err)   
+    }
+  });
+}
+
+
+
 // Render New Page function
 async function renderNewPage(res, issue, hasError = false) { 
   try {

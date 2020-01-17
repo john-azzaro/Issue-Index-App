@@ -2009,7 +2009,14 @@ Phase 19: Step file uploading
 
         19.18: Create removeImage function:
                 -----------------------------------------------------------------------------------
-                
+                // Remove Image if error
+                function removeImage(fileName) {
+                  fs.unlink(path.join(uploadPath, fileName), function(err) {                            -- tells the file system to remove the file that you dont want anymore and pass the pass where the file is at.
+                    if (err) {                                                                          -- and if there is an error...
+                    console.err(err)                                                                    -- log the error to the console.
+                    }
+                  });
+                }
                 -----------------------------------------------------------------------------------
 
 
