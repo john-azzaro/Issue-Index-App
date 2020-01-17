@@ -46,7 +46,7 @@ router.post('/', upload.single('image'), async function(req, res) {
     res.redirect('issues');
   } catch(err) {
     if (issue.imageName != null) {
-      removeImage(issue.imageName)                             // removeImage with filename passed in if error occurs
+      removeImage(issue.imageName) 
     } 
     renderNewPage(res, issue, true); 
   }
