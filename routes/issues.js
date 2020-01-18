@@ -20,14 +20,18 @@ const upload = multer({
 // Routes
 // All Issues Route
 router.get('/', async function(req, res) {
+let searchOptions = {}
+  if (req.query.title != null && req.query.title !== '') {
+    searchOptions.title = new RegExp(req.query.title, 'i')
+  }   
   try {
-    const issues = await Issue.find({})
+    const issues = await Issue.find(searchOptions)
     res.render('issues/index', {                                       // render page issues/index and pass...
       issues: issues,                                                  // ... the issues
       searchOptions: req.query                                         // and search params
     });
   } catch(err) {
-    res.redirect('/');
+    res.redirect('/');                                                 // if error, redirect to main page.
   }
 });
 
