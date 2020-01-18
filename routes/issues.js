@@ -21,7 +21,7 @@ const upload = multer({
 // All Issues Route
 router.get('/', async function(req, res) {
   try {
-    const issues = Issue.find({})
+    const issues = await Issue.find({})
     res.render('issues/index', {                                       // render page issues/index and pass...
       issues: issues,                                                  // ... the issues
       searchOptions: req.query                                         // and search params
