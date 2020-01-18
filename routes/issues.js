@@ -20,7 +20,15 @@ const upload = multer({
 // Routes
 // All Issues Route
 router.get('/', async function(req, res) {
-  res.send('All issues works!')
+  try {
+
+  } catch(err) {
+
+  }
+  res.render('issues/index', {                                       // render page issues/index and pass...
+    issues: issues,                                                  // ... the issues
+    searchParams: req.query                                         // and search params
+  });
 });
 
 
