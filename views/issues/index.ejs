@@ -1,7 +1,18 @@
-<h2>Search Categories</h2>
-<form action="/categories" method="GET">    
-  <label>Name</label>
-  <input type="text" name="name" value="<% searchOptions.name %>">
+<h2>Search Issues</h2>                                                                // change category to issues
+<form action="/issues" method="GET">                                                  // chnage action from /categories to /issues route
+  <div>
+    <label>Title</label>                                                              // add Title
+    <input type="text" name="title" value="<% searchOptions.title %>">                 // change to title for search options and name.
+  </div>
+  
+
+
+
+
+
+
+
+  
   <button type="submit">Search</button>
 </form>
 <br>
