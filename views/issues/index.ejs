@@ -1,23 +1,15 @@
-<h2>Search Issues</h2>                                                                // change category to issues
-<form action="/issues" method="GET">                                                  // chnage action from /categories to /issues route
+<h2>Search Issues</h2> 
+<form action="/issues" method="GET"> 
   <div>
-    <label>Title</label>                                                              // add Title
-    <input type="text" name="title" value="<% searchOptions.title %>">                 // change to title for search options and name.
+    <label>Title</label> 
+    <input type="text" name="title" value="<% searchOptions.title %>"> 
   </div>
-  
-
-
-
-
-
-
-
-  
   <button type="submit">Search</button>
 </form>
 <br>
-
-<% categories.forEach( function(category) {  %>
+<div>
+  <% issues.forEach( function(issue) {  %>
   <div><%= category.name %></div>
-<% }) %>
+  <% }) %>
+</div>
 

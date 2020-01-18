@@ -2048,8 +2048,33 @@ Phase 20: Setup "All Issues" page:
           find in the index.js for categories, you just need to change the titles, etc.
         ============================================================================================
 
-        20.1: Create a 
+        20.1: Create an index file:
+                ------------------------------------------------------------------------------------
+                        views  >  issues  >  index.ejs                                                  -- note to self, remember ejs not js lol.
+                ------------------------------------------------------------------------------------
 
+        20.2: Copy and paste index.js code from categories and change labels:
+                ------------------------------------------------------------------------------------
+                        <h2>Search Issues</h2>                                                          -- change category to issues
+                        <form action="/issues" method="GET">                                            -- change action from /categories to /issues route
+                          <div>
+                          <label>Title</label>                                                          -- add Title
+                          <input type="text" name="title" value="<% searchOptions.title %>">            -- change to title for search options and name.
+                          </div>
+                          <button type="submit">Search</button>
+                        </form>
+                        <br>
+                        <div>
+                          <% issues.forEach( function(issue) {  %>                                      -- issues replaces categories3533image
+                          <div><%= issue.title %></div>
+                          <% }) %>
+                        </div>
+                ------------------------------------------------------------------------------------
+
+        20.3: Implement page on the issues.js server:
+                ------------------------------------------------------------------------------------
+                        
+                ------------------------------------------------------------------------------------
 
 
 
