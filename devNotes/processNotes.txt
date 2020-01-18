@@ -140,25 +140,25 @@ Process Workflow Summary:
         1. Install and configure body-parser via npm.
         2. Test "Create Category Route".
 
-    Phase 15: Build Create Category Route.
+    Phase 15: Build Create Category Route:
         1. Configure "Create Category Route".
         2. Create error message partial.
-        3. Add async to the "Create Category Route"...
+        3. Add async to the "Create Category Route".
 
-    Phase 16: Display All categories feature to app.
+    Phase 16: Display All categories feature to app:
         1. Add async to All Categories route.
         2. Create view for all categories.
         3. Implement search feature for categories.
         4. In index.js, add searchOptions as a value to the form.
                                                                                          _________________________________________________
-    Phase 17: Add "Issue" controller and views.                                                 Add Issue functionality (Phase 17-)
+    Phase 17: Add "Issue" controller and views:                                                 Add Issue functionality (Phase 17-)
         1. Create a "issues.js" router.
         2. Create an "issue" model.
         3. Hook-up "issueRouter" to server.js.
         4. Add Issue links to header.js
         5. Test issueRouter.
 
-    Phase 18: Add "new issues" to views.        
+    Phase 18: Add "new issues" to views:        
         1. Create an "issues" file.
         2. Create a "new.ejs" file for new issues.
         3. In issues router, add new issue route.
@@ -167,7 +167,7 @@ Process Workflow Summary:
         6. Complete form field partial for add issue.
         7. Hookup issue form to route. 
 
-    Phase 19: Phase 19: Setup file uploading
+    Phase 19: Setup file uploading:
         1. Install multer.
         2. Add enctype to "add issue" form.
         3. Import multer to issues.js.
@@ -177,6 +177,13 @@ Process Workflow Summary:
         7. Test add issue.
         8. Add logic to remove issue images that are not in the database.
 
+    Phase 20: Setup "All Issues" page:
+        1. 
+        2. 
+        3. 
+        4. 
+        5. 
+        6. 
 
 
 
@@ -2024,6 +2031,27 @@ Phase 19: Setup file uploading
                   });
                 }
                 -----------------------------------------------------------------------------------
+
+
+
+
+
+Phase 20: Setup "All Issues" page:
+        ============================================================================================
+        * The all issues page is going to be a long list of all the issues that are saved to the 
+          database.
+        ============================================================================================
+
+// Copy the same code from the Category index.js file.
+        ============================================================================================
+        * Although you could do this from scratch, the code is essentially the same as what you will
+          find in the index.js for categories, you just need to change the titles, etc.
+        ============================================================================================
+
+        20.1: Create a 
+
+
+
 
 
 
