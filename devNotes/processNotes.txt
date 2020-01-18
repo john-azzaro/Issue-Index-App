@@ -167,12 +167,15 @@ Process Workflow Summary:
         6. Complete form field partial for add issue.
         7. Hookup issue form to route. 
 
-
-
-
-
-
-
+    Phase 19: 
+        1. Install multer...
+        2. Add enctype to "add issue" form.
+        3. Import multer to issues.js...
+        4. Configure upload to use multer:
+        5. Create a basepath for uploaded images in issue.js model file.
+        6. Setup route to accept files.
+        7. Test add issue.
+        8. Add logic to remove issue images that are not in the database.
 
 Phase 1: Project Setup
 =========================================================================================
@@ -1981,7 +1984,7 @@ Phase 19: Step file uploading
         ===========================================================================================
 
 
-// Add logic to remove issue images that are not in the database:
+// Add logic to remove issue images that are not in the database...
         ============================================================================================
         * Suppose you delete an issue for some reason and that issue had a image attached to it. If 
           you dont add this logic, tyour public folder will keep the redundant image. To to this you 
