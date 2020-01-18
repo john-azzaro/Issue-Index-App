@@ -21,14 +21,13 @@ const upload = multer({
 // All Issues Route
 router.get('/', async function(req, res) {
   try {
-
+    res.render('issues/index', {                                       // render page issues/index and pass...
+      issues: issues,                                                  // ... the issues
+      searchParams: req.query                                         // and search params
+    });
   } catch(err) {
-
+    res.redirect('/');
   }
-  res.render('issues/index', {                                       // render page issues/index and pass...
-    issues: issues,                                                  // ... the issues
-    searchParams: req.query                                         // and search params
-  });
 });
 
 
