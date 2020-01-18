@@ -2071,6 +2071,7 @@ Phase 20: Setup "All Issues" page:
                         </div>
                 ------------------------------------------------------------------------------------
 
+// Implement logic for issues route...
         20.3: Implement page on the issues.js server:
                 ------------------------------------------------------------------------------------
                         // All Issues Route
@@ -2087,6 +2088,7 @@ Phase 20: Setup "All Issues" page:
                         });
                 ------------------------------------------------------------------------------------
 
+// Add search to issues
         20.4: Add search functionality to issues:
                 ------------------------------------------------------------------------------------
                 // All Categories Route
@@ -2106,6 +2108,65 @@ Phase 20: Setup "All Issues" page:
                           }
                         });
                 ------------------------------------------------------------------------------------
+
+
+
+
+Phase 21: Build out initial code for main page:
+        ===========================================================================================
+        * 
+        ===========================================================================================
+
+// Add initial code and "recents" logic...
+        21.1: Added logic to print recent issues to the home page:
+                ---------------------------------------------------------------------------------------------
+                        <h2>Recent Issues</h2>
+                        <div>
+                        <% issues.forEach( function(issue) {  %>
+                        <div><%= issue.title %></div>
+                        <% }) %>
+                        </div>
+                ---------------------------------------------------------------------------------------------
+
+// Add issues to main index.js...
+       21.2: In the routes > index.js, pass the issue variable:
+                ---------------------------------------------------------------------------------------------
+                        // root index route
+                        router.get('/', function(req, res) {
+                          res.render('index', { issues: issues });
+                        });
+                ---------------------------------------------------------------------------------------------
+
+// Add logic to sort most recent logic...
+        21.3: load the books model:
+                ---------------------------------------------------------------------------------------------
+                        const Issue = require('../models/issue');
+                ---------------------------------------------------------------------------------------------
+
+// Add logic to index.ejs:
+        21.4: Add most recents:
+                --------------------------------------------------------------------------------------------
+                        // root index route
+                        router.get('/', async function(req, res) {
+                          let issues;
+                          try {
+                            issues = await Issue.find().sort( { createdAt: 'desc' }).limit(10).exec();        -- This will find all the issues in the database and sort them. exec is used to execute the code.
+                          } catch(err) {
+                            issues = [];
+                          } 
+                           res.render('index', { issues: issues });
+                        });
+                --------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
 
 
 
