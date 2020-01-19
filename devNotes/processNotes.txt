@@ -2167,6 +2167,12 @@ Phase 22: Enable file upload to database.
           looking drag-and-drop feature.
         ===================================================================================================
 
+// Add the filepond cdn to the layout page
+        ==================================================================================================
+        * We'll want to use this library on every single page we have in the application.
+        ==================================================================================================
+
+        22.1: Add filepond to layout
 
 
 
