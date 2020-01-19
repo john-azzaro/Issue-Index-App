@@ -2204,6 +2204,15 @@ Phase 22: Enable file upload to database.
 
         22.5: Add the registerPlugin method to list all the plugins to be installed:
                 ----------------------------------------------------------------------------------------
+                        FilePond.registerPlugin(
+                          FilePondPluginImagePreview,
+                          FilePondPluginImageResize,
+                          FilePondPluginFileEncode,
+                        );
+                ----------------------------------------------------------------------------------------
+
+        22.6: In views > issues > _form_fields.ejs, for the cover image loader, add "filepond" class:
+                ----------------------------------------------------------------------------------------
 
                 ----------------------------------------------------------------------------------------
 
