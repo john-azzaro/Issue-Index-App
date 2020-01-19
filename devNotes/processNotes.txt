@@ -2169,7 +2169,7 @@ Phase 22: Enable file upload to database.
         * https://pqina.nl/filepond/docs/patterns/plugins/file-encode/
         ===================================================================================================
 
-// Add the filepond cdn to the layout page
+// Setup filepond...
         ==================================================================================================
         * We'll want to use this library on every single page we have in the application.
           REMEMBER: Library goes AFTER ALL plugins.
@@ -2192,10 +2192,20 @@ Phase 22: Enable file upload to database.
                         public  >  javascripts
                 -----------------------------------------------------------------------------------------
 
-        22.3: 
+        22.3: Insice javascripts, add a file called fileUpload.js:
+                ----------------------------------------------------------------------------------------
+                        public  >  javascripts  >  fileUpload.js
+                ----------------------------------------------------------------------------------------
                 
+        22.4: In the documentation for filepond, 
+                ----------------------------------------------------------------------------------------
+                       FilePond.parse(document.body);                                                      -- turns all fileinputs into filepond inputs
+                ----------------------------------------------------------------------------------------
 
+        22.5: Add the registerPlugin method to list all the plugins to be installed:
+                ----------------------------------------------------------------------------------------
 
+                ----------------------------------------------------------------------------------------
 
 
 
