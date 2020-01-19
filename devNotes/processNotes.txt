@@ -2164,19 +2164,25 @@ Phase 22: Enable file upload to database.
         ===================================================================================================
         * For the image upload feature that will allow the user to upload images of the issue, the app will
           use a library called filepond. It makes uploading much easier inside the app and has a really neat 
-          looking drag-and-drop feature.
+          looking drag-and-drop feature.   
+        * https://pqina.nl/filepond/
+        * https://pqina.nl/filepond/docs/patterns/plugins/file-encode/
         ===================================================================================================
 
 // Add the filepond cdn to the layout page
         ==================================================================================================
         * We'll want to use this library on every single page we have in the application.
+          REMEMBER: Library goes AFTER plugins
         ==================================================================================================
 
         22.1: Add filepond to layout.js
-                -----------------------------------------------------------------------------------------
-                        <link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet">            -- filepond styelsheet
-                        <script defer src="https://unpkg.com/filepond/dist/filepond.js"></script>
-                -----------------------------------------------------------------------------------------
+                ------------------------------------------------------------------------------------------------------------------------
+                        <link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet">                                             -- filepond styelsheet  
+                        <script defer src="https://unpkg.com/filepond-plugin-file-encode/dist/filepond-plugin-file-encode.js"></script>         -- filepond file encode plugin
+                        <link href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css" rel="stylesheet">   -- filepond upload stylesheet        
+                        <script src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js"></script>           -- filepond upload js
+                        <script defer src="https://unpkg.com/filepond/dist/filepond.js"></script>                                               -- filepond library
+                ------------------------------------------------------------------------------------------------------------------------
 
 
 
