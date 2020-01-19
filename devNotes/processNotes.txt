@@ -2160,7 +2160,12 @@ Phase 21: Build out initial code for main page:
 
 
 
-
+Phase 22: Enable file upload to database.
+        ===================================================================================================
+        * For the image upload feature that will allow the user to upload images of the issue, the app will
+          use a library called filepond. It makes uploading much easier inside the app and has a really neat 
+          looking drag-and-drop feature.
+        ===================================================================================================
 
 
 
