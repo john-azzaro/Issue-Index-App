@@ -2174,17 +2174,18 @@ Phase 22: Enable file upload to database.
         * We'll want to use this library on every single page we have in the application.
           REMEMBER: Library goes AFTER ALL plugins.
           ALSO REMEMBER: DEFER scripts.
+          ALSO REMEMBER: Links first, scripts second, library last.
         ==================================================================================================
 
         22.1: Add filepond to layout.js
                 ------------------------------------------------------------------------------------------------------------------------
-                        <link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet">                                             -- filepond styelsheet  
-                        <script defer src="https://unpkg.com/filepond-plugin-file-encode/dist/filepond-plugin-file-encode.js"></script>         -- filepond file encode plugin
-                        <link href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css" rel="stylesheet">   -- filepond upload stylesheet        
-                        <script defer src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js"></script>    -- filepond upload js
-                        <script defer src="https://unpkg.com/filepond-plugin-image-resize/dist/filepond-plugin-image-resize.js"></script>       -- filepond image resize
-                        <script defer src="https://unpkg.com/filepond/dist/filepond.js"></script>                                               -- filepond library
-                        <script defer src="javascripts/fileUpload.js"></script>                                                                 -- script we create to setup filepond library
+                        <link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet">                                               -- filepond styelsheet 
+                        <link href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css" rel="stylesheet">     -- filepond upload stylesheet
+                        <script defer src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js"></script>       -- filepond upload js
+                        <script defer src="https://unpkg.com/filepond-plugin-file-encode/dist/filepond-plugin-file-encode.js"></script>           -- filepond file encode plugin js
+                        <script defer src="https://unpkg.com/filepond-plugin-image-resize/dist/filepond-plugin-image-resize.js"></script>         -- filepond image resize
+                        <script defer src="https://unpkg.com/filepond/dist/filepond.js"></script>                                                 -- filepond library
+                        <script defer src="/javascripts/fileUpload.js"></script>                                                                  -- script we create to setup filepond library                                                            
                 ------------------------------------------------------------------------------------------------------------------------
 
         22.2: Create a folder called javascripts:
