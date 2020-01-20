@@ -187,6 +187,12 @@ Process Workflow Summary:
         2. Add issues to main index.js.
         3. Add logic to sort most recent logic.
         4.  Add logic to index.ejs.
+                                                                                         _________________________________________________
+    Phase 22: Enable file upload to database.                                                 Add file upload feature (Phase 22-)
+        1. Setup filepond.
+
+
+
 
 
 
