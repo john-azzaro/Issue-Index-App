@@ -151,7 +151,7 @@ Process Workflow Summary:
         3. Implement search feature for categories.
         4. In index.js, add searchOptions as a value to the form.
                                                                                          _________________________________________________
-    Phase 17: Add "Issue" controller and views:                                                 Add Issue functionality (Phase 17-)
+    Phase 17: Add "Issue" controller and views:                                                 Add Issue functionality (Phase 17-20)
         1. Create a "issues.js" router.
         2. Create an "issue" model.
         3. Hook-up "issueRouter" to server.js.
@@ -178,12 +178,15 @@ Process Workflow Summary:
         8. Add logic to remove issue images that are not in the database.
 
     Phase 20: Setup "All Issues" page:
-        1. 
-        2. 
-        3. 
-        4. 
-        5. 
-        6. 
+        1. Copy the same code from the Category index.js file. 
+        2. Implement logic for issues route.
+        3. Add search to issues.
+                                                                                         _________________________________________________                    
+    Phase 21: Build out initial code for main page:                                           Add Initial Main page features (Phase 21)
+        1. Add initial code and "recents" logic.
+        2. Add issues to main index.js.
+        3. Add logic to sort most recent logic.
+        4.  Add logic to index.ejs.
 
 
 
@@ -2203,7 +2206,7 @@ Phase 22: Enable file upload to database.
                        FilePond.parse(document.body);                                                      -- turns all fileinputs into filepond inputs
                 ----------------------------------------------------------------------------------------
 
-        22.5: Add the registerPlugin method to list all the plugins to be installed:
+        22.5: Add the registerPlugin method to list all the plugins to be installed in fileUpload.js:
                 ----------------------------------------------------------------------------------------
                         FilePond.registerPlugin(
                           FilePondPluginImagePreview,
