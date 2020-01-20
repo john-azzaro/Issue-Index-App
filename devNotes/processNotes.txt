@@ -2121,6 +2121,7 @@ Phase 20: Setup "All Issues" page:
 
 
 
+
 Phase 21: Build out initial code for main page:
         ===========================================================================================
         * 
@@ -2223,11 +2224,37 @@ Phase 22: Enable file upload to database.
 
         22.6: In views > issues > _form_fields.ejs, for the cover image loader, add "filepond" class:
                 ----------------------------------------------------------------------------------------
-
+                        <div>
+                           <label>Image</label>
+                           <input type="file" name="image" class="filepond">                                 -- added filepond class
+                        </div>
                 ----------------------------------------------------------------------------------------
 
+// Modify style to fit upload image...
+        =========================================================================================
+        * IN the documentation, go to filepond instance and scroll down to "styles" to find the
+          correct instance to change the apsect ratio (i.e. stylePanelAspectRatio).
+        =========================================================================================
 
+        22.7: Find the style instance you want:
+                -------------------------------------------------------------------------------
+                        stylePanelAspectRatio
+                -------------------------------------------------------------------------------
 
+        22.8: Add a setOptions method and add the aspect ratio instance:
+                -------------------------------------------------------------------------------
+                        FilePond.registerPlugin(
+                          FilePondPluginImagePreview,
+                          FilePondPluginImageResize,
+                          FilePondPluginFileEncode,
+                        );
+
+                        FilePond.setOptions({                                                      -- set the option to style the aspect ratio to 100/100
+                          stylePanelAspectRatio: 100/100
+                        })
+
+                        FilePond.parse(document.body);
+                -------------------------------------------------------------------------------
 
 
 
