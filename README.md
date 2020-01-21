@@ -15,8 +15,10 @@ Issue Index is an index of open and closed issues encountered during a given pro
 ## Who is this for?
 **Developers** or any team members working on a common project with potentially common issues. This product is for teams that want to keep a lexicon of issues encountered in thier own development and used as a collective repository for solutions to issues encountered in a particular project that could be referenced not only for this project, but for related projects in the future. This issue index would be inviting, simple, streamlined, and useful compared to unwelcoming wiki pages.
 
+<br>
 
-
+## What are the application features?
+The application has a main page with recents, categories, etc. From the main page, the user can search by category for given features. If the category does not exist, the user can create a category themselves. If the user wants to create an issue, they can create an issue with a title, a problem, and a possible solution, which are not required and can be left for others to contribute to at a later time.
 
 
 
