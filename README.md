@@ -20,25 +20,7 @@ Issue Index is an index of open and closed issues encountered during a given pro
 ## What are the application features?
 The application has a main page with recents, categories, etc. From the main page, the user can search by category for given features. If the category does not exist, the user can create a category themselves. If the user wants to create an issue, they can create an issue with a title, a problem, and a possible solution, which are not required and can be left for others to contribute to at a later time.
 
-
-
-
-
-## What is the Issue Index Application?
-
 <br>
 
-### What is the problem?
-Suppose you are working on a project with a handful of engineers and you come across a problem. The problem (or as the application refers to it as an "issue") could be something complicated like a pesky bug, common errors, or anything in-between. And whether you solve the problem on your own, find a solution on stack overflow, ask a colleague, etc. you eventually find a solution. Unfortunately, in most cases you would most likely think nothing of it beyond it being a solution to the problem at hand and move on.
-
-### Why hasnt the problem been solved?
-Although services like github allow users to create wiki's for thier project, it seems seldom that people actually utilize them. They feel cold, impersonal, and lack the specific inputs that make an "issue index" friendly and usable.
-
-### What is possible?
-*But what do you do with that hard fought solution?* Do you keep this solution to yourself and move on? Tell a few people but then risk that solution fading from collective memory? If only there were some way to create a concise problem/solution index... an "issue index", that could be used as a collective repository for solutions to issues encountered in a particular project that could be referenced not only for this project, but for related projects in the future. This issue index would be inviting, simple, streamlined, and useful compared to unwelcoming wiki pages.
-
-### What is different now?
-
-
-### What should you do now?
-Try out the **Issue Index Application** today and if you like what you see, integrate it into your collaborative workflow.
+## Who are the competitors and product inspriations?
+Wiki's are a major inspiration for this project, such as wikipedia and even GitHub wiki's. However, those wikis seem to be impersonal and non-intuitive which is a major modus behind the functionality and layout of this Issue Index application.
