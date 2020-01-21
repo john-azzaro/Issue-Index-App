@@ -10,8 +10,10 @@ Issue Index
 ## Project Description
 Issue Index is an index of open and closed issues encountered during a given project. With **Issue Index**, your team can navigate to a central hub to document any past, current, or even future issues with relative ease. Search by category through documented issues or browse thorough the most recent additions. Not sure about a specific category title? The search will accomodate partial spelling and inclusions. Have an issue that you want to post? Simply click "Add new issue", jot down the title of your issue, the problem and the solution, and/or even drag-and-drop a screen cap of your issue for future reference. You can even edit and delete issues if you want! This is a fully collaborative environment for your team.
 
+<br>
 
-
+## Who is this for?
+**Developers** or any team members working on a common project with potentially common issues.
 
 
 
