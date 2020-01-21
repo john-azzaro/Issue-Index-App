@@ -13,7 +13,7 @@ Issue Index is an index of open and closed issues encountered during a given pro
 <br>
 
 ## Who is this for?
-**Developers** or any team members working on a common project with potentially common issues.
+**Developers** or any team members working on a common project with potentially common issues. This product is for teams that want to keep a lexicon of issues encountered in thier own development and used as a collective repository for solutions to issues encountered in a particular project that could be referenced not only for this project, but for related projects in the future. This issue index would be inviting, simple, streamlined, and useful compared to unwelcoming wiki pages.
 
 
 
