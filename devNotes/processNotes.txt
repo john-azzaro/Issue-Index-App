@@ -2261,10 +2261,22 @@ Phase 22: Enable file upload to database.
         =========================================================================================
         * The first thing to figure out is how the file is getting sent to the server. It is NOT
         getting sent as a file object. In fact, in the documentation for "file encode", it uses a 
-        JSON string to send to the server.
+        JSON string to send to the server. You will notice that if you look at the resulting object
+        it, it uses a "data" property, which is a string representation of the image file we're 
+        uploading from the file to the server. Because this is the case, you dont have to use a multi
+        part form anymore so it can be removed from the new issue form
         =========================================================================================
 
+// Remove enctype from the issue new.ejs file...
+        ==========================================================================================
+        * Since we're now uploading a single string instead of a multi-part form, you can remove 
+          the enctype
+        ==========================================================================================
 
+        22.9: Remove enctype from issue > new.ejs:
+                ----------------------------------------------------------------------------------
+                        enctype="multipart/form-data"                                                   -- this is removed
+                ----------------------------------------------------------------------------------
 
 
 
