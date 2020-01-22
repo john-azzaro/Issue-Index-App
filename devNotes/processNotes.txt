@@ -2257,7 +2257,12 @@ Phase 22: Enable file upload to database.
                 -------------------------------------------------------------------------------
 
 
-
+// Add code to route to parse the file...
+        =========================================================================================
+        * The first thing to figure out is how the file is getting sent to the server. It is NOT
+        getting sent as a file object. In fact, in the documentation for "file encode", it uses a 
+        JSON string to send to the server.
+        =========================================================================================
 
 
 

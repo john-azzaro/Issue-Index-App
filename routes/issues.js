@@ -26,12 +26,12 @@ let searchOptions = {}
   }   
   try {
     const issues = await Issue.find(searchOptions)
-    res.render('issues/index', {                                       // render page issues/index and pass...
-      issues: issues,                                                  // ... the issues
-      searchOptions: req.query                                         // and search params
+    res.render('issues/index', {   
+      issues: issues, 
+      searchOptions: req.query  
     });
   } catch(err) {
-    res.redirect('/');                                                 // if error, redirect to main page.
+    res.redirect('/');   
   }
 });
 
