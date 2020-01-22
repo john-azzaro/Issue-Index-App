@@ -1,20 +1,19 @@
 //Imports and variables
 const express = require('express');
 const router = express.Router();
-const multer = require('multer');
 const fs = require('fs');
 const path = require('path');
 const Issue = require('../models/issue');
 const { Category } = require('../models/category');
 
 const uploadPath = path.join('public', Issue.imageBasePath);
-const imageMimeTypes = ['image/jpeg', 'image/png', 'image/gif'];  
-const upload = multer({
-  dest: uploadPath,  
-  fileFilter: function (req, file, callback) {     
-    callback(null, imageMimeTypes.includes(file.mimetype));
-  }
-});
+// const imageMimeTypes = ['image/jpeg', 'image/png', 'image/gif'];  
+// const upload = multer({
+//   dest: uploadPath,  
+//   fileFilter: function (req, file, callback) {     
+//     callback(null, imageMimeTypes.includes(file.mimetype));
+//   }
+// });
 
 
 // Routes

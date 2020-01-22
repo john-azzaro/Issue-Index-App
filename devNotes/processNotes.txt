@@ -2267,7 +2267,7 @@ Phase 22: Enable file upload to database.
         part form anymore so it can be removed from the new issue form
         =========================================================================================
 
-// Remove multi-part form code...
+// Remove multer and multi-part form code...
         ==========================================================================================
         * Since we're now uploading a single string instead of a multi-part form, you can remove 
           the enctype and 
@@ -2284,9 +2284,27 @@ Phase 22: Enable file upload to database.
                         router.post('/', async function(req, res) { ...                                  -- after
                 ----------------------------------------------------------------------------------
 
+        22.11: Remove multer from issues.js:
+                ----------------------------------------------------------------------------------
+                        const multer = require('multer');                                              -- removed
+                ----------------------------------------------------------------------------------
 
+        22.12: Comment out code being used by multer:
+                ----------------------------------------------------------------------------------
+                        // const imageMimeTypes = ['image/jpeg', 'image/png', 'image/gif']; 
+                        // const upload = multer({
+                        //   dest: uploadPath,  
+                        //   fileFilter: function (req, file, callback) {     
+                        //     callback(null, imageMimeTypes.includes(file.mimetype));
+                        //   }
+                        // });
+                ----------------------------------------------------------------------------------
 
-
+        22.13: Remove multer via npm:
+                -----------------------------------------------------------------------------------
+                
+                -----------------------------------------------------------------------------------
+                
 
 
 
