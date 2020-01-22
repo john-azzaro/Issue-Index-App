@@ -25,9 +25,12 @@ const issueSchema = new mongoose.Schema({
     require: true,
     default: Date.now
   },
-  imageName: {
-    type: String,
+  image: {   
+    type: Buffer,  
   },
+  imageType: {   
+    type: String,
+  }
 });
 
 const Issue = mongoose.model('Issue', issueSchema);

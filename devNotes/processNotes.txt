@@ -2306,8 +2306,21 @@ Phase 22: Enable file upload to database.
                 -----------------------------------------------------------------------------------
                 
 
+// To save files (without multer), modify issues object...
+        ===========================================================================================
+        * Now with multer gone we need to save files a different way. First, you need to alter
+          the issue model.
+        ===========================================================================================
 
-
+        22.14: Make alterations to the issue model:
+                -----------------------------------------------------------------------------------
+                        image: {                                                                     -- removed name from property.
+                          type: Buffer,                                                              -- changed from String to Buffer of the image representing the image.
+                        },
+                        imageType: {                                                                 -- imageType added to know what type of image it is (jpeg, png, etc).
+                          type: String,
+                        }
+                -----------------------------------------------------------------------------------
 
 
 
