@@ -2267,16 +2267,34 @@ Phase 22: Enable file upload to database.
         part form anymore so it can be removed from the new issue form
         =========================================================================================
 
-// Remove enctype from the issue new.ejs file...
+// Remove multi-part form code...
         ==========================================================================================
         * Since we're now uploading a single string instead of a multi-part form, you can remove 
-          the enctype
+          the enctype and 
         ==========================================================================================
 
         22.9: Remove enctype from issue > new.ejs:
                 ----------------------------------------------------------------------------------
                         enctype="multipart/form-data"                                                   -- this is removed
                 ----------------------------------------------------------------------------------
+
+        22.10: Remove upload (because we're getting a string, not a file)  
+                ----------------------------------------------------------------------------------
+                        router.post('/', upload.single('image'), async function(req, res) { ...          -- before
+                        router.post('/', async function(req, res) { ...                                  -- after
+                ----------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
