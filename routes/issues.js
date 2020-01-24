@@ -95,8 +95,14 @@ async function renderNewPage(res, issue, hasError = false) {
 }
 
 
-function saveImage(issue, imageEncoded) {
-  
+function saveImage(issue, imageEncoded) {               // check to see if the image is a valid image and if it is, save it to issue.image.
+  if(imageEncoded == null)  {
+    return 
+  }
+  const image = JSON.parse(imageEncoded);                // next, parse the string (becuase imageEncoded is justa string thats actually JSON) into a JSON object called image.                      
+  if (image != null) {                                   // then check to see if the image is not null
+
+  }                  
 }
 
 
