@@ -2323,7 +2323,31 @@ Phase 22: Enable file upload to database.
                 -----------------------------------------------------------------------------------
 
 // In the route, add code to upload the issue file...
-        22.15: Add saveImage
+        22.15: Add saveImage to add issue route:
+                ----------------------------------------------------------------------------------
+                        // Create Issue Route
+                        router.post('/', async function(req, res) {    
+                        const fileName = req.file != null ? req.file.filename : null;  
+                        const issue = new Issue({
+                        title: req.body.title,
+                        category: req.body.category,
+                        description: req.body.description,
+                        solution: req.body.solution,
+                        imageName: fileName
+                        });
+                        saveImage(issue, req.body.image);                                             -- save the image as well as the encoded json image in req.body.image
+                        try { 
+                        const newIssue = await issue.save();
+                        // res.redirect('issues/${newIssue.id}');
+                        res.redirect('issues');
+                        } catch(err) {
+                        if (issue.imageName != null) {
+                        removeImage(issue.imageName) 
+                        } 
+                        renderNewPage(res, issue, true); 
+                        }
+                        });
+                ----------------------------------------------------------------------------------
 
 
 
