@@ -95,6 +95,11 @@ async function renderNewPage(res, issue, hasError = false) {
 }
 
 
+function saveImage(issue, imageEncoded) {
+  
+}
+
+
 
 //Export
 module.exports = router;
