@@ -100,9 +100,10 @@ function saveImage(issue, imageEncoded) {               // check to see if the i
     return 
   }
   const image = JSON.parse(imageEncoded);                                    // next, parse the string (becuase imageEncoded is justa string thats actually JSON) into a JSON object called image.                      
-  if (image != null && imageMimeTypes.includes(file.mimetype)) {            // then check to see if the image is not null and is of the correct type AND of the correct type .
-
-  }                  
+  if (image != null && imageMimeTypes.includes(image.type)) {            // then check to see if the image is not null and is of the correct type AND of the correct type (uncomment mimetypes var). You also want to chnage file to image and mimetype to type to check the image type.
+    issue.image = new Buffer.from(image.data, 'base64')                                // if it isnt equal to null and it is a valid type, then we can save the properties to the issue but convert to a buffer and specify that it is also base64 encoded. 
+    issue.imageType = image.type
+    }                  
 }
 
 
