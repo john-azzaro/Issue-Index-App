@@ -51,7 +51,8 @@ router.post('/', async function(req, res) {
     solution: req.body.solution,
     imageName: fileName
   });
-  try {
+  saveImage(issue, req.body.image);                                                    // save the image as well as the encoded json image in req.body.image
+  try { 
     const newIssue = await issue.save();
     // res.redirect('issues/${newIssue.id}');
     res.redirect('issues');
