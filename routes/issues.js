@@ -7,7 +7,7 @@ const Issue = require('../models/issue');
 const { Category } = require('../models/category');
 
 const uploadPath = path.join('public', Issue.imageBasePath);
-// const imageMimeTypes = ['image/jpeg', 'image/png', 'image/gif'];  
+const imageMimeTypes = ['image/jpeg', 'image/png', 'image/gif'];  
 // const upload = multer({
 //   dest: uploadPath,  
 //   fileFilter: function (req, file, callback) {     
@@ -99,8 +99,8 @@ function saveImage(issue, imageEncoded) {               // check to see if the i
   if(imageEncoded == null)  {
     return 
   }
-  const image = JSON.parse(imageEncoded);                // next, parse the string (becuase imageEncoded is justa string thats actually JSON) into a JSON object called image.                      
-  if (image != null) {                                   // then check to see if the image is not null
+  const image = JSON.parse(imageEncoded);                                    // next, parse the string (becuase imageEncoded is justa string thats actually JSON) into a JSON object called image.                      
+  if (image != null && imageMimeTypes.includes(file.mimetype)) {            // then check to see if the image is not null and is of the correct type AND of the correct type .
 
   }                  
 }
