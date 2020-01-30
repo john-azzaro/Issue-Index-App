@@ -2373,10 +2373,17 @@ Phase 22: Enable file upload to database.
 // Remove removeImage since we are not storing images on server.
         22.17: Remove "removeImage" function:
                 ----------------------------------------------------------------------------------
-                        
+                        // Remove Image if error (removed bc images not stored locally anymore)
+                        function removeImage(fileName) {
+                        fs.unlink(path.join(uploadPath, fileName), function(err) {       
+                        if (err) {    
+                        console.err(err)   
+                        }
+                        });
+                        }
                 ----------------------------------------------------------------------------------
 
-
+// Remove code from catch
 
 
 Phase X: Deploy to App to Heroku

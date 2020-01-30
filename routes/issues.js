@@ -64,6 +64,7 @@ router.post('/', async function(req, res) {
   }
 });
 
+
 // Render New Page function
 async function renderNewPage(res, issue, hasError = false) { 
   try {
@@ -90,7 +91,7 @@ function saveImage(issue, imageEncoded) {
   const image = JSON.parse(imageEncoded);        
   if (image != null && imageMimeTypes.includes(image.type)) {       
     issue.image = new Buffer.from(image.data, 'base64')            
-    issue.imageType = image.type                       
+    issue.imageType = image.type   
     }                  
 }
 
