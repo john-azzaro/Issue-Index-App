@@ -64,17 +64,14 @@ router.post('/', async function(req, res) {
   }
 });
 
-
-// Remove Image if error
-function removeImage(fileName) {
-  fs.unlink(path.join(uploadPath, fileName), function(err) {       
-    if (err) {    
-      console.err(err)   
-    }
-  });
-}
-
-
+// // Remove Image if error (removed bc images not stored locally anymore)
+// function removeImage(fileName) {
+//   fs.unlink(path.join(uploadPath, fileName), function(err) {       
+//     if (err) {    
+//       console.err(err)   
+//     }
+//   });
+// }
 
 // Render New Page function
 async function renderNewPage(res, issue, hasError = false) { 
