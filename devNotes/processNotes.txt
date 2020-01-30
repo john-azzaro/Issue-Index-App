@@ -2365,7 +2365,27 @@ Phase 22: Enable file upload to database.
 
                 ----------------------------------------------------------------------------------
 
+// Add setOption options for the size of the picture upload...
+        ==========================================================================================
+        * This is important because when you post the file to ther server it will not be larger
+          than 100 px wide or tall.
+        ==========================================================================================
+        22.17: Add setOptions gfor upload picture constraints in fileUpload.js
+                ----------------------------------------------------------------------------------
+                        FilePond.registerPlugin(
+                        FilePondPluginImagePreview,
+                        FilePondPluginImageResize,
+                        FilePondPluginFileEncode,
+                        );
 
+                        FilePond.setOptions({
+                                stylePanelAspectRatio: 100/100,                                           -- size of the panel
+                                imageResizeTargetWidth: 100,                                              -- width
+                                imageResizeTargetHeight: 100,                                             -- height
+                        }); 
+
+                        FilePond.parse(document.body);
+                ----------------------------------------------------------------------------------
 
 
 
