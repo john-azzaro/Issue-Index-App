@@ -57,9 +57,6 @@ router.post('/', async function(req, res) {
     // res.redirect('issues/${newIssue.id}');
     res.redirect('issues');
   } catch(err) {
-    if (issue.imageName != null) {
-      removeImage(issue.imageName) 
-    } 
     renderNewPage(res, issue, true); 
   }
 });

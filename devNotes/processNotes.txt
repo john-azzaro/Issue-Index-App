@@ -2384,6 +2384,15 @@ Phase 22: Enable file upload to database.
                 ----------------------------------------------------------------------------------
 
 // Remove code from catch
+        22.18: remove catch logic
+                ----------------------------------------------------------------------------------
+                        } catch(err) {
+                                                                if (issue.imageName != null) {       -- remove this.
+                                                                removeImage(issue.imageName) 
+                                                                } 
+                        renderNewPage(res, issue, true); 
+                        }
+                ----------------------------------------------------------------------------------
 
 
 Phase X: Deploy to App to Heroku
