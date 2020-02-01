@@ -6,14 +6,7 @@ const path = require('path');
 const Issue = require('../models/issue');
 const { Category } = require('../models/category');
 
-
 const imageMimeTypes = ['image/jpeg', 'image/png', 'image/gif'];  
-// const upload = multer({
-//   dest: uploadPath,  
-//   fileFilter: function (req, file, callback) {     
-//     callback(null, imageMimeTypes.includes(file.mimetype));
-//   }
-// });
 
 
 // Routes

@@ -2415,7 +2415,7 @@ Phase 22: Enable file upload to database.
                 const imageBasePath = 'uploads/images'; 
                 module.exports.imageBasePath = imageBasePath; 
           in the issue.js model.
-
+        * remove multer code in issue.js
 
 Phase X: Deploy to App to Heroku
 * testing with heroku git connection
