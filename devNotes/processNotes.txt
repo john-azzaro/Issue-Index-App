@@ -2402,9 +2402,10 @@ Phase 22: Enable file upload to database.
                         imageName: fileName                                                           -- remove
                 ----------------------------------------------------------------------------------
 
-
-
-
+// Test...
+        22.20: Test by creating a new issue and see if the
+        * Note: for images c41513 if you wish to display them on the issues page, you will need to
+          adjust the issue.virtual
 
 
 Phase X: Deploy to App to Heroku
