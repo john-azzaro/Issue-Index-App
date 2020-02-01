@@ -1,8 +1,6 @@
 //Imports and variables
 const express = require('express');
 const router = express.Router();
-const fs = require('fs');
-const path = require('path');
 const Issue = require('../models/issue');
 const { Category } = require('../models/category');
 
