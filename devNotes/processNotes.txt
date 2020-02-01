@@ -2407,6 +2407,15 @@ Phase 22: Enable file upload to database.
         * Note: for images c41513 if you wish to display them on the issues page, you will need to
           adjust the issue.virtual
 
+// Remove existing elements that are needed anymore...
+        * delete uploads folder.
+        * remove uploadPath in issue.js.
+        * delete 
+                const path = require('path'); 
+                const imageBasePath = 'uploads/images'; 
+                module.exports.imageBasePath = imageBasePath; 
+          in the issue.js model.
+
 
 Phase X: Deploy to App to Heroku
 * testing with heroku git connection
