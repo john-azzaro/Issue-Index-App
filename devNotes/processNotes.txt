@@ -2394,6 +2394,18 @@ Phase 22: Enable file upload to database.
                         }
                 ----------------------------------------------------------------------------------
 
+// Remove imagename and filename variable from create issue route:
+        22.19: Remove imagename
+                ----------------------------------------------------------------------------------
+                        const fileName = req.file != null ? req.file.filename : null;                 -- remove
+                        ...
+                        imageName: fileName                                                           -- remove
+                ----------------------------------------------------------------------------------
+
+
+
+
+
 
 Phase X: Deploy to App to Heroku
 * testing with heroku git connection

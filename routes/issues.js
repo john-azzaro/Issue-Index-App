@@ -49,7 +49,6 @@ router.post('/', async function(req, res) {
     category: req.body.category,
     description: req.body.description,
     solution: req.body.solution,
-    imageName: fileName
   });
   saveImage(issue, req.body.image);                                                    // save the image as well as the encoded json image in req.body.image
   try { 
