@@ -2418,6 +2418,12 @@ Phase 22: Enable file upload to database.
         * remove multer code in issue.js
         * remove path and filesystme in issue.js
 
+// Potential fix from no-image save:
+         add an or that specifies that it is either just the issue OR issue and the image:   saveImage(issue || issue, req.body.image);  
+         if there are any problems, come back to this point.
+
+
+
 Phase X: Deploy to App to Heroku
 * testing with heroku git connection
 ==================================================================================================
