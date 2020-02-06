@@ -23,7 +23,7 @@ const issueSchema = new mongoose.Schema({
     default: Date.now
   },
   image: {   
-    type: Buffer,  
+    type: Buffer,
   },
   imageType: {   
     type: String,
