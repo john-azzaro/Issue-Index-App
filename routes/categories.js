@@ -53,18 +53,22 @@ router.get('/:id', function (req, res) {        // get route for categories, pas
 });               
 
 
-// Edit categories page
+// Edit categories route
 router.get('/:id/edit', function (req, res) {           // use id again because we need it to select what we want to edit.
   res.send('Edit Category ' + res.params.id)           // this req.params.id on the request object will get all the parameters we defined inside the url
 });
 
 
-// Update route page
+// Update categories route
 router.put('/:id', function(req, res) {                  // put is saying this is going to be edited so no need for edit.
   res.send('Update Categoruy ' + res.params.id)           // this req.params.id on the request object will get all the parameters we defined inside the url
 });
 
 
+// Delete categories route
+router.delete(':/:id', function(req, res) {
+  res.send('Delete Categoruy ' + res.params.id)           // this req.params.id on the request object will get all the parameters we defined inside the url
+});
 
 //Export
 module.exports = router;

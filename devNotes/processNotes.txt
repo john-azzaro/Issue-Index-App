@@ -2453,6 +2453,13 @@ Phase 23: Create show, edit, update, and delete routes for categories.
         });
         ---------------------------------------------------------------------------------
 
+23.4: Create delete category route:
+        -----------------------------------------------------------------------------------
+        // Delete categories route
+        router.delete(':/:id', function(req, res) {
+        res.send('Delete Categoruy ' + res.params.id)           // this req.params.id on the request object will get all the parameters we defined inside the url
+        });
+        -----------------------------------------------------------------------------------
 
 
 
