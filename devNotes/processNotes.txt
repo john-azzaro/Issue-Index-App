@@ -2424,6 +2424,27 @@ Phase 22: Enable file upload to database.
 
 
 
+
+Phase 23: Create show, edit, update, and delete routes for categories.
+=======================================================================
+
+23.1: Create route for showing categories
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Phase X: Deploy to App to Heroku
 * testing with heroku git connection
 ==================================================================================================

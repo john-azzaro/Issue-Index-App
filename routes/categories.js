@@ -47,6 +47,10 @@ router.post('/', async function(req, res) {
 });
 
 
+// Show categories'
+router.get('/:id', function (req, res) {        // get route for categories, pass in "/:id" which means that an id is going to be passed along with the request.
+  res.send('Show Category')
+})                 
 
 
 
