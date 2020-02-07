@@ -2485,7 +2485,7 @@ Phase 24: Install "method override" library that allows put and delete requests:
         app.use(methodOverride('_method'));                                                 // here you pass in methodOverride and tell it what that parameter to be.
         ----------------------------------------------------------------------------
 
-24.4: In search categories, add "view" category anchor tag feature (this is where you can edit, delete, etc):
+24.4: In search categories, add "view" and "edit" category anchor tag feature (this is where you can edit, delete, etc):
         ----------------------------------------------------------------------------
         <h2>Search Categories</h2>
         <form action="/categories" method="GET">    
@@ -2502,6 +2502,21 @@ Phase 24: Install "method override" library that allows put and delete requests:
 
         ----------------------------------------------------------------------------
 
+24.5: Test view and edit links:
+        ------------------------------------------------------------------------------
+        Show Category 5e138a3fef511b3838890651
+        //
+        Edit Category 5e138a3fef511b3838890651
+        ------------------------------------------------------------------------------
+
+24.6: 
+======================================================================================
+* Note: You NEVER want to use a get route for any delete function because when a search
+  engine like google come around in order to index it on the search pages they will go
+  to every get route on your website. So when google comes around to every link at this 
+  point and if google sees an a-tag and clicks on every single one of them and delete
+  very single thing in your application.
+======================================================================================
 
 
 
