@@ -9,6 +9,7 @@ const express = require('express');
 const expressLayouts = require('express-ejs-layouts');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const methodOverride = require('method-override');
 mongoose.Promise = global.Promise;
 const app = express();
 

@@ -2466,7 +2466,8 @@ Phase 24: Install "method override" library that allows put and delete requests:
 ================================================================================
         * Methods-override will let you take a post form, send it to the server
         with a special parameter that tells us if we are doing a put or a delete
-        request and the server will be smart enough to call the correct router. 
+        request and the server will be smart enough to call the correct router for
+        delete or put based on a specific parameter. 
 ================================================================================
 
 24.1: Install methodoveride library via npm:
@@ -2474,7 +2475,15 @@ Phase 24: Install "method override" library that allows put and delete requests:
         npm method-override
         ----------------------------------------------------------------------------
 
-24.2
+24.2: IN server.js, include method-override:
+        ----------------------------------------------------------------------------
+        const methodOverride = require('method-override');
+        ----------------------------------------------------------------------------
+
+24.3: Tell the app to use method-override:
+        ----------------------------------------------------------------------------
+        app.use()
+        ----------------------------------------------------------------------------
 
 
 
