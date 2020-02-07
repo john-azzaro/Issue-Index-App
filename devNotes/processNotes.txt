@@ -2485,7 +2485,22 @@ Phase 24: Install "method override" library that allows put and delete requests:
         app.use(methodOverride('_method'));                                                 // here you pass in methodOverride and tell it what that parameter to be.
         ----------------------------------------------------------------------------
 
+24.4: In search categories, add "view" category anchor tag feature (this is where you can edit, delete, etc):
+        ----------------------------------------------------------------------------
+        <h2>Search Categories</h2>
+        <form action="/categories" method="GET">    
+        <label>Name</label>
+        <input type="text" name="name" value="<% searchOptions.name %>">
+        <button type="submit">Search</button>
+        </form>
+        <br>
 
+        <% categories.forEach( function(category) {  %>
+        <div><%= category.name %></div>                                                   
+        <a href="/categories/<%= category.id %>">View</a>                               // add an anchor tag with a link to the category id.
+        <% }) %>
+
+        ----------------------------------------------------------------------------
 
 
 
