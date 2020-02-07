@@ -61,13 +61,13 @@ router.get('/:id/edit', function (req, res) {           // use id again because 
 
 // Update categories route
 router.put('/:id', function(req, res) {                  // put is saying this is going to be edited so no need for edit.
-  res.send('Update Categoruy ' + req.params.id)           // this req.params.id on the request object will get all the parameters we defined inside the url
+  res.send('Update Category ' + req.params.id)           // this req.params.id on the request object will get all the parameters we defined inside the url
 });
 
 
 // Delete categories route
-router.delete(':/:id', function(req, res) {
-  res.send('Delete Categoruy ' + req.params.id)           // this req.params.id on the request object will get all the parameters we defined inside the url
+router.delete('/:id', function(req, res) {
+  res.send('Delete Category ' + req.params.id)           // this req.params.id on the request object will get all the parameters we defined inside the url
 });
 
 //Export
