@@ -2464,11 +2464,17 @@ Phase 23: Create show, edit, update, and delete routes for categories.
 
 Phase 24: Install "method override" library that allows put and delete requests:
 ================================================================================
+        * Methods-override will let you take a post form, send it to the server
+        with a special parameter that tells us if we are doing a put or a delete
+        request and the server will be smart enough to call the correct router. 
+================================================================================
 
 24.1: Install methodoveride library via npm:
         ----------------------------------------------------------------------------
-        
+        npm method-override
         ----------------------------------------------------------------------------
+
+24.2
 
 
 
