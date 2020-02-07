@@ -9,5 +9,6 @@
 <% categories.forEach( function(category) {  %>
   <div><%= category.name %></div>
   <a href="/categories/<%= category.id %>">View</a>
+  <a href="/categories/<%= category.id/edit %>">Edit</a>
 <% }) %>
 
