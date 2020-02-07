@@ -2520,7 +2520,7 @@ Phase 24: Install "method override" library that allows put and delete requests:
 ======================================================================================
         ------------------------------------------------------------------------------- 
         <form method="POST" action="/categories/<%= category.id %>?_method=DELETE">            // POST method is overridden by the _method, and the action is the url, question mark with a query parameter set to DELETE.
-                ///
+            <button type="submit">Delete</button>                                               // and add delete button that will work like the anchor tags above.
         </form>
         -------------------------------------------------------------------------------
 
