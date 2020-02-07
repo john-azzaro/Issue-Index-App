@@ -34,6 +34,7 @@ app.use(bodyParser.urlencoded({ limit: '10mb', extended: false }));
 app.use("/", indexRouter);
 app.use('/categories', categoryRouter);
 app.use('/issues', issueRouter);
+app.use(methodOverride('_method'));
 
 
 //Database
