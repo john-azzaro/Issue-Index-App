@@ -2509,15 +2509,20 @@ Phase 24: Install "method override" library that allows put and delete requests:
         Edit Category 5e138a3fef511b3838890651
         ------------------------------------------------------------------------------
 
-24.6: 
+24.6: Add a form for the delete route:
 ======================================================================================
 * Note: You NEVER want to use a get route for any delete function because when a search
   engine like google come around in order to index it on the search pages they will go
   to every get route on your website. So when google comes around to every link at this 
   point and if google sees an a-tag and clicks on every single one of them and delete
-  very single thing in your application.
+  very single thing in your application. To avoid this, we need to use a form instead
+  of a GET request.
 ======================================================================================
-
+        ------------------------------------------------------------------------------- 
+        <form method="POST" action="/categories/<%= category.id %>?_method=DELETE">            // POST method is overridden by the _method, and the action is the url, question mark with a query parameter set to DELETE.
+                ///
+        </form>
+        -------------------------------------------------------------------------------
 
 
 
