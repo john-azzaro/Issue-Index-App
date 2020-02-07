@@ -2482,7 +2482,7 @@ Phase 24: Install "method override" library that allows put and delete requests:
 
 24.3: Tell the app to use method-override:
         ----------------------------------------------------------------------------
-        app.use()
+        app.use(methodOverride('_method'));                                                 // here you pass in methodOverride and tell it what that parameter to be.
         ----------------------------------------------------------------------------
 
 
