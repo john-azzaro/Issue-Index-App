@@ -2553,10 +2553,29 @@ Phase 24: Install "method override" library that allows put and delete requests:
         --------------------------------------------------------------------------------
 
         4. In the index.ejs for categories, include the partial:
+        =================================================================================
+           use syntax with hyphen, use include, go back one directory and go to 
+           partials/deleteForm. Then, pass in the url to the section we removed before we 
+           created the partial.
+        =================================================================================
         ---------------------------------------------------------------------------------
-        
+        <% categories.forEach( function(category) {  %>
+        <div><%= category.name %></div>
+        <a href="/categories/<%= category.id %>">View</a>
+        <a href="/categories/<%= category.id %>/edit">Edit</a>
+        <%- include('../partials/deleteForm', { url: "/categories/<%= category.id %> })  %>        // include the deleteForm partial and pass in the url
+        <form method="POST" action="/categories/<%= category.id %>?_method=DELETE">
+        <button type="submit">Delete</button>
+        </form>
+        <% }) %>
+
         ---------------------------------------------------------------------------------
 
+        5. Because this is within the server, you need to use backticks and string interpolation
+        =================================================================================
+         However, we need to use string interpolation because it is inside the server so 
+         replace the ejs brackets with ticks and string interpolation.
+        =================================================================================
 
 
 
