@@ -2547,10 +2547,15 @@ Phase 24: Install "method override" library that allows put and delete requests:
 
         3. Change the url (since it will be different every time we use it)
         --------------------------------------------------------------------------------
-        <form method="POST" action="<%= url =%>?_method=DELETE">      // pass in dynamic url
+        <form method="POST" action="<%= url =%>?_method=DELETE">                            // pass in dynamic url
         <button type="submit">Delete</button>
         </form>
         --------------------------------------------------------------------------------
+
+        4. In the index.ejs for categories, include the partial:
+        ---------------------------------------------------------------------------------
+        
+        ---------------------------------------------------------------------------------
 
 
 
