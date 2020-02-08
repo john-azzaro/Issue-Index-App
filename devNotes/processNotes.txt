@@ -2509,6 +2509,7 @@ Phase 24: Install "method override" library that allows put and delete requests:
         Edit Category 5e138a3fef511b3838890651
         ------------------------------------------------------------------------------
 
+
 24.6: Add a form for the delete route:
 ======================================================================================
 * Note: You NEVER want to use a get route for any delete function because when a search
@@ -2531,7 +2532,7 @@ Phase 24: Install "method override" library that allows put and delete requests:
   use a single file for multiple uses.
 ======================================================================================
         --------------------------------------------------------------------------------
-        
+
         --------------------------------------------------------------------------------
 
 
