@@ -2524,8 +2524,15 @@ Phase 24: Install "method override" library that allows put and delete requests:
         </form>
         -------------------------------------------------------------------------------
 
-
-
+24.7: Break the delete form out to a partial:
+======================================================================================
+* Since the application needs to have the delete functionality over more than just this
+  one part, it would be best at this point to make this into a partial so that we can
+  use a single file for multiple uses.
+======================================================================================
+        --------------------------------------------------------------------------------
+        
+        --------------------------------------------------------------------------------
 
 
 
