@@ -2576,6 +2576,19 @@ Phase 24: Install "method override" library that allows put and delete requests:
          However, we need to use string interpolation because it is inside the server so 
          replace the ejs brackets with ticks and string interpolation.
         =================================================================================
+        -----------------------------------------------------------------------------------
+          <%- include('../partials/deleteForm', { url: `/categories/${category.id}` })  %>     
+        -----------------------------------------------------------------------------------
+
+        6. Lastly, remove the old form
+        -----------------------------------------------------------------------------------
+        <% categories.forEach( function(category) {  %>
+        <div><%= category.name %></div>
+        <a href="/categories/<%= category.id %>">View</a>
+        <a href="/categories/<%= category.id %>/edit">Edit</a>
+        <%- include('../partials/deleteForm', { url: `/categories/${category.id}` })  %>       
+        <% }) %>
+        -----------------------------------------------------------------------------------
 
 
 
