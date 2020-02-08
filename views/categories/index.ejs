@@ -6,11 +6,12 @@
 </form>
 <br>
 
-<% categories.forEach( function(category) {  %>
+
+<% categories.forEach(category => { %>
   <div><%= category.name %></div>
   <a href="/categories/<%= category.id %>">View</a>
   <a href="/categories/<%= category.id %>/edit">Edit</a>
-  <%- include('../partials/deleteForm', 
-              { url: `/categories/${category.id}` }) %>   
+  <%- include('../partials/deleteForm',
+              { url: `/categories/${category.id}` }) %>
 <% }) %>
 
