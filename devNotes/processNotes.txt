@@ -2530,11 +2530,20 @@ Phase 24: Install "method override" library that allows put and delete requests:
 * Since the application needs to have the delete functionality over more than just this
   one part, it would be best at this point to make this into a partial so that we can
   use a single file for multiple uses.
+
 ======================================================================================
+        
+        1. Create a new partial file called "deleteForm.ejs"
+        --------------------------------------------------------------------------------
+                deleteForm.ejs
         --------------------------------------------------------------------------------
 
+        2. Place the delete form inside this partial file:
         --------------------------------------------------------------------------------
-
+        <form method="POST" action="/categories/<%= category.id %>?_method=DELETE">
+        <button type="submit">Delete</button>
+        </form>
+        --------------------------------------------------------------------------------
 
 
 
