@@ -59,7 +59,7 @@ router.get('/:id/edit', async function (req, res) {
     const category = Category.findById(req.params.id);
     res.render('categories/edit', { category: category });
   } catch(err) {
-
+    res.redirect('/categories'); 
   }
   
 });
