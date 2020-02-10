@@ -2596,7 +2596,16 @@ Phase 26: Create Edit page
   the easiest to do at this point.
 ============================================================================================
 
-26.1: 
+26.1: In categories.js, copy and paste the edit route into the /:id/edit route.
+        -----------------------------------------------------------------------------------
+        //New Category Route
+        router.get('/new', function(req, res) {
+        res.render('categories/new', { category: new Category() });                             << take this...
+        });
+                -==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+                
+        -----------------------------------------------------------------------------------
 
 
 
