@@ -2628,12 +2628,22 @@ Phase 26: Create Edit page
           } catch(err) {
              res.redirect('/categories');                                                   // and if there is an error, redirect to categories page.
           }
-          
         });        
         -----------------------------------------------------------------------------------
 
+26.4: Create an edit page in views/categories called edit.ejs:
+        -----------------------------------------------------------------------------------
+                edit.ejs
+        -----------------------------------------------------------------------------------
 
-
+26.5: Copy and paste the new.ejs code into the edit.ejs since it is basically the same:
+        -----------------------------------------------------------------------------------
+        <h2>Edit Category</h2>
+        <form action="/categories/<%= category.id %>?_method=PUT" method="POST">             // add category id so we get the update action (instead of the new action) and add the method override method.
+        <a href="/categories">Cancel</a>
+        <button type="submit">Update</button>
+        </form>
+        -----------------------------------------------------------------------------------
 
 
 

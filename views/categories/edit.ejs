@@ -1,0 +1,5 @@
+<h2>Edit Category</h2>
+<form action="/categories/<%= category.id %>?_method=PUT" method="POST">    // add category id so we get the update action (instead of the new action) and add the method override method.
+  <a href="/categories">Cancel</a>
+  <button type="submit">Update</button>
+</form>

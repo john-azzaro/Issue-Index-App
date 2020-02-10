@@ -60,8 +60,7 @@ router.get('/:id/edit', async function (req, res) {
     res.render('categories/edit', { category: category });
   } catch(err) {
     res.redirect('/categories'); 
-  }
-  
+  }  
 });
 
 
