@@ -2614,7 +2614,7 @@ Phase 26: Create Edit page
         -----------------------------------------------------------------------------------
         // Edit categories route
         router.get('/:id/edit', function (req, res) {       
-          res.render('categories/edit, { category: new Category() });                            << change new to edit
+          res.render('categories/edit, { category: category });                            << change new to edit 
         });
         -----------------------------------------------------------------------------------
 
@@ -2623,11 +2623,12 @@ Phase 26: Create Edit page
         // Edit categories route
         router.get('/:id/edit', async function (req, res) {     
           try {
-
+            const category = await Category.findById(req.params.id);                        // in the database, await when finding category by id.      
+            res.render('categories/edit', { category: categort });                          // move render catergories/edit into the try block if successful and change "new Category" to category.
           } catch(err) {
         
           }
-          res.render('categories/edit', { category: new Category() });
+          
         });        
         -----------------------------------------------------------------------------------
 
