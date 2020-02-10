@@ -2600,14 +2600,24 @@ Phase 26: Create Edit page
         -----------------------------------------------------------------------------------
         //New Category Route
         router.get('/new', function(req, res) {
-        res.render('categories/new', { category: new Category() });                             << take this...
+          res.render('categories/new', { category: new Category() });                             << take this...
         });
                 -==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-
-                
+        // Edit categories route
+        router.get('/:id/edit', function (req, res) {     
+          // res.send('Edit Category ' + req.params.id)   
+          res.render('categories/new', { category: new Category() });                            << paste here
+        });
         -----------------------------------------------------------------------------------
 
-
+26.2: First, chnage the url to "edit" from "new":
+        -----------------------------------------------------------------------------------
+        // Edit categories route
+        router.get('/:id/edit', function (req, res) {     
+          // res.send('Edit Category ' + req.params.id)   
+          res.render('categories/edit, { category: new Category() });                            << change new to edit
+        });
+        -----------------------------------------------------------------------------------
 
 
 
