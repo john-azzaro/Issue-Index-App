@@ -2509,7 +2509,6 @@ Phase 24: Install "method override" library that allows put and delete requests:
         Edit Category 5e138a3fef511b3838890651
         ------------------------------------------------------------------------------
 
-
 24.6: Add a form for the delete route:
 ======================================================================================
 * Note: You NEVER want to use a get route for any delete function because when a search
@@ -2589,6 +2588,26 @@ Phase 24: Install "method override" library that allows put and delete requests:
         <%- include('../partials/deleteForm', { url: `/categories/${category.id}` })  %>       
         <% }) %>
         -----------------------------------------------------------------------------------
+
+
+Phase 26: Create Edit page
+============================================================================================
+* With the basic links working and the delete form sorted, first do the Edit button which is
+  the easiest to do at this point.
+============================================================================================
+
+26.1: 
+
+
+
+
+
+
+
+
+
+
+
 
 
 
