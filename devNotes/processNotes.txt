@@ -2605,7 +2605,7 @@ Phase 26: Create Edit page
                 -==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
         // Edit categories route
         router.get('/:id/edit', function (req, res) {     
-          // res.send('Edit Category ' + req.params.id)   
+          // res.send('Edit Category ' + req.params.id)                                          // remove this test code is you want (or comment it out)
           res.render('categories/new', { category: new Category() });                            << paste here
         });
         -----------------------------------------------------------------------------------
@@ -2613,10 +2613,22 @@ Phase 26: Create Edit page
 26.2: First, chnage the url to "edit" from "new":
         -----------------------------------------------------------------------------------
         // Edit categories route
-        router.get('/:id/edit', function (req, res) {     
-          // res.send('Edit Category ' + req.params.id)   
+        router.get('/:id/edit', function (req, res) {       
           res.render('categories/edit, { category: new Category() });                            << change new to edit
         });
+        -----------------------------------------------------------------------------------
+
+26.3: Second, add async functionality with a try/catch block since we want to get the categories from the database.
+        -----------------------------------------------------------------------------------
+        // Edit categories route
+        router.get('/:id/edit', async function (req, res) {     
+          try {
+
+          } catch(err) {
+        
+          }
+          res.render('categories/edit', { category: new Category() });
+        });        
         -----------------------------------------------------------------------------------
 
 

@@ -55,7 +55,11 @@ router.get('/:id', function (req, res) {
 
 // Edit categories route
 router.get('/:id/edit', async function (req, res) {     
-  // res.send('Edit Category ' + req.params.id)   
+  try {
+
+  } catch(err) {
+    
+  }
   res.render('categories/edit', { category: new Category() });
 });
 
