@@ -190,8 +190,11 @@ Process Workflow Summary:
                                                                                          _________________________________________________
     Phase 22: Enable file upload to database.                                                 Add file upload feature (Phase 22-)
         1. Setup filepond.
-
-
+                                                                                         __________________________________________________
+    Phase 23: Create show, edit, update, and delete routes for categories                     Add CRUD operations to categories
+    Phase 24: Install "method override" library that allows put and delete requests:
+    Phase 25:
+    Phase 26:
 
 
 
@@ -2590,13 +2593,13 @@ Phase 24: Install "method override" library that allows put and delete requests:
         -----------------------------------------------------------------------------------
 
 
-Phase 26: Create Edit page
+Phase 25: Create Edit page
 ============================================================================================
 * With the basic links working and the delete form sorted, first do the Edit button which is
   the easiest to do at this point.
 ============================================================================================
 
-26.1: In categories.js, copy and paste the edit route into the /:id/edit route.
+25.1: In categories.js, copy and paste the edit route into the /:id/edit route.
         -----------------------------------------------------------------------------------
         //New Category Route
         router.get('/new', function(req, res) {
@@ -2610,7 +2613,7 @@ Phase 26: Create Edit page
         });
         -----------------------------------------------------------------------------------
 
-26.2: First, chnage the url to "edit" from "new":
+25.2: First, chnage the url to "edit" from "new":
         -----------------------------------------------------------------------------------
         // Edit categories route
         router.get('/:id/edit', function (req, res) {       
@@ -2618,7 +2621,7 @@ Phase 26: Create Edit page
         });
         -----------------------------------------------------------------------------------
 
-26.3: Second, add async functionality with a try/catch block since we want to get the categories from the database.
+25.3: Second, add async functionality with a try/catch block since we want to get the categories from the database.
         -----------------------------------------------------------------------------------
         // Edit categories route
         router.get('/:id/edit', async function (req, res) {     
@@ -2631,12 +2634,12 @@ Phase 26: Create Edit page
         });        
         -----------------------------------------------------------------------------------
 
-26.4: Create an edit page in views/categories called edit.ejs:
+25.4: Create an edit page in views/categories called edit.ejs:
         -----------------------------------------------------------------------------------
                 edit.ejs
         -----------------------------------------------------------------------------------
 
-26.5: Copy and paste the new.ejs code into the edit.ejs since it is basically the same:
+25.5: Copy and paste the new.ejs code into the edit.ejs since it is basically the same:
         -----------------------------------------------------------------------------------
         <h2>Edit Category</h2>
         <form action="/categories/<%= category.id %>?_method=PUT" method="POST">             // add category id so we get the update action (instead of the new action) and add the method override method.
@@ -2645,7 +2648,7 @@ Phase 26: Create Edit page
         </form>
         -----------------------------------------------------------------------------------
 
-26.6: Reroute cancel from categories to the category page.
+25.6: Reroute cancel from categories to the category page.
         -----------------------------------------------------------------------------------
         <h2>Edit Category</h2>
         <form action="/categories/<%= category.id %>?_method=PUT" method="POST">            
@@ -2655,8 +2658,12 @@ Phase 26: Create Edit page
         -----------------------------------------------------------------------------------
 
 
+Phase 26: Create Update page
+============================================================================================
+* Update page will allow you to update the existing information saved to the database.
+============================================================================================
 
-
+26.1: 
 
 
 
