@@ -193,8 +193,8 @@ Process Workflow Summary:
                                                                                          __________________________________________________
     Phase 23: Create show, edit, update, and delete routes for categories                     Add CRUD operations to categories
     Phase 24: Install "method override" library that allows put and delete requests:
-    Phase 25:
-    Phase 26:
+    Phase 25: Create Edit page
+    Phase 26: Create Update page
 
 
 
