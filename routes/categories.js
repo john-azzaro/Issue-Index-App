@@ -56,12 +56,14 @@ router.get('/:id', function (req, res) {
 // Edit categories route
 router.get('/:id/edit', async function (req, res) {     
   try {
-    const category = Category.findById(req.params.id);
+    const category = await Category.findById(req.params.id);
     res.render('categories/edit', { category: category });
   } catch(err) {
     res.redirect('/categories'); 
   }  
 });
+
+
 
 
 // Update categories route
