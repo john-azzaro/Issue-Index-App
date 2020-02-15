@@ -2645,7 +2645,14 @@ Phase 26: Create Edit page
         </form>
         -----------------------------------------------------------------------------------
 
-
+26.6: Reroute cancel from categories to the category page.
+        -----------------------------------------------------------------------------------
+        <h2>Edit Category</h2>
+        <form action="/categories/<%= category.id %>?_method=PUT" method="POST">            
+        <a href="/categories/<%= category.id %>">Cancel</a>                                    // add category.id to bring back to categoyr if canceled
+        <button type="submit">Update</button>
+        </form>
+        -----------------------------------------------------------------------------------
 
 
 

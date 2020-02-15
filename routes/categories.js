@@ -64,8 +64,6 @@ router.get('/:id/edit', async function (req, res) {
 });
 
 
-
-
 // Update categories route
 router.put('/:id', function(req, res) {          
   res.send('Update Category ' + req.params.id)      
