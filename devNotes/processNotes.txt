@@ -2824,8 +2824,34 @@ get the category. In this case, just redirect to the homepage.
         });
         -----------------------------------------------------------------------------------
 
+26.8: To show the result of your editing, 
+===========================================================================================
+* Because all that has been done in the edit route is get and save, there is still no instruction
+that will change the category name so that it reflects in the application. What this will do is
+chnage the name BEFORE you save it.
+===========================================================================================
+-------------------------------------------------------------------------------------------
+// Update categories route
+router.put('/:id', async function(req, res) {          
+  let category;
+  try {
+    category = await Category.findById(req.params.id);
+    category.name = req.body.name;                                                             // for the category.name, change it (before saving it.)
+    await category.save()   
+    res.redirect(`/categories/${category.id}`);
+  } catch(err) {
+    if (category == null) {
+      res.redirect('/');
+    } else {
+      res.render('categories/edit', {
+      category: category,
+      errorMessage: 'Error updating category'
+    });  
+    } 
+  }    
+});
 
-
+-------------------------------------------------------------------------------------------
 
 
 

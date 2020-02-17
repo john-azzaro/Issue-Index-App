@@ -68,6 +68,7 @@ router.put('/:id', async function(req, res) {
   let category;
   try {
     category = await Category.findById(req.params.id);
+    category.name = req.body.name;
     await category.save()   
     res.redirect(`/categories/${category.id}`);
   } catch(err) {
