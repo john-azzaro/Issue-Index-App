@@ -2685,7 +2685,26 @@ Phase 26: Create Update page
         });
         ------------------------------------------------------------------------------------
 
-
+26.2: Get the existing author in the try block:
+         ------------------------------------------------------------------------------------
+        // Update categories route
+        router.put('/:id', function(req, res) {          
+         const category = new Category({
+         name: req.body.name
+         });
+         try {
+          category = await Category.findById(req.params.id);                                         // category is equal to Category id (get input from user).
+          const newCategory = await category.save()   
+         // res.redirect(`categories/${newCategory.id}`);
+          res.redirect(`categories`);
+         } catch(err) {
+          res.render('categories/new', {
+          category: category,
+          errorMessage: 'Error creating category'
+          });    
+         }    
+        });
+        ------------------------------------------------------------------------------------       
 
 
 

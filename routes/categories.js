@@ -65,12 +65,12 @@ router.get('/:id/edit', async function (req, res) {
 
 
 // Update categories route
-router.put('/:id', function(req, res) {          
+router.put('/:id', async function(req, res) {          
   const category = new Category({
     name: req.body.name
   });
   try {
-    category = Category.findById(req.params.id);
+    category = await Category.findById(req.params.id);
     const newCategory = await category.save()   
     // res.redirect(`categories/${newCategory.id}`);
     res.redirect(`categories`);
