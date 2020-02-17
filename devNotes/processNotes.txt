@@ -2707,7 +2707,7 @@ Phase 26: Create Update page
         ------------------------------------------------------------------------------------       
 
 
-26.2: Redirect to categories/
+26.2: Redirect to categories/id and remove redirect to categories.
          ------------------------------------------------------------------------------------
         // Update categories route
         router.put('/:id', async function(req, res) {          
@@ -2718,7 +2718,7 @@ Phase 26: Create Update page
           category = await Category.findById(req.params.id);                             
           await category.save()                                                             
           res.redirect(`categories/${catgory.id}`);                                          // uncomment and redirect to "category.id".
-          res.redirect(`categories`);
+                                                                                         
          } catch(err) {
           res.render('categories/new', {
           category: category,
