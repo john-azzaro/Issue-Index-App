@@ -70,7 +70,7 @@ router.put('/:id', function(req, res) {
     name: req.body.name
   });
   try {
-    
+    category = Category.findById(req.params.id);
     const newCategory = await category.save()   
     // res.redirect(`categories/${newCategory.id}`);
     res.redirect(`categories`);

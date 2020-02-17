@@ -2665,7 +2665,25 @@ Phase 26: Create Update page
   in mind.
 ============================================================================================
 
-26.1: 
+26.1: Copy and paste the update route to the update categories route.
+        ------------------------------------------------------------------------------------
+        // Update categories route
+        router.put('/:id', function(req, res) {          
+         const category = new Category({
+         name: req.body.name
+         });
+         try {
+          const newCategory = await category.save()   
+         // res.redirect(`categories/${newCategory.id}`);
+          res.redirect(`categories`);
+         } catch(err) {
+          res.render('categories/new', {
+          category: category,
+          errorMessage: 'Error creating category'
+          });    
+         }    
+        });
+        ------------------------------------------------------------------------------------
 
 
 
