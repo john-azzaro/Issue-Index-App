@@ -1359,7 +1359,6 @@ Phase 15: Build Create Category Route...
 
 
 
-
 Phase 16: Display All categories feature to app:
         ====================================================================================
         * In this phase, we'll display all the categories we have in our database in a single
@@ -2728,7 +2727,10 @@ Phase 26: Create Update page
         });
         ------------------------------------------------------------------------------------       
 
-
+26.3: (for end of phase 15), uncomment redirect to newCategory.id and remove redirect to categories.
+        ------------------------------------------------------------------------------------
+        
+        ------------------------------------------------------------------------------------
 
 
 
