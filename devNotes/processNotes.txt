@@ -2668,7 +2668,7 @@ Phase 26: Create Update page
 26.1: Copy and paste the update route to the update categories route.
         ------------------------------------------------------------------------------------
         // Update categories route
-        router.put('/:id', function(req, res) {          
+        router.put('/:id', async function(req, res) {          
          const category = new Category({
          name: req.body.name
          });
@@ -2685,16 +2685,16 @@ Phase 26: Create Update page
         });
         ------------------------------------------------------------------------------------
 
-26.2: Get the existing author in the try block:
+26.2: Get the existing author in the try block and, if successful
          ------------------------------------------------------------------------------------
         // Update categories route
-        router.put('/:id', function(req, res) {          
+        router.put('/:id', async function(req, res) {          
          const category = new Category({
          name: req.body.name
          });
          try {
-          category = await Category.findById(req.params.id);                                         // category is equal to Category id (get input from user).
-          const newCategory = await category.save()   
+          category = await Category.findById(req.params.id);                                         // category is equal to Category id (get input from user). This uses the mongo databse
+          await category.save()                                                                        to get the category by id and save it in the line below.
          // res.redirect(`categories/${newCategory.id}`);
           res.redirect(`categories`);
          } catch(err) {
@@ -2705,6 +2705,33 @@ Phase 26: Create Update page
          }    
         });
         ------------------------------------------------------------------------------------       
+
+
+26.2: Redirect to categories/
+         ------------------------------------------------------------------------------------
+        // Update categories route
+        router.put('/:id', async function(req, res) {          
+         const category = new Category({
+         name: req.body.name
+         });
+         try {
+          category = await Category.findById(req.params.id);                             
+          await category.save()                                                             
+          res.redirect(`categories/${catgory.id}`);                                          // uncomment and redirect to "category.id".
+          res.redirect(`categories`);
+         } catch(err) {
+          res.render('categories/new', {
+          category: category,
+          errorMessage: 'Error creating category'
+          });    
+         }    
+        });
+        ------------------------------------------------------------------------------------       
+
+
+
+
+
 
 
 
