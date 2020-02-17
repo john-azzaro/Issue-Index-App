@@ -71,6 +71,9 @@ router.put('/:id', async function(req, res) {
     await category.save()   
     res.redirect(`categories/${category.id}`);
   } catch(err) {
+    if (category == null) {
+      res.redirect('/');
+    }
     res.render('categories/new', {
       category: category,
       errorMessage: 'Error creating category'
