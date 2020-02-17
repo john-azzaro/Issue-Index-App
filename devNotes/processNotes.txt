@@ -813,7 +813,7 @@ Phase 10: Add "catagory" controlles and views.
         ======================================================================
         * To create a new controller in our routes folder, you basically have
           repeat the same process we did for index.js in creating a router. If
-          just do a copy/paste because the "all" authors route is almost exactly
+          just do a copy/paste because the "all" categories route is almost exactly
           the same as what we already have in the index.js route. Saves some time.
         ======================================================================
         
@@ -2684,7 +2684,7 @@ Phase 26: Create Update page
         });
         ------------------------------------------------------------------------------------
 
-26.2: Get the existing author in the try block and, if successful
+26.2: Get the existing category in the try block and, if successful
          ------------------------------------------------------------------------------------
         // Update categories route
         router.put('/:id', async function(req, res) {          
@@ -2727,11 +2727,34 @@ Phase 26: Create Update page
         });
         ------------------------------------------------------------------------------------       
 
-26.3: (for end of phase 15), uncomment redirect to newCategory.id and remove redirect to categories.
+26.3: (for end of phase 15), uncomment redirect to newCategory.id and remove redirect to categories for create category route.
         ------------------------------------------------------------------------------------
-        
+        same as above but for create category route
         ------------------------------------------------------------------------------------
 
+26.4: Remove "create new Category" and create a new variable called "category".
+=================================================================================
+Note that you need to remove the create new Category route, replace it withy a variable
+called "category" BUT make sure to have it outside the try block because the catch block
+need to access to that variable as well.  The reason why is that it could fail when you 
+try to get the categoyr AND when you try to save the category.
+=================================================================================
+        -----------------------------------------------------------------------------------
+        // Update categories route
+        router.put('/:id', async function(req, res) {          
+          let category;
+          try {
+            category = await Category.findById(req.params.id);
+            await category.save()   
+            res.redirect(`categories/${category.id}`);
+         } catch(err) {
+           res.render('categories/new', {
+           category: category,
+           errorMessage: 'Error creating category'
+           });    
+          }    
+        });
+        -----------------------------------------------------------------------------------
 
 
 

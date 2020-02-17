@@ -65,9 +65,7 @@ router.get('/:id/edit', async function (req, res) {
 
 // Update categories route
 router.put('/:id', async function(req, res) {          
-  const category = new Category({
-    name: req.body.name
-  });
+  let category;
   try {
     category = await Category.findById(req.params.id);
     await category.save()   
