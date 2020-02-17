@@ -2661,6 +2661,8 @@ Phase 25: Create Edit page
 Phase 26: Create Update page
 ============================================================================================
 * Update page will allow you to update the existing information saved to the database.
+  Note that the update page is going to be very similar to the create page so keep that 
+  in mind.
 ============================================================================================
 
 26.1: 

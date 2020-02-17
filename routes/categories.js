@@ -66,7 +66,20 @@ router.get('/:id/edit', async function (req, res) {
 
 // Update categories route
 router.put('/:id', function(req, res) {          
-  res.send('Update Category ' + req.params.id)      
+  const category = new Category({
+    name: req.body.name
+  });
+  try {
+    
+    const newCategory = await category.save()   
+    // res.redirect(`categories/${newCategory.id}`);
+    res.redirect(`categories`);
+  } catch(err) {
+    res.render('categories/new', {
+      category: category,
+      errorMessage: 'Error creating category'
+    });    
+  }    
 });
 
 
