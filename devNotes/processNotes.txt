@@ -2781,7 +2781,7 @@ get the category. In this case, just redirect to the homepage.
         });
         -----------------------------------------------------------------------------------
 
-26.6: Change new to edit in the res.render.
+26.6: Change new to edit in the res.render and the error message to "errror creating category".
         -----------------------------------------------------------------------------------
         // Update categories route
         router.put('/:id', async function(req, res) {          
@@ -2796,11 +2796,39 @@ get the category. In this case, just redirect to the homepage.
         }
         res.render('categories/edit', {                                                     // redirect to edit
         category: category,
-        errorMessage: 'Error creating category'
+        errorMessage: 'Error creating category'                                            // edit message
         });    
         }    
         });
         -----------------------------------------------------------------------------------
+
+26.7: Add an else statement to route if successful and relocate successful route inside.
+        -----------------------------------------------------------------------------------
+        // Update categories route
+        router.put('/:id', async function(req, res) {          
+        let category;
+        try {
+        category = await Category.findById(req.params.id);
+        await category.save()   
+        res.redirect(`categories/${category.id}`);
+        } catch(err) {
+        if (category == null) {
+        res.redirect('/');
+        } else {                                                                         // else statement with successful route
+        res.render('categories/edit', {
+        category: category,
+        errorMessage: 'Error updating category'
+        });  
+        } 
+        }    
+        });
+        -----------------------------------------------------------------------------------
+
+
+
+
+
+
 
 
 Phase X: Deploy to App to Heroku

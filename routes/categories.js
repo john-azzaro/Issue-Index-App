@@ -73,11 +73,12 @@ router.put('/:id', async function(req, res) {
   } catch(err) {
     if (category == null) {
       res.redirect('/');
-    }
-    res.render('categories/edit', {
+    } else {
+      res.render('categories/edit', {
       category: category,
-      errorMessage: 'Error creating category'
-    });    
+      errorMessage: 'Error updating category'
+    });  
+    } 
   }    
 });
 
