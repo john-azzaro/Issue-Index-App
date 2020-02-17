@@ -2742,7 +2742,7 @@ try to get the categoyr AND when you try to save the category.
         -----------------------------------------------------------------------------------
         // Update categories route
         router.put('/:id', async function(req, res) {          
-          let category;
+          let category;                                                             // replaced create new category with category variable.
           try {
             category = await Category.findById(req.params.id);
             await category.save()   
@@ -2761,7 +2761,46 @@ try to get the categoyr AND when you try to save the category.
 * If category is equal to null, then that means that the the failure occured trying to 
 get the category. In this case, just redirect to the homepage.
 ======================================================================================
+        -----------------------------------------------------------------------------------
+        // Update categories route
+        router.put('/:id', async function(req, res) {          
+        let category;
+        try {
+        category = await Category.findById(req.params.id);
+        await category.save()   
+        res.redirect(`categories/${category.id}`);
+        } catch(err) {
+        if (category == null) {                                                            // if null, redirect to the homepage
+        res.redirect('/');
+        }
+        res.render('categories/new', {
+        category: category,
+        errorMessage: 'Error creating category'
+        });    
+        }    
+        });
+        -----------------------------------------------------------------------------------
 
+26.6: Change new to edit in the res.render.
+        -----------------------------------------------------------------------------------
+        // Update categories route
+        router.put('/:id', async function(req, res) {          
+        let category;
+        try {
+        category = await Category.findById(req.params.id);
+        await category.save()   
+        res.redirect(`categories/${category.id}`);
+        } catch(err) {
+        if (category == null) {
+        res.redirect('/');
+        }
+        res.render('categories/edit', {                                                     // redirect to edit
+        category: category,
+        errorMessage: 'Error creating category'
+        });    
+        }    
+        });
+        -----------------------------------------------------------------------------------
 
 
 Phase X: Deploy to App to Heroku
