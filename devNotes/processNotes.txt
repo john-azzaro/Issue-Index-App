@@ -2810,7 +2810,7 @@ get the category. In this case, just redirect to the homepage.
         try {
         category = await Category.findById(req.params.id);
         await category.save()   
-        res.redirect(`categories/${category.id}`);
+        res.redirect(`/categories/${category.id}`);                                      // backslash error (!!!!)
         } catch(err) {
         if (category == null) {
         res.redirect('/');

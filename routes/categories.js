@@ -69,7 +69,7 @@ router.put('/:id', async function(req, res) {
   try {
     category = await Category.findById(req.params.id);
     await category.save()   
-    res.redirect(`categories/${category.id}`);
+    res.redirect(`/categories/${category.id}`);
   } catch(err) {
     if (category == null) {
       res.redirect('/');
