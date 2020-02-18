@@ -2706,7 +2706,7 @@ Phase 26: Create Update page
         ------------------------------------------------------------------------------------       
 
 
-26.2: Redirect to categories/id and remove redirect to categories.
+26.3: Redirect to categories/id and remove redirect to categories.
          ------------------------------------------------------------------------------------
         // Update categories route
         router.put('/:id', async function(req, res) {          
@@ -2727,12 +2727,12 @@ Phase 26: Create Update page
         });
         ------------------------------------------------------------------------------------       
 
-26.3: (for end of phase 15), uncomment redirect to newCategory.id and remove redirect to categories for create category route.
+26.4: (for end of phase 15), uncomment redirect to newCategory.id and remove redirect to categories for create category route.
         ------------------------------------------------------------------------------------
         same as above but for create category route
         ------------------------------------------------------------------------------------
 
-26.4: Remove "create new Category" and create a new variable called "category".
+26.5: Remove "create new Category" and create a new variable called "category".
 =================================================================================
 Note that you need to remove the create new Category route, replace it withy a variable
 called "category" BUT make sure to have it outside the try block because the catch block
@@ -2756,7 +2756,7 @@ try to get the categoyr AND when you try to save the category.
         });
         -----------------------------------------------------------------------------------
 
-26.5: Add an if statement inside the catch to see if the category is equal to null
+26.6: Add an if statement inside the catch to see if the category is equal to null
 ======================================================================================
 * If category is equal to null, then that means that the the failure occured trying to 
 get the category. In this case, just redirect to the homepage.
@@ -2781,7 +2781,7 @@ get the category. In this case, just redirect to the homepage.
         });
         -----------------------------------------------------------------------------------
 
-26.6: Change new to edit in the res.render and the error message to "errror creating category".
+26.7: Change new to edit in the res.render and the error message to "errror creating category".
         -----------------------------------------------------------------------------------
         // Update categories route
         router.put('/:id', async function(req, res) {          
@@ -2802,7 +2802,7 @@ get the category. In this case, just redirect to the homepage.
         });
         -----------------------------------------------------------------------------------
 
-26.7: Add an else statement to route if successful and relocate successful route inside.
+26.8: Add an else statement to route if successful and relocate successful route inside.
         -----------------------------------------------------------------------------------
         // Update categories route
         router.put('/:id', async function(req, res) {          
@@ -2824,7 +2824,7 @@ get the category. In this case, just redirect to the homepage.
         });
         -----------------------------------------------------------------------------------
 
-26.8: To show the result of your editing, 
+26.9: To show the result of your editing, 
 ===========================================================================================
 * Because all that has been done in the edit route is get and save, there is still no instruction
 that will change the category name so that it reflects in the application. What this will do is
@@ -2852,6 +2852,22 @@ router.put('/:id', async function(req, res) {
 });
 
 -------------------------------------------------------------------------------------------
+
+
+Phase 27: Create Delete page
+==========================================================================================
+* The delete function is going to allow you to remove the category from the categories page.
+  To do this, you are going to use almost exactly the same logic as the update route. In fact,
+  you can copy and paste the update route and change a few things aroung and you will be done!
+==========================================================================================
+
+27.1: 
+
+
+
+
+
+
 
 
 
