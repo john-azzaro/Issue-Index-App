@@ -96,7 +96,7 @@ router.delete('/:id', async function(req, res) {
     if (category == null) {
       res.redirect('/');
     } else {
-      res.render('categories/edit');  
+      res.render(`categories/${category.id}`);  
   } 
 }  
   
