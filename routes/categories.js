@@ -85,7 +85,7 @@ router.put('/:id', async function(req, res) {
 
 
 // Delete categories route
-router.delete('/:id', function(req, res) {
+router.delete('/:id', async function(req, res) {
   let category;
   try {
     category = await Category.findById(req.params.id);
