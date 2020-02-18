@@ -2861,7 +2861,25 @@ Phase 27: Create Delete page
   you can copy and paste the update route and change a few things aroung and you will be done!
 ==========================================================================================
 
-27.1: 
+27.1: Copy and paste delete funcitonality and change:
+        ------------------------------------------------------------------------------------
+        // Delete categories route
+        router.delete('/:id', async function(req, res) {
+        let category;
+        try {
+        category = await Category.findById(req.params.id);
+                                                                        // remove because you dont need to worry about updating the author name.
+        await category.remove()                                         // remove instead of save.
+        res.redirect(`/categories`);  
+        } catch(err) {
+        if (category == null) {
+        res.redirect('/');
+        } else {
+        res.render(`categories/${category.id}`);  
+        } 
+        }   
+        });
+        ------------------------------------------------------------------------------------
 
 
 

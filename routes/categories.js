@@ -89,19 +89,15 @@ router.delete('/:id', async function(req, res) {
   let category;
   try {
     category = await Category.findById(req.params.id);
-                                                                // remove because you dont need to worry about updating the author name.
-    await category.remove()                                     // remove instead of save.
+    await category.remove();
     res.redirect(`/categories`);  
   } catch(err) {
     if (category == null) {
       res.redirect('/');
     } else {
       res.render(`categories/${category.id}`);  
-  } 
-}  
-  
-  
-  // res.send('Delete Category ' + req.params.id)    
+    } 
+  }   
 });
 
 //Export
