@@ -86,7 +86,25 @@ router.put('/:id', async function(req, res) {
 
 // Delete categories route
 router.delete('/:id', function(req, res) {
-  res.send('Delete Category ' + req.params.id)    
+  let category;
+  try {
+    category = await Category.findById(req.params.id);
+    category.name = req.body.name;
+    await category.save()   
+    res.redirect(`/categories`);   // /${category.id}
+  } catch(err) {
+    if (category == null) {
+      res.redirect('/');
+    } else {
+      res.render('categories/edit', {
+      category: category,
+      errorMessage: 'Error updating category'
+    });  
+  } 
+}  
+  
+  
+  // res.send('Delete Category ' + req.params.id)    
 });
 
 //Export
