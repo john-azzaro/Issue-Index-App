@@ -89,17 +89,14 @@ router.delete('/:id', async function(req, res) {
   let category;
   try {
     category = await Category.findById(req.params.id);
-    category.name = req.body.name;                              // remove because you dont need to worry about updating the author name.
+                                                                // remove because you dont need to worry about updating the author name.
     await category.remove()                                     // remove instead of save.
-    res.redirect(`/categories`);   // /${category.id}
+    res.redirect(`/categories`);  
   } catch(err) {
     if (category == null) {
       res.redirect('/');
     } else {
-      res.render('categories/edit', {
-      category: category,
-      errorMessage: 'Error updating category'
-    });  
+      res.render('categories/edit');  
   } 
 }  
   
