@@ -20,6 +20,9 @@ categorySchema.pre('remove', function(next) {
   });    
 });
 
+
+
+
 const Category = mongoose.model('Category', categorySchema);
 
 module.exports = { Category };
