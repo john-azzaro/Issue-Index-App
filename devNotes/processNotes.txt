@@ -2882,6 +2882,12 @@ Phase 27: Create Delete page
         ------------------------------------------------------------------------------------
 
 
+Phase 28: Create constraints for possibity of category being deleted completely when last issue deleted is done.
+==================================================================================================
+* IN the category model, you can use mongoose to run code before, drueing, or after a certain actions.
+ in this case, we want to add a ".pre" action before the action occurs.
+==================================================================================================
+        --------------------------------------------------------------------------------------
 
 
 
