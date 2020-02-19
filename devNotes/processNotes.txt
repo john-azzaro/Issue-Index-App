@@ -2894,7 +2894,16 @@ Phase 28: Create constraints for possibity of category being deleted completely 
         --------------------------------------------------------------------------------------
 
 
+28.2: use a pre action 
+===================================================================================================
+* pre allows you to run an action before the method occurs, and pass "remove" and a function with 
+  the callback "next", which will mean it is ok to move forward unless it is an error.
+===================================================================================================
+        --------------------------------------------------------------------------------------
+        categorySchema.pre('remove', function(next) {      
 
+        });
+        --------------------------------------------------------------------------------------
 
 
 
