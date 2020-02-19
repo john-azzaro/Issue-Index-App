@@ -35,8 +35,9 @@ router.post('/', async function(req, res) {
     name: req.body.name
   });
   try {
-    const newCategory = await category.save()   
-    res.redirect(`categories/${newCategory.id}`);
+    const newCategory = await category.save();
+    res.redirect(`/categories`);   
+    // res.redirect(`categories/${newCategory.id}`);
   } catch(err) {
     res.render('categories/new', {
       category: category,
