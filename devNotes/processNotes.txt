@@ -195,7 +195,8 @@ Process Workflow Summary:
     Phase 24: Install "method override" library that allows put and delete requests:
     Phase 25: Create Edit page
     Phase 26: Create Update page
-
+    Phase 27: Create Delete page
+    Phase 28: Create a pre method to account for issues using categories you may still be using.
 
 
 
@@ -2882,7 +2883,7 @@ Phase 27: Create Delete page
         ------------------------------------------------------------------------------------
 
 
-Phase 28: Create constraints for possibity of category being deleted completely when last issue deleted is done.
+Phase 28: Create a pre method to account for issues using categories you may still be using.
 ==================================================================================================
 * IN the category model, you can use mongoose to run code before, drueing, or after a certain actions.
  in this case, we want to add a ".pre" action before the action occurs.
@@ -2894,7 +2895,7 @@ Phase 28: Create constraints for possibity of category being deleted completely 
         --------------------------------------------------------------------------------------
 
 
-28.2: use a pre action 
+28.2: create a pre method to account for deletion of category IF issues may be using that category
 ===================================================================================================
 * pre allows you to run an action before the method occurs, and pass "remove" and a function with 
   the callback "next", which will mean it is ok to move forward unless it is an error.
