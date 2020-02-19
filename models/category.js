@@ -15,7 +15,7 @@ categorySchema.pre('remove', function(next) {
     } else if (issues.length > 0) {                           // for the particular issue, if there are issues for the category, do NOT remove the category.
       next(new Error('This category still has issues'))
     } else {                                                 // but if no errors and no issues, then
-      next();
+      next();                                                // then next and remove the category.
     }
   });    
 });
