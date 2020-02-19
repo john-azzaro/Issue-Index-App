@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const Issue = require('./issue');
 
 const categorySchema = new mongoose.Schema({
   name: {

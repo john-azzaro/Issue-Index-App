@@ -2887,8 +2887,11 @@ Phase 28: Create constraints for possibity of category being deleted completely 
 * IN the category model, you can use mongoose to run code before, drueing, or after a certain actions.
  in this case, we want to add a ".pre" action before the action occurs.
 ==================================================================================================
+        
+28.1: Include the Issue model in the category model:
         --------------------------------------------------------------------------------------
-
+        const Issue = required('./issue');
+        --------------------------------------------------------------------------------------
 
 
 
