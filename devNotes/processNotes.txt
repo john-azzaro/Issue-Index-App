@@ -2933,7 +2933,7 @@ Phase 29: Create show categories page
         <%- include('../partials/deleteForm', {url: `/categories/${category.id}`}) %>           // use delete partial and include going back one folder (../) and add route to delee form file, and pass in url
         --------------------------------------------------------------------------------------------
 
-29.3:
+29.3: Add 
 
 
 
