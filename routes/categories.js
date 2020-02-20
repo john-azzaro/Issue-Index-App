@@ -2,6 +2,7 @@
 const express = require('express');
 const router = express.Router();
 const { Category } = require('../models/category');
+const Issue  = require('../models/issue')
 
 
 // Routes
@@ -50,11 +51,10 @@ router.post('/', async function(req, res) {
 // Show categories
 router.get('/:id', async function (req, res) {     
   try {
-    const category = await category.findById(req.params.id);       
+    const category = await Category.findById(req.params.id);       
     const issues = await Issue.find({category: category.id}).exec();             
     res.render('categories/show', {category: category, issuesByCategory: issues})    
   } catch(err) {
-    console.log(err)
     res.redirect('/');
   }
 });               
