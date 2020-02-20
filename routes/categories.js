@@ -48,7 +48,15 @@ router.post('/', async function(req, res) {
 
 
 // Show categories
-router.get('/:id', function (req, res) {     
+router.get('/:id', async function (req, res) {     
+  try {
+    const category = await category.findById(req.params.id);              // get category by id
+    const issue = await issues.find({category: category.id}).exec();                                   // find issues by a particular category and limit the amount you want to get with .limit(if you want to) and execute.
+  
+  } catch(err) {
+    res.redirect('/');
+  }
+  
   res.send('Show Category ' + req.params.id);   
 });               
 

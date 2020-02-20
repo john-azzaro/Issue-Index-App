@@ -2960,6 +2960,35 @@ Phase 29: Create show categories page
         -----------------------------------------------------------------------------------------
 
 
+29.5: Configure route for show category with associated issues:
+        -----------------------------------------------------------------------------------------
+        // Show categories
+        router.get('/:id', async function (req, res) {                                              // add async to callback
+        try {                                                                                        // add try/catch blocks
+
+        } catch(err) {
+        
+        }
+        
+        res.send('Show Category ' + req.params.id);   
+        });    
+        -----------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 Phase X: Deploy to App to Heroku
 * testing with heroku git connection
