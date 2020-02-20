@@ -2946,6 +2946,18 @@ Phase 29: Create show categories page
         ------------------------------------------------------------------------------------------
 
 29.4: Copy over issues logic that loops through each issue.
+        -----------------------------------------------------------------------------------------
+        <h2> <%= category.name %> </h2>                     
+        <a href="/categories/<%= category.id %>/edit">Edit</a>      
+        <%- include('../partials/deleteForm', {url: `/categories/${category.id}`}) %>       
+
+        <% if (issuesByCategory.length > 0) { %>         
+        <h2>Issues by Category</h2>
+        <% issuesByCategory.forEach( function(issue) {  %>                                                // will print out each issue in issueByCategory
+        <div><%= issue.title %></div>
+        <% }) %>
+        <% } %> 
+        -----------------------------------------------------------------------------------------
 
 
 
