@@ -2921,10 +2921,19 @@ Phase 29: Create show categories page
 * Note, when you create 
 ====================================================================================================
 
+29.1: Create a "show.ejs" file in views/categories:
+        -------------------------------------------------------------------------------
+        views  >  categories  >  show.ejs
+        -------------------------------------------------------------------------------
 
+29.2: Create initial layout for individual categories:
+        --------------------------------------------------------------------------------------------
+        <h2> <%= category.name %> </h2>                                                          // category name for the title
+        <a href="/categories/<%= category.id %>/edit">Edit</a>                                  // edit link -- route to categories/category id/edit
+        <%- include('../partials/deleteForm', {url: `/categories/${category.id}`}) %>           // use delete partial and include going back one folder (../) and add route to delee form file, and pass in url
+        --------------------------------------------------------------------------------------------
 
-
-
+29.3:
 
 
 
