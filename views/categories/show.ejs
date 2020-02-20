@@ -4,5 +4,7 @@
 
 <% if (issuesByCategory.length > 0) { %>
   <h2>Issues by Category</h2>
-
+  <% issuesByCategory.forEach( function(issue) {  %>
+    <div><%= issue.title %></div>
+    <% }) %>
 <% } %> 

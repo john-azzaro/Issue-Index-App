@@ -2933,9 +2933,19 @@ Phase 29: Create show categories page
         <%- include('../partials/deleteForm', {url: `/categories/${category.id}`}) %>           // use delete partial and include going back one folder (../) and add route to delee form file, and pass in url
         --------------------------------------------------------------------------------------------
 
-29.3: Add 
+29.3: Add issues by category:
+        ------------------------------------------------------------------------------------------
+        <h2> <%= category.name %> </h2>                     
+        <a href="/categories/<%= category.id %>/edit">Edit</a>      
+        <%- include('../partials/deleteForm', {url: `/categories/${category.id}`}) %>       
 
+        <% if (issuesByCategory.length > 0) { %>                                                        // if the issuseByCategory length is greater than 0, show issues.
+        <h2>Issues by Category</h2>
 
+        <% } %> 
+        ------------------------------------------------------------------------------------------
+
+29.4: Copy over issues logic that loops through each issue.
 
 
 
