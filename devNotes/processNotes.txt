@@ -2916,6 +2916,18 @@ Phase 28: Create a pre method to account for issues using categories you may sti
 
 
 
+Phase 29: Create show categories page
+====================================================================================================
+* Note, when you create 
+====================================================================================================
+
+
+
+
+
+
+
+
 
 
 Phase X: Deploy to App to Heroku
