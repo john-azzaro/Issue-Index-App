@@ -197,6 +197,7 @@ Process Workflow Summary:
     Phase 26: Create Update page
     Phase 27: Create Delete page
     Phase 28: Create a pre method to account for issues using categories you may still be using.
+    Pahse 29: Create show page
 
 
 
@@ -2974,7 +2975,7 @@ Phase 29: Create show categories page
         });    
         -----------------------------------------------------------------------------------------
 
-29.6:
+29.6: Add logic:
         -------------------------------------------------------------------------------------------
         // Show categories
         router.get('/:id', async function (req, res) {     
