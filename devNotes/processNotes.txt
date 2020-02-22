@@ -3007,8 +3007,24 @@ Phase 30: Create show route
 
 30.2: Define how we'll get the issue and show it on the page:
         ---------------------------------------------------------------------------------------------
-        
+        // Show Route
+        router.get('/:id', async function(req, res) {
+        try {
+        const issue = await Issue.findById(req.params.id)
+                                .populate('category')
+                                .exec()                                                        // find the issue by id and use populate to find the collection to populate, which in this case is Category... so what this will do is populate the "category" variable inside the Issue object with all Category information.... and then execute.
+        res.render('issues/show', {issue: issue})                                              // and make the response render issues/show and pass in the 
+        } catch(err) {
+        res.redirect('/');                                                                     // if failed, redirect to the homepage.
+        }
+        });
+
         ---------------------------------------------------------------------------------------------
+
+30.3: Create the view for the show route:
+        --------------------------------------------------------------------------------------------
+        
+        --------------------------------------------------------------------------------------------
 
 
 
