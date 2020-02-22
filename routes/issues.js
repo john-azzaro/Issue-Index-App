@@ -53,7 +53,13 @@ router.post('/', async function(req, res) {
 
 
 // Show Route
+router.get('/:id', async function(req, res) {
+  try {
 
+  } catch(err) {
+    
+  }
+});
 
 
 
