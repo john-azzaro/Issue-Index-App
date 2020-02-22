@@ -41,7 +41,7 @@ router.post('/', async function(req, res) {
     description: req.body.description,
     solution: req.body.solution,
   });
-  saveImage(issue, req.body.image);                                                    // save the image as well as the encoded json image in req.body.image
+  saveImage(issue, req.body.image);        
   try { 
     const newIssue = await issue.save();
     // res.redirect('issues/${newIssue.id}');
@@ -50,6 +50,12 @@ router.post('/', async function(req, res) {
     renderNewPage(res, issue, true); 
   }
 });
+
+
+// Show Route
+
+
+
 
 
 // Render New Page function

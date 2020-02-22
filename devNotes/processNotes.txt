@@ -2992,9 +2992,12 @@ Phase 29: Create show categories page
 
 
 
+Phase 30: Create show route
+======================================================================================================
+* Remember for the show route you need to define this AFTER the new route.
+======================================================================================================
 
-
-
+30.1: 
 
 
 
