@@ -3046,7 +3046,12 @@ Phase 30: Create show route
         </div>
         --------------------------------------------------------------------------------------------
 
-
+30.5: In the view for show route, add in feature content
+==============================================================================
+* Note here that when you addedf the .populate in 30.2, which preloads all the 
+ category information BEFORE it returns the issue. Otherwise it would just be an
+ id but now it is an OBJECT.
+==============================================================================
 
 
 
