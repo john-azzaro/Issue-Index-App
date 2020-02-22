@@ -9,7 +9,9 @@
 <br>
 <div>
   <% issues.forEach( function(issue) {  %>
-  <div><%= issue.title %></div>
+  <a href="/issues/<%= issue.id %>">   
+    <div><%= issue.title %></div>
+  </a>
   <% }) %>
 </div>
 

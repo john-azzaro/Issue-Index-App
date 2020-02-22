@@ -3021,11 +3021,30 @@ Phase 30: Create show route
 
         ---------------------------------------------------------------------------------------------
 
-30.3: Create the view for the show route:
+30.3: Create the view for the show route with initial title for test:
         --------------------------------------------------------------------------------------------
-        
+        <h2><%= issue.title  %></h2>
         --------------------------------------------------------------------------------------------
 
+30.4: Make the title each of the issues into a link with an anchor tag:
+        --------------------------------------------------------------------------------------------
+        <h2>Search Issues</h2> 
+        <form action="/issues" method="GET"> 
+        <div>
+        <label>Title</label> 
+        <input type="text" name="title" value="<% searchOptions.title %>"> 
+        </div>
+        <button type="submit">Search</button>
+        </form>
+        <br>
+        <div>
+        <% issues.forEach( function(issue) {  %>
+        <a href="/issues/<%= issue.id %>">                                                 // anchor tag has as an href the url to the page we just created (show issues) 
+        <div><%= issue.title %></div>
+        </a>
+        <% }) %>
+        </div>
+        --------------------------------------------------------------------------------------------
 
 
 
