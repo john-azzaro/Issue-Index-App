@@ -55,9 +55,11 @@ router.post('/', async function(req, res) {
 // Show Route
 router.get('/:id', async function(req, res) {
   try {
-
+    const issue = await Issue.findById(req.params.id)
+                             .populate('category')
+                             .exec()               // find the issue by id and use populate to find the collection to populate, which in this case is Category... so what this will do is populate the "category" variable inside the Issue object with all Category information.... and then execute.
   } catch(err) {
-    
+    res.redirect('/');                                  // if failed, redirect to the homepage.
   }
 });
 
