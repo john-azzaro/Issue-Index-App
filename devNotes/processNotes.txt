@@ -3052,7 +3052,14 @@ Phase 30: Create show route
  category information BEFORE it returns the issue. Otherwise it would just be an
  id but now it is an OBJECT.
 ==============================================================================
-
+        -------------------------------------------------------------------------------------------- 
+        <h2><%= issue.title  %></h2>
+        <img width="150" height="100" src="<%= issue.imagePath %>" alt="">                          // image with small size so its easier to work with.
+        <div>Category: <%= issue.category.name %></div>                                              // category information from note above.
+        <div>Issue created: <%= issue.createdAt.toDateString() %></div>                             // date of issue creation with toDateString so you only get the information you want
+        <div>Description: <%= issue.description %></div>                                            // descroption
+        <div>Solution: <%= issue.solution %></div>                                                  // solution
+        -------------------------------------------------------------------------------------------- 
 
 
 
