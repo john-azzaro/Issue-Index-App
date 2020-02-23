@@ -3092,8 +3092,15 @@ Phase 30: Create show route
         --------------------------------------------------------------------------------------------
         --------------------------------------------------------------------------------------------
         router.get('/:id/edit', async function(req, res) {                                             // edit the path to access the id and edit
-        renderEditPage(res, issue);                                                                    // change new to edit and get the issue rather than create a "new" issue
+          try {                                                                                        // add try/catch block
+           renderEditPage(res, issue);                                                                    // change new to edit and get the issue rather than create a "new" issue
+        } catch(err) {             
+        
+        }  
         });
+        --------------------------------------------------------------------------------------------
+        --------------------------------------------------------------------------------------------
+
         --------------------------------------------------------------------------------------------
 
 

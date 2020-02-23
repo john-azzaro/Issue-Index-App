@@ -67,8 +67,12 @@ router.get('/:id', async function(req, res) {
 
 //Edit Issue Route
 router.get('/:id/edit', async function(req, res) {
+  try {
+    renderEditPage(res, issue);
+  } catch(err) {
+
+  }
   
-  renderEditPage(res, issue);
 });
 
 
