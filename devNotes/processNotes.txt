@@ -3063,6 +3063,10 @@ Phase 30: Create show route
 
 
 30.6: Add in links for edit, delete, and view category:
+==================================================================================
+* Note that only the view category link will work at this point because they routes
+  have not been added for the edit and delete yet
+==================================================================================
         --------------------------------------------------------------------------------------------
         <h2><%= issue.title  %></h2>
         <img width="150" height="100" src="<%= issue.imagePath %>" alt="">
