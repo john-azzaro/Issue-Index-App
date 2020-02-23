@@ -3080,7 +3080,21 @@ Phase 30: Create show route
         <a href="/categories/<%= issue.category.id %>">View Category</a>                            // link to category
         --------------------------------------------------------------------------------------------
 
-
+30.7: Define edit route
+====================================================================================
+* Copy-and-paste the new issue route from issues.js so you dont have to do extra work.
+====================================================================================
+        --------------------------------------------------------------------------------------------
+        //Edit Issue Route
+        router.get('/new', async function(req, res) {
+        renderNewPage(res, new Issue());
+        });
+        --------------------------------------------------------------------------------------------
+        --------------------------------------------------------------------------------------------
+        router.get('/:id/edit', async function(req, res) {                                             // edit the path to access the id and edit
+        renderEditPage(res, issue);                                                                    // change new to edit and get the issue rather than create a "new" issue
+        });
+        --------------------------------------------------------------------------------------------
 
 
 
