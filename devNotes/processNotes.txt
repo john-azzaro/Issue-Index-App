@@ -3095,9 +3095,9 @@ Phase 30: Create show route
           try {                                                                                        // add try/catch block
            const issue = await Issue.findById(req.params.id);                                          // get the issue by awaiting the Issue and finding by ID
            renderEditPage(res, issue);                                                                 // change new to edit and get the issue rather than create a "new" issue
-        } catch(err) {             
-        
-        }  
+        } catch(err) {
+        res.redirect('/')
+        }   
         });
         --------------------------------------------------------------------------------------------
 

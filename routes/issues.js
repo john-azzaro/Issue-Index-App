@@ -68,7 +68,7 @@ router.get('/:id', async function(req, res) {
 //Edit Issue Route
 router.get('/:id/edit', async function(req, res) {
   try {
-    const issue = await Issue.findById(req.params.id);             // get the issue by awaiting the Issue and finding by ID
+    const issue = await Issue.findById(req.params.id);      
     renderEditPage(res, issue);
   } catch(err) {
     res.redirect('/')
