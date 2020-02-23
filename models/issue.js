@@ -30,7 +30,7 @@ const issueSchema = new mongoose.Schema({
   }
 });
 
-// Use if image desired on issue page.
+// Use if image wanted on issue page.
 issueSchema.virtual('imagePath').get(function() {
   if (this.image != null && this.imageType != null) {
     return `data:${this.imageType};charset=utf-8;base64,${this.image.toString('base64')}`
