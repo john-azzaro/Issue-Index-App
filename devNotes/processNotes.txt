@@ -3064,7 +3064,16 @@ Phase 30: Create show route
 
 30.6: Add in links for edit, delete, and view category:
         --------------------------------------------------------------------------------------------
-        
+        <h2><%= issue.title  %></h2>
+        <img width="150" height="100" src="<%= issue.imagePath %>" alt="">
+        <div>Category: <%= issue.category.name %></div>
+        <div>Issue created: <%= issue.createdAt.toDateString() %></div>
+        <div>Description: <%= issue.description %></div>
+        <div>Solution: <%= issue.solution %></div>
+
+        <a href="/issues/<%= issue.id %>/edit">Edit</a>                                             // link to edit
+        <%- include('../partials/deleteForm', { url: `/issues/${issue.id}`}) %>                    // remember to use the hyphen and pass path and params
+        <a href="/categories/<%= issue.category.id %>">View Category</a>                            // link to category
         --------------------------------------------------------------------------------------------
 
 
