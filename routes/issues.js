@@ -78,26 +78,13 @@ router.get('/:id/edit', async function(req, res) {
 
 // Render New Page function
 async function renderNewPage(res, issue, hasError = false) { 
-  try {
-    const categories = await Category.find({}); 
-    const params = {
-      categories: categories,
-      issue: issue
-    }
-    if (hasError) {
-      params.errorMessage = 'Error Creating Issue';
-    }
-    // const issue = new Issue();
-    res.render('issues/new', params);
-  } catch (err) {
-    res.redirect('/issues');  
-  }
+  renderFormPage(res, issue, 'new', hasError);                      
 }
 
 
 // Render Edit Page function
 async function renderEditPage(res, issue, hasError = false) {   
-  renderFormPage(res, issue, 'edit', hasError)                     // call new renderFormPage and pass the response, the issue, and pass if it has an error.
+  renderFormPage(res, issue, 'edit', hasError);                
 }
 
 

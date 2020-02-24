@@ -3150,7 +3150,20 @@ Phase 30: Create show route
         --------------------------------------------------------------------------------
 
 
-30.10: Refactor render edit and render new to include the new 
+30.10: Refactor render edit and render new to include the new renderFormPage function:
+        ---------------------------------------------------------------------------------
+        // Render New Page function
+        async function renderNewPage(res, issue, hasError = false) { 
+        renderFormPage(res, issue, 'new', hasError);                                            // call new renderFormPage and pass the response, the issue, new, and pass if it has an error.
+        }
+
+        
+        // Render Edit Page function
+        async function renderEditPage(res, issue, hasError = false) {   
+        renderFormPage(res, issue, 'edit', hasError)                                          // call new renderFormPage and pass the response, the issue, and pass if it has an error.
+        }
+
+        ---------------------------------------------------------------------------------
 
 
 
