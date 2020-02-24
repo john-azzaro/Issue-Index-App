@@ -113,6 +113,23 @@ async function renderEditPage(res, issue, hasError = false) {
 }
 
 
+// Render Edit Page function
+async function renderFormPage(res, issue, form, hasError = false) {         // chnage name and pass it the "form" variable.
+  try {
+    const categories = await Category.find({}); 
+    const params = {
+      categories: categories,
+      issue: issue
+    }
+    if (hasError) {
+      params.errorMessage = 'Error Creating Issue';
+    }
+    res.render(`issues/${form}`, params);                                        // use string interpolation and pass in form
+  } catch (err) {
+    res.redirect('/issues');  
+  }
+}
+
 
 function saveImage(issue, imageEncoded) {  
   if(imageEncoded == null)  {
