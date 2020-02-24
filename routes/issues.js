@@ -106,7 +106,6 @@ async function renderEditPage(res, issue, hasError = false) {
     if (hasError) {
       params.errorMessage = 'Error Creating Issue';
     }
-    // const issue = new Issue();
     res.render('issues/edit', params);       
   } catch (err) {
     res.redirect('/issues');  
