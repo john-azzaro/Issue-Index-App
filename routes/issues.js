@@ -114,7 +114,7 @@ async function renderEditPage(res, issue, hasError = false) {
 
 
 // Render Edit Page function
-async function renderFormPage(res, issue, form, hasError = false) {         // chnage name and pass it the "form" variable.
+async function renderFormPage(res, issue, form, hasError = false) {       
   try {
     const categories = await Category.find({}); 
     const params = {
@@ -124,7 +124,7 @@ async function renderFormPage(res, issue, form, hasError = false) {         // c
     if (hasError) {
       params.errorMessage = 'Error Creating Issue';
     }
-    res.render(`issues/${form}`, params);                                        // use string interpolation and pass in form
+    res.render(`issues/${form}`, params);       
   } catch (err) {
     res.redirect('/issues');  
   }
