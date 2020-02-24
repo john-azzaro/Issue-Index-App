@@ -96,7 +96,7 @@ async function renderNewPage(res, issue, hasError = false) {
 
 
 // Render Edit Page function
-async function renderEditPage(res, issue, hasError = false) {       // update name
+async function renderEditPage(res, issue, hasError = false) {   
   try {
     const categories = await Category.find({}); 
     const params = {
@@ -107,7 +107,7 @@ async function renderEditPage(res, issue, hasError = false) {       // update na
       params.errorMessage = 'Error Creating Issue';
     }
     // const issue = new Issue();
-    res.render('issues/edit', params);                              // change "new" to "edit"         
+    res.render('issues/edit', params);       
   } catch (err) {
     res.redirect('/issues');  
   }
