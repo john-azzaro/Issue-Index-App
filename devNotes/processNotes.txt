@@ -3131,7 +3131,7 @@ Phase 30: Create show route
 * Copy and paste the edit function you just made and place it below!
 =================================================================================================
         ---------------------------------------------------------------------------------
-        // Render Edit Page function
+        // Render Form Page function
         async function renderFormPage(res, issue, form, hasError = false) {                // chnage name and pass it the "form" variable.
         try {
         const categories = await Category.find({}); 
@@ -3150,7 +3150,7 @@ Phase 30: Create show route
         --------------------------------------------------------------------------------
 
 
-
+30.10: Refactor render edit and render new to include the new 
 
 
 
