@@ -3165,7 +3165,20 @@ Phase 30: Create show route
 
         ---------------------------------------------------------------------------------
 
+30.11: Create an "edit.ejs" file in views > issues:
+        ---------------------------------------------------------------------------------
+        edit.ejs
+        ---------------------------------------------------------------------------------
 
+30.12: Copy and paste the new.ejs file code to edit.ejs since they are almost identical:
+        ---------------------------------------------------------------------------------
+        <h2>Edit Issue</h2>
+        <form action="/issues/<%= issue.id %>?_method=PUT" method="POST">          // edit the issue by id and remember to use PUT so use method override so server knows to PUT instead of POST.
+        <%- include('_form_fields') %>
+        <a href="/issues">Cancel</a>
+        <button type="submit">Update</button>
+        </form>
+        ---------------------------------------------------------------------------------
 
 
 
