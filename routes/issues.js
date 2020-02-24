@@ -95,6 +95,26 @@ async function renderNewPage(res, issue, hasError = false) {
 }
 
 
+// Render Edit Page function
+async function renderEditPage(res, issue, hasError = false) { 
+  try {
+    const categories = await Category.find({}); 
+    const params = {
+      categories: categories,
+      issue: issue
+    }
+    if (hasError) {
+      params.errorMessage = 'Error Creating Issue';
+    }
+    // const issue = new Issue();
+    res.render('issues/edit', params);                                
+  } catch (err) {
+    res.redirect('/issues');  
+  }
+}
+
+
+
 function saveImage(issue, imageEncoded) {  
   if(imageEncoded == null)  {
     return 
