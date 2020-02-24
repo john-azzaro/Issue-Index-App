@@ -3,11 +3,9 @@ const express = require('express');
 const router = express.Router();
 const Issue = require('../models/issue');
 const { Category } = require('../models/category');
-
 const imageMimeTypes = ['image/jpeg', 'image/png', 'image/gif'];  
 
 
-// Routes
 // All Issues Route
 router.get('/', async function(req, res) {
 let searchOptions = {}
@@ -34,7 +32,7 @@ router.get('/new', async function(req, res) {
 
 // Create Issue Route
 router.post('/', async function(req, res) {    
-  const fileName = req.file != null ? req.file.filename : null;  
+  // const fileName = req.file != null ? req.file.filename : null;  
   const issue = new Issue({
     title: req.body.title,
     category: req.body.category,
@@ -44,8 +42,8 @@ router.post('/', async function(req, res) {
   saveImage(issue, req.body.image);        
   try { 
     const newIssue = await issue.save();
-    // res.redirect('issues/${newIssue.id}');
-    res.redirect('issues');
+    res.redirect(`issues/${ newIssue.id }`);
+    // res.redirect('issues');
   } catch(err) {
     renderNewPage(res, issue, true); 
   }
