@@ -42,8 +42,8 @@ router.post('/', async function(req, res) {
   saveImage(issue, req.body.image);        
   try { 
     const newIssue = await issue.save();
-    res.redirect(`issues/${ newIssue.id }`);
-    // res.redirect('issues');
+    // res.redirect(`/issues/${ newIssue.id }`);
+    res.redirect('issues');
   } catch(err) {
     renderNewPage(res, issue, true); 
   }
@@ -63,10 +63,10 @@ router.get('/:id', async function(req, res) {
 });
 
 
-//Edit Issue Route
+// Edit Issue Route
 router.get('/:id/edit', async function(req, res) {
   try {
-    const issue = await Issue.findById(req.params.id);      
+    const issue = await Issue.findById(req.params.id);  
     renderEditPage(res, issue);
   } catch(err) {
     res.redirect('/')
