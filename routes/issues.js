@@ -88,12 +88,12 @@ router.put('/:id', async function(req, res) {
     await issue.save()                          
     res.redirect(`/issues/${issue.id}`);         
   } catch(err) {
+    console.log(err)
     if (issue != null) {                          
       renderEditPage(res, issue, true);         
     } else {
       redirect('/')                       
-    }
-    
+    }    
   }
 });
 
