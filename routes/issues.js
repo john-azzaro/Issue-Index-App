@@ -76,12 +76,12 @@ router.get('/:id/edit', async function(req, res) {
 
 // Update Issue Route
 router.put('/:id', async function(req, res) {                       
-  let issue;                                              // create an issue variable...                                             
+  let issue;                                                        // create an issue variable...                                             
   try { 
-    issue = await Issue.findById(req.params.id)                              // and the issue will be the Issue found by id with the id passed in.
-    issue.title = req.body.title;                              // then take the issue and set all the parameters you need such as the title...
-    issue.title = req.body.title;                              
-    issue.title = req.body.title;                             
+    issue = await Issue.findById(req.params.id)                     // and the issue will be the Issue found by id with the id passed in.
+    issue.category = req.body.categoryId;                           // then take the issue and set all the parameters you need such as the title...
+    issue.decription = req.body.description;                              
+    issue.solution = req.body.solution;                             
 
     res.redirect('issues');
   } catch(err) {
