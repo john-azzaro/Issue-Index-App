@@ -74,12 +74,13 @@ router.get('/:id/edit', async function(req, res) {
 });
 
 
-// Update Issue Route
+//Update Issue Route
 router.put('/:id', async function(req, res) {                       
   let issue;                                                                                  
   try { 
     issue = await Issue.findById(req.params.id)      
-    issue.category = req.body.categoryId;             
+    issue.title = req.body.title     
+    issue.category = req.body.category;             
     issue.decription = req.body.description;                              
     issue.solution = req.body.solution;                             
     if (req.body.image != null && req.body.image !== '') {    

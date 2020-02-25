@@ -3252,9 +3252,56 @@ Phase 30: Create show route
 
 30.16: To debug the error, insert a console.log with the errror in update route:
         ----------------------------------------------------------------------------------
-        
+        // Update Issue Route
+        router.put('/:id', async function(req, res) {                       
+        let issue;                                                                                  
+        try { 
+        issue = await Issue.findById(req.params.id)      
+        issue.category = req.body.categoryId;             
+        issue.decription = req.body.description;                              
+        issue.solution = req.body.solution;                             
+        if (req.body.image != null && req.body.image !== '') {    
+        saveImage(issue, req.body.image)         
+        } 
+        await issue.save()                          
+        res.redirect(`/issues/${issue.id}`);         
+        } catch(err) {
+        console.log(err)                                                                     // console.log(err) will return error.
+        if (issue != null) {                          
+        renderEditPage(res, issue, true);         
+        } else {
+        redirect('/')                       
+        }    
+        }
+        });
         ----------------------------------------------------------------------------------
-
+        * In the console, it will say "issue validation failed" and "path 'category' is required".
+          This means that category variable is not being set. It turns out the error is because 
+          it is set to categoryId, which should be just category.
+        ---------------------------------------------------------------------------------------
+        // Update Issue Route
+        router.put('/:id', async function(req, res) {                       
+        let issue;                                                                                  
+        try { 
+        issue = await Issue.findById(req.params.id)      
+        issue.category = req.body.category;                                                    // fixed category set.             
+        issue.decription = req.body.description;                              
+        issue.solution = req.body.solution;                             
+        if (req.body.image != null && req.body.image !== '') {    
+        saveImage(issue, req.body.image)         
+        } 
+        await issue.save()                          
+        res.redirect(`/issues/${issue.id}`);         
+        } catch(err) {
+        console.log(err)                          
+        if (issue != null) {                          
+        renderEditPage(res, issue, true);         
+        } else {
+        redirect('/')                       
+        }    
+        }
+        });
+        ---------------------------------------------------------------------------------------
 
 
 Phase X: Deploy to App to Heroku
