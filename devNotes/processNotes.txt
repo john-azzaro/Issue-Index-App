@@ -3185,7 +3185,17 @@ Phase 30: Create show route
         * To make it easier, you just need to copy and paste the create issue route.
         ==================================================================================
         --------------------------------------------------------------------------------
-
+        // Update Issue Route
+        router.put('/:id', async function(req, res) {                                       // change post to put
+                                                                                            // remove existing code before the try/catch
+        try { 
+        const newIssue = await issue.save();
+        // res.redirect(`/issues/${ newIssue.id }`);
+        res.redirect('issues');
+        } catch(err) {
+        renderNewPage(res, issue, true); 
+        }
+        });
         --------------------------------------------------------------------------------
 
 

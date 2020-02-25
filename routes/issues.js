@@ -75,18 +75,14 @@ router.get('/:id/edit', async function(req, res) {
 
 
 // Update Issue Route
-router.put('/:id', async function(req, res) {                             // change post to put
-  // const fileName = req.file != null ? req.file.filename : null;  
-  const issue = new Issue({
-    title: req.body.title,
-    category: req.body.category,
-    description: req.body.description,
-    solution: req.body.solution,
-  });
-  saveImage(issue, req.body.image);        
+router.put('/:id', async function(req, res) {                       
+  let issue;                                              // create an issue variable...                                             
   try { 
-    const newIssue = await issue.save();
-    // res.redirect(`/issues/${ newIssue.id }`);
+    issue = await Issue.findById(req.params.id)                              // and the issue will be the Issue found by id with the id passed in.
+    issue.title = req.body.title;                              // then take the issue and set all the parameters you need such as the title...
+    issue.title = req.body.title;                              
+    issue.title = req.body.title;                             
+
     res.redirect('issues');
   } catch(err) {
     renderNewPage(res, issue, true); 
