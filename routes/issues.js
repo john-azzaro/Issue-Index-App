@@ -82,8 +82,10 @@ router.put('/:id', async function(req, res) {
     issue.category = req.body.categoryId;                           // then take the issue and set all the parameters you need such as the title...
     issue.decription = req.body.description;                              
     issue.solution = req.body.solution;                             
-
-    res.redirect('issues');
+    if (req.body.image !== null && req.body.image !== '') {           // and check to see if the image is passed in.
+      saveImage(issue, req.body.image)
+    }
+    res.redirect(`/issues/`);
   } catch(err) {
     renderNewPage(res, issue, true); 
   }
