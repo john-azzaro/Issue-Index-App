@@ -3302,7 +3302,10 @@ Phase 30: Create show route
         }
         });
         ---------------------------------------------------------------------------------------
-
+        * Also as an error, I forgot to add in the title to the issue.
+        -------------------------------------------------------------------------------------
+        issue.title = req.body.title   
+        -------------------------------------------------------------------------------------
 
 Phase X: Deploy to App to Heroku
 * testing with heroku git connection
