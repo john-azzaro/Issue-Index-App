@@ -76,22 +76,22 @@ router.get('/:id/edit', async function(req, res) {
 
 // Update Issue Route
 router.put('/:id', async function(req, res) {                       
-  let issue;                                                        // create an issue variable...                                             
+  let issue;                                                                                  
   try { 
-    issue = await Issue.findById(req.params.id)                     // and the issue will be the Issue found by id with the id passed in.
-    issue.category = req.body.categoryId;                           // then take the issue and set all the parameters you need such as the title...
+    issue = await Issue.findById(req.params.id)      
+    issue.category = req.body.categoryId;             
     issue.decription = req.body.description;                              
     issue.solution = req.body.solution;                             
-    if (req.body.image != null && req.body.image !== '') {           // and check to see if the image is passed in.
-      saveImage(issue, req.body.image)                                // and if it is save the image.
+    if (req.body.image != null && req.body.image !== '') {    
+      saveImage(issue, req.body.image)         
     } 
-    await issue.save()                                               // and lastly if the issue was saved you can render the book by...
-    res.redirect(`/issues/${issue.id}`);                             // redirecting to the issues/issue page
+    await issue.save()                          
+    res.redirect(`/issues/${issue.id}`);         
   } catch(err) {
-    if (issue != null) {                                             // if we got the book BUT there was an issue trying to save the page, then 
-      renderEditPage(res, issue, true);                              // rerender the edit page.
+    if (issue != null) {                          
+      renderEditPage(res, issue, true);         
     } else {
-      redirect('/')                                                  // otherwise redirect to the homepage
+      redirect('/')                       
     }
     
   }
@@ -118,11 +118,11 @@ async function renderFormPage(res, issue, form, hasError = false) {
       categories: categories,
       issue: issue
     }
-    if (hasError) {                                              // if there is an error
-      if (form === 'edit') {                                     // and if the form is equal to edit, then
-        params.errorMessage = 'Error Updating Issue';            // send the following error message.
-      } else {                                                   // other wise...
-        params.errorMessage = 'Error Creating Issue';            // send the error creating issue
+    if (hasError) {                              
+      if (form === 'edit') {                               
+        params.errorMessage = 'Error Updating Issue';        
+      } else {                                          
+        params.errorMessage = 'Error Creating Issue';       
       }
     }
     res.render(`issues/${form}`, params);       
