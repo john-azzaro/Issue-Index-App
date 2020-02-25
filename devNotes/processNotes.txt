@@ -3189,11 +3189,9 @@ Phase 30: Create show route
         router.put('/:id', async function(req, res) {                                       // change post to put
                                                                                             // remove existing code before the try/catch
         try { 
-        const newIssue = await issue.save();
-        // res.redirect(`/issues/${ newIssue.id }`);
-        res.redirect('issues');
+        
         } catch(err) {
-        renderNewPage(res, issue, true); 
+      
         }
         });
         --------------------------------------------------------------------------------

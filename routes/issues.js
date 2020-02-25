@@ -82,13 +82,16 @@ router.put('/:id', async function(req, res) {
     issue.category = req.body.categoryId;                           // then take the issue and set all the parameters you need such as the title...
     issue.decription = req.body.description;                              
     issue.solution = req.body.solution;                             
-    if (req.body.image !== null && req.body.image !== '') {           // and check to see if the image is passed in.
+    if (req.body.image != null && req.body.image !== '') {           // and check to see if the image is passed in.
       saveImage(issue, req.body.image)                                // and if it is save the image.
     } 
     await issue.save()                                               // and lastly if the issue was saved you can render the book by...
     res.redirect(`/issues/${issue.id}`);                             // redirecting to the issues/issue page
   } catch(err) {
-    renderNewPage(res, issue, true); 
+    if (issue != null) {                                           // if we got the book BUT there was an issue trying to save the page, then 
+      renderEditPage(res, issue, true);                                                           // rerender the edit page.
+    }
+    
   }
 });
 
