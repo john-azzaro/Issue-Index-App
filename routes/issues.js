@@ -74,6 +74,26 @@ router.get('/:id/edit', async function(req, res) {
 });
 
 
+// Update Issue Route
+router.put('/:id', async function(req, res) {                             // change post to put
+  // const fileName = req.file != null ? req.file.filename : null;  
+  const issue = new Issue({
+    title: req.body.title,
+    category: req.body.category,
+    description: req.body.description,
+    solution: req.body.solution,
+  });
+  saveImage(issue, req.body.image);        
+  try { 
+    const newIssue = await issue.save();
+    // res.redirect(`/issues/${ newIssue.id }`);
+    res.redirect('issues');
+  } catch(err) {
+    renderNewPage(res, issue, true); 
+  }
+});
+
+
 // Render New Page function
 async function renderNewPage(res, issue, hasError = false) { 
   renderFormPage(res, issue, 'new', hasError);                      
