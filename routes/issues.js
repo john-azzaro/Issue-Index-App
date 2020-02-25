@@ -88,8 +88,10 @@ router.put('/:id', async function(req, res) {
     await issue.save()                                               // and lastly if the issue was saved you can render the book by...
     res.redirect(`/issues/${issue.id}`);                             // redirecting to the issues/issue page
   } catch(err) {
-    if (issue != null) {                                           // if we got the book BUT there was an issue trying to save the page, then 
-      renderEditPage(res, issue, true);                                                           // rerender the edit page.
+    if (issue != null) {                                             // if we got the book BUT there was an issue trying to save the page, then 
+      renderEditPage(res, issue, true);                              // rerender the edit page.
+    } else {
+      redirect('/')                                                  // otherwise redirect to the homepage
     }
     
   }
