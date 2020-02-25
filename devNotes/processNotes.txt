@@ -3223,8 +3223,32 @@ Phase 30: Create show route
 
         --------------------------------------------------------------------------------
 
-30.15: 
-
+30.15: When you test, you will get an error.
+        ==================================================================================
+        * When you test, you will get an error
+        ==================================================================================
+        ----------------------------------------------------------------------------------
+        // Render Form Page function
+        async function renderFormPage(res, issue, form, hasError = false) {       
+        try {
+        const categories = await Category.find({}); 
+        const params = {
+        categories: categories,
+        issue: issue
+        }
+        if (hasError) {                                                                     // if there is an error
+        if (form === 'edit') {                                                               // and if the form is equal to edit, then
+                params.errorMessage = 'Error Updating Issue';                               // send the following error message.
+        } else {                                                                            // other wise...
+                params.errorMessage = 'Error Creating Issue';                               // send the error creating issue
+        }
+        }
+        res.render(`issues/${form}`, params);       
+        } catch (err) {
+        res.redirect('/issues');  
+        }
+        }
+        ----------------------------------------------------------------------------------
 
 
 

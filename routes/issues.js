@@ -118,8 +118,12 @@ async function renderFormPage(res, issue, form, hasError = false) {
       categories: categories,
       issue: issue
     }
-    if (hasError) {
-      params.errorMessage = 'Error Creating Issue';
+    if (hasError) {                                              // if there is an error
+      if (form === 'edit') {                                     // and if the form is equal to edit, then
+        params.errorMessage = 'Error Updating Issue';            // send the following error message.
+      } else {                                                   // other wise...
+        params.errorMessage = 'Error Creating Issue';            // send the error creating issue
+      }
     }
     res.render(`issues/${form}`, params);       
   } catch (err) {
