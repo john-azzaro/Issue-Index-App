@@ -763,7 +763,7 @@ Phase 9: Integrate Mongoose
         
         9.6: Install dotenv via npm to development environment:
             ----------------------------------------------------------
-                    npm install --save-devdotenv                                  -- library allows you to load environment variable into the application.
+                    npm install --save-dev dotenv                                  -- library allows you to load environment variable into the application.
             ----------------------------------------------------------
 
         9.7: Create a .env file:
